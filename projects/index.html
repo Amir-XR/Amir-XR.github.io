@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amir Goli | Projects</title>
+  <meta name="description" content="Selected projects by Amir Goli." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="../index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+          <a href="../index.html">Home</a>
+          <a href="../publications.html">Publications</a>
+          <a href="index.html" aria-current="page">Projects</a>
+          <a href="../activities.html">Activities</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Theme: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Projects</h2>
+
+    <div class="callout">
+      <p class="kicker">Focus</p>
+      <p>My work sits at the intersection of <strong>VR based learning</strong>, <strong>design cognition</strong>, and <strong>computational design and fabrication</strong>.</p>
+      <p class="small">Each project page below is a template you can expand with images, videos, and links.</p>
+    </div>
+
+    <section class="section">
+      <h2>Selected projects</h2>
+      <div class="grid-2">
+        <a class="card" href="project-1.html">
+          <div class="thumb"><img src="../assets/img/project-1.svg" alt="Project 1 thumbnail" /></div>
+          <h3>ARTH VR learning environment</h3>
+          <p class="small">Unity based adaptive reuse learning scenario with interaction modes and user study instrumentation.</p>
+          <span class="badge">VR • Education</span>
+        </a>
+        <a class="card" href="project-2.html">
+          <div class="thumb"><img src="../assets/img/project-2.svg" alt="Project 2 thumbnail" /></div>
+          <h3>Architectural design serious game</h3>
+          <p class="small">Multimodal interface integrating Leap Motion, machine vision, and voice assistant inside a CAD workflow.</p>
+          <span class="badge">HCI • Serious games</span>
+        </a>
+        <a class="card" href="project-3.html">
+          <div class="thumb"><img src="../assets/img/project-3.svg" alt="Project 3 thumbnail" /></div>
+          <h3>Parametric topology optimization</h3>
+          <p class="small">BESO driven topology optimization combined with parametric design for high rise structural systems.</p>
+          <span class="badge">Optimization • Structures</span>
+        </a>
+        <a class="card" href="project-4.html">
+          <div class="thumb"><img src="../assets/img/project-4.svg" alt="Project 4 thumbnail" /></div>
+          <h3>Climate responsive facade prototype</h3>
+          <p class="small">Facade behavior inspired by a chameleon eye, responsive to sun path and simulation driven comfort goals.</p>
+          <span class="badge">Sustainability • Simulation</span>
+        </a>
+        <a class="card" href="project-5.html">
+          <div class="thumb"><img src="../assets/img/project-5.svg" alt="Project 5 thumbnail" /></div>
+          <h3>WS Snake (Grasshopper tool)</h3>
+          <p class="small">Grasshopper tool for wind pressure calculations on tall building facades by height and orientation.</p>
+          <span class="badge">Plugin • Wind</span>
+        </a>
+        <a class="card" href="project-6.html">
+          <div class="thumb"><img src="../assets/img/project-6.svg" alt="Project 6 thumbnail" /></div>
+          <h3>Curtain wall automation pipeline</h3>
+          <p class="small">Rule based curtain wall geometry + automated shop drawings and material takeoffs (Rhino, Grasshopper, Python).</p>
+          <span class="badge">Automation • Documentation</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Want to add real deliverables?</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Quick wins</h3>
+          <ul>
+            <li>Add one image per project (screen capture, diagram, or prototype photo).</li>
+            <li>Add a 2 to 3 sentence story: problem, approach, result.</li>
+            <li>Link to a paper, video, or repository.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Best for hiring screens</h3>
+          <ul>
+            <li>Include your role and tools used.</li>
+            <li>List measurable outcomes (participants, performance gains, fabrication constraints).</li>
+            <li>Show one figure or flow diagram.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="../assets/avatar/model_Idle.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="../assets/avatar/model_Talk.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <button id="holdToTalk" class="btn voice-hold" type="button">Hold to talk</button>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="../index.html">Back to Home</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="../assets/js/voice-avatar.js"></script>
+</body>
+</html>

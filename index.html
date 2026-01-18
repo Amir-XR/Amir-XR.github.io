@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amir Goli | Home</title>
+  <meta name="description" content="Amir Goli | PhD student in Architectural & Building Technology at the University of Kansas. Research interests: VR, design cognition, computational design, human-AI collaboration." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+          <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="projects/index.html">Projects</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Theme: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Welcome</h2>
+
+    <section class="hero">
+      <figure class="portrait">
+        <img src="assets/img/IMG_2263.png" alt="Portrait placeholder. Replace with Amir Goli photo." />
+      </figure>
+
+      <div>
+        <div class="callout">
+          <p class="kicker">About</p>
+          <p><strong>I am a PhD student in Architectural &amp; Building Technology at the University of Kansas (expected May 2027).</strong></p>
+          <p>My research focuses on virtual reality, design cognition, computational design, and human AI collaboration, with an interest in how immersive tools can support learning and design reasoning.</p>
+          <div class="statbar" aria-label="Quick actions">
+            <a class="btn" href="Amir_Goli_CV.docx">View CV </a>
+            <a class="btn btn-ghost" href="projects/index.html">View projects</a>
+          </div>
+        </div>
+
+        <div class="meta-line" aria-label="Quick links">
+          <span class="meta-pill"><strong>Email:</strong> <a href="mailto:amirgoli@ku.edu">amirgoli@ku.edu</a></span>
+          <span class="meta-pill"><a href="https://scholar.google.com/citations?user=68H-5CAAAAAJ" target="_blank" rel="noopener">Google Scholar</a></span>
+		  <span class="meta-pill">
+		  <a href="https://www.researchgate.net/profile/Amir-Goli" target="_blank" rel="noopener">
+			<span class="rg-green">ResearchGate</span> 
+		  </a>
+		</span>
+
+          <span class="meta-pill"><a href="https://www.linkedin.com/in/amir-goli-527738135" target="_blank" rel="noopener">LinkedIn</a></span>
+		  <span class="meta-pill"><a href="https://arcd.ku.edu/people/amir-goli" target="_blank" rel="noopener"><span class="ku-blue">KU</span> profile</a></span>
+
+        </div>
+
+        <div class="section">
+          <h2>Research interests</h2>
+          <div class="cards">
+			<div class="card">
+			  <h3>XR and immersive learning</h3>
+			  <p>VR based learning environments and mixed reality experiences for architectural and engineering education.</p>
+			</div>
+			<div class="card">
+			  <h3>Human AI collaboration</h3>
+			  <p>Conversational and embodied AI agents as cognitive partners for design reasoning and comprehension.</p>
+			</div>
+			<div class="card">
+			  <h3>Computational design</h3>
+			  <p>Parametric workflows, simulation driven iteration, and performance informed design exploration.</p>
+			</div>
+			<div class="card">
+			  <h3>Digital fabrication</h3>
+			  <p>Rapid prototyping and fabrication workflows that connect digital design to physical making.</p>
+			</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="assets/avatar/model_Idle.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="assets/avatar/model_Talk.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <button id="holdToTalk" class="btn voice-hold" type="button">Hold to talk</button>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="assets/js/voice-avatar.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parametric Topology Optimization | Amir Goli</title>
+  <meta name="description" content="Parametric structural topology optimization of high-rise buildings considering wind and gravity loads." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="../index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+
+        <nav class="nav" data-nav>
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../skills-honors.html">Skills &amp; Honors</a>
+          <a href="../publications.html">Publications</a>
+          <a href="index.html" aria-current="page">Projects</a>
+          <a href="../activities.html">Activities</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Theme: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="main">
+    <p class="kicker"><a href="index.html">Projects</a> / Parametric topology optimization</p>
+    <h2 class="page-title">Parametric topology optimization</h2>
+
+    <img class="hero-img" src="../assets/img/placeholder-wide.svg" alt="Project placeholder image" />
+
+    <div class="callout">
+      <p class="kicker">Summary</p>
+      <p>A performance-driven workflow combining parametric modeling with topology optimization (BESO) for high-rise structural design under wind and gravity loads.</p>
+      <p><span class="badge">Optimization</span> <span class="badge">Structures</span> <span class="badge">Parametric</span></p>
+    </div>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>The goal is to explore structural systems efficiently by linking parametric inputs to an optimization loop. Wind and gravity loads guide material distribution and structural form exploration.</p>
+    </section>
+
+    <section class="section">
+      <h2>My role</h2>
+      <p>Workflow builder and analyst. Supported modeling, optimization setup, and result interpretation.</p>
+    </section>
+
+    <section class="section">
+      <h2>Tools</h2>
+      <ul>
+        <li>Rhinoceros + Grasshopper</li>
+        <li>Optimization workflow (BESO)</li>
+        <li>Structural modeling</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Outcomes</h2>
+      <ul>
+        <li>End-to-end pipeline from parametric inputs to optimized structural topology</li>
+        <li>Publication in Journal of Architectural Engineering</li>
+        <li>Transferable approach for early-stage structural exploration</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Links</h2>
+      <div class="card">
+        <p class="small">Add links to a paper, demo video, repository, or slide deck.</p>
+        <ul>
+          <li><a href="https://doi.org/10.1061/(asce)ae.1943-5568.0000511" target="_blank" rel="noopener">Paper (Journal of Architectural Engineering)</a></li>
+        </ul>
+      </div>
+    </section>
+  
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="../assets/avatar/model_Idle.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="../assets/avatar/model_Talk.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <button id="holdToTalk" class="btn voice-hold" type="button">Hold to talk</button>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="index.html">Back to Projects</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <script type="module" src="../assets/js/voice-avatar.js"></script>
+</body>
+</html>

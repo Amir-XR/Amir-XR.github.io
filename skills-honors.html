@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amir Goli | Skills &amp; Honors</title>
+  <meta name="description" content="Skills, honors, awards, and service for Amir Goli." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="skills-honors.html">Skills &amp; Honors</a>
+          <a href="publications.html">Publications</a>
+          <a href="projects/index.html">Projects</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Theme: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Skills &amp; Honors</h2>
+
+    <div class="callout">
+      <p class="kicker">Snapshot</p>
+      <p><strong>I build immersive learning and design systems</strong> using VR development, computational design, and digital fabrication workflows.</p>
+      <p class="small">For concrete examples, see <a href="projects/index.html">Projects</a>.</p>
+    </div>
+
+    <section class="section">
+      <h2>Technical skills</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>XR development</h3>
+          <p>Unity, C#, VR and XR prototyping, interaction design, and study support for usability and engagement.</p>
+        </div>
+        <div class="card">
+          <h3>Computational design</h3>
+          <p>Rhino + Grasshopper, parametric modeling, custom GH definitions, environmental and structural workflows, automation.</p>
+        </div>
+        <div class="card">
+          <h3>Scripting and tooling</h3>
+          <p>Python scripting, custom components development, and workflow automation for design and documentation.</p>
+        </div>
+        <div class="card">
+          <h3>Design and visualization</h3>
+          <p>Rhinoceros, AutoCAD, CorelDRAW, 3ds Max, V-Ray, and Adobe InDesign and Photoshop.</p>
+        </div>
+        <div class="card">
+          <h3>Digital fabrication</h3>
+          <p>3D printers, CNC machines, laser cutters, 3D scanning, and prototype assembly workflows.</p>
+        </div>
+        <div class="card">
+          <h3>Simulation and analysis</h3>
+          <p>Structural reasoning and optimization (including topology optimization), wind pressure studies, performance driven iteration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Honors and awards</h2>
+      <ul>
+        <li>Nominee, Graduate Student Award for Distinguished Service, University of Kansas</li>
+        <li>The Honor Society of Phi Kappa Phi (ΦΚΦ), selection based on academic standing (KU)</li>
+        <li>Awarded University Graduate Fellowship, University of Kansas</li>
+        <li>Offered fully funded PhD opportunities: University of Canterbury (Civil Engineering) and University of Sydney (Architecture)</li>
+        <li>Awarded first rank in the Architectural Technology program, Pars University (among 49 students)</li>
+        <li>Ranked top 1% in the national master program entrance exam (6,010 participants)</li>
+        <li>Ranked top 3% in the national undergraduate entrance exam (300,000 participants)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Peer review and academic service</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Journals</h3>
+          <p>Frontiers in Virtual Reality; The Journal of Multimedia Tools and Applications; Journal of Infrastructure Policy and Development.</p>
+        </div>
+        <div class="card">
+          <h3>Conferences</h3>
+          <p>IEEE ISMAR; CAADRIA; IEEE Frontiers in Education; ICHELT; IEEE Digital Education and MOOCs Conference.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Languages</h2>
+      <ul>
+        <li>Persian (native)</li>
+        <li>English (professional)</li>
+      </ul>
+    </section>
+  
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="assets/avatar/model_Idle.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="assets/avatar/model_Talk.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <button id="holdToTalk" class="btn voice-hold" type="button">Hold to talk</button>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="index.html">Back to Home</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="assets/js/voice-avatar.js"></script>
+</body>
+</html>

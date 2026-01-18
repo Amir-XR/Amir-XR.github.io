@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amir Goli | Contact</title>
+  <meta name="description" content="Contact Amir Goli." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/voice-widget.css" />
+  <style>
+    /* Force one-column layout for the Collaboration section */
+    .cards-one-col{display:grid !important; grid-template-columns:1fr !important;}
+  </style>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+		  <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="projects/index.html">Projects</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact.html" aria-current="page">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Theme: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Contact</h2>
+
+    <div class="callout">
+      <p class="kicker">Quick links</p>
+      <p>
+        <a class="btn" href="mailto:amirgoli@ku.edu">Email</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/amir-goli-527738135/">LinkedIn</a>
+      </p>
+      <p class="small">You can reach me through Email and LinkedIn.</p>
+    </div>
+
+    <section class="section">
+      <h2>Contact details</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:amirgoli@ku.edu">amirgoli@ku.edu</a></p>
+          <p class="small">University of Kansas</p>
+        </div>
+        <div class="card">
+          <h3>Profiles</h3>
+          <ul>
+            <li><a href="https://orcid.org/0000-0002-4929-6645" target="_blank" rel="noopener">ORCID</a></li>
+            <li><a href="https://scholar.google.com/citations?user=68H-5CAAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a href="https://www.linkedin.com/in/amir-goli-527738135" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Collaboration</h2>
+      <div class="cards cards-one-col">
+        <div class="card">
+          <h3></h3>
+          <p>I’m always open to discussing research collaborations, conference invitations, or new ideas in VR, HAI, or Learning Sciences.</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="assets/avatar/model_Idle.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="assets/avatar/model_Talk.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <button id="holdToTalk" class="btn voice-hold" type="button">Hold to talk</button>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="index.html">Back to Home</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="assets/js/voice-avatar.js"></script>
+</body>
+</html>

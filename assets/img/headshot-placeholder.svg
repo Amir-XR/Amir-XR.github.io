@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Placeholder portrait">
+  <rect width="400" height="400" fill="#f2f4f7"/>
+  <circle cx="200" cy="165" r="78" fill="#d0d7de"/>
+  <path d="M70 360c22-80 83-120 130-120s108 40 130 120" fill="#d0d7de"/>
+  <text x="200" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="#57606a">Replace with your photo</text>
+</svg>

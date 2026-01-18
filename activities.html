@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amir Goli | Activities</title>
+  <meta name="description" content="Professional activities and service by Amir Goli." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+          <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="projects/index.html">Projects</a>
+          <a href="activities.html" aria-current="page">Activities</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Theme: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Activities</h2>
+
+    <div class="callout">
+      <p class="kicker">Graduate Research Assistant</p>
+      <p>Supported multiple faculty as a GRA across AI, VR, architectural history, fabrication, and sustainability, producing outputs such as literature syntheses, data pipelines, prototype tools, study protocols, and draft manuscripts.</p> 
+	  <p>Moreover, GRA on an interdisciplinary collaboration with KU Medical Center to develop a Human Brain Cutting Matrix using advanced digital fabrication and 3D scanning, producing iterative prototypes and documentation, with outcomes moving through KU tech transfer/patenting processes.</p>
+    </div>
+
+    <section class="section">
+      <div class="cards">
+        <div class="card">
+          <h3>Conference participation</h3>
+          <p>Presenter, attendee, and community member in VR, HCI, and architectural education spaces.</p>
+        </div>
+        <div class="card">
+          <h3>Volunteering</h3>
+          <p>Student volunteer at IEEE VR and ISMAR.</p>
+		  <p>Presented interactive VR showcases across University of Kansas campuses.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Peer review service</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Journals</h3>
+          <p>Frontiers in Virtual Reality; The Journal of Multimedia Tools and Applications; Journal of Infrastructure Policy and Development.</p>
+        </div>
+        <div class="card">
+          <h3>Conferences</h3>
+          <p>IEEE ISMAR; CAADRIA; IEEE Frontiers in Education; ICHELT; IEEE Digital Education and MOOCs Conference.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Awards</h2>
+      <ul>
+        <li>Nominee, Graduate Student Award for Distinguished Service, University of Kansas</li>
+        <li>The Honor Society of Phi Kappa Phi (ΦΚΦ), selection based on academic standing (KU)</li>
+		<li>Awarded KU Graduate Student Travel Funds in 2023, 2024, and 2025</li>
+        <li>Awarded University Graduate Fellowship, University of Kansas</li>
+        <li>Awarded first rank in the Architectural Technology program, Pars University (among 49 students)</li>
+      </ul>
+    </section>
+
+
+  
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="assets/avatar/model_Idle.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="assets/avatar/model_Talk.glb"
+            camera-controls
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <button id="holdToTalk" class="btn voice-hold" type="button">Hold to talk</button>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="index.html">Back to Home</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="assets/js/voice-avatar.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+name = "amir-voice-chat"
+main = "src/index.js"
+compatibility_date = "2026-01-17"
+
+# Deploy and then add a route (recommended):
+# routes = [
+#   { pattern = "yourdomain.com/api/voice-chat", zone_name = "yourdomain.com" }
+# ]
+
+# If you're using Cloudflare Pages, you can also proxy /api/voice-chat to this Worker.
