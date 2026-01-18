@@ -18,7 +18,7 @@ $txt =~ s/href="index\.html">Amir Goli/href="..\/index.html">Amir Goli/g;
 $txt =~ s/<nav class="nav" data-nav>.*?<\/nav>/<nav class="nav" data-nav>\n          <a href="..\/index.html">Home<\/a>\n          <a href="..\/about.html">About<\/a>\n          <a href="..\/skills-honors.html">Skills &amp; Honors<\/a>\n          <a href="..\/publications.html">Publications<\/a>\n          <a href="index.html" aria-current="page">Projects<\/a>\n          <a href="..\/activities.html">Activities<\/a>\n          <a href="..\/contact.html">Contact<\/a>\n        <\/nav>/s;
 
 # Theme label (default dark)
-$txt =~ s/Theme: (Light|Gray)/Theme: Dark/g;
+$txt =~ s/Mode: (Light|Gray)/Theme: Dark/g;
 
 # In-page links
 $txt =~ s/href="projects\.html"/href="index.html"/g;

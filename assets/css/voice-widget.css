@@ -87,7 +87,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 21px;
 }
 
 .voice-hold-label {
@@ -120,6 +120,7 @@
 .voice-status {
   opacity: 0.9;
   font-size: 0.95rem;
+  margin-bottom: -45px;
 }
 
 .voice-hint {

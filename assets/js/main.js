@@ -30,7 +30,7 @@
     if(!themes.includes(t)) t = 'dark';
     root.setAttribute('data-theme', t);
     try{ localStorage.setItem('theme', t); }catch(e){}
-    if(themeLabel) themeLabel.textContent = `Theme: ${pretty(t)}`;
+    if(themeLabel) themeLabel.textContent = `Mode: ${pretty(t)}`;
   }
   let saved = null;
   try{ saved = localStorage.getItem('theme'); }catch(e){}
