@@ -25,6 +25,11 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
   let busy = false;
   let awaitingPermission = false;
 
+  // Active request + TTS audio so we can interrupt speech immediately.
+  let reqAbort = null;
+  let currentAudio = null;
+  let currentAudioUrl = null;
+
   const loadHistory = () => {
     try {
       const raw = localStorage.getItem(HISTORY_KEY);
@@ -43,6 +48,53 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
   };
 
   let history = loadHistory();
+
+  // Move the "Hold to talk" text above the button (mobile long-press text selection
+  // can interrupt the hold gesture) and replace the button text with a non-selectable icon.
+  (function upgradeHoldToTalkUI() {
+    try {
+      const labelText = (elHold.textContent || "").trim();
+      if (!labelText) return;
+
+      // If already upgraded (e.g., navigated back), skip.
+      if (elHold.dataset.upgraded === "1") return;
+      elHold.dataset.upgraded = "1";
+
+      // Wrap button + label.
+      const parent = elHold.parentElement;
+      if (!parent) return;
+
+      const wrap = document.createElement("div");
+      wrap.className = "voice-hold-wrap";
+
+      const label = document.createElement("div");
+      label.className = "voice-hold-label";
+      label.id = "holdToTalkLabel";
+      label.textContent = labelText;
+      label.setAttribute("aria-hidden", "true");
+
+      // Insert wrap where the button was.
+      parent.insertBefore(wrap, elHold);
+      wrap.appendChild(label);
+      wrap.appendChild(elHold);
+
+      // Replace text with an icon (SVG), keep accessible name.
+      elHold.innerHTML = `
+        <svg class="voice-hold-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
+        </svg>
+      `.trim();
+      elHold.setAttribute("aria-label", labelText);
+      elHold.setAttribute("aria-labelledby", label.id);
+
+      // Extra protection against iOS text callouts.
+      elHold.style.webkitTouchCallout = "none";
+      elHold.style.webkitUserSelect = "none";
+      elHold.style.userSelect = "none";
+    } catch {
+      // If anything fails, keep the original markup.
+    }
+  })();
 
   const setStatus = (t) => { elStatus.textContent = t; };
 
@@ -139,6 +191,35 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
 
   let stopping = false;
 
+  function cleanupAudio() {
+    try {
+      if (currentAudio) {
+        try { currentAudio.pause(); } catch {}
+        try { currentAudio.currentTime = 0; } catch {}
+        try { currentAudio.src = ""; currentAudio.load(); } catch {}
+      }
+    } finally {
+      currentAudio = null;
+      if (currentAudioUrl) {
+        try { URL.revokeObjectURL(currentAudioUrl); } catch {}
+      }
+      currentAudioUrl = null;
+      setAvatarSpeaking(false);
+    }
+  }
+
+  // Hard stop: cancel any playing audio and abort any in-flight request.
+  function hardStopTTS() {
+    cleanupAudio();
+    if (reqAbort) {
+      try { reqAbort.abort(); } catch {}
+      reqAbort = null;
+    }
+    // Allow recording immediately after an interrupt.
+    busy = false;
+    elHold.classList.remove("is-recording");
+  }
+
   function startRecording() {
     if (busy || stopping) return;
     chunks = [];
@@ -186,7 +267,8 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
   async function handleRecordedBlob(blob) {
     if (busy) return;
     busy = true;
-    elHold.disabled = true;
+    // Keep the button enabled so the user can interrupt speech anytime.
+    elHold.disabled = false;
 
     if (!blob || blob.size < 1000) {
       setStatus("Too short. Hold longer.");
@@ -203,17 +285,45 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
     const pageContext = getPageContext();
     if (pageContext) fd.append("page_context", pageContext);
 
-    const res = await fetch(API_URL, {
+    // Abortable request so we can interrupt even while the server is working.
+    const controller = new AbortController();
+    reqAbort = controller;
+
+    let res;
+    try {
+      res = await fetch(API_URL, {
       method: "POST",
       body: fd,
-    });
+        signal: controller.signal,
+      });
+    } catch (err) {
+      if (err && err.name === "AbortError") {
+        // User interrupted.
+        setStatus("Ready");
+        busy = false;
+        return;
+      }
+      throw err;
+    } finally {
+      if (reqAbort === controller) reqAbort = null;
+    }
 
     if (!res.ok) {
       const t = await res.text().catch(() => "");
       throw new Error(`API error ${res.status}: ${t}`);
     }
 
-    const data = await res.json();
+    let data;
+    try {
+      data = await res.json();
+    } catch (err) {
+      if (err && err.name === "AbortError") {
+        setStatus("Ready");
+        busy = false;
+        return;
+      }
+      throw err;
+    }
 
     const userText = (data.user_text || "").trim();
     const assistantText = (data.assistant_text || "").trim();
@@ -225,21 +335,26 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
 
     // Play audio (base64 mp3 from worker) and swap models while it plays.
     if (data.audio_base64 && data.audio_mime) {
+      // If something is still playing for any reason, stop it first.
+      hardStopTTS();
+
       const bin = atob(data.audio_base64);
       const bytes = new Uint8Array(bin.length);
       for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
       const audioBlob = new Blob([bytes], { type: data.audio_mime });
       const url = URL.createObjectURL(audioBlob);
+      currentAudioUrl = url;
       const audio = new Audio(url);
+      currentAudio = audio;
 
       audio.addEventListener("play", () => setAvatarSpeaking(true));
       audio.addEventListener("ended", () => {
-        setAvatarSpeaking(false);
-        URL.revokeObjectURL(url);
+        cleanupAudio();
+        setStatus("Ready");
       });
       audio.addEventListener("error", () => {
-        setAvatarSpeaking(false);
-        URL.revokeObjectURL(url);
+        cleanupAudio();
+        setStatus("Ready");
       });
 
       setStatus("Playing...");
@@ -247,13 +362,14 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
         await audio.play();
       } catch {
         // Autoplay blocked: user can click again.
-        setAvatarSpeaking(false);
+        cleanupAudio();
         setStatus("Tap to allow audio.");
       }
     } else {
       setStatus("Done");
     }
 
+    // Allow immediate interruptions / new recordings.
     elHold.disabled = false;
     busy = false;
     if (data.note) {
@@ -270,7 +386,10 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
   }
 
   async function onPointerDown(e) {
-    if (busy) return;
+    // Always hard-stop any speaking audio first.
+    // This must happen even if a request is still in-flight.
+    hardStopTTS();
+
     if (isDown) return;
     isDown = true;
 
