@@ -123,6 +123,9 @@ a:hover{color:var(--accent2);text-decoration:underline}
   max-width:var(--maxw);
   margin:0 auto;
   padding:26px 18px 56px;
+}
+
+.main > :not(.voice-widget){
   transform: translateX(-40px);
 }
 
