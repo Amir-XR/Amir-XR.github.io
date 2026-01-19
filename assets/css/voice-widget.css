@@ -1,15 +1,24 @@
 /* Voice avatar widget (scoped) */
 
 .voice-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
   display: grid;
   grid-template-columns: minmax(260px, 360px) 1fr;
   gap: 18px;
   align-items: start;
+  max-width: min(760px, calc(100vw - 48px));
 }
 
 @media (max-width: 900px) {
   .voice-widget {
     grid-template-columns: 1fr;
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
   }
 }
 
