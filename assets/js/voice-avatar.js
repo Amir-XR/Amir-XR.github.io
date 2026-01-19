@@ -122,7 +122,7 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
       const isUser = m.role === "user";
       return `
         <div class="voice-msg ${isUser ? "user" : "assistant"}">
-          <div class="voice-role">${isUser ? "You" : "AI"}</div>
+          <div class="voice-role">${isUser ? "You" : "Assistant"}</div>
           <div>${escapeHtml(m.content)}</div>
         </div>
       `;
@@ -241,7 +241,7 @@ if (!elHold || !elStatus || !elChat || !mvIdle || !mvTalk) {
 
       handleRecordedBlob(blob).catch((err) => {
         console.error(err);
-        setStatus("Error. Check console.");
+        setStatus("Error. Please try again.");
         elHold.disabled = false;
         elHold.classList.remove("is-recording");
         busy = false;

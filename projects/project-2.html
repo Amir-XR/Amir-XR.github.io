@@ -33,7 +33,7 @@
         </nav>
         <div class="nav-controls">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
-            <span data-theme-label>Theme: Dark</span>
+            <span data-theme-label>Mode: Dark</span>
           </button>
         </div>
       </div>
@@ -102,6 +102,11 @@
             id="avatarIdle"
             src="../assets/avatar/model_Idle.glb"
             camera-controls
+            disable-pan
+            camera-target="0m 1.45m 0m"
+            camera-orbit="0deg 75deg 2.05m"
+            min-camera-orbit="0deg 75deg 1.9m"
+            max-camera-orbit="0deg 75deg 2.2m"
             autoplay
             exposure="1"
             shadow-intensity="0">
@@ -112,6 +117,11 @@
             class="voice-hidden"
             src="../assets/avatar/model_Talk.glb"
             camera-controls
+            disable-pan
+            camera-target="0m 1.45m 0m"
+            camera-orbit="0deg 75deg 2.05m"
+            min-camera-orbit="0deg 75deg 1.9m"
+            max-camera-orbit="0deg 75deg 2.2m"
             autoplay
             exposure="1"
             shadow-intensity="0">
