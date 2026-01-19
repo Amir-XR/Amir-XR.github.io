@@ -55,6 +55,7 @@ a:hover{color:var(--accent2);text-decoration:underline}
   max-width:var(--maxw);
   margin:0 auto;
   padding:28px 18px 14px;
+  transform: translateX(-40px);
 }
 .site-title{
   margin:0;
@@ -79,6 +80,7 @@ a:hover{color:var(--accent2);text-decoration:underline}
   align-items:center;
   justify-content:space-between;
   gap:12px;
+  transform: translateX(-40px);
 }
 
 .nav-controls{display:flex;align-items:center;gap:10px}
@@ -121,6 +123,7 @@ a:hover{color:var(--accent2);text-decoration:underline}
   max-width:var(--maxw);
   margin:0 auto;
   padding:26px 18px 56px;
+  transform: translateX(-40px);
 }
 
 .page-title{
@@ -233,7 +236,7 @@ a:hover{color:var(--accent2);text-decoration:underline}
   color:var(--muted);
   font-size:13px;
 }
-.footer-inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.footer-inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;transform: translateX(-40px)}
 
 .small{font-size:14px;color:var(--muted)}
 
