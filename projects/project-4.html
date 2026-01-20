@@ -3,11 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Climate Responsive Facade Prototype | Amir Goli</title>
-  <meta name="description" content="A climate-responsive facade concept inspired by the chameleon eye." />
+  <title>OROSI Interactive Pavilion | Amir Goli</title>
+  <meta name="description" content="OROSI Interactive Pavilion (Digital Futures 2021): an interactive pavilion inspired by Iranian Orosi windows, using kinetic colored layers and responsive hanging fabrics driven by wind and human proximity." />
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/voice-widget.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    /* Page-local additions only (keeps your global CSS untouched) */
+    .figure{margin:14px 0;}
+    .figure img{width:100%;height:auto;display:block;border-radius:16px;}
+    .figure figcaption{margin-top:8px;color:var(--muted,#9aa4b2);font-size:.95rem;line-height:1.45;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px;}
+    .gallery-grid figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);}
+    .gallery-grid img{width:100%;height:auto;display:block;}
+    .gallery-grid figcaption{padding:10px 12px;color:var(--muted,#9aa4b2);font-size:.9rem;line-height:1.35;}
+
+    .video-frame{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);}
+    .video-frame iframe{display:block;width:100%;height:520px;border:0;}
+    @media (max-width: 720px){ .video-frame iframe{height:320px;} }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -40,57 +55,264 @@
     </div>
   </header>
 
-
   <main class="main">
-    <p class="kicker"><a href="index.html">Projects</a> / Climate responsive facade prototype</p>
-    <h2 class="page-title">Climate responsive facade prototype</h2>
+    <p class="kicker"><a href="index.html">Projects</a> / OROSI Interactive Pavilion</p>
+    <h2 class="page-title">OROSI Interactive Pavilion: Reimagining Iranian Orosi as a Responsive Light System</h2>
 
-    <img class="hero-img" src="../assets/img/placeholder-wide.svg" alt="Project placeholder image" />
+    <img class="hero-img" src="../assets/img/orosi-final-render.png" alt="Final pavilion render showing hanging RGB fabric layers creating a colored interior atmosphere" loading="lazy" />
 
     <div class="callout">
       <p class="kicker">Summary</p>
-      <p>A biomimicry-inspired facade prototype that adapts to climate conditions, informed by sun path analysis and simulation-driven design iterations.</p>
-      <p><span class="badge">Sustainability</span> <span class="badge">Simulation</span> <span class="badge">Biomimicry</span></p>
+      <p>
+        <strong>OROSI Interactive Pavilion</strong> is a <strong>Digital Futures 2021</strong> workshop group project that translates the logic of <em>Orosi</em>—Iranian latticed windows with colorful glass—into an <strong>interactive pavilion</strong>. The system uses a modular ceiling grid, <strong>three kinetic colored layers</strong> (blue, green, red), and a field of <strong>hanging fabric modules</strong> to produce dynamic daylight effects and an engaging interior experience.
+      </p>
+      <p>
+        The pavilion responds to <strong>environmental stimuli</strong> (wind direction/speed) and <strong>human stimuli</strong> (presence, proximity, movement). Panels rotate for ventilation alignment, while fabrics move up/down and color layers slide to shift the perceived atmosphere—creating a memorable, responsive space rather than a static façade.
+      </p>
+      <p><span class="badge">Digital Futures 2021</span> <span class="badge">Interactive pavilion</span> <span class="badge">Kinetic layers (RGB)</span> <span class="badge">Sensors + actuators</span> <span class="badge">Concept + software + visualization</span></p>
     </div>
 
     <section class="section">
-      <h2>Overview</h2>
-      <p>This project studies how responsive facade behavior can improve comfort and performance. The concept uses a chameleon eye as inspiration and links motion patterns to environmental inputs.</p>
+      <h2>Project at a glance</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Context</h3>
+          <p class="muted">Workshop project • Group work • Digital Futures 2021</p>
+          <ul>
+            <li><strong>Role:</strong> Conceptualization, software, and visualization</li>
+            <li><strong>Supervisor:</strong> Dr. Mona Ghandi et al.</li>
+            <li><strong>Email:</strong> <a href="mailto:mona.ghandi@wsu.edu">mona.ghandi@wsu.edu</a></li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Design intent</h3>
+          <ul>
+            <li>Invoke traditional <strong>Orosi</strong> principles (pattern + colored light) for <strong>visual comfort</strong> and a richer interior experience</li>
+            <li>Extend Orosi beyond the façade into a <strong>spatial pavilion</strong> with modular kinetic panels</li>
+            <li>Create a system that feels <strong>alive</strong>: shifting colors, moving fabrics, and breathable envelope behaviors</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Inputs → actions</h3>
+          <ul>
+            <li><strong>Wind:</strong> rotate panels toward wind direction for ventilation</li>
+            <li><strong>Human proximity/motion:</strong> change panel color logic + raise/lower hanging fabrics</li>
+            <li><strong>Color system:</strong> three sliding layers (blue/green/red) blend into different atmospheres</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="section">
-      <h2>My role</h2>
-      <p>Designer and computational modeler. Developed form logic, ran simulations, and iterated the prototype.</p>
+      <h2>Background: Orosi as a precedent for adaptive daylight</h2>
+      <p>
+        <strong>Orosi</strong> is a traditional Iranian architectural element: a latticed window filled with colorful pieces of glass and Iranian–Islamic patterns.
+        Beyond aesthetic value, it shapes daylight by filtering sun rays into colored projections—functioning as a passive strategy to adjust light quality and atmosphere.
+        This project builds on that principle and asks: <em>what if Orosi becomes an interactive spatial system rather than a fixed window?</em>
+      </p>
+
+      <div class="gallery-grid">
+        <figure>
+          <a href="../assets/img/orosi-photo-mosque.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-photo-mosque.png" alt="Precedent image of colored daylight patterns in an ornate interior" loading="lazy" />
+          </a>
+          <figcaption>Precedent: immersive colored light as a spatial medium.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/orosi-photo-light.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-photo-light.png" alt="Colored light and patterned surface reference image" loading="lazy" />
+          </a>
+          <figcaption>Reference: color projection and patterning inform the pavilion’s atmosphere goals.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section">
-      <h2>Tools</h2>
+      <h2>Design concept: a kinetic pavilion of panels + hanging fabrics</h2>
+      <p>
+        The pavilion is composed of a modular ceiling grid and layered panel units that translate Orosi’s colored-light logic into a physical system.
+        Instead of glass, the concept uses <strong>colored sliding sheets</strong> and <strong>hanging fabrics</strong> to filter and modulate light.
+        The hanging elements also make the interaction legible: users can <strong>see</strong> and <strong>feel</strong> the pavilion respond in real time.
+      </p>
+
+      <figure class="figure">
+        <a href="../assets/img/orosi-pavilion-axon.png" target="_blank" rel="noopener">
+          <img src="../assets/img/orosi-pavilion-axon.png" alt="Axonometric pavilion diagram showing grid structure and hanging colored fabric modules" loading="lazy" />
+        </a>
+        <figcaption>Axonometric concept: modular grid + hanging colored elements (three-layer kinetic color system).</figcaption>
+      </figure>
+
+      <div class="gallery-grid">
+        <figure>
+          <a href="../assets/img/orosi-panel-grid.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-panel-grid.png" alt="Panel grid pattern study" loading="lazy" />
+          </a>
+          <figcaption>Panel grid: a patterned carrier for kinetic layers and modular units.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/orosi-fabric-closeup.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-fabric-closeup.png" alt="Close-up of overlapping translucent hanging fabric layers in red, green, and blue" loading="lazy" />
+          </a>
+          <figcaption>Hanging fabrics: translucency + overlap produce blended atmospheres that change through motion.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Interaction logic (experience behavior)</h2>
+      <p>
+        The goal was to create a pavilion that offers a <strong>mesmerizing and memorable</strong> experience by responding to both environment and human activity.
+        The height of the fabric modules and the perceived color of the panels react to <strong>physical movement</strong> and <strong>proximity</strong>.
+        As a person walks through the pavilion, the fabrics vary in height with distance, and the color logic shifts—e.g., a panel may transition toward blue as a user approaches and alter when the user is directly beneath it.
+      </p>
+
+      <div class="gallery-grid">
+        <figure>
+          <a href="../assets/img/orosi-interaction-silhouettes.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-interaction-silhouettes.png" alt="Silhouette sequence showing different occupancy and movement patterns under the pavilion" loading="lazy" />
+          </a>
+          <figcaption>Storyboard silhouettes: the pavilion reacts across movement, gathering, and pause moments.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/orosi-elevation-sequence.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-elevation-sequence.png" alt="Elevation sequence showing changes in fabrics and panels as a user approaches" loading="lazy" />
+          </a>
+          <figcaption>Elevation sequence: visible changes in fabric height and color distribution as users move.</figcaption>
+        </figure>
+      </div>
+
+      <figure class="figure">
+        <a href="../assets/img/orosi-stimuli-actions.png" target="_blank" rel="noopener">
+          <img src="../assets/img/orosi-stimuli-actions.png" alt="Stimuli and actions diagram mapping wind to panel rotation and human presence to color and fabric motion" loading="lazy" />
+        </a>
+        <figcaption>Stimuli → actions: wind drives panel rotation; human presence/motion drives color transitions and fabric movement.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>System architecture: sensing, computation, and actuation</h2>
+      <p>
+        The concept is organized as a simple input–process–output loop. Environmental and human metrics are sensed, interpreted in a control layer,
+        and translated into mechanical actions through actuators.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Inputs (stimuli)</h3>
+          <ul>
+            <li><strong>Environmental metrics:</strong> wind direction / speed</li>
+            <li><strong>Human metrics:</strong> proximity and physical movement</li>
+            <li><strong>Possible digital layer:</strong> smartphone data analytics (conceptual)</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Sensing + control</h3>
+          <ul>
+            <li><strong>Wind sensor</strong> reads direction for rotation behavior</li>
+            <li><strong>Ultrasonic proximity sensor</strong> detects a user below a module</li>
+            <li>Software logic maps sensor readings to target states (open/close, rotate, slide, expand/contract)</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Actuation</h3>
+          <ul>
+            <li><strong>Servo motor:</strong> rotates panels for ventilation alignment</li>
+            <li><strong>Linear actuator:</strong> slides color layers into one another</li>
+            <li><strong>Shape Memory Alloy (SMA):</strong> contracts/extends to raise/lower fabrics</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="gallery-grid">
+        <figure>
+          <a href="../assets/img/orosi-sensing-pipeline.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-sensing-pipeline.png" alt="Pipeline diagram showing environmental/human metrics to sensors, programming, actuators, and performance targets" loading="lazy" />
+          </a>
+          <figcaption>Pipeline: metrics → sensors/software → actuators → performance + experiential outcomes.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/orosi-actuator-exploded.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-actuator-exploded.png" alt="Exploded diagram of the panel mechanism with linear actuator and servo motor" loading="lazy" />
+          </a>
+          <figcaption>Exploded mechanism: layered sheets (RGB) slide via linear actuation; rotation supports ventilation behavior.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/orosi-sma-mechanism.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-sma-mechanism.png" alt="SMA wire mechanism sketches attached to hanging fabrics" loading="lazy" />
+          </a>
+          <figcaption>SMA concept: contraction/extension at two attachment points moves hanging fabrics up/down.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Performance + experiential targets</h2>
       <ul>
-        <li>Grasshopper</li>
-        <li>Environmental simulation</li>
-        <li>Parametric iteration</li>
+        <li><strong>Optimal daylighting/shading:</strong> treat color + translucency as a controllable daylight filter.</li>
+        <li><strong>Ventilation awareness:</strong> rotating panels align with wind direction to improve air movement.</li>
+        <li><strong>Memorable atmosphere:</strong> blended RGB layers create changing spatial moods as users move.</li>
+        <li><strong>User engagement:</strong> motion and color provide immediate feedback to presence and proximity.</li>
       </ul>
+
+      <figure class="figure">
+        <a href="../assets/img/orosi-final-render.png" target="_blank" rel="noopener">
+          <img src="../assets/img/orosi-final-render.png" alt="Final render of pavilion with users inside and hanging colored fabrics" loading="lazy" />
+        </a>
+        <figcaption>Final concept: responsive fabrics + kinetic color layers produce a dynamic interior experience.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="video">
+      <h2>Project video</h2>
+      <p class="muted">Embedded from Google Drive (preview). If it doesn’t load, use the direct link below.</p>
+
+      <div class="video-frame" aria-label="Embedded project video">
+        <iframe
+          src="https://drive.google.com/file/d/1V6gu4zPW5gRHn1GVsYRYryNXuHkLlAZB/preview"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          title="OROSI Interactive Pavilion video"></iframe>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <ul>
+          <li><strong>Direct link:</strong> <a href="https://drive.google.com/file/d/1V6gu4zPW5gRHn1GVsYRYryNXuHkLlAZB/view" target="_blank" rel="noopener">Open video on Google Drive</a></li>
+        </ul>
+      </div>
     </section>
 
     <section class="section">
-      <h2>Outcomes</h2>
-      <ul>
-        <li>Prototype facade logic aligned with climate inputs</li>
-        <li>Demonstration of simulation-supported iteration</li>
-        <li>A clear concept narrative suitable for portfolio presentation</li>
-      </ul>
+      <h2>More visuals (full composite boards)</h2>
+      <p class="muted">Full project boards from the workshop deliverable layout.</p>
+
+      <div class="gallery-grid">
+        <figure>
+          <a href="../assets/img/orosi-board-01.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-board-01.png" alt="OROSI Interactive Pavilion board 1 (composite)" loading="lazy" />
+          </a>
+          <figcaption>Composite board (1): project statement, precedent references, and pavilion axonometric.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/orosi-board-02.png" target="_blank" rel="noopener">
+            <img src="../assets/img/orosi-board-02.png" alt="OROSI Interactive Pavilion board 2 (composite)" loading="lazy" />
+          </a>
+          <figcaption>Composite board (2): sensing/actuation pipeline, mechanisms, and final render sequence.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section">
       <h2>Links</h2>
       <div class="card">
-        <p class="small">Add links to a paper, demo video, repository, or slide deck.</p>
         <ul>
+          <li><a href="#video">Watch the project video</a></li>
           <li><a href="index.html">Back to Projects</a></li>
         </ul>
       </div>
     </section>
-  
+
     <section class="section" id="talk">
       <h2>Talk with my AI assistant</h2>
       <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
@@ -158,7 +380,6 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-
   <script type="module" src="../assets/js/voice-avatar.js"></script>
 </body>
 </html>

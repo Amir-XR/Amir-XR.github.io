@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BESOLOGY | Amir Goli</title>
-  <meta name="description" content="BESOLOGY (2020): a parametric workflow that integrates BESO topology optimization with code-style wind and gravity loading to generate efficient exterior bracing systems for tall buildings." />
+  <title>GaoDe — Game of Design | Amir Goli</title>
+  <meta name="description" content="GaoDe (Game of Design): an open-ended architectural design serious game built inside Rhino/Grasshopper that supports self-assessment and learning through multimodal interaction (Leap Motion gestures, machine vision, and offline speech commands)." />
+
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/voice-widget.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -12,11 +13,16 @@
   <style>
     .figure{margin:14px 0;}
     .figure img{width:100%;height:auto;display:block;border-radius:16px;}
-    .figure figcaption{margin-top:8px;color:var(--muted,#9aa4b2);font-size:.95rem;line-height:1.45;}
+    .figure figcaption{margin-top:8px;color:var(--muted);font-size:.95rem;line-height:1.45;}
+
     .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px;}
-    .gallery-grid figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);}
+    .gallery-grid figure{margin:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);}
+    html[data-theme="light"] .gallery-grid figure{background:rgba(0,0,0,.02);}
     .gallery-grid img{width:100%;height:auto;display:block;}
-    .gallery-grid figcaption{padding:10px 12px;color:var(--muted,#9aa4b2);font-size:.9rem;line-height:1.35;}
+    .gallery-grid figcaption{padding:10px 12px;color:var(--muted);font-size:.9rem;line-height:1.35;}
+
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .badge-row .badge{margin:0;}
   </style>
 </head>
 <body>
@@ -41,6 +47,7 @@
           <a href="../activities.html">Activities</a>
           <a href="../contact.html">Contact</a>
         </nav>
+
         <div class="nav-controls">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
             <span data-theme-label>Mode: Dark</span>
@@ -50,251 +57,307 @@
     </div>
   </header>
 
+  <main class="main">
+    <p class="kicker"><a href="index.html">Projects</a> / GaoDe — Game of Design</p>
+    <h2 class="page-title">GaoDe (Game of Design): A Multimodal Architectural Design Serious Game</h2>
 
-    <header class="main">
-      <div class="card hero-copy">
-        <span class="kicker">Serious game • Multimodal HCI • Rhino/Grasshopper</span>
-        <h1>GaoDe</h1>
-        <p class="subtitle">
-          A multimodal architectural design game that turns a familiar CAD workspace into a playful self‑assessment studio.
-          Students model with <b>hand tracking</b>, <b>computer vision</b>, and <b>offline speech commands</b>, then compare outcomes against iconic precedents.
-        </p>
+    <img class="hero-img" src="../assets/img/gaode_fig05_custom-ui.jpg" alt="GaoDe custom user interface with pop-up guidance and real-time feedback" loading="lazy" />
 
-        <div class="meta-grid">
-          <div class="meta"><span class="label">Context</span><span class="value">Master’s dissertation project (2020) + published study</span></div>
-          <div class="meta"><span class="label">Platform</span><span class="value">Rhino + Grasshopper (custom UI)</span></div>
-          <div class="meta"><span class="label">Interaction</span><span class="value">Leap Motion, webcam CV, offline keyword spotting</span></div>
-          <div class="meta"><span class="label">Learning focus</span><span class="value">3D perception, form logic, reflective self‑assessment</span></div>
-        </div>
-
-        <div class="btnrow">
-          <a class="btn primary" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9096335/" target="_blank" rel="noopener">Read the open‑access paper</a>
-          <a class="btn" href="#games">Jump to the five games</a>
-          <a class="btn" href="#results">See study results</a>
-        </div>
+    <div class="callout">
+      <p class="kicker">Summary</p>
+      <p><strong>GaoDe</strong> is an <strong>open-ended</strong> educational serious game that lets architecture students practice design through <strong>self-assessment</strong> inside a familiar CAD workflow. Instead of keyboard/mouse-only input, it uses a <strong>multi-modal natural user interface</strong> that combines <strong>hand gestures</strong>, <strong>machine vision</strong>, and <strong>offline speech commands</strong> to support playful exploration without “right or wrong” solutions.</p>
+      <div class="badge-row" aria-label="Tools and keywords">
+        <span class="badge">Rhino</span>
+        <span class="badge">Grasshopper</span>
+        <span class="badge">Python</span>
+        <span class="badge">Leap Motion</span>
+        <span class="badge">Machine vision</span>
+        <span class="badge">Offline speech</span>
+        <span class="badge">HCI</span>
+        <span class="badge">Game-based learning</span>
       </div>
-
-      <div class="card hero-media" aria-label="GaoDe interface preview">
-        <img src="../assets/img/gaode-fig05-ui-windows.jpg" alt="GaoDe custom interface: a user-configured pop-up window and real-time feedback inside Rhino" />
-        <div class="cap">
-          <strong>Inside the tool</strong>
-          <span>Clean pop‑up UI for game setup + in‑viewport real‑time feedback during play.</span>
-        </div>
-      </div>
-    </header>
-
-    <section class="section">
-      <h2>What GaoDe is trying to solve</h2>
-      <p>
-        In many design studios, students learn concepts but struggle to <b>apply</b> them during form-making.
-        GaoDe bridges that gap through an <b>open‑ended serious game</b> where there are no “right/wrong” answers.
-        Instead, students explore alternatives, receive immediate feedback, and iterate until they are satisfied.
+      <p style="margin-top:12px;">
+        <a class="btn" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9096335/" target="_blank" rel="noopener">Read the paper (open access)</a>
       </p>
-
-      <div class="grid-3">
-        <div class="card" style="padding:16px">
-          <strong>Open‑ended play</strong>
-          <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Encourages experimentation and reduces fear of failure while still supporting self‑assessment.</p>
-        </div>
-        <div class="card" style="padding:16px">
-          <strong>Natural interaction</strong>
-          <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Hands + voice reduce menu hunting and keep attention on spatial reasoning and proportion.</p>
-        </div>
-        <div class="card" style="padding:16px">
-          <strong>Precedent comparison</strong>
-          <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Five iconic projects provide a clear target for reflection without forcing a single solution path.</p>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <section class="section">
-      <h2>Core features</h2>
-      <div class="grid-2">
-        <div class="card" style="padding:16px">
-          <div class="pill">Multimodal input</div>
-          <ul class="list">
-            <li><b>Leap Motion</b> for precise hand/finger tracking in 3D modeling.</li>
-            <li><b>Webcam + CNN</b> for finger counting (save / finish gestures).</li>
-            <li><b>Offline speech</b> for lightweight keyword commands (start and view navigation).</li>
+      <h2>Project at a glance</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Context</h3>
+          <p class="muted">Master’s dissertation project (2020) • Educational technology • Parametric CAD environment</p>
+          <ul>
+            <li><strong>Domain:</strong> early architectural design education</li>
+            <li><strong>Core idea:</strong> students compete with themselves, not each other</li>
+            <li><strong>Outcome:</strong> immediate feedback for self-assessment and iteration</li>
           </ul>
-        </div>
-        <div class="card" style="padding:16px">
-          <div class="pill">Studio-friendly workflow</div>
-          <ul class="list">
-            <li>Runs inside a familiar CAD environment (Rhino/Grasshopper).</li>
-            <li>Custom pop‑up UI for game selection and configuration.</li>
-            <li>Real‑time feedback overlays directly in the modeling viewport.</li>
+        </article>
+
+        <article class="card">
+          <h3>What students do</h3>
+          <ul>
+            <li>Select one of <strong>five iconic-building game modes</strong> (each with different rules)</li>
+            <li>Model and navigate in 3D using gestures + finger-count actions + short voice commands</li>
+            <li>Compare outcomes with reference targets, then iterate</li>
+            <li>Finish a session and reflect on choices (self-assessment)</li>
           </ul>
-        </div>
+        </article>
+
+        <article class="card">
+          <h3>Evaluation (classroom)</h3>
+          <ul>
+            <li><strong>Participants:</strong> 41 first-year architecture students</li>
+            <li><strong>Instrument:</strong> 19-item Likert questionnaire (4 subsets)</li>
+            <li><strong>Result:</strong> mostly &gt; 4.0/5 means; strong willingness to recommend</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <section class="section">
-      <h2>How the system works</h2>
-      <p>
-        GaoDe combines three sensing streams (hands, vision, voice) and routes them into a game engine built in Grasshopper.
-        Each game reuses the same pipeline, but varies the interaction mapping to avoid repetitive gameplay.
-      </p>
-
-      <div class="gallery">
-        <figure class="figure wide">
-          <img src="../assets/img/gaode-fig06-system-workflow.jpg" alt="Processing framework flowchart of GaoDe educational tool" />
-          <figcaption><b>System workflow.</b> Multimodal sensing → interpretation → modeling logic → UI feedback in Rhino.</figcaption>
-        </figure>
-
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig01-leap-motion.jpg" alt="Leap Motion Controller and the GaoDe setup" />
-          <figcaption><b>Hand tracking.</b> Leap Motion provides fast, accurate 3D coordinates for modeling interactions.</figcaption>
-        </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig05-ui-windows.jpg" alt="GaoDe custom interface and real-time feedback" />
-          <figcaption><b>UI + feedback.</b> Pop‑up setup window + in‑viewport real‑time guidance.</figcaption>
-        </figure>
-      </div>
-
-      <div class="grid-3" style="margin-top:14px">
-        <div class="card" style="padding:16px">
-          <strong>Gesture camera control</strong>
-          <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Left fist anchors a reference; the right hand orbits to pan/rotate, and distance controls zoom.</p>
-        </div>
-        <div class="card" style="padding:16px">
-          <strong>Finger-count actions</strong>
-          <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Webcam-based finger counting is used for quick “save” and “finish” actions.</p>
-        </div>
-        <div class="card" style="padding:16px">
-          <strong>Offline voice commands</strong>
-          <p style="margin:8px 0 0;color:var(--muted);font-size:13px">Keyword spotting enables start + view navigation without cloud connectivity.</p>
-        </div>
-      </div>
-
-      <div class="gallery" style="margin-top:14px">
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig02-camera-control.jpg" alt="Controlling the camera for different views using the movement of open hand around the left fist" />
-          <figcaption><b>Camera control.</b> Right hand moves around the left fist for view control.</figcaption>
-        </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig03-finger-count.jpg" alt="Finger count gestures used for saving and finishing the game" />
-          <figcaption><b>Save/finish.</b> One finger saves; five fingers ends the game-design process.</figcaption>
-        </figure>
-        <figure class="figure wide">
-          <img src="../assets/img/gaode-fig04-voice-activation.jpg" alt="Activation of sound commands using a yellow color and starting the game with the command yes" />
-          <figcaption><b>Voice activation.</b> A yellow marker activates voice mode; “Yes” starts; arrows change views.</figcaption>
-        </figure>
-      </div>
+      <h2>Problem and goal</h2>
+      <p>In early studio education, students often learn design concepts but struggle to apply them confidently in open-ended tasks. GaoDe reframes practice as a playful, low-risk environment: learners explore alternatives, receive feedback, and steer their own progress through self-assessment rather than external grading.</p>
+      <p>The goal is to strengthen the hands–eyes–mind loop central to design thinking, while staying embedded inside the CAD ecosystem students already use.</p>
     </section>
 
-    <section id="games" class="section">
-      <h2>Five game modules</h2>
-      <p>
-        GaoDe’s first release included five mini-games, each inspired by a distinct architectural logic.
-        Students create forms with their hands, then compare their result to the precedent for self‑assessment.
-      </p>
-
-      <div class="grid-2">
-        <div class="callout">
-          <strong>1) Brick Country House (Mies van der Rohe)</strong>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            A 3D grid supports ordered composition. Students place vertical blocks and interior walls based on palm orientation,
-            stabilize with a pointer finger, and finish with an open‑hand gesture.
-          </p>
-        </div>
-        <div class="callout">
-          <strong>2) Fallingwater (Frank Lloyd Wright)</strong>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            Final style is hidden during play to challenge visualization. Cubist elements emerge from palm orientation/length;
-            a final “high‑five” transforms the composition into a Fallingwater‑like cantilevered logic.
-          </p>
-        </div>
-        <div class="callout">
-          <strong>3) Dancing House (Frank Gehry)</strong>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            Focuses on soft curved forms. Two hands define top and waist; spacing between fingers changes the curvature.
-            Saving uses a deliberate finger gesture to continue composing multiple buildings.
-          </p>
-        </div>
-        <div class="callout">
-          <strong>4) House III (Peter Eisenman)</strong>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            Explores rule‑based transformations and estrangement through intersecting cubes.
-            Students insert two cubes arbitrarily, compare variations, and iterate quickly.
-          </p>
-        </div>
-        <div class="callout" style="grid-column:1 / -1">
-          <strong>5) Capsule Tower (Kisho Kurokawa)</strong>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            Shifts attention to vertical composition. A randomized algorithm encourages rapid iteration while students steer the outcome
-            through dynamic hand motion, switching between “continue” (fists) and “inspect/save” (open hands).
-          </p>
-        </div>
+    <section class="section">
+      <h2>System architecture</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Leap Motion (gesture recognition)</h3>
+          <ul>
+            <li>3D hand/finger tracking mapped to modeling actions and camera control</li>
+            <li>Example pattern: clench one hand; move the other around it to navigate</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Webcam + CNN (finger-count recognition)</h3>
+          <ul>
+            <li>Simple, high-confidence actions using number of visible fingers</li>
+            <li>Example mapping: <strong>one finger</strong> = save; <strong>five fingers</strong> = finish</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Offline speech (keyword spotting)</h3>
+          <ul>
+            <li>Short commands (e.g., “yes”, “up/down/left/right”, “stop”)</li>
+            <li>Intentionally gated (e.g., a yellow marker) to reduce accidental triggers</li>
+          </ul>
+        </article>
       </div>
 
-      <div class="gallery" style="margin-top:14px">
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig07-brick-country-house.jpg" alt="Brick Country House project reference" />
-          <figcaption><b>Brick Country House</b> reference image.</figcaption>
-        </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig08-game1-guide.jpg" alt="Guide of the Brick Country House game" />
-          <figcaption><b>Game 1 guide.</b> Gestures and finishing flow.</figcaption>
-        </figure>
+      <figure class="figure">
+        <a href="../assets/img/gaode_fig06_processing-flowchart.jpg" target="_blank" rel="noopener">
+          <img src="../assets/img/gaode_fig06_processing-flowchart.jpg" alt="Processing framework flowchart of GaoDe" loading="lazy" />
+        </a>
+        <figcaption>Processing framework: multimodal inputs feed game logic + parametric modeling actions inside Rhino/Grasshopper.</figcaption>
+      </figure>
+    </section>
 
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig09-fallingwater.jpg" alt="Fallingwater reference" />
-          <figcaption><b>Fallingwater</b> reference image.</figcaption>
+    <section class="section">
+      <h2>Interaction design (examples)</h2>
+      <p class="muted">Click any image to open full size.</p>
+      <div class="gallery-grid">
+        <figure>
+          <a href="../assets/img/gaode_fig02_camera-control.jpg" target="_blank" rel="noopener">
+            <img src="../assets/img/gaode_fig02_camera-control.jpg" alt="Camera control using an open hand moving around a fist" loading="lazy" />
+          </a>
+          <figcaption>Gesture-based camera control (Leap Motion).</figcaption>
         </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig10-game2-guide.jpg" alt="Guide of the Fallingwater House game" />
-          <figcaption><b>Game 2 guide.</b> Visualization-first interaction.</figcaption>
+        <figure>
+          <a href="../assets/img/gaode_fig03_finger-count-save-finish.jpg" target="_blank" rel="noopener">
+            <img src="../assets/img/gaode_fig03_finger-count-save-finish.jpg" alt="Finger count gestures: one finger saves, five fingers finishes" loading="lazy" />
+          </a>
+          <figcaption>Finger-count actions (webcam + CNN): save / finish.</figcaption>
         </figure>
-
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig11-dancing-house.jpg" alt="Dancing House reference" />
-          <figcaption><b>Dancing House</b> reference image.</figcaption>
-        </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig12-game3-guide.jpg" alt="Guide of the Dancing House game" />
-          <figcaption><b>Game 3 guide.</b> Two-hand curve control.</figcaption>
-        </figure>
-
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig13-house-iii.jpg" alt="House III reference" />
-          <figcaption><b>House III</b> reference image.</figcaption>
-        </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig15-game4-guide.jpg" alt="Guide of the House III game" />
-          <figcaption><b>Game 4 guide.</b> Intersecting cube logic.</figcaption>
-        </figure>
-
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig16-nakagin-capsule-tower.jpg" alt="Nakagin Capsule Tower reference" />
-          <figcaption><b>Capsule Tower</b> reference image.</figcaption>
-        </figure>
-        <figure class="figure">
-          <img src="../assets/img/gaode-fig17-game5-guide.jpg" alt="Guide of the Capsule Tower game" />
-          <figcaption><b>Game 5 guide.</b> Vertical, fast-paced iteration.</figcaption>
-        </figure>
-      </div>
-
-      <div class="gallery" style="margin-top:14px">
-        <figure class="figure wide">
-          <img src="../assets/img/gaode-poster-page1.png" alt="Project poster page showing overview, interface and workflow" />
-          <figcaption><b>Project poster.</b> Snapshot of the full concept and feature set.</figcaption>
-        </figure>
-        <figure class="figure wide">
-          <img src="../assets/img/gaode-poster-page5.png" alt="Project poster page showing five game modules and guides" />
-          <figcaption><b>Five-game overview.</b> All mini-games and their interaction guides in one view.</figcaption>
+        <figure>
+          <a href="../assets/img/gaode_fig04_voice-activation-yellow.jpg" target="_blank" rel="noopener">
+            <img src="../assets/img/gaode_fig04_voice-activation-yellow.jpg" alt="Voice command activation using yellow color detection" loading="lazy" />
+          </a>
+          <figcaption>Offline voice commands with color-gated activation.</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="section">
-      <h2>Publication</h2>
-      <p>
-        <b>Architectural design game: A serious game approach to promote teaching and learning using multimodal interfaces</b>
-        (open access on PubMed Central).
-      </p>
-      <div class="btnrow">
-        <a class="btn primary" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9096335/" target="_blank" rel="noopener">Open the PMC article</a>
+      <h2>Five game modes</h2>
+      <p>The initial GaoDe prototype includes five games based on iconic buildings. Each mode targets a different aspect of design perception and uses distinct interaction rules to sustain motivation and avoid repetition.</p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>1) Brick Country House (Mies van der Rohe)</h3>
+          <div class="gallery-grid" style="grid-template-columns:1fr;">
+            <figure>
+              <a href="../assets/img/gaode_fig08_game-guide_brick-country-house.jpg" target="_blank" rel="noopener">
+                <img src="../assets/img/gaode_fig08_game-guide_brick-country-house.jpg" alt="Brick Country House game guide" loading="lazy" />
+              </a>
+              <figcaption>Volumetric ordering and spatial partitioning using guided walls and block placement.</figcaption>
+            </figure>
+          </div>
+          <ul>
+            <li><strong>Learning focus:</strong> volumetric reasoning + ordered iteration</li>
+            <li><strong>Key interaction:</strong> palm orientation and pointing to place blocks</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>2) Fallingwater (Frank Lloyd Wright)</h3>
+          <div class="gallery-grid" style="grid-template-columns:1fr;">
+            <figure>
+              <a href="../assets/img/gaode_fig10_game-guide_fallingwater.jpg" target="_blank" rel="noopener">
+                <img src="../assets/img/gaode_fig10_game-guide_fallingwater.jpg" alt="Fallingwater game guide" loading="lazy" />
+              </a>
+              <figcaption>Target style is not fully revealed during play; students control proportions and orientation, then “reveal” the style at the end.</figcaption>
+            </figure>
+          </div>
+          <ul>
+            <li><strong>Learning focus:</strong> visualization under uncertainty + proportion control</li>
+            <li><strong>Key interaction:</strong> stack elements, then transform into a Fallingwater-like composition</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>3) Dancing House (Frank Gehry)</h3>
+          <div class="gallery-grid" style="grid-template-columns:1fr;">
+            <figure>
+              <a href="../assets/img/gaode_fig12_game-guide_dancing-house.jpg" target="_blank" rel="noopener">
+                <img src="../assets/img/gaode_fig12_game-guide_dancing-house.jpg" alt="Dancing House game guide" loading="lazy" />
+              </a>
+              <figcaption>Two-hand gestures control soft curved towers; finger spacing influences curvature.</figcaption>
+            </figure>
+          </div>
+          <ul>
+            <li><strong>Learning focus:</strong> expressive form-making + continuous control</li>
+            <li><strong>Key interaction:</strong> two-hand finger spacing shapes curvature</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>4) House III (Peter Eisenman)</h3>
+          <div class="gallery-grid" style="grid-template-columns:1fr;">
+            <figure>
+              <a href="../assets/img/gaode_fig15_game-guide_house-III.jpg" target="_blank" rel="noopener">
+                <img src="../assets/img/gaode_fig15_game-guide_house-III.jpg" alt="House III game guide" loading="lazy" />
+              </a>
+              <figcaption>Rule-based transformations and non-orthogonal compositions (including 45° logic) using ordered two-fist generation.</figcaption>
+            </figure>
+          </div>
+          <ul>
+            <li><strong>Learning focus:</strong> transformation rules + non-orthogonal composition</li>
+            <li><strong>Key interaction:</strong> two-fist ordering controls cube generation</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>5) Capsule Tower (Kisho Kurokawa)</h3>
+          <div class="gallery-grid" style="grid-template-columns:1fr;">
+            <figure>
+              <a href="../assets/img/gaode_fig17_game-guide_capsule-tower.jpg" target="_blank" rel="noopener">
+                <img src="../assets/img/gaode_fig17_game-guide_capsule-tower.jpg" alt="Capsule Tower game guide" loading="lazy" />
+              </a>
+              <figcaption>Fast-paced vertical aggregation; rhythmic fist movement drives modular capsule placement.</figcaption>
+            </figure>
+          </div>
+          <ul>
+            <li><strong>Learning focus:</strong> vertical composition + modular aggregation</li>
+            <li><strong>Key interaction:</strong> rhythmic hand movement drives generative placement</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Evaluation study (classroom)</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Participants &amp; setting</h3>
+          <ul>
+            <li><strong>When:</strong> January 2020</li>
+            <li><strong>Where:</strong> Design studio course (Pars University)</li>
+            <li><strong>Sample:</strong> 41 first-year architecture students (24 male, 17 female)</li>
+            <li><strong>Ethics:</strong> voluntary participation; students could withdraw at any time</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Instrument</h3>
+          <p>A 19-item questionnaire was structured into four subsets aligned with the IBM Computer Usability Satisfaction Questionnaire (CUSQ): <strong>Usability</strong> (5), <strong>Game evaluation</strong> (6), <strong>Learning improvement</strong> (6), and <strong>Satisfaction</strong> (2). Responses used a 5-point Likert scale.</p>
+          <ul>
+            <li>Across all four aspects, “agree/strongly agree” responses were above ~82%</li>
+            <li>No item received “strongly disagree”</li>
+            <li>Students strongly recommended GaoDe (mean 4.634 / 5)</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="card">
+        <h3>Selected quantitative results (means / SD)</h3>
+        <p class="muted">Means above 4.0 fall between “agree” and “strongly agree,” indicating positive perceived usability, engagement, and learning value.</p>
+
+        <div class="table-wrap" role="region" aria-label="Survey results table">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Item</th>
+                <th>Statement (abridged)</th>
+                <th>Mean</th>
+                <th>SD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Usability</td><td>A1</td><td>GUI is user-friendly and easy to follow</td><td>4.171</td><td>0.729</td></tr>
+              <tr><td>Usability</td><td>A2</td><td>Guides are comprehensible</td><td>4.073</td><td>0.838</td></tr>
+              <tr><td>Usability</td><td>A3</td><td>Low mental effort</td><td>4.049</td><td>0.697</td></tr>
+              <tr><td>Usability</td><td>A4</td><td>Interactivity level is suitable</td><td>4.146</td><td>0.813</td></tr>
+              <tr><td>Usability</td><td>A5</td><td>Easy to use in design process</td><td>4.098</td><td>0.726</td></tr>
+
+              <tr><td>Games</td><td>B1</td><td>Brick Country House engaging</td><td>4.195</td><td>0.706</td></tr>
+              <tr><td>Games</td><td>B2</td><td>Fallingwater engaging</td><td>3.878</td><td>0.802</td></tr>
+              <tr><td>Games</td><td>B3</td><td>Dancing House engaging</td><td>4.146</td><td>0.751</td></tr>
+              <tr><td>Games</td><td>B4</td><td>House III engaging</td><td>4.220</td><td>0.564</td></tr>
+              <tr><td>Games</td><td>B5</td><td>Capsule Tower engaging</td><td>4.244</td><td>0.725</td></tr>
+              <tr><td>Games</td><td>B6</td><td>Appropriate for self-assessment</td><td>4.122</td><td>0.705</td></tr>
+
+              <tr><td>Learning</td><td>C1</td><td>Attracted attention and motivated</td><td>4.073</td><td>0.677</td></tr>
+              <tr><td>Learning</td><td>C2</td><td>Interactive play assisted design</td><td>4.098</td><td>0.655</td></tr>
+              <tr><td>Learning</td><td>C3</td><td>Lowered sense of failure</td><td>4.024</td><td>0.749</td></tr>
+              <tr><td>Learning</td><td>C4</td><td>Helped enhance knowledge</td><td>4.317</td><td>0.642</td></tr>
+              <tr><td>Learning</td><td>C5</td><td>Better recall vs. only classes</td><td>4.024</td><td>0.811</td></tr>
+              <tr><td>Learning</td><td>C6</td><td>Balanced acquisition &amp; application</td><td>4.146</td><td>0.683</td></tr>
+
+              <tr><td>Satisfaction</td><td>D1</td><td>Overall satisfaction</td><td>4.049</td><td>0.764</td></tr>
+              <tr><td>Satisfaction</td><td>D2</td><td>Would suggest to colleagues</td><td>4.634</td><td>0.482</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Image gallery (extracted figures)</h2>
+      <p class="muted">Click any image to open full size.</p>
+
+      <div class="gallery-grid">
+        <figure><a href="../assets/img/gaode_fig01_leap-motion.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig01_leap-motion.jpg" alt="Leap Motion system figure" loading="lazy" /></a><figcaption>Fig. 1 — Leap Motion system</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig05_custom-ui.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig05_custom-ui.jpg" alt="Custom UI and guidance" loading="lazy" /></a><figcaption>Fig. 5 — Custom UI + feedback</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig06_processing-flowchart.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig06_processing-flowchart.jpg" alt="Processing flowchart" loading="lazy" /></a><figcaption>Fig. 6 — Processing flowchart</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig07_brick-country-house-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig07_brick-country-house-reference.jpg" alt="Brick Country House reference" loading="lazy" /></a><figcaption>Fig. 7 — Brick Country House reference</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig09_fallingwater-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig09_fallingwater-reference.jpg" alt="Fallingwater reference" loading="lazy" /></a><figcaption>Fig. 9 — Fallingwater reference</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig11_dancing-house-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig11_dancing-house-reference.jpg" alt="Dancing House reference" loading="lazy" /></a><figcaption>Fig. 11 — Dancing House reference</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig13_house-III-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig13_house-III-reference.jpg" alt="House III reference" loading="lazy" /></a><figcaption>Fig. 13 — House III reference</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig14_house-III-steps.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig14_house-III-steps.jpg" alt="House III steps" loading="lazy" /></a><figcaption>Fig. 14 — House III diagrams</figcaption></figure>
+        <figure><a href="../assets/img/gaode_fig16_capsule-tower-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig16_capsule-tower-reference.jpg" alt="Capsule Tower reference" loading="lazy" /></a><figcaption>Fig. 16 — Capsule Tower reference</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Links</h2>
+      <div class="card">
+        <ul>
+          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9096335/" target="_blank" rel="noopener">Open-access paper (PubMed Central)</a></li>
+          <li><a href="index.html">Back to Projects</a></li>
+        </ul>
       </div>
     </section>
 
@@ -365,7 +428,6 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-
   <script type="module" src="../assets/js/voice-avatar.js"></script>
 </body>
 </html>

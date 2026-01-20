@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fabrication Projects | Amir Goli</title>
-  <meta name="description" content="Fabrication projects by Amir Goli, including ROBOTISM (robotic fabrication workshop), INTEGRITY (Nexorade plywood pavilion), and a Climate-Responsive Façade (biomimetic kinetic shading prototype)." />
+  <meta name="description" content="Fabrication projects by Amir Goli, including ROBOTISM (robotic fabrication workshop) and INTEGRITY (Nexorade plywood pavilion) — parametric workflows from digital design to physical assembly." />
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/voice-widget.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -18,19 +18,6 @@
     .gallery-grid figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);}
     .gallery-grid img{width:100%;height:auto;display:block;}
     .gallery-grid figcaption{padding:10px 12px;color:var(--muted,#9aa4b2);font-size:.9rem;line-height:1.35;}
-
-    /* Added for CRF section */
-    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.03)}
-    table.data-table{width:100%;border-collapse:collapse;min-width:760px}
-    table.data-table caption{caption-side:top;text-align:left;font-weight:900;padding:12px 12px 0;color:var(--text)}
-    table.data-table th,table.data-table td{border-top:1px solid rgba(255,255,255,.08);padding:10px 12px;vertical-align:top;font-size:.95rem}
-    table.data-table thead th{background:rgba(122,73,136,.16);border-top:none}
-    table.data-table tbody tr:hover{background:rgba(255,255,255,.03)}
-    .video-wrap{border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;background:#000}
-    .video-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
-    details.media-set{margin-top:14px}
-    details.media-set summary{cursor:pointer;font-weight:900}
-
   </style>
 </head>
 <body>
@@ -70,9 +57,9 @@
 
     <div class="callout">
       <p class="kicker">Overview</p>
-      <p>This page collects selected <strong>digital fabrication</strong> projects that connect <strong>computational design</strong> with <strong>physical making</strong>—from robotic toolpaths and pick-and-place experiments to CNC-produced, full-scale plywood structures—and climate-responsive envelope prototyping.</p>
-      <p class="muted"><strong>Jump to:</strong> <a href="#robotism">ROBOTISM</a> &nbsp;•&nbsp; <a href="#integrity">INTEGRITY</a> &nbsp;•&nbsp; <a href="#crf">CLIMATE-RESPONSIVE FA&Ccedil;ADE</a></p>
-      <p><span class="badge">Parametric design</span> <span class="badge">Plywood structures</span> <span class="badge">Robots + CNC</span> <span class="badge">Assembly planning</span> <span class="badge">Climate-responsive envelope</span></p>
+      <p>This page collects selected <strong>digital fabrication</strong> projects that connect <strong>computational design</strong> with <strong>physical making</strong>—from robotic toolpaths and pick-and-place experiments to CNC-produced, full-scale plywood structures.</p>
+      <p class="muted"><strong>Jump to:</strong> <a href="#robotism">ROBOTISM</a> &nbsp;•&nbsp; <a href="#integrity">INTEGRITY</a></p>
+      <p><span class="badge">Parametric design</span> <span class="badge">Plywood structures</span> <span class="badge">Robots + CNC</span> <span class="badge">Assembly planning</span></p>
     </div>
 
     <section id="robotism">
@@ -411,281 +398,7 @@
       </figure>
     </section>
 
-    
-
-    <section id="crf" class="section">
-      <h2>CLIMATE-RESPONSIVE FA&Ccedil;ADE: Biomimetic Textile-Based Kinetic Shading Prototype</h2>
-      <p class="muted">A modular, climate-responsive façade system inspired by chameleons’ independently moving eyes—designed through parametric modeling + daylight simulation, then validated with a sensor-driven physical prototype.</p>
-
-      <figure class="figure">
-        <img src="../assets/img/crf-hero-poster.png" alt="Climate-Responsive Facade poster showing concept, unit logic, simulation results, and prototype">
-        <figcaption>Project overview poster: biomimetic inspiration, responsive unit patterns, and the textile-based prototype.</figcaption>
-      </figure>
-
-      <div class="callout">
-        <p class="kicker">Project at a glance</p>
-        <p>The <strong>Climate-Responsive Façade (CRF)</strong> is a kinetic shading system composed of <strong>hexagonal textile modules</strong>. Each unit can pivot in multiple directions to adjust <strong>aperture size</strong> and <strong>shading direction</strong> based on sun position and user comfort needs.</p>
-        <p>
-          <span class="badge">Biomimicry</span>
-          <span class="badge">Kinetic shading</span>
-          <span class="badge">Rhino/Grasshopper</span>
-          <span class="badge">Daylight simulation</span>
-          <span class="badge">Arduino + LDR sensors</span>
-          <span class="badge">Linear actuators</span>
-        </p>
-      </div>
-
-      <h3>Design concept</h3>
-      <p>Many kinetic façades rely on rigid parts and simple folding motions, which can limit the granularity of control. This project explores a <strong>textile-based approach</strong> that allows smooth, multi-axial transformations. The unit logic is inspired by the <strong>chameleon eye</strong>: independent movement enables targeted control—adjusting each module locally without forcing the entire surface to move as one.</p>
-
-      <div class="gallery-grid">
-        <figure>
-          <img src="../assets/img/crf-fig02-chameleon-eyes.jpeg" alt="Chameleon eyes close-up (biomimetic inspiration)">
-          <figcaption>Biomimetic reference: independently moving eyes enable precise targeting and tracking.</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/crf-fig01-kinetic-facade-examples.jpeg" alt="Examples of responsive kinetic facades">
-          <figcaption>Context: responsive façades that change geometry to manage daylight, glare, and heat gain.</figcaption>
-        </figure>
-      </div>
-
-      <h3>Responsive behavior and control logic</h3>
-      <p>The designed system supports both <strong>manual</strong> control (user-selected configurations) and an <strong>automatic responsive mode</strong> (sensor + solar logic). In responsive mode, the workflow follows a four-step loop:</p>
-      <ol>
-        <li><strong>Sun-path setup:</strong> use the daily solar motion + altitude to establish candidate configurations for the façade units.</li>
-        <li><strong>Adaptive aperture:</strong> adjust opening length/direction in real time based on relative sun position and targeted shading needs.</li>
-        <li><strong>Personalization:</strong> optionally integrate preferences through personal devices (e.g., wearable / smartphone / bio-sensor inputs) to prioritize comfort.</li>
-        <li><strong>Re-evaluation:</strong> re-check indoor light levels and reconfigure remaining units; if illuminance is insufficient, iterate from Step 1.</li>
-      </ol>
-
-      <figure class="figure">
-        <img src="../assets/img/crf-fig03-unit-open-close.jpeg" alt="CRF unit in fully opened and fully closed states">
-        <figcaption>Unit behavior: fully opened vs. fully closed textile aperture (module-level control).</figcaption>
-      </figure>
-
-      <h3>Computational design + daylight simulation workflow</h3>
-      <p>A parametric pipeline in <strong>Rhino/Grasshopper</strong> generated unit geometries and candidate states, then daylight simulations evaluated visual comfort performance in a south-facing office room in <strong>Yazd, Iran</strong> (hot-arid climate). The study compared the CRF to two baselines:</p>
-      <ul>
-        <li><strong>WSS:</strong> conventional static shading (baseline façade system).</li>
-        <li><strong>WCS:</strong> alternative shading baseline (comparison façade system).</li>
-      </ul>
-
-      <div class="gallery-grid">
-        <figure>
-          <img src="../assets/img/crf-fig05-simulation-setups.jpeg" alt="Simulation models for multiple shading systems including CRF">
-          <figcaption>Simulation setup: comparable models used to evaluate daylight distribution and glare.</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/crf-fig06-office-model-sensors.jpeg" alt="Office room model and sensor points used for DGP evaluation">
-          <figcaption>Room and sensor setup used for glare (DGP) evaluation at three viewpoints.</figcaption>
-        </figure>
-      </div>
-
-      <figure class="figure">
-        <img src="../assets/img/crf-fig04-sunpath-configs.jpeg" alt="Sun-path and corresponding CRF configurations at different times">
-        <figcaption>Sun-path driven configurations: unit orientations change at 09:00 / 12:00 / 15:00 to maintain comfort.</figcaption>
-      </figure>
-
-      <h3>Key results (visual comfort + daylight performance)</h3>
-      <p>Across simulated time slices, the CRF maintains illuminance in the comfortable range more consistently than the baselines and reduces glare (lower DGP) at multiple sensor points. Notable patterns include:</p>
-      <ul>
-        <li><strong>Comfortable daylight (hUDI):</strong> CRF is consistently high (often ~95–100%).</li>
-        <li><strong>Over-illumination (hUDI exceed):</strong> CRF minimizes exceedance (often 0–6%), compared to substantially higher exceedance in baseline systems.</li>
-        <li><strong>Glare (DGP):</strong> CRF shows markedly lower DGP values across sensor points, especially at noon conditions.</li>
-      </ul>
-
-      <div class="table-wrap">
-  <table class="data-table">
-    <caption>Daylight + glare performance comparison (WSS vs CRF)<span class="muted" style="display:block;font-weight:600;margin-top:4px">DGP is shown at three sensor points (1–3). hUDI = 100–2000 lux; hUDI (Exceed) = >2000 lux; hDA = daylight autonomy.</span></caption>
-    <thead>
-<tr><th>Time</th><th>WSS DGP1%</th><th>WSS DGP2%</th><th>WSS DGP3%</th><th>WSS hUDI%</th><th>WSS hUDI (Exceed) %</th><th>WSS hDA%</th><th>CRF DGP1%</th><th>CRF DGP2%</th><th>CRF DGP3%</th><th>CRF hUDI%</th><th>CRF hUDI ( Exceed) %</th><th>CRF hDA %</th></tr>
-</thead>
-    <tbody>
-<tr><td>09:00, March 21st</td><td>55</td><td>33</td><td>29</td><td>85</td><td>15</td><td>100</td><td>33</td><td>27</td><td>21</td><td>95</td><td>5</td><td>100</td></tr>
-<tr><td>12:00, March 21st</td><td>79</td><td>43</td><td>30</td><td>71</td><td>29</td><td>100</td><td>34</td><td>25</td><td>22</td><td>97</td><td>3</td><td>98</td></tr>
-<tr><td>15:00, March 21st</td><td>54</td><td>40</td><td>25</td><td>83</td><td>17</td><td>100</td><td>34</td><td>28</td><td>21</td><td>100</td><td>0</td><td>100</td></tr>
-<tr><td>09:00, June 21st</td><td>49</td><td>33</td><td>26</td><td>93</td><td>7</td><td>100</td><td>33</td><td>25</td><td>21</td><td>100</td><td>0</td><td>75</td></tr>
-<tr><td>12:00, June 21st</td><td>60</td><td>38</td><td>27</td><td>74</td><td>26</td><td>100</td><td>34</td><td>27</td><td>22</td><td>94</td><td>6</td><td>100</td></tr>
-<tr><td>15:00, June 21st</td><td>44</td><td>32</td><td>24</td><td>94</td><td>6</td><td>100</td><td>33</td><td>27</td><td>21</td><td>100</td><td>0</td><td>76</td></tr>
-<tr><td>09:00, December 21st</td><td>64</td><td>33</td><td>35</td><td>69</td><td>31</td><td>100</td><td>33</td><td>24</td><td>22</td><td>97</td><td>3</td><td>90</td></tr>
-<tr><td>12:00, December 21st</td><td>92</td><td>50</td><td>37</td><td>56</td><td>44</td><td>100</td><td>34</td><td>29</td><td>22</td><td>95</td><td>5</td><td>92</td></tr>
-<tr><td>15:00, December 21st</td><td>66</td><td>52</td><td>28</td><td>70</td><td>30</td><td>100</td><td>33</td><td>28</td><td>24</td><td>93</td><td>7</td><td>81</td></tr>
-<tr><td>Average</td><td>63</td><td>39</td><td>29</td><td>77</td><td>23</td><td>100</td><td>33</td><td>27</td><td>22</td><td>97</td><td>3</td><td>90</td></tr>
-</tbody>
-  </table>
-</div>
-      <div style="height:12px"></div>
-      <div class="table-wrap">
-  <table class="data-table">
-    <caption>Daylight + glare performance comparison (WCS vs CRF)<span class="muted" style="display:block;font-weight:600;margin-top:4px">Same metrics as above, reported across 09:00 / 12:00 / 15:00 for March 21, June 21, and December 21.</span></caption>
-    <thead>
-<tr><th>Time</th><th>WCS DGP1%</th><th>WCS DGP2%</th><th>WCS DGP3%</th><th>WCS hUDI%</th><th>WCS hUDI (Exceed ) %</th><th>WCS hDA%</th><th>CRF DGP1%</th><th>CRF DGP2%</th><th>CRF DGP3%</th><th>CRF hUDI%</th><th>CRF hUDI ( Exceed) %</th><th>CRF hDA %</th></tr>
-</thead>
-    <tbody>
-<tr><td>09:00, March 21st</td><td>45</td><td>30</td><td>24</td><td>100</td><td>0</td><td>100</td><td>33</td><td>27</td><td>21</td><td>95</td><td>5</td><td>100</td></tr>
-<tr><td>12:00, March 21st</td><td>65</td><td>38</td><td>28</td><td>90</td><td>10</td><td>100</td><td>34</td><td>25</td><td>22</td><td>97</td><td>3</td><td>98</td></tr>
-<tr><td>15:00, March 21st</td><td>44</td><td>35</td><td>24</td><td>100</td><td>0</td><td>100</td><td>34</td><td>28</td><td>21</td><td>100</td><td>0</td><td>100</td></tr>
-<tr><td>09:00, June 21st</td><td>44</td><td>30</td><td>23</td><td>100</td><td>0</td><td>100</td><td>33</td><td>25</td><td>21</td><td>100</td><td>0</td><td>75</td></tr>
-<tr><td>12:00, June 21st</td><td>47</td><td>32</td><td>25</td><td>100</td><td>0</td><td>100</td><td>34</td><td>27</td><td>22</td><td>94</td><td>6</td><td>100</td></tr>
-<tr><td>15:00, June 21st</td><td>42</td><td>29</td><td>23</td><td>100</td><td>0</td><td>100</td><td>33</td><td>27</td><td>21</td><td>100</td><td>0</td><td>76</td></tr>
-<tr><td>09:00, December 21st</td><td>50</td><td>31</td><td>30</td><td>75</td><td>25</td><td>100</td><td>33</td><td>24</td><td>22</td><td>97</td><td>3</td><td>90</td></tr>
-<tr><td>12:00, December 21st</td><td>80</td><td>46</td><td>31</td><td>60</td><td>40</td><td>100</td><td>34</td><td>29</td><td>22</td><td>95</td><td>5</td><td>92</td></tr>
-<tr><td>15:00, December 21st</td><td>54</td><td>42</td><td>24</td><td>80</td><td>20</td><td>100</td><td>33</td><td>28</td><td>24</td><td>93</td><td>7</td><td>81</td></tr>
-<tr><td>Average</td><td>52</td><td>35</td><td>26</td><td>89</td><td>11</td><td>100</td><td>33</td><td>27</td><td>22</td><td>97</td><td>3</td><td>90</td></tr>
-</tbody>
-  </table>
-</div>
-
-      <details class="media-set">
-        <summary>View the full DGP rendering set (27 images)</summary>
-        <div class="gallery-grid">
-<figure>
-  <img src="../assets/img/crf-dgp-01.png" alt="CRF daylight/glare simulation image 01">
-  <figcaption>DGP rendering 01</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-02.png" alt="CRF daylight/glare simulation image 02">
-  <figcaption>DGP rendering 02</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-03.png" alt="CRF daylight/glare simulation image 03">
-  <figcaption>DGP rendering 03</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-04.png" alt="CRF daylight/glare simulation image 04">
-  <figcaption>DGP rendering 04</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-05.png" alt="CRF daylight/glare simulation image 05">
-  <figcaption>DGP rendering 05</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-06.png" alt="CRF daylight/glare simulation image 06">
-  <figcaption>DGP rendering 06</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-07.png" alt="CRF daylight/glare simulation image 07">
-  <figcaption>DGP rendering 07</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-08.png" alt="CRF daylight/glare simulation image 08">
-  <figcaption>DGP rendering 08</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-09.png" alt="CRF daylight/glare simulation image 09">
-  <figcaption>DGP rendering 09</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-10.png" alt="CRF daylight/glare simulation image 10">
-  <figcaption>DGP rendering 10</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-11.png" alt="CRF daylight/glare simulation image 11">
-  <figcaption>DGP rendering 11</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-12.png" alt="CRF daylight/glare simulation image 12">
-  <figcaption>DGP rendering 12</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-13.png" alt="CRF daylight/glare simulation image 13">
-  <figcaption>DGP rendering 13</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-14.png" alt="CRF daylight/glare simulation image 14">
-  <figcaption>DGP rendering 14</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-15.png" alt="CRF daylight/glare simulation image 15">
-  <figcaption>DGP rendering 15</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-16.png" alt="CRF daylight/glare simulation image 16">
-  <figcaption>DGP rendering 16</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-17.png" alt="CRF daylight/glare simulation image 17">
-  <figcaption>DGP rendering 17</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-18.png" alt="CRF daylight/glare simulation image 18">
-  <figcaption>DGP rendering 18</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-19.png" alt="CRF daylight/glare simulation image 19">
-  <figcaption>DGP rendering 19</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-20.png" alt="CRF daylight/glare simulation image 20">
-  <figcaption>DGP rendering 20</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-21.png" alt="CRF daylight/glare simulation image 21">
-  <figcaption>DGP rendering 21</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-22.png" alt="CRF daylight/glare simulation image 22">
-  <figcaption>DGP rendering 22</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-23.png" alt="CRF daylight/glare simulation image 23">
-  <figcaption>DGP rendering 23</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-24.png" alt="CRF daylight/glare simulation image 24">
-  <figcaption>DGP rendering 24</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-25.png" alt="CRF daylight/glare simulation image 25">
-  <figcaption>DGP rendering 25</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-26.png" alt="CRF daylight/glare simulation image 26">
-  <figcaption>DGP rendering 26</figcaption>
-</figure>
-<figure>
-  <img src="../assets/img/crf-dgp-27.png" alt="CRF daylight/glare simulation image 27">
-  <figcaption>DGP rendering 27</figcaption>
-</figure>
-</div>
-      </details>
-
-      <h3>Prototype fabrication + actuation</h3>
-      <p>The physical prototype translates the digital unit logic into a resilient mechanical system using <strong>three linear actuators</strong> (for three movable arms) and a <strong>stretch textile skin</strong> that accommodates multi-directional deformation. Sensor feedback is provided through <strong>LDR photoresistors</strong> and processed by an <strong>Arduino UNO</strong>, with Grasshopper + Firefly enabling a live control loop.</p>
-
-      <div class="gallery-grid">
-        <figure>
-          <img src="../assets/img/crf-fig07-unit-3dmodel.jpeg" alt="3D model of a CRF unit">
-          <figcaption>Digital unit design (geometry + arm logic).</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/crf-fig08-configurations-diagrams.png" alt="Diagrams of CRF unit configurations and arm movements">
-          <figcaption>Configuration logic: multiple aperture states driven by three actuated arms.</figcaption>
-        </figure>
-      </div>
-
-      <figure class="figure">
-        <img src="../assets/img/crf-fig09-final-prototype-open-close.png" alt="Final CRF prototype fully opened and fully closed">
-        <figcaption>Final prototype: fully opened vs. fully closed configuration.</figcaption>
-      </figure>
-
-      <figure class="figure">
-        <img src="../assets/img/crf-process-montage.png" alt="Process montage showing Grasshopper definition, code, fabrication, and simulation outputs">
-        <figcaption>End-to-end pipeline: parametric definition, control logic, fabrication, and performance evaluation.</figcaption>
-      </figure>
-
-      <h3>Project video</h3>
-      <div class="video-wrap">
-        <iframe src="https://drive.google.com/file/d/1Z-hEG2KfJFZbUcvQgPUTfLyQhKvKMVKO/preview" allow="autoplay"></iframe>
-      </div>
-      <p class="muted" style="margin-top:10px">
-        <a href="https://drive.google.com/file/d/1Z-hEG2KfJFZbUcvQgPUTfLyQhKvKMVKO/view" target="_blank" rel="noopener">Open video on Google Drive</a>
-        &nbsp;•&nbsp;
-        <a href="https://drive.google.com/uc?export=download&id=1Z-hEG2KfJFZbUcvQgPUTfLyQhKvKMVKO" target="_blank" rel="noopener">Direct download link</a>
-      </p>
-    </section>
-
-<section class="section" id="talk">
+    <section class="section" id="talk">
       <h2>Talk with my AI assistant</h2>
       <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
 
