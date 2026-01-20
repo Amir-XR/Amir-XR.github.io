@@ -1,0 +1,17 @@
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/3d5534b417c3/10639_2022_11062_Fig1_HTML.jpg gaode-fig01-leap-motion.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/aab4600ef746/10639_2022_11062_Fig2_HTML.jpg gaode-fig02-camera-control.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/52f2a5c5f5e3/10639_2022_11062_Fig3_HTML.jpg gaode-fig03-finger-save-finish.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/456b481c2a20/10639_2022_11062_Fig4_HTML.jpg gaode-fig04-voice-yellow-activation.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/05a2ab1334ee/10639_2022_11062_Fig5_HTML.jpg gaode-fig05-ui-feedback.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/52a0992a4443/10639_2022_11062_Fig6_HTML.jpg gaode-fig06-flowchart.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/df7d04ca209e/10639_2022_11062_Fig7_HTML.jpg gaode-fig07-brick-country-house.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/08e5c0c15409/10639_2022_11062_Fig8_HTML.jpg gaode-fig08-game-guide-brick.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/e0ca35c07b11/10639_2022_11062_Fig9_HTML.jpg gaode-fig09-fallingwater.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/f712a5d9d45e/10639_2022_11062_Fig10_HTML.jpg gaode-fig10-game-guide-fallingwater.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/450a0a9c8df4/10639_2022_11062_Fig11_HTML.jpg gaode-fig11-dancing-house.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/086b96218d4f/10639_2022_11062_Fig12_HTML.jpg gaode-fig12-game-guide-dancing-house.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/bb2093c3b03c/10639_2022_11062_Fig13_HTML.jpg gaode-fig13-house-iii.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/b82d1c502acb/10639_2022_11062_Fig14_HTML.jpg gaode-fig14-house-iii-diagrams.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/dc2027306373/10639_2022_11062_Fig15_HTML.jpg gaode-fig15-game-guide-house-iii.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/d694edf5ea2b/10639_2022_11062_Fig16_HTML.jpg gaode-fig16-capsule-tower.jpg
+https://cdn.ncbi.nlm.nih.gov/pmc/blobs/1cb3/9096335/0f5acaf12cdf/10639_2022_11062_Fig17_HTML.jpg gaode-fig17-game-guide-capsule-tower.jpg
