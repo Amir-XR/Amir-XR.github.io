@@ -1,144 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BESOLOGY | Amir Goli</title>
+  <meta name="description" content="BESOLOGY (2020): a parametric workflow that integrates BESO topology optimization with code-style wind and gravity loading to generate efficient exterior bracing systems for tall buildings." />
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <title>GaoDe — Multimodal Architectural Design Game</title>
-  <meta name="description" content="GaoDe is a Rhino/Grasshopper-based serious game that teaches architectural form and self-assessment through multimodal interaction (hand tracking, computer vision, and offline speech commands)." />
-  <link rel="icon" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
-    :root{
-      --bg:#0b0a10;--card:#121123;--card2:#0f0f1c;--text:#f3f2ff;--muted:#b8b4d6;
-      --accent:#7A4988;--accent2:#b17cc0;--line:rgba(255,255,255,.10);
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background: radial-gradient(1100px 600px at 15% 0%, rgba(122,73,136,.25), transparent 60%),
-                  radial-gradient(900px 550px at 95% 20%, rgba(177,124,192,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.55;
-    }
-    a{color:var(--accent2);text-decoration:none}
-    a:hover{color:#e6c7f0}
-    .container{max-width:1100px;margin:0 auto;padding:28px 20px 80px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#3b2b75);
-      box-shadow:0 12px 30px rgba(122,73,136,.35);
-    }
-    .brand strong{font-size:14px;letter-spacing:.3px}
-    .nav a{margin-left:14px;font-size:13px;color:var(--muted)}
-    .nav a:hover{color:var(--text)}
-
-    .project-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
-    }
-    .hero-copy{padding:24px 24px 18px}
-    .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);
-      padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.2)
-    }
-    h1{margin:14px 0 10px;font-size:34px;line-height:1.12}
-    .subtitle{color:var(--muted);font-size:15px;margin:0 0 16px}
-    .meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
-    .meta{padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.22)}
-    .meta .label{display:block;font-size:11px;color:var(--muted)}
-    .meta .value{font-size:13px;color:var(--text)}
-
-    .hero-media{overflow:hidden;position:relative}
-    .hero-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
-    .hero-media .cap{position:absolute;left:14px;right:14px;bottom:14px;padding:12px 14px;border-radius:14px;
-      background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)
-    }
-    .hero-media .cap strong{display:block;font-size:13px}
-    .hero-media .cap span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-
-    .section{margin-top:26px}
-    .section h2{font-size:20px;margin:0 0 12px}
-    .section p{margin:0 0 12px;color:var(--muted)}
-
-    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;
-      border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--muted);font-size:12px
-    }
-    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-
-    figure{margin:0}
-    .figure{padding:14px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(0,0,0,.18)}
-    .figure img{width:100%;height:auto;border-radius:14px;display:block}
-    .figure figcaption{margin-top:10px;font-size:12px;color:var(--muted)}
-
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .gallery .figure{grid-column:span 6}
-    .gallery .wide{grid-column:span 12}
-
-    .callout{padding:16px 16px;border-radius:var(--radius);border:1px solid rgba(177,124,192,.35);
-      background:linear-gradient(180deg, rgba(122,73,136,.22), rgba(0,0,0,.12));
-    }
-    .callout strong{display:block;margin-bottom:6px}
-
-    .table-wrap{overflow:auto;border-radius:var(--radius);border:1px solid var(--line);background:rgba(0,0,0,.16)}
-    table{width:100%;border-collapse:collapse;min-width:640px}
-    th,td{padding:12px 12px;border-bottom:1px solid var(--line);font-size:13px}
-    th{text-align:left;color:var(--text);background:rgba(255,255,255,.04)}
-    td{color:var(--muted)}
-    tr:last-child td{border-bottom:none}
-
-    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;
-      border:1px solid var(--line);background:rgba(0,0,0,.18);color:var(--text);font-size:13px
-    }
-    .btn.primary{background:linear-gradient(135deg,var(--accent),#3b2b75);border-color:rgba(255,255,255,.18)}
-    .btn:hover{transform:translateY(-1px)}
-
-    /* Voice assistant (kept) */
-    .voice-assistant{margin-top:38px}
-    .assistant-shell{display:grid;grid-template-columns:1fr 360px;gap:14px}
-    .assistant-card{padding:14px}
-    .assistant-title{font-size:14px;margin:0 0 8px}
-    .assistant-note{color:var(--muted);font-size:12px;margin:0 0 10px}
-    .assistant-controls{display:flex;flex-direction:column;gap:10px}
-    .holdWrap{display:flex;flex-direction:column;gap:8px}
-    .holdLabel{font-size:12px;color:var(--muted);user-select:none;-webkit-user-select:none}
-    .hold-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.16);
-      background:rgba(0,0,0,.18);color:var(--text);font-weight:600;cursor:pointer;
-      user-select:none;-webkit-user-select:none;touch-action:manipulation;
-    }
-    .hold-btn:active{transform:translateY(1px)}
-    .assistant-log{height:280px;overflow:auto;padding:12px;border-radius:14px;
-      border:1px solid var(--line);background:rgba(0,0,0,.18);font-size:13px;color:var(--muted)}
-    .msg{margin:0 0 10px}
-    .msg b{color:var(--text)}
-    @media (max-width: 980px){
-      .project-hero{grid-template-columns:1fr}
-      .assistant-shell{grid-template-columns:1fr}
-      .gallery .figure{grid-column:span 12}
-      table{min-width:520px}
-    }
+    .figure{margin:14px 0;}
+    .figure img{width:100%;height:auto;display:block;border-radius:16px;}
+    .figure figcaption{margin-top:8px;color:var(--muted,#9aa4b2);font-size:.95rem;line-height:1.45;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px;}
+    .gallery-grid figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);}
+    .gallery-grid img{width:100%;height:auto;display:block;}
+    .gallery-grid figcaption{padding:10px 12px;color:var(--muted,#9aa4b2);font-size:.9rem;line-height:1.35;}
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <strong>Amir Goli</strong>
-      </div>
-      <div class="nav">
-        <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
-        <a href="../portfolio.html">Portfolio</a>
-        <a href="../activities.html">Activities</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="../index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+
+        <nav class="nav" data-nav>
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../skills-honors.html">Skills &amp; Honors</a>
+          <a href="../publications.html">Publications</a>
+          <a href="index.html" aria-current="page">Projects</a>
+          <a href="../activities.html">Activities</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Mode: Dark</span>
+          </button>
+        </div>
       </div>
     </div>
+  </header>
 
-    <header class="project-hero">
+
+    <header class="main">
       <div class="card hero-copy">
         <span class="kicker">Serious game • Multimodal HCI • Rhino/Grasshopper</span>
         <h1>GaoDe</h1>
@@ -374,99 +287,6 @@
       </div>
     </section>
 
-    <section id="results" class="section">
-      <h2>User study and results (classroom deployment)</h2>
-      <p>
-        The tool was tested in an actual classroom setting (January 2020) with <b>41 first‑year architecture students</b>
-        in a mandatory design studio. A quantitative survey captured usability, motivation, and perceptions of learning support.
-      </p>
-
-      <div class="grid-2">
-        <div class="callout">
-          <strong>High acceptance</strong>
-          <ul class="list" style="margin:8px 0 0">
-            <li>80% liked using GaoDe as a learning tool.</li>
-            <li>80% wanted to use it more in academic learning.</li>
-            <li>75% found it useful for self‑assessment.</li>
-            <li>90% preferred physical interaction vs. traditional learning environments.</li>
-          </ul>
-        </div>
-        <div class="callout">
-          <strong>Top-rated aspects (1–5 Likert)</strong>
-          <p style="margin:0;color:var(--muted);font-size:13px">
-            Physical interaction, hand control, and perceived 3D perception support were among the strongest scores.
-            Speech commands scored slightly lower than hand-based interaction (still positive overall).
-          </p>
-        </div>
-      </div>
-
-      <div class="section" style="margin-top:16px">
-        <h2 style="font-size:16px;margin-bottom:10px">Survey snapshot</h2>
-
-        <div class="table-wrap" aria-label="Table 1: acceptance questions">
-          <table>
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th>Yes</th>
-                <th>No</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Did you like to use GaoDe tool as a learning tool?</td>
-                <td>80%</td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td>Would you like to use GaoDe tool more in your academic learning?</td>
-                <td>80%</td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td>Do you think it can be useful as a learning tool for self‑assessment and comparison in design?</td>
-                <td>75%</td>
-                <td>25%</td>
-              </tr>
-              <tr>
-                <td>Did you like to learn and use a learning tool with physical interaction rather than traditional educational environments?</td>
-                <td>90%</td>
-                <td>10%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="table-wrap" style="margin-top:12px" aria-label="Table 2: Likert means and SD">
-          <table>
-            <thead>
-              <tr>
-                <th>Aspect</th>
-                <th>Mean</th>
-                <th>SD</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Usability</td><td>4.15</td><td>0.89</td></tr>
-              <tr><td>Physical interaction</td><td>4.24</td><td>0.89</td></tr>
-              <tr><td>Control with hands</td><td>4.34</td><td>0.89</td></tr>
-              <tr><td>Speech command interaction</td><td>3.97</td><td>1.08</td></tr>
-              <tr><td>Increased motivation</td><td>4.13</td><td>0.95</td></tr>
-              <tr><td>User interface and representation</td><td>4.15</td><td>0.99</td></tr>
-              <tr><td>Real-time feedback</td><td>4.17</td><td>0.94</td></tr>
-              <tr><td>Increased perception</td><td>4.24</td><td>0.85</td></tr>
-              <tr><td>Overall</td><td>4.13</td><td>0.89</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p style="margin-top:12px;color:var(--muted)">
-          <b>Note:</b> The survey results above are summarized directly from the published evaluation.
-          For full methodology, instrument details, and discussion, see the paper.
-        </p>
-      </div>
-    </section>
-
     <section class="section">
       <h2>Publication</h2>
       <p>
@@ -478,82 +298,74 @@
       </div>
     </section>
 
-    <!-- Voice assistant section (kept from your template) -->
-    <section class="voice-assistant" id="voice-assistant">
-      <div class="assistant-shell">
-        <div class="card assistant-card">
-          <h3 class="assistant-title">Voice Assistant</h3>
-          <p class="assistant-note">
-            This widget can be embedded across pages. The page text can be sent as context so the assistant knows it is site content,
-            not the user’s question.
-          </p>
-          <div class="assistant-log" id="chatLog" aria-live="polite"></div>
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="../assets/avatar/model_Idle.glb"
+            camera-controls
+            disable-pan
+            camera-target="0m 1.45m 0m"
+            camera-orbit="0deg 75deg 2.05m"
+            min-camera-orbit="0deg 75deg 1.9m"
+            max-camera-orbit="0deg 75deg 2.2m"
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="../assets/avatar/model_Talk.glb"
+            camera-controls
+            disable-pan
+            camera-target="0m 1.45m 0m"
+            camera-orbit="0deg 75deg 2.05m"
+            min-camera-orbit="0deg 75deg 1.9m"
+            max-camera-orbit="0deg 75deg 2.2m"
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
         </div>
-        <div class="card assistant-card">
-          <h3 class="assistant-title">Talk to the page</h3>
-          <div class="assistant-controls">
-            <div class="holdWrap">
-              <div class="holdLabel">Hold to talk</div>
-              <button class="hold-btn" id="holdToTalk" type="button">🎙️ Press & hold</button>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <div class="voice-hold-wrap">
+              <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+              <button id="holdToTalk" class="btn voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+                <svg class="voice-hold-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
+                </svg>
+              </button>
             </div>
-            <button class="btn" id="stopTTS" type="button">⏹ Stop speaking</button>
-            <div class="assistant-note" id="status">Idle</div>
+            <div id="voiceStatus" class="voice-status">Ready</div>
           </div>
         </div>
       </div>
     </section>
 
-  </div>
+  </main>
 
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="index.html">Back to Projects</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
   <script>
-    // Minimal demo UI. Your production integration can replace this with your main widget script.
-    const log = document.getElementById('chatLog');
-    const statusEl = document.getElementById('status');
-    const holdBtn = document.getElementById('holdToTalk');
-    const stopTTS = document.getElementById('stopTTS');
-
-    function addMsg(role, text){
-      const p = document.createElement('p');
-      p.className = 'msg';
-      p.innerHTML = `<b>${role}:</b> ${text}`;
-      log.appendChild(p);
-      log.scrollTop = log.scrollHeight;
-    }
-
-    // Stubbed: replace with your /api/voice-chat pipeline.
-    let speaking = false;
-    function hardStopTTS(){
-      // If you use SpeechSynthesis, cancel it here.
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-      speaking = false;
-      statusEl.textContent = 'Idle';
-    }
-
-    stopTTS.addEventListener('click', hardStopTTS);
-
-    // Hold-to-talk (demo): we only show events; wire in your recorder.
-    const startHold = () => {
-      hardStopTTS();
-      statusEl.textContent = 'Listening…';
-      addMsg('System','Hold-to-talk started (demo).');
-    };
-    const endHold = () => {
-      statusEl.textContent = 'Processing…';
-      addMsg('System','Hold-to-talk ended (demo).');
-      // demo response
-      setTimeout(() => {
-        statusEl.textContent = 'Idle';
-        addMsg('Assistant','Ask me about GaoDe’s interaction design or the five games.');
-      }, 600);
-    };
-
-    // Pointer + touch
-    holdBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); startHold(); });
-    holdBtn.addEventListener('pointerup', (e) => { e.preventDefault(); endHold(); });
-    holdBtn.addEventListener('pointercancel', (e) => { e.preventDefault(); endHold(); });
-    holdBtn.addEventListener('pointerleave', (e) => { if (e.buttons) { e.preventDefault(); endHold(); } });
-
-    addMsg('Assistant','Hi! I can explain GaoDe’s multimodal workflow and how each game teaches a different design logic.');
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+
+  <script type="module" src="../assets/js/voice-avatar.js"></script>
 </body>
 </html>
