@@ -180,10 +180,15 @@ a:hover{color:var(--accent2);text-decoration:underline}
 .section li{margin:6px 0}
 
 .cards{
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
+  gap: 14px; /
 }
+
+.card-wide{
+  grid-column: 1 / -1; /
+}
+
 .card{
   border:1px solid var(--border);
   background:var(--card);
@@ -226,6 +231,11 @@ a:hover{color:var(--accent2);text-decoration:underline}
 .pub .title{font-weight:700}
 .pub .meta{color:var(--muted); font-size:14px; margin-top:6px}
 .pub .links{margin-top:8px; display:flex; gap:12px; flex-wrap:wrap}
+.meta{
+  opacity: 0.85;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
 
 .site-footer{
   border-top:1px solid var(--border);
