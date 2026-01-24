@@ -188,6 +188,21 @@ a:hover{color:var(--accent2);text-decoration:underline}
 .card-wide{
   grid-column: 1 / -1; /
 }
+/* Wide card variant */
+.card-wide1{
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:14px;
+  padding:1px 14px;
+  grid-column: 1 / -1;          /* spans full row in a grid layout */
+
+}
+
+@media (max-width: 720px){
+  .card-wide1{
+    grid-column: 1 / -1;
+  }
+}
 
 .card{
   border:1px solid var(--border);

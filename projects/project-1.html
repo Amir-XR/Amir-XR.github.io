@@ -4,11 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
-  <title>ARTH VR Learning Environment | Amir Goli</title>
-  <meta name="description" content="Adaptive Reuse Thinking for Housing: a VR learning environment for adaptive reuse design tasks." />
+  <title>ARTH | Adaptive Reuse Thinking for Housing (VR) | Amir Goli</title>
+  <meta name="description" content="GaoDe (Game of Design): an open-ended architectural design serious game built inside Rhino/Grasshopper that supports self-assessment and learning through multimodal interaction (Leap Motion gestures, machine vision, and offline speech commands)." />
+
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/voice-widget.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    .figure{margin:14px 0;}
+    .figure img{width:100%;height:auto;display:block;border-radius:16px;}
+    .figure figcaption{margin-top:8px;color:var(--muted);font-size:.95rem;line-height:1.45;}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px;}
+    .gallery-grid figure{margin:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.03);}
+    html[data-theme="light"] .gallery-grid figure{background:rgba(0,0,0,.02);}
+    .gallery-grid img{width:100%;height:auto;display:block;}
+    .gallery-grid figcaption{padding:10px 12px;color:var(--muted);font-size:.9rem;line-height:1.35;}
+
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .badge-row .badge{margin:0;}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -30,6 +46,7 @@
           <a href="activities.html">Activities</a>
           <a href="contact.html" aria-current="page">Contact</a>
         </nav>
+
         <div class="nav-controls">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
             <span data-theme-label>Mode: Dark</span>
@@ -41,57 +58,191 @@
 
 
   <main class="main">
-    <p class="kicker"><a href="index.html">Projects</a> / ARTH VR learning environment</p>
-    <h2 class="page-title">ARTH VR learning environment</h2>
+    <p class="kicker"><a href="index.html">Projects</a> / ARTH</p>
+    <h2 class="page-title">ARTH: Adaptive Reuse Thinking for Housing (VR Learning Environment)</h2>
 
-    <img class="hero-img" src="../assets/img/placeholder-wide.svg" alt="Project placeholder image" />
+    <img class="hero-img" src="../assets/img/arth-hero-montage.png" alt="ARTH montage: factory space, object placement validation, and 4E cognition framing" loading="lazy" />
 
     <div class="callout">
       <p class="kicker">Summary</p>
-      <p>A Unity-based VR learning environment where learners explore an old factory and develop adaptive reuse designs for housing, supported by interaction modes and a structured user study workflow.</p>
-      <p><span class="badge">VR</span> <span class="badge">Education</span> <span class="badge">Unity</span></p>
+      <p><strong>ARTH (Adaptive Reuse Thinking for Housing)</strong> is a Unity-based VR learning environment where learners transform an old factory/warehouse into a new interior program (e.g., office, living room, bedroom, or a full residential layout). The experience is structured as a hands-on adaptive reuse task: users clear existing industrial elements, then iteratively build and furnish a new layout using a <em>digital tablet tool</em>, <em>grid-assisted placement</em>, and three interaction modes (<strong>placing</strong>, <strong>demolition</strong>, and <strong>editing</strong>). Real-time “valid/invalid” feedback (green vs. red) encourages rapid iteration while keeping placements spatially plausible.</p>
+      <p class="muted">A preliminary user study with students from different backgrounds suggested the experience is usable and engaging—overall results were promising.</p>
+      <p><span class="badge">Unity</span> <span class="badge">VR</span> <span class="badge">XR Interaction</span> <span class="badge">Adaptive Reuse</span> <span class="badge">4E Cognition</span></p>
     </div>
 
-    <section class="section">
-      <h2>Overview</h2>
-      <p>This project focuses on turning an adaptive reuse design task into an immersive VR experience. The environment supports exploratory learning, design iteration, and data collection for usability and engagement analysis.</p>
+<section class="section">
+      <h2>Project at a glance</h2>
+      <div class="cards">
+        <article class="card-wide1">
+          <h3>Learning scenario</h3>
+          <ul>
+            <li><strong>Starting point:</strong> an industrial warehouse/factory filled with outdated elements.</li>
+            <li><strong>Goal:</strong> transform the space into a functional and stylish residential interior through iterative design decisions.</li>
+            <li><strong>Core activities:</strong> site exploration, selective removal, spatial planning, construction of partitions/ceilings, furnishing, and material selection.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>My role</h3>
+          <ul>
+			<li>Designed and implemented the VR experience flow, UI, and interaction logic</li>
+			<li>Led study deployment and data collection (setup, participant sessions, and instrumentation)</li>
+			<li>Synthesized findings and co-authored project manuscripts</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Tech stack</h3>
+          <ul>
+            <li><strong>Engine:</strong> Unity (C#)</li>
+            <li><strong>VR:</strong> XR Interaction Toolkit</li>
+            <li><strong>Interaction tools:</strong> virtual tablet library, laser pointer selection, physics-based constraints</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <h2>Demo video</h2>
+      <p class="muted">A short introduction that explains the goal: start with a blank shell (walls/floors/ceiling) and use the provided tools to create a new program; no limits, just exploration and iteration.</p>
+
+      <div class="video-wrap" aria-label="ARTH demo video">
+        <iframe
+          src="https://drive.google.com/file/d/1-a1VrK__LOlNVcse30K0oBG3ocFixkGo/preview"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          title="ARTH demo video">
+        </iframe>
+      </div>
     </section>
 
     <section class="section">
-      <h2>My role</h2>
-      <p>VR developer and researcher. Built interactions, content structure, and study-ready instrumentation for evaluation.</p>
+      <h2>Experience flow</h2>
+      <p>ARTH is structured as a complete, learn-by-doing adaptive reuse workflow, from understanding the existing conditions to testing and refining a new spatial proposal:</p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>1) Orient + read the site</h3>
+          <p class="muted">Start inside the original warehouse and explore the existing elements and structure before changing anything.</p>
+          <ul>
+            <li>Walk the space at full scale and identify constraints (columns, beams, openings).</li>
+            <li>Use exterior cues (e.g., surroundings and signage) to build spatial orientation.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>2) Clear what’s obsolete</h3>
+          <p class="muted">Switch to demolition mode to remove outdated industrial components while preserving primary structural elements.</p>
+          <ul>
+            <li>Remove non-structural partitions and machinery to reveal design opportunities.</li>
+            <li>Use removal as an explicit “adaptive reuse” decision: what stays vs. what goes.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>3) Build + furnish iteratively</h3>
+          <p class="muted">Use placing mode (tablet + ray selection) to create layouts, then editing mode to refine.</p>
+          <ul>
+            <li>Place walls/ceilings with grid assistance for cleaner alignment.</li>
+            <li>Place furniture with collision checks to prevent unrealistic intersections.</li>
+            <li>Adjust orientation and position through direct manipulation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2>Tablet interface + placement feedback</h2>
+      <p>The tablet UI is the “external workspace” inside VR: it reduces menu friction and keeps the learner focused on spatial reasoning rather than tool hunting. A grid system and constraint checks provide immediate feedback, supporting realistic decision-making.</p>
+	</section>
+	<section>
+      <div class="gallery-grid">
+
+        <figure>
+			<a href="../assets/img/arth-factory-overview.png" target="_blank" rel="noopener">
+			  <img src="../assets/img/arth-factory-overview.png" alt="Warehouse before/after: original industrial condition and cleared space with tablet interface" loading="lazy" />
+			</a>
+			<figcaption><strong>Before vs. after.</strong> The original warehouse condition (left) and the cleared design space with the tablet interface for selecting components and materials (right).</figcaption>
+        </figure>
+      </div>
+	</section>
+	<section>
+      <div class="gallery-grid">
+
+        <figure>
+          <a href="../assets/img/arth-placement-collision.png" target="_blank" rel="noopener">
+            <img src="../assets/img/arth-placement-collision.png" alt="Placement validation: invalid placement highlighted red, valid placement highlighted green, and final object placed" loading="lazy" />
+          </a>
+          <figcaption> <strong>Placement feedback:</strong> invalid placements highlight in red, valid placements highlight in green, then the object is committed to the scene.</figcaption>
+        </figure>
+      </div>
+	</section>
+	<section>
+	<div class="card-wide" style="margin-top:14px;"> <article class="card"> <h3>Grid + constraints (why it matters)</h3> <ul> <li><strong>Structural placement:</strong> grid guidance helps align walls and ceilings for cleaner spatial organization.</li> <li><strong>Conflict detection:</strong> green vs. red feedback reveals collisions and prevents unrealistic intersections.</li> <li><strong>Lightweight “structural logic”:</strong> ceilings can start above walls, but extending them requires additional supporting walls—encouraging planning and load-bearing awareness.</li> </ul> </article> </div>
+	</section>
+
+    <section class="section">
+      <h2>Learning design: 4E cognition as a blueprint</h2>
+      <p>ARTH is designed around the 4E cognition framing—treating learning as something that happens through the body, through action, inside context, and with the help of tools.</p>
+
+      <figure class="figure">
+        <a href="../assets/img/arth-4e-framework.png" target="_blank" rel="noopener">
+          <img src="../assets/img/arth-4e-framework.png" alt="4E cognition diagram: embodied, embedded, enacted, extended" loading="lazy" />
+        </a>
+        <figcaption>4E cognition framing used to guide experience design: <em>embodied</em> interaction, <em>embedded</em> context, <em>enacted</em> learning-by-doing, and <em>extended</em> tools that offload and support reasoning.</figcaption>
+      </figure>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Embodied</h3>
+          <ul>
+            <li>Full-scale navigation, reaching, pointing, grabbing, and spatial manipulation.</li>
+            <li>Physical engagement supports “thinking with the body” in layout decisions.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Embedded</h3>
+          <ul>
+            <li>Learning occurs inside a realistic industrial shell with constraints and contextual cues.</li>
+            <li>Adaptive reuse is framed as context-sensitive decision-making (site + structure + program).</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Enacted</h3>
+          <ul>
+            <li>Knowledge emerges through action: remove, place, test, revise, and iterate.</li>
+            <li>Immediate feedback makes consequences of decisions visible in real time.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Extended</h3>
+          <ul>
+            <li>The tablet UI and placement system act as external cognitive supports.</li>
+            <li>Tools reduce memory/coordination load, freeing attention for spatial reasoning.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="section">
-      <h2>Tools</h2>
+      <h2>Outcome</h2>
       <ul>
-        <li>Unity</li>
-        <li>C#</li>
-        <li>XR interaction patterns</li>
-        <li>Quest headset deployment</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Outcomes</h2>
-      <ul>
-        <li>VR prototype that supports an adaptive reuse scenario from initial exploration to design decisions</li>
-        <li>Reusable interaction patterns for placement, editing, and mode switching</li>
-        <li>Foundation for usability and engagement measurement</li>
+        <li>A VR prototype that supports an end-to-end adaptive reuse scenario: from exploration and demolition to building, furnishing, and refinement.</li>
+        <li>A reusable interaction toolkit for mode switching, tablet-based selection, grid-assisted placement, and constraint-driven feedback.</li>
+        <li>Study-ready deployment setup; early evaluation feedback was promising.</li>
       </ul>
     </section>
 
     <section class="section">
       <h2>Links</h2>
       <div class="card">
-        <p class="small">Add links to a paper, demo video, repository, or slide deck.</p>
         <ul>
-          <li><a href="../publications.html">Related paper</a></li>
+          <li><a href="https://drive.google.com/file/d/1-a1VrK__LOlNVcse30K0oBG3ocFixkGo/view" target="_blank" rel="noopener">Demo video (Google Drive)</a></li>
+          <li><a href="../publications.html">Related writing / publications</a></li>
           <li><a href="index.html">Back to Projects</a></li>
         </ul>
       </div>
     </section>
-  
+
     <section class="section" id="talk">
       <h2>Talk with my AI assistant</h2>
       <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
