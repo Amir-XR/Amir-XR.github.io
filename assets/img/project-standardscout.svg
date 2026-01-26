@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" style="color:#7A4988">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="currentColor" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="currentColor" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Blueprint card -->
+  <rect x="70" y="70" width="820" height="460" rx="28" fill="url(#g)" stroke="currentColor" stroke-width="10"/>
+
+  <!-- Title strip -->
+  <rect x="110" y="110" width="520" height="56" rx="14" fill="none" stroke="currentColor" stroke-width="8"/>
+  <path d="M140 138h90M250 138h110M390 138h110" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Code lines -->
+  <path d="M120 210h470M120 255h520M120 300h420M120 345h500M120 390h360"
+        fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.85"/>
+
+  <!-- Section label -->
+  <rect x="120" y="430" width="220" height="60" rx="16" fill="none" stroke="currentColor" stroke-width="8"/>
+  <path d="M150 462h60M230 462h80" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Magnifier + target -->
+  <circle cx="710" cy="305" r="92" fill="none" stroke="currentColor" stroke-width="10"/>
+  <circle cx="710" cy="305" r="28" fill="none" stroke="currentColor" stroke-width="8" stroke-opacity="0.8"/>
+  <path d="M710 255v30M710 325v30M660 305h30M730 305h30"
+        fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.8"/>
+  <path d="M780 375l82 82" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Tiny 'ADA' tag -->
+  <rect x="660" y="150" width="110" height="56" rx="14" fill="none" stroke="currentColor" stroke-width="8"/>
+  <path d="M690 178h50M690 196h60" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+</svg>
