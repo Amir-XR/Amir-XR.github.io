@@ -309,18 +309,30 @@ Related sources:
       <h2>Demo on this page</h2>
       <p class="muted">If you deploy StandardScout as a web app (for example, on a subdomain), you can embed the demo here. Replace the <code>src</code> URL with your deployed app URL.</p>
 
-      <div class="iframe-wrap">
-        <!-- Example: src="https://your-domain.com/standardscout" -->
-		<iframe
-		  title="StandardScout demo (embedded)"
-		  src="https://amir-xr-standardscout.hf.space"
-		  loading="lazy"
-		  allow="microphone; clipboard-write"
-		  style="width:100%; height:560px; border:0;"
-		></iframe>
+		<div class="hf-embed-ratio">
+		  <iframe
+			title="StandardScout demo (embedded)"
+			src="https://amir-xr-standardscout.hf.space"
+			loading="lazy"
+			allow="microphone; clipboard-write"
+		  ></iframe>
+		</div>
 
+		<style>
+		  .hf-embed-ratio{
+			width: min(1100px, 100%);
+			margin: 0 auto;
+			aspect-ratio: 16 / 9;      /* <-- change ratio here */
+		  }
+		  .hf-embed-ratio iframe{
+			width: 100%;
+			height: 100%;
+			border: 0;
+			display: block;
+			border-radius: 14px;
+		  }
+		</style>
 
-      </div>
 
       <div class="card" style="margin-top:14px;">
         <h3>Suggested deployment options</h3>
