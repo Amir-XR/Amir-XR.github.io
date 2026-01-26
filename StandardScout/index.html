@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StandardScout | Amir Goli</title>
+  <meta name="description" content="StandardScout — RAG-based building-code assistant with local standards, optional PDF upload, and web search, plus blueprint-style technical diagrams." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/voice-widget.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="../index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+          <a href="../index.html">Home</a>
+          <a href="../publications.html">Publications</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../activities.html">Activities</a>
+          <a href="../contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Mode: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="breadcrumb">
+      <a href="../projects/index.html">Projects</a>
+      <span aria-hidden="true">›</span>
+      <span>StandardScout</span>
+    </div>
+
+    <h2 class="page-title">StandardScout</h2>
+
+    <section class="hero">
+      <div>
+        <p class="kicker">RAG-Based Building Code Assistant</p>
+        <p class="lead">
+          StandardScout is an online building-code copilot powered by LLMs. It combines a local RAG knowledge base for
+          ADA, ABA, and GSA P-100 with optional PDF upload and web search, so users can turn sources on or off as needed.
+        </p>
+
+        <div class="statbar" aria-label="Quick actions">
+          <a class="btn" href="#live">Live demo</a>
+          <a class="btn btn-ghost" href="../projects/index.html">Back to Projects</a>
+        </div>
+
+        <p class="small muted" style="margin-top:10px;">
+          Two interaction modes (Text and Conversational) share the same reasoning pipeline — the difference is UI-only.
+          Each answer also generates a minimal “blueprint-style” technical diagram to make requirements easier to verify.
+        </p>
+      </div>
+
+      <figure class="figure" style="margin:0;">
+        <a href="../assets/img/standardscout-workflow.svg" target="_blank" rel="noopener">
+          <img src="../assets/img/standardscout-workflow.svg" alt="StandardScout orchestration workflow diagram" loading="lazy" />
+        </a>
+        <figcaption><strong>System overview.</strong> Query rewrite → multi-source retrieval → rerank → grounded answer with citations → technical diagram generation.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>What it solves</h2>
+      <p>
+        Building-code documents are long, cross-referenced, and often require jumping between sections to confirm a single
+        dimension or exception. StandardScout is designed to speed up exploration without “making up” rules:
+        it responds only when the requested value is explicitly present in the retrieved sources and otherwise reports
+        “Not found in retrieved sources.”
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>For quick verification</h3>
+          <p class="small">Ask a targeted question, get a one-paragraph answer, and see exactly which sources were used.</p>
+        </div>
+        <div class="card">
+          <h3>For learning (not overreliance)</h3>
+          <p class="small">A friendly, citation-first style encourages users to confirm requirements in the original documents.</p>
+        </div>
+        <div class="card">
+          <h3>For real projects</h3>
+          <p class="small">Turn local RAG, uploads, and web search on/off depending on what a project needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core features</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Selectable sources per question</h3>
+          <p class="small">
+            Toggle any combination of: local RAG (ADA/ABA/GSA P-100), uploaded PDFs (session indexing), and web search.
+            Results are merged, deduplicated, and reranked before answer generation.
+          </p>
+          <span class="badge">Local • Upload • Web</span>
+        </div>
+
+        <div class="card">
+          <h3>Dual interaction modes</h3>
+          <p class="small">
+            Text-based mode for direct Q&amp;A and a Conversational mode for a more dialogue-like flow.
+            Both modes use the same retrieval + grounding logic.
+          </p>
+          <span class="badge">Text • Conversational</span>
+        </div>
+
+        <div class="card">
+          <h3>Citation-backed output</h3>
+          <p class="small">
+            Answers are formatted with explicit references to the retrieved chunks so it’s easy to trace the basis for each claim.
+          </p>
+          <span class="badge">Grounded • Traceable</span>
+        </div>
+
+        <div class="card">
+          <h3>Automatic technical diagram</h3>
+          <p class="small">
+            Every response also produces a minimal technical diagram (plan/section/elevation) that includes only
+            dimensions explicitly stated in the answer.
+          </p>
+          <span class="badge">Diagram • Blueprint</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Interface</h2>
+      <p>
+        The current prototype uses a Gradio UI in Colab, with a clean “mode + sources + question” layout.
+        Upload indexing is optional and stores a vector-store handle per session for retrieval.
+      </p>
+
+      <figure class="figure">
+        <a href="../assets/img/standardscout-ui-wireframe.svg" target="_blank" rel="noopener">
+          <img src="../assets/img/standardscout-ui-wireframe.svg" alt="Wireframe of the StandardScout Gradio interface" loading="lazy" />
+        </a>
+        <figcaption><strong>UI wireframe.</strong> Mode selection, source toggles, optional PDF upload, model controls, grounded response, and always-on image output.</figcaption>
+      </figure>
+
+      <figure class="figure">
+        <a href="../assets/img/standardscout-sources.svg" target="_blank" rel="noopener">
+          <img src="../assets/img/standardscout-sources.svg" alt="Diagram showing the three retrieval sources: local RAG, upload PDF, and web search" loading="lazy" />
+        </a>
+        <figcaption><strong>Retrieval layers.</strong> Local Chroma DB, OpenAI Vector Store for uploads, and Google Custom Search for web snippets.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>How the pipeline works</h2>
+      <p class="muted">A lightweight “orchestra” orchestrator routes a single question through a consistent set of steps:</p>
+
+      <div class="callout">
+        <ol class="small">
+          <li><strong>Rewrite</strong> the question (optional) to improve retrieval.</li>
+          <li><strong>Retrieve</strong> from enabled layers (local / upload / web).</li>
+          <li><strong>Deduplicate</strong> + normalize chunks.</li>
+          <li><strong>Rerank</strong> with an LLM and keep top results.</li>
+          <li><strong>Generate</strong> a single-paragraph answer grounded only in retrieved chunks.</li>
+          <li><strong>Format references</strong> so users can trace the basis for each statement.</li>
+          <li><strong>Generate an image prompt</strong> and render a minimal technical diagram (square, white background, line art).</li>
+        </ol>
+      </div>
+
+      <p class="small muted">
+        The grounding rule is strict: if a dimension/threshold/exception is not explicitly present in retrieved chunks,
+        the assistant reports it as not found rather than guessing.
+      </p>
+    </section>
+
+    <section class="section" id="live">
+      <h2>Live demo on amirgoli.com/StandardScout (Option A)</h2>
+      <p>
+        This page lives at <strong>/StandardScout</strong> as a normal project page. The interactive Gradio app can be hosted
+        separately (e.g., Hugging Face Spaces) and embedded here. Hugging Face supports embedding Spaces on external sites and also
+        supports custom domains for Spaces (on eligible plans).
+      </p>
+
+      <div class="callout">
+        <p class="kicker">Embed placeholder</p>
+        <p class="small">
+          Replace <code>YOUR_SPACE_URL</code> with your deployed app URL (for example, a <code>*.hf.space</code> Space URL).
+        </p>
+        <div style="border:1px solid var(--stroke); border-radius: var(--radius); overflow:hidden; background: rgba(255,255,255,0.02);">
+          <iframe
+            title="StandardScout live demo"
+            src="https://huggingface.co/spaces/Amir-XR/StandardScout"
+            style="width:100%; height: 640px; border:0;"
+            loading="lazy"
+            allow="microphone; clipboard-read; clipboard-write"
+            referrerpolicy="no-referrer">
+          </iframe>
+        </div>
+        <p class="small muted" style="margin-top:10px;">
+          Tip: If you prefer the app to have its own branded URL, Spaces can be mapped to a custom domain via CNAME/ALIAS to <code>hf.space</code> (plan-dependent).
+        </p>
+      </div>
+
+      <p class="small muted">
+        If you only want a clean redirect (instead of an embedded app), Cloudflare Pages supports redirects via an
+        <code>_redirects</code> file, and Cloudflare also supports URL forwarding via rules.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Tech stack</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Retrieval</h3>
+          <p class="small">Chroma (local), OpenAI Vector Store for uploads, and Google Custom Search for web snippets.</p>
+        </div>
+        <div class="card">
+          <h3>Reasoning</h3>
+          <p class="small">Orchestrator with optional query rewrite, LLM reranking, and a strict “no invention” grounding rule.</p>
+        </div>
+        <div class="card">
+          <h3>UI</h3>
+          <p class="small">Gradio interface (prototype) — designed to be embedded inside this project page when hosted.</p>
+        </div>
+        <div class="card">
+          <h3>Visualization</h3>
+          <p class="small">Auto-generated minimal technical diagrams from each Q&amp;A (prompted from the grounded answer).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Status</h2>
+      <p>
+        Current version: functional prototype (local RAG + optional upload + optional web search), with citation-backed answers and
+        per-answer diagram generation. Early evaluations were promising.
+      </p>
+    </section>
+
+    <!-- Keep the site-wide avatar/voice assistant feature at the end (requested). -->
+    <section class="section" id="talk">
+      <h2>Talk with my AI assistant</h2>
+      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
+
+      <div class="voice-widget">
+        <div class="voice-avatar-wrap" aria-label="3D avatar">
+          <model-viewer
+            id="avatarIdle"
+            src="../assets/avatar/model_Idle.glb"
+            camera-controls
+            disable-pan
+            camera-target="0m 1.45m 0m"
+            camera-orbit="0deg 75deg 2.05m"
+            min-camera-orbit="0deg 75deg 1.9m"
+            max-camera-orbit="0deg 75deg 2.2m"
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+
+          <model-viewer
+            id="avatarTalk"
+            class="voice-hidden"
+            src="../assets/avatar/model_Talk.glb"
+            camera-controls
+            disable-pan
+            camera-target="0m 1.45m 0m"
+            camera-orbit="0deg 75deg 2.05m"
+            min-camera-orbit="0deg 75deg 1.9m"
+            max-camera-orbit="0deg 75deg 2.2m"
+            autoplay
+            exposure="1"
+            shadow-intensity="0">
+          </model-viewer>
+        </div>
+
+        <div class="voice-panel">
+          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+
+          <div class="voice-controls">
+            <div class="voice-hold-wrap">
+              <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+              <button id="holdToTalk" class="btn voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+                <svg class="voice-hold-icon" width="40" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
+                </svg>
+              </button>
+            </div>
+            <div id="voiceStatus" class="voice-status">Ready</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="../projects/index.html">Projects</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="../assets/js/voice-avatar.js"></script>
+</body>
+</html>

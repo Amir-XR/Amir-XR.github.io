@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+<rect x="0" y="0" width="100%" height="100%" fill="white"/>
+<defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.10"/></filter></defs>
+<text x="700.0" y="68" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="40" fill="#111">StandardScout UI (Gradio)</text>
+<text x="700.0" y="104" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="18" fill="#444">Text mode + Conversational mode, selectable retrieval sources, and “always-on” technical diagram output</text>
+<rect x="70" y="150" width="1260" height="600" rx="22" fill="#fff" stroke="#222" stroke-width="2" filter="url(#shadow)"/>
+<rect x="88" y="168" width="1224" height="70" rx="14" fill="#7A4999" opacity="0.06" stroke="#7A4999" stroke-width="1.5"/>
+<text x="106" y="210" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="18" fill="#222"># StandardScout — RAG-Based Building Code Assistant</text>
+<rect x="88" y="256" width="504" height="476" rx="18" fill="#fff" stroke="#D0D0D0" stroke-width="1.5"/>
+<text x="110" y="300" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="16" fill="#111">1) Mode</text>
+<rect x="106" y="312" width="468" height="78" rx="12" fill="#F7F7F8" stroke="#E0E0E0" stroke-width="1"/>
+<text x="124" y="352" font-family="system-ui" font-size="13" fill="#444">◉ Text-based mode   ○ Conversational mode</text>
+<text x="110" y="415" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="16" fill="#111">2) Retrieval sources</text>
+<rect x="106" y="427" width="468" height="94" rx="12" fill="#F7F7F8" stroke="#E0E0E0" stroke-width="1"/>
+<text x="124" y="465" font-family="system-ui" font-size="13" fill="#444">☑ Local RAG   ☐ Upload PDF   ☐ Web search</text>
+<text x="110" y="545" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="16" fill="#111">Upload PDF (session-only)</text>
+<rect x="106" y="557" width="468" height="130" rx="12" fill="#F7F7F8" stroke="#E0E0E0" stroke-width="1"/>
+<text x="124" y="599" font-family="system-ui" font-size="13" fill="#444">[ Choose file ]   Index uploaded PDF</text>
+<text x="124" y="631" font-family="system-ui" font-size="12.5" fill="#666">Status: (No file indexed yet.)</text>
+<text x="110" y="715" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="16" fill="#111">Model controls</text>
+<rect x="106" y="727" width="468" height="160" rx="12" fill="#F7F7F8" stroke="#E0E0E0" stroke-width="1"/>
+<text x="124" y="773" font-family="system-ui" font-size="13" fill="#444">Model: gpt-4.1-mini (or fine-tuned)</text>
+<text x="124" y="803" font-family="system-ui" font-size="13" fill="#444">Temperature: 0.1  [ slider ]</text>
+<rect x="614" y="256" width="734" height="476" rx="18" fill="#fff" stroke="#D0D0D0" stroke-width="1.5"/>
+<text x="636" y="290" font-family="system-ui" font-size="16" fill="#111">Question</text>
+<rect x="632" y="302" width="698" height="94" rx="12" fill="#F7F7F8" stroke="#E0E0E0" stroke-width="1"/>
+<text x="650" y="342" font-family="system-ui" font-size="13" fill="#666">Ask a design/code question…</text>
+<rect x="632" y="410" width="120" height="34" rx="10" fill="#7A4999" opacity="0.14" stroke="#7A4999" stroke-width="1.5"/>
+<text x="692.0" y="433" text-anchor="middle" font-family="system-ui" font-size="13" fill="#7A4999">Run</text>
+<text x="636" y="486" font-family="system-ui" font-size="16" fill="#111">Response (grounded + cited)</text>
+<rect x="632" y="498" width="698" height="220" rx="12" fill="#F7F7F8" stroke="#E0E0E0" stroke-width="1"/>
+<text x="650" y="536" font-family="system-ui" font-size="13" fill="#666">*\start of specking\* ... References: ...</text>
+<text x="636" y="762" font-family="system-ui" font-size="16" fill="#111">Generated technical image (always ON)</text>
+<rect x="632" y="774" width="698" height="-40" rx="12" fill="white" stroke="#E0E0E0" stroke-width="1.5"/>
+<rect x="654" y="796" width="654" height="-84" rx="10" fill="#7A4999" opacity="0.04" stroke="#C8C8C8" stroke-dasharray="6 6" stroke-width="1.2"/>
+<line x1="694" y1="754.0" x2="1268" y2="754.0" stroke="#333" stroke-width="2"/>
+<line x1="981.0" y1="836" x2="981.0" y2="672" stroke="#333" stroke-width="2"/>
+<text x="981.0" y="826" text-anchor="middle" font-family="system-ui" font-size="12" fill="#666">plan / section / elevation</text>
+<text x="700.0" y="780" text-anchor="middle" font-family="system-ui" font-size="15" fill="#555">UI shown as a simplified wireframe based on the Gradio layout in the Colab prototype.</text>
+</svg>
