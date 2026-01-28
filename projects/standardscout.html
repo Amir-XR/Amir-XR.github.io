@@ -64,10 +64,10 @@
 </head>
 
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="header-inner">
       <h1 class="site-title"><a class="site-title-link" href="../index.html">Amir Goli</a></h1>
-      <p class="site-tagline">PhD Student, Architectural &amp; Building Technology | University of Kansas</p>
+      <p class="site-tagline">PhD Researcher | Conversational AI × VR | University of Kansas</p>
     </div>
     <div class="nav-wrap">
       <div class="nav-inner">
@@ -75,17 +75,14 @@
           <span aria-hidden="true">☰</span>
           Menu
         </button>
-
         <nav class="nav" data-nav>
           <a href="../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../skills-honors.html">Skills &amp; Honors</a>
           <a href="../publications.html">Publications</a>
           <a href="index.html" aria-current="page">Projects</a>
           <a href="../activities.html">Activities</a>
           <a href="../contact.html">Contact</a>
+		  <a href="../standardscout.html">StandardScout</a>
         </nav>
-
         <div class="nav-controls">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
             <span data-theme-label>Mode: Dark</span>
@@ -106,11 +103,10 @@
     <div class="callout">
       <p class="kicker">Summary</p>
       <p><strong>StandardScout</strong> is an online building-code copilot powered by LLMs. It combines a local RAG knowledge base for <strong>ADA</strong>, <strong>ABA</strong>, and <strong>GSA P-100</strong> with optional <strong>PDF upload</strong> and <strong>web search</strong>, allowing users to enable one source or combine multiple sources depending on the task. Uploaded PDFs are stored only temporarily for the active session.</p>
-      <p>StandardScout supports <strong>Text</strong> and <strong>Conversational</strong> modes, with no functional difference beyond the UI. Each Q&amp;A generates a simple <strong>blueprint-style technical diagram</strong> and returns friendly, citation-backed answers designed to support understanding without encouraging overreliance or overtrust.</p>
+      <p>StandardScout supports <strong>Text</strong> and <strong>Conversational</strong> modes. Each Q&amp;A generates a simple <strong>blueprint-style technical diagram</strong> and returns friendly, citation-backed answers designed to support understanding.</p>
       <p>
         <span class="badge">RAG (local + optional web)</span>
         <span class="badge">ADA + ABA + GSA P-100</span>
-        <span class="badge">Session-only PDF uploads</span>
         <span class="badge">Text + Conversational UI</span>
         <span class="badge">Blueprint diagram generation</span>
         <span class="badge">Fine-tuned response tone</span>
@@ -137,17 +133,7 @@
             <li>Optional user PDF upload for project-specific documents</li>
             <li>Optional web search to bring in public references when needed</li>
             <li>Two UI modes (Text and Conversational) with identical logic</li>
-            <li>Always-on blueprint-style diagram generation per Q&amp;A</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Key design principles</h3>
-          <ul>
-            <li><strong>Source control:</strong> users can toggle retrieval layers on or off</li>
-            <li><strong>Traceability:</strong> answers include citations to the source sections</li>
-            <li><strong>Calibrated help:</strong> responses encourage understanding, not automation bias</li>
-            <li><strong>Privacy:</strong> uploaded PDFs are stored only for the session</li>
+            <li>A blueprint-style diagram generation per Q&amp;A</li>
           </ul>
         </article>
 
@@ -158,156 +144,38 @@
             <li><strong>Retrieval:</strong> local RAG for standard documents</li>
             <li><strong>Training:</strong> fine-tuning and QLoRA workflow for style control</li>
             <li><strong>Output:</strong> blueprint-like vector diagram generation</li>
+			<li><strong>Privacy:</strong> uploaded PDFs are stored only for the session</li>
           </ul>
         </article>
       </div>
     </section>
+
+
 
     <section class="section">
       <h2>How it works</h2>
       <p>StandardScout is built around a source-aware workflow. Users decide which evidence streams are active, and the assistant returns an answer that is tied to the activated sources.</p>
 
-      <div class="cards">
-        <article class="card">
-          <h3>Local RAG (always available)</h3>
-          <ul>
-            <li>ADA, ABA, and GSA P-100 content indexed for retrieval</li>
-            <li>Section-level citations returned with each answer</li>
-            <li>Designed for fast, repeatable lookups of common requirements</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Session-only PDF upload (optional)</h3>
-          <ul>
-            <li>Users can upload their own code PDFs or project references</li>
-            <li>Files are stored temporarily for the current session only</li>
-            <li>Useful for local amendments, addenda, or internal documents</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Web search (optional)</h3>
-          <ul>
-            <li>Pulls relevant public sources when local references are not enough</li>
-            <li>Helps cross-check interpretations with official pages</li>
-            <li>Kept optional so users control external dependency</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Answer + diagram generation</h3>
-          <ul>
-            <li>Friendly, structured responses with citations</li>
-            <li>One or two follow-up questions to guide next steps</li>
-            <li>Blueprint-style diagram generated from the Q&amp;A for quick visual grounding</li>
-          </ul>
-        </article>
-      </div>
 
       <figure class="figure">
-        <a href="../assets/img/standardscout-architecture.png" target="_blank" rel="noopener">
-          <img src="../assets/img/standardscout-architecture.png" alt="System diagram showing local RAG, optional PDF upload, optional web search, answer generation, citations, and blueprint diagram output" loading="lazy" />
-        </a>
+		<a href="../assets/img/standardscout-architecture.png" target="_blank" rel="noopener">
+		  <img
+			src="../assets/img/standardscout-architecture.png"
+			alt="System diagram showing local RAG, optional PDF upload, optional web search, answer generation, citations, and blueprint diagram output"
+			loading="lazy"
+			style="display:block; margin:0 auto; width:auto; max-width:100%; height:1024px;"
+		  />
+		</a>
+
+
         <figcaption>System overview: local standards retrieval plus optional user documents and web search, followed by citation-backed answers and blueprint-style diagrams.</figcaption>
       </figure>
     </section>
 
-    <section class="section">
-      <h2>Interaction modes</h2>
-      <div class="split">
-        <article class="card">
-          <h3>Text mode</h3>
-          <p class="muted">A compact Q&amp;A interface optimized for quick lookups, skimming citations, and copying requirements into notes.</p>
-          <ul>
-            <li>Same retrieval and generation logic as Conversational mode</li>
-            <li>Emphasis on concise structure and section references</li>
-            <li>Useful for checklist-style tasks and verification</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Conversational mode</h3>
-          <p class="muted">A chat UI for iterative clarification, follow-up questions, and progressive refinement of code decisions.</p>
-          <ul>
-            <li>No functional change beyond UI layout</li>
-            <li>Supports multi-step reasoning and design trade-off discussion</li>
-            <li>Designed to keep users in control of the decision process</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="gallery-grid">
-        <figure>
-          <a href="../assets/img/standardscout-text-mode.png" target="_blank" rel="noopener">
-            <img src="../assets/img/standardscout-text-mode.png" alt="Text mode UI showing a question, answer, citations, and generated diagram" loading="lazy" />
-          </a>
-          <figcaption>Text mode: fast lookup with citations and an auto-generated diagram.</figcaption>
-        </figure>
-        <figure>
-          <a href="../assets/img/standardscout-chat-mode.png" target="_blank" rel="noopener">
-            <img src="../assets/img/standardscout-chat-mode.png" alt="Conversational mode UI showing multi-turn chat with citations and diagram generation" loading="lazy" />
-          </a>
-          <figcaption>Conversational mode: multi-turn clarification with identical logic, presented as chat.</figcaption>
-        </figure>
-      </div>
-    </section>
 
     <section class="section">
-      <h2>Blueprint-style technical diagrams</h2>
-      <p>StandardScout generates a simple technical visual for each Q&amp;A. The style is intentionally minimal, similar to an architectural or engineering manual, using clean vector and blueprint-like linework.</p>
-
-      <div class="cards">
-        <article class="card">
-          <h3>Why diagrams help</h3>
-          <ul>
-            <li>Turns abstract constraints into a quick spatial cue</li>
-            <li>Improves recall and reduces misinterpretation of text-only rules</li>
-            <li>Supports discussion in studio critique and design review settings</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Visual constraints</h3>
-          <ul>
-            <li>Simple linework, labels, and proportions</li>
-            <li>No photorealism, no decorative textures</li>
-            <li>Intended for explanation, not construction documents</li>
-          </ul>
-        </article>
-      </div>
-
-      <figure class="figure">
-        <a href="../assets/img/standardscout-diagram-samples.png" target="_blank" rel="noopener">
-          <img src="../assets/img/standardscout-diagram-samples.png" alt="Example blueprint-style diagrams generated from questions and answers" loading="lazy" />
-        </a>
-        <figcaption>Diagram examples: blueprint-style visuals generated from the Q&amp;A to complement citations and reduce ambiguity.</figcaption>
-      </figure>
-    </section>
-
-    <section class="section">
-      <h2>Tone tuning and response format</h2>
-      <p>I fine-tuned a frontier model (OpenAI GPT-4.1 mini) to keep responses friendly, structured, and consistent. Each answer is designed to be useful in practice while keeping the user oriented to the source sections.</p>
-
-      <div class="codeblock" aria-label="Example response format">
-<pre>*start of speaking*
-The best slope for a wheelchair ramp in a school, according to ADA standards, is a running slope not steeper than 1:12. This means for every inch of vertical rise, there should be at least 12 inches of ramp run. In existing buildings where space is limited, slopes steeper than 1:12 are allowed but must not exceed 1:8, with specific maximum rises depending on the slope. For example, a slope steeper than 1:10 but not steeper than 1:8 can have a maximum rise of 3 inches. To accommodate the widest range of users, ramps should have the least possible running slope.
-
-Do you want to know about the required width or handrail specifications for these ramps? Also, are you interested in slope requirements for other accessible route components like walking surfaces?
-*end of speaking*
-
-Related sources:
-- ADA:405.2 (Ramps) https://www.ada.gov/law-and-regs/design-standards/2010-stds/#405-ramps
-- ADA:405.1 (Ramps) https://www.ada.gov/law-and-regs/design-standards/2010-stds/#405-ramps
-- ADA:402.2 (Accessible routes) https://www.ada.gov/law-and-regs/design-standards/2010-stds/#402-accessible--routes</pre>
-      </div>
-
-      <p class="small">Note: StandardScout is designed to support learning and decision-making. It surfaces citations and encourages verification to reduce automation bias.</p>
-    </section>
-
-    <section class="section">
-      <h2>Demo on this page</h2>
-      <p class="muted">If you deploy StandardScout as a web app (for example, on a subdomain), you can embed the demo here. Replace the <code>src</code> URL with your deployed app URL.</p>
+      <h1>Demo</h1>
+      <p class="muted">Try StandardScout below and explore the source toggles and response citations.</p>
 
 	<section class="embed-breakout">
 	  <iframe
@@ -333,16 +201,6 @@ Related sources:
 	  }
 	</style>
 
-
-
-      <div class="card" style="margin-top:14px;">
-        <h3>Suggested deployment options</h3>
-        <ul>
-          <li>Host a public demo with limited rate and clear disclaimers</li>
-          <li>Keep PDF uploads session-only and avoid persistent storage</li>
-          <li>Expose toggles so users can control source selection</li>
-        </ul>
-      </div>
     </section>
 
     <section class="section">
@@ -350,7 +208,7 @@ Related sources:
       <div class="card">
         <ul>
           <li><a href="index.html">Back to Projects</a></li>
-          <li><a href="../contact.html">Contact me</a> if you want to try the demo or discuss deployment</li>
+          <li><a href="https://huggingface.co/spaces/Amir-XR/StandardScout">Hugging Face</a></li>
         </ul>
       </div>
     </section>
