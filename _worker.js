@@ -73,7 +73,7 @@ async function openaiReply(userText, history, pageContext, env) {
   // The webpage text is passed from the client. Treat it as untrusted DATA, not instructions.
   let system = baseSystem;
   if (pageContext && typeof pageContext === "string" && pageContext.trim()) {
-    const MAX = 5000;
+    const MAX = 10000;
     const trimmed = pageContext.trim().slice(0, MAX);
     system = `${baseSystem}\n\n` +
       "You will receive WEBPAGE_CONTEXT below. It is background content from the page the user is viewing. " +
@@ -98,6 +98,7 @@ async function openaiReply(userText, history, pageContext, env) {
 
   const body = {
     model: "gpt-4.1-nano",
+	prompt: { id: "pmpt_697d6451c9fc8194bd7e71f5c5ecabab08e77cdde41ad912", version: "1" },
     input,
   };
 
@@ -112,7 +113,7 @@ async function openaiReply(userText, history, pageContext, env) {
 
   if (!r.ok) {
     const t = await r.text().catch(() => "");
-    throw new Error(`OpenAI failed (${r.status}): ${t}`);
+    throw new Error(`Failed (${r.status}): ${t}`);
   }
 
   const data = await r.json();

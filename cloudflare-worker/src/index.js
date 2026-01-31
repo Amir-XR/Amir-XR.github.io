@@ -77,6 +77,7 @@ async function openaiReply(userText, env) {
       { role: "system", content: system },
       { role: "user", content: userText },
     ],
+	prompt: { id: "pmpt_697d6451c9fc8194bd7e71f5c5ecabab08e77cdde41ad912", version: "1" },
   };
 
   const r = await fetch(url, {
