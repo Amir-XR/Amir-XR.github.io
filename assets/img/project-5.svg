@@ -1,17 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" style="color:#7A4988">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7A4988" stop-opacity="0.38"/>
-      <stop offset="100%" stop-color="#7A4988" stop-opacity="0.12"/>
+      <stop offset="0" stop-color="currentColor" stop-opacity="0.11"/>
+      <stop offset="1" stop-color="currentColor" stop-opacity="0.03"/>
     </linearGradient>
+
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="currentColor" stroke-opacity="0.18" stroke-width="2"/>
+    </pattern>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="currentColor" opacity="0.65"/>
+    </marker>
   </defs>
-  <rect x="0" y="0" width="800" height="450" rx="24" fill="url(#g)"/>
-  <rect x="34" y="34" width="732" height="382" rx="20" fill="none" stroke="#7A4988" stroke-width="4" opacity="0.9"/>
-  <circle cx="120" cy="112" r="22" fill="#7A4988" opacity="0.9"/>
-  <circle cx="190" cy="112" r="12" fill="#7A4988" opacity="0.6"/>
-  <circle cx="240" cy="112" r="8" fill="#7A4988" opacity="0.45"/>
-  <text x="60" y="230" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="44" font-weight="700" fill="#7A4988">Project</text>
-  <text x="60" y="285" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="92" font-weight="800" fill="#7A4988" opacity="0.95">#</text>
-  <text x="120" y="285" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="92" font-weight="800" fill="#7A4988" opacity="0.95">5</text>
-  <text x="60" y="350" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="#4F2C57" opacity="0.9">Replace this image with a screenshot or diagram</text>
+
+  <!-- Blueprint card -->
+  <rect x="70" y="70" width="820" height="460" rx="28" fill="url(#g)" stroke="currentColor" stroke-width="10"/>
+
+  <!-- Title strip -->
+  <rect x="110" y="110" width="680" height="56" rx="14" fill="none" stroke="currentColor" stroke-width="8"/>
+  <path d="M140 138h160M320 138h190M530 138h230"
+        fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.85"/>
+
+  <!-- Shared grid field -->
+  <rect x="110" y="190" width="740" height="320" rx="22" fill="url(#grid)" opacity="0.55"/>
+
+  <!-- Three "stations" -->
+  <rect x="140" y="220" width="220" height="260" rx="22" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.92"/>
+  <rect x="370" y="220" width="220" height="260" rx="22" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.90"/>
+  <rect x="600" y="220" width="220" height="260" rx="22" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.88"/>
+
+  <!-- Flow arrows between stations -->
+  <path d="M360 350h-20M370 350h-10" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.35"/>
+  <path d="M360 350h40" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.55" marker-end="url(#arrow)"/>
+  <path d="M590 350h40" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.55" marker-end="url(#arrow)"/>
+
+  <!-- ========================= -->
+  <!-- Station 1: KUKA robot arm -->
+  <!-- ========================= -->
+  <!-- base -->
+  <path d="M200 458h100" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-opacity="0.85"/>
+  <path d="M218 458v-54q0-20 20-20h44q20 0 20 20v54"
+        fill="none" stroke="currentColor" stroke-width="10" stroke-linejoin="round" stroke-opacity="0.9"/>
+  <!-- joints + links -->
+  <circle cx="260" cy="384" r="16" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.9"/>
+  <circle cx="305" cy="338" r="14" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.85"/>
+  <circle cx="260" cy="300" r="12" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.8"/>
+  <path d="M260 384L305 338L260 300L225 340"
+        fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+  <!-- wrist + tool -->
+  <circle cx="225" cy="340" r="10" fill="none" stroke="currentColor" stroke-width="8" stroke-opacity="0.75"/>
+  <path d="M225 340l-28-18" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-opacity="0.85"/>
+  <path d="M188 317l-14-10" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.65"/>
+  <path d="M190 320l-12 20" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.55"/>
+
+  <!-- subtle axis cue -->
+  <path d="M310 260v42" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.35" marker-end="url(#arrow)"/>
+
+  <!-- tiny caption ticks -->
+  <path d="M165 246h90M165 266h60" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.40"/>
+
+  <!-- ===================== -->
+  <!-- Station 2: Laser cutter -->
+  <!-- ===================== -->
+  <!-- machine body -->
+  <path d="M402 452V292q0-22 22-22h112q22 0 22 22v160"
+        fill="none" stroke="currentColor" stroke-width="10" stroke-linejoin="round" stroke-opacity="0.9"/>
+  <!-- lid / window -->
+  <path d="M412 306h156q8 0 8 8v48q0 8-8 8H420q-8 0-8-8v-48q0-8 8-8Z"
+        fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-opacity="0.7"/>
+  <!-- bed grid -->
+  <rect x="420" y="370" width="140" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="8" stroke-opacity="0.65"/>
+  <path d="M420 390h140M420 410h140M450 370v60M480 370v60M510 370v60M540 370v60"
+        fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-opacity="0.25"/>
+  <!-- laser head + beam -->
+  <path d="M496 326v40" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.6"/>
+  <circle cx="496" cy="326" r="7" fill="currentColor" opacity="0.55"/>
+  <path d="M496 366l-26 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.45"/>
+  <path d="M496 366l26 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.35"/>
+  <!-- control panel -->
+  <rect x="545" y="286" width="34" height="28" rx="6" fill="none" stroke="currentColor" stroke-width="6" stroke-opacity="0.55"/>
+  <path d="M553 300h18" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.45"/>
+
+  <path d="M395 246h110M395 266h70" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.40"/>
+
+  <!-- ===================== -->
+  <!-- Station 3: 3D printer   -->
+  <!-- ===================== -->
+  <!-- frame -->
+  <rect x="632" y="270" width="156" height="182" rx="18" fill="none" stroke="currentColor" stroke-width="10" stroke-opacity="0.9"/>
+  <!-- gantry -->
+  <path d="M652 300h116" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-opacity="0.75"/>
+  <path d="M700 300v56" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-opacity="0.75"/>
+  <!-- extruder head -->
+  <rect x="684" y="344" width="32" height="26" rx="8" fill="none" stroke="currentColor" stroke-width="8" stroke-opacity="0.75"/>
+  <path d="M700 370v18" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.75"/>
+  <path d="M692 388h16" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-opacity="0.65"/>
+  <!-- print bed -->
+  <path d="M652 430h116" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-opacity="0.75"/>
+  <rect x="646" y="426" width="128" height="32" rx="10" fill="none" stroke="currentColor" stroke-width="8" stroke-opacity="0.55"/>
+  <!-- printed part (layer lines) -->
+  <path d="M708 418
+           q18-12 36 0
+           v12
+           q-18 12-36 0Z"
+        fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-opacity="0.65"/>
+  <path d="M714 426h24M712 434h28M716 442h20"
+        fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-opacity="0.25"/>
+
+  <path d="M625 246h120M625 266h80" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.40"/>
+
+  <!-- Bottom subtle "materials" cue -->
+  <path d="M150 506h120M310 506h90M420 506h140M620 506h120"
+        fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-opacity="0.22"/>
 </svg>

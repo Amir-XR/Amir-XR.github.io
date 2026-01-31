@@ -24,6 +24,11 @@
 
     .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
     .badge-row .badge{margin:0;}
+	
+	
+	.video-frame{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);}
+    .video-frame iframe{display:block;width:100%;height:520px;border:0;}
+    @media (max-width: 720px){ .video-frame iframe{height:320px;} }
   </style>
 </head>
 <body>
@@ -101,18 +106,22 @@
         </article>
       </div>
     </section>
+	<section class="section" id="video">
+      <h2>Project video</h2>
+      <p class="muted">If it doesn’t load, use the direct link below.</p>
 
-    <section class="section" id="video">
-      <h2>Demo video</h2>
-      <p class="muted">A short introduction that explains the goal: start with a blank shell (walls/floors/ceiling) and use the provided tools to create a new program; no limits, just exploration and iteration.</p>
-
-      <div class="video-wrap" aria-label="ARTH demo video">
+      <div class="video-frame" aria-label="Embedded project video">
         <iframe
           src="https://drive.google.com/file/d/1-a1VrK__LOlNVcse30K0oBG3ocFixkGo/preview"
           allow="autoplay; fullscreen"
           allowfullscreen
-          title="ARTH demo video">
-        </iframe>
+          title="ARTH demo video"></iframe>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <ul>
+          <li><strong>Direct link:</strong> <a href="https://drive.google.com/file/d/1-a1VrK__LOlNVcse30K0oBG3ocFixkGo/preview" target="_blank" rel="noopener">Open video on Google Drive</a></li>
+        </ul>
       </div>
     </section>
 

@@ -24,6 +24,9 @@
 
     .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
     .badge-row .badge{margin:0;}
+	.video-frame{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);}
+    .video-frame iframe{display:block;width:100%;height:520px;border:0;}
+    @media (max-width: 720px){ .video-frame iframe{height:320px;} }
   </style>
 </head>
 <body>
@@ -58,13 +61,13 @@
 
   <main class="main">
     <p class="kicker"><a href="index.html">Projects</a> / GaoDe — Game of Design</p>
-    <h2 class="page-title">GaoDe (Game of Design): A Multimodal Architectural Design Serious Game</h2>
+    <h2 class="page-title">GaoDe: A Multimodal Architectural Design Serious Game</h2>
 
     <img class="hero-img" src="../assets/img/gaode_fig05_custom-ui.jpg" alt="GaoDe custom user interface with pop-up guidance and real-time feedback" loading="lazy" />
 
     <div class="callout">
       <p class="kicker">Summary</p>
-      <p><strong>GaoDe</strong> is an <strong>open-ended</strong> educational serious game that lets architecture students practice design through <strong>self-assessment</strong> inside a familiar CAD workflow. Instead of keyboard/mouse-only input, it uses a <strong>multi-modal natural user interface</strong> that combines <strong>hand gestures</strong>, <strong>machine vision</strong>, and <strong>offline speech commands</strong> to support playful exploration without “right or wrong” solutions.</p>
+      <p><strong>GaoDe</strong>, Game of Design, is an <strong>open-ended</strong> educational serious game that lets architecture students practice design through <strong>self-assessment</strong> inside a familiar CAD workflow. Instead of keyboard/mouse-only input, it uses a <strong>multi-modal natural user interface</strong> that combines <strong>hand gestures</strong>, <strong>machine vision</strong>, and <strong>offline speech commands</strong> to support playful exploration without “right or wrong” solutions.</p>
       <div class="badge-row" aria-label="Tools and keywords">
         <span class="badge">Rhino</span>
         <span class="badge">Grasshopper</span>
@@ -266,20 +269,22 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>Image gallery (extracted figures)</h2>
-      <p class="muted">Click any image to open full size.</p>
+	<section class="section" id="video">
+      <h2>Project video</h2>
+      <p class="muted">If it doesn’t load, use the direct link below.</p>
 
-      <div class="gallery-grid">
-        <figure><a href="../assets/img/gaode_fig01_leap-motion.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig01_leap-motion.jpg" alt="Leap Motion system figure" loading="lazy" /></a><figcaption>Fig. 1 — Leap Motion system</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig05_custom-ui.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig05_custom-ui.jpg" alt="Custom UI and guidance" loading="lazy" /></a><figcaption>Fig. 5 — Custom UI + feedback</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig06_processing-flowchart.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig06_processing-flowchart.jpg" alt="Processing flowchart" loading="lazy" /></a><figcaption>Fig. 6 — Processing flowchart</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig07_brick-country-house-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig07_brick-country-house-reference.jpg" alt="Brick Country House reference" loading="lazy" /></a><figcaption>Fig. 7 — Brick Country House reference</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig09_fallingwater-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig09_fallingwater-reference.jpg" alt="Fallingwater reference" loading="lazy" /></a><figcaption>Fig. 9 — Fallingwater reference</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig11_dancing-house-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig11_dancing-house-reference.jpg" alt="Dancing House reference" loading="lazy" /></a><figcaption>Fig. 11 — Dancing House reference</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig13_house-III-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig13_house-III-reference.jpg" alt="House III reference" loading="lazy" /></a><figcaption>Fig. 13 — House III reference</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig14_house-III-steps.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig14_house-III-steps.jpg" alt="House III steps" loading="lazy" /></a><figcaption>Fig. 14 — House III diagrams</figcaption></figure>
-        <figure><a href="../assets/img/gaode_fig16_capsule-tower-reference.jpg" target="_blank" rel="noopener"><img src="../assets/img/gaode_fig16_capsule-tower-reference.jpg" alt="Capsule Tower reference" loading="lazy" /></a><figcaption>Fig. 16 — Capsule Tower reference</figcaption></figure>
+      <div class="video-frame" aria-label="Embedded project video">
+        <iframe
+          src="https://drive.google.com/file/d/1kllvV_TSMkaUgj0LKeozu8s9dpi2kJJ5/preview"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          title="GaoDe demo video"></iframe>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <ul>
+          <li><strong>Direct link:</strong> <a href="https://drive.google.com/file/d/1kllvV_TSMkaUgj0LKeozu8s9dpi2kJJ5/preview" target="_blank" rel="noopener">Open video on Google Drive</a></li>
+        </ul>
       </div>
     </section>
 
