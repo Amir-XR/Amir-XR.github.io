@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StandardScout | Amir Goli</title>
   <meta name="description" content="StandardScout: a RAG-based building code assistant that combines local ADA/ABA/GSA P-100 retrieval with optional PDF uploads and web search, plus blueprint-style technical diagram generation." />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/voice-widget.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/voice-widget.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
@@ -76,12 +76,12 @@
           Menu
         </button>
         <nav class="nav" data-nav>
-          <a href="../index.html">Home</a>
-          <a href="../publications.html">Publications</a>
-          <a href="index.html" aria-current="page">Projects</a>
-          <a href="../activities.html">Activities</a>
-          <a href="../contact.html">Contact</a>
-		  <a href="../standardscout.html">StandardScout</a>
+          <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="projects/index.html" aria-current="page">Projects</a>
+          <a href="activities.html">Activities</a>
+          <a href="contact.html">Contact</a>
+		  <a href="standardscout.html">StandardScout</a>
         </nav>
         <div class="nav-controls">
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
@@ -93,11 +93,8 @@
   </header>
 
   <main class="main">
-    <p class="kicker"><a href="index.html">Projects</a> / StandardScout</p>
+    <p class="kicker"><a href="projects/index.html">Projects</a> / StandardScout</p>
     <h2 class="page-title">StandardScout: RAG-Based Building Code Assistant</h2>
-
-
-    <img class="hero-img" src="../assets/img/standardscout-hero.png" alt="StandardScout interface montage showing source toggles, chat UI, and blueprint-style diagram output" loading="lazy" />
 
     <div class="callout">
       <p class="kicker">Summary</p>
@@ -111,69 +108,8 @@
         <span class="badge">Fine-tuned response tone</span>
       </p>
     </div>
-
     <section class="section">
-      <h2>Project at a glance</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>What problem it targets</h3>
-          <p class="muted">Building codes are dense and cross-referenced. Designers need answers that are fast, accurate, and traceable back to sources.</p>
-          <ul>
-            <li><strong>Goal:</strong> reduce search friction while keeping evidence visible</li>
-            <li><strong>Constraint:</strong> avoid hallucinated guidance and overtrust</li>
-            <li><strong>Audience:</strong> architects, students, and AEC practitioners</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>What I built</h3>
-          <ul>
-            <li>Local RAG over ADA, ABA, and GSA P-100 sections</li>
-            <li>Optional user PDF upload for project-specific documents</li>
-            <li>Optional web search to bring in public references when needed</li>
-            <li>Two UI modes (Text and Conversational) with identical logic</li>
-            <li>A blueprint-style diagram generation per Q&amp;A</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Core tech</h3>
-          <ul>
-            <li><strong>LLM:</strong> OpenAI GPT-4.1 mini (tone-tuned)</li>
-            <li><strong>Retrieval:</strong> local RAG for standard documents</li>
-            <li><strong>Training:</strong> fine-tuning and QLoRA workflow for style control</li>
-            <li><strong>Output:</strong> blueprint-like vector diagram generation</li>
-			<li><strong>Privacy:</strong> uploaded PDFs are stored only for the session</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-
-
-    <section class="section">
-      <h2>How it works</h2>
-      <p>StandardScout is built around a source-aware workflow. Users decide which evidence streams are active, and the assistant returns an answer that is tied to the activated sources.</p>
-
-
-      <figure class="figure">
-		<a href="../assets/img/standardscout-architecture.png" target="_blank" rel="noopener">
-		  <img
-			src="../assets/img/standardscout-architecture.png"
-			alt="System diagram showing local RAG, optional PDF upload, optional web search, answer generation, citations, and blueprint diagram output"
-			loading="lazy"
-			style="display:block; margin:0 auto; width:auto; max-width:100%; height:1024px;"
-		  />
-		</a>
-
-
-        <figcaption>System overview: local standards retrieval plus optional user documents and web search, followed by citation-backed answers and blueprint-style diagrams.</figcaption>
-      </figure>
-    </section>
-
-
-    <section class="section">
-      <h1>Demo</h1>
+      <h3>Demo</h3>
       <p class="muted">Try StandardScout below and explore the source toggles and response citations.</p>
 
 	<section class="embed-breakout">
