@@ -1,0 +1,16 @@
+{
+  "_comment": "Two-pose system: idle when AI is silent, talk when AI is speaking. Pose switching is driven by audio-amplitude detection on the AI's output stream — not by AI tool calls or response events. To swap which file each pose maps to, just edit the 'file' value below.",
+  "default": "idle",
+  "poses": {
+    "idle": {
+      "file": "model(2).glb",
+      "embedded_clip": "IdleV4.2(maya_head)",
+      "description": "Default neutral standing pose with subtle head movement. Shown whenever the AI is not speaking."
+    },
+    "talk": {
+      "file": "model_Talk.glb",
+      "embedded_clip": "gesture_1",
+      "description": "Talking gesture. Shown whenever the AI is actively producing audio."
+    }
+  }
+}

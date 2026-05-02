@@ -1,0 +1,65 @@
+[
+  {
+    "file": "model(1).glb",
+    "size_kb": 6413,
+    "embedded_clip_name": "Animation",
+    "duration_seconds": 44.77,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model(1)"
+  },
+  {
+    "file": "model(2).glb",
+    "size_kb": 5061,
+    "embedded_clip_name": "IdleV4.2(maya_head)",
+    "duration_seconds": 8.07,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model(2)"
+  },
+  {
+    "file": "model(4).glb",
+    "size_kb": 5144,
+    "embedded_clip_name": "Call_Me_Clean",
+    "duration_seconds": 3.77,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model(4)"
+  },
+  {
+    "file": "model(5).glb",
+    "size_kb": 5036,
+    "embedded_clip_name": "mixamo.com",
+    "duration_seconds": 0.67,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model(5)"
+  },
+  {
+    "file": "model(6).glb",
+    "size_kb": 5020,
+    "embedded_clip_name": "mixamo.com",
+    "duration_seconds": 0.03,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model(6)"
+  },
+  {
+    "file": "model_Idle.glb",
+    "size_kb": 5516,
+    "embedded_clip_name": "Standard_Smoking",
+    "duration_seconds": 16.47,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model_Idle"
+  },
+  {
+    "file": "model_Talk.glb",
+    "size_kb": 5127,
+    "embedded_clip_name": "gesture_1",
+    "duration_seconds": 3.67,
+    "bone_count": 52,
+    "morph_count": 0,
+    "proposed_friendly_name": "model_Talk"
+  }
+]

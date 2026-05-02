@@ -17,14 +17,33 @@
   position: relative;
   width: 100%;
   max-width: 360px;
+  isolation: isolate;
+}
+.voice-avatar-wrap::before{
+  /* soft ambient halo behind the avatar */
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-18px;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(122,73,136,.35), transparent 70%);
+  filter: blur(18px);
+  z-index:-1;
+  pointer-events:none;
 }
 
 .voice-avatar-wrap model-viewer {
   width: 100%;
   height: 420px;
-  border-radius: 18px;
+  border-radius: 22px;
   border: 1px solid rgba(122, 73, 136, 0.35);
   background: transparent;
+  box-shadow: 0 14px 32px rgba(17,24,39,.10);
+}
+html[data-theme="dark"] .voice-avatar-wrap model-viewer{
+  box-shadow: 0 14px 32px rgba(0,0,0,.45);
 }
 
 .voice-hidden {
@@ -46,18 +65,32 @@
   min-height: 210px;
   max-height: 260px;
   overflow: auto;
-  padding: 12px;
+  padding: 14px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.18);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(122,73,136,.45) transparent;
 }
+.voice-chat::-webkit-scrollbar{ width: 8px }
+.voice-chat::-webkit-scrollbar-thumb{
+  background: rgba(122,73,136,.45);
+  border-radius: 999px;
+}
+.voice-chat::-webkit-scrollbar-track{ background: transparent }
 
 .voice-msg {
   padding: 10px 12px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.10);
   margin-bottom: 10px;
-  line-height: 1.35;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  animation: voice-msg-in 240ms cubic-bezier(.16,1,.3,1);
+}
+@keyframes voice-msg-in{
+  from { opacity:0; transform: translateY(6px) }
+  to   { opacity:1; transform: translateY(0) }
 }
 
 .voice-msg:last-child { margin-bottom: 0; }
@@ -65,16 +98,21 @@
 .voice-msg .voice-role {
   font-weight: 700;
   margin-bottom: 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
 .voice-msg.user {
-  border-color: rgba(122, 73, 136, 0.45);
-  background: rgba(122, 73, 136, 0.10);
+  border-color: rgba(122, 73, 136, 0.50);
+  background: linear-gradient(180deg, rgba(122,73,136,.18), rgba(122,73,136,.10));
 }
+.voice-msg.user .voice-role{ color: rgba(192,139,210,1) }
 
 .voice-msg.assistant {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .voice-controls {
@@ -117,6 +155,22 @@
   outline-offset: 2px;
 }
 
+/* Pulsing live-mic indicator while server VAD is active. */
+.voice-hold.is-listening {
+  position: relative;
+  outline: 2px solid rgba(220, 80, 80, 0.85);
+  outline-offset: 2px;
+  animation: voice-pulse 1.6s ease-in-out infinite;
+}
+@keyframes voice-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 80, 80, 0.55); }
+  50%      { box-shadow: 0 0 0 8px rgba(220, 80, 80, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-hold.is-listening { animation: none; }
+  .voice-msg { animation: none; }
+}
+
 .voice-status {
   opacity: 0.9;
   font-size: 0.95rem;
@@ -124,18 +178,59 @@
 }
 
 .voice-hint {
-  opacity: 0.85;
+  opacity: 0.95;
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  padding: 6px 4px;
+}
+.voice-hint-title{
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: rgba(192, 139, 210, 1);
+}
+.voice-hint-sub{
+  opacity: 0.78;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+.voice-hint-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.voice-hint-list li{
+  border: 1px dashed rgba(122, 73, 136, 0.45);
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: rgba(122, 73, 136, 0.06);
+  font-size: 0.92rem;
+  color: inherit;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+.voice-hint-list li:hover{
+  background: rgba(122, 73, 136, 0.14);
+  border-color: rgba(122, 73, 136, 0.7);
+}
+html[data-theme="light"] .voice-hint-title{ color: #4F2C57 }
+html[data-theme="light"] .voice-hint-list li{
+  background: rgba(122,73,136,0.06);
+  border-color: rgba(122,73,136,0.30);
 }
 
-/* Slightly adjust for light theme if your site supports it */
+/* Light theme */
 html[data-theme="light"] .voice-chat {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(244,236,246,0.55));
+  border-color: rgba(122, 73, 136, 0.18);
 }
 
 html[data-theme="light"] .voice-msg.assistant {
   border-color: rgba(0, 0, 0, 0.10);
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.85);
 }
+html[data-theme="light"] .voice-msg.user{
+  background: linear-gradient(180deg, rgba(122,73,136,.10), rgba(122,73,136,.06));
+}
+html[data-theme="light"] .voice-msg.user .voice-role{ color: #4F2C57 }

@@ -1,0 +1,284 @@
+# About Amir Goli — context for the website voice assistant
+
+This document is the single source of truth for the voice assistant. It is composed
+from three sources, in this priority order (later sources lose to earlier ones on conflict):
+  1) the current pages on amirgoli.com  (highest)
+  2) Amir_Goli_CV_updated_language.docx
+  3) Amir_Goli_CV.pdf                   (lowest)
+
+When the user asks about something, prefer pointing them to the relevant page on the site
+(use the URLs in the WEBSITE MAP below) rather than dumping a long answer.
+
+==========================================================================
+IDENTITY
+==========================================================================
+Name:      Amir Goli
+Public tagline: PhD Researcher | Conversational AI × VR | University of Kansas
+Location:  Lawrence, KS, USA
+Email:     amirgoli@ku.edu
+Phone:     +1 (785) 423-7698
+Website:   https://www.amirgoli.com
+LinkedIn:  https://www.linkedin.com/in/amir-goli-527738135
+Scholar:   https://scholar.google.com/citations?user=68H-5CAAAAAJ
+ORCID:     https://orcid.org/0000-0002-4929-6645
+ResearchGate: https://www.researchgate.net/profile/Amir-Goli
+KU profile:  https://arcd.ku.edu/people/amir-goli
+
+Pronouns / address: refer to him as "Amir" in conversation. The site brands him publicly
+as a "PhD Researcher" working on Conversational AI × VR; his official program is
+"PhD in Architectural & Building Technology" at the University of Kansas — both descriptions
+are accurate, use whichever fits the user's question.
+
+==========================================================================
+WEBSITE MAP  (always prefer pointing to these in answers)
+==========================================================================
+Home              /                           Bio callout, research interests, voice assistant
+Publications      /publications.html          Categorized list with DOIs
+Projects          /projects/                  Selected projects gallery
+Activities        /activities.html            GRA work, conference participation, awards, peer review
+Contact           /contact.html               Email (obfuscated), profiles, collaboration card
+StandardScout     /standardscout.html         The MVP / hype page for StandardScout (live demo embedded)
+StandardScout details  /projects/standardscout.html   Full project case study
+ARTH (VR)         /projects/project-1.html    Adaptive Reuse Thinking VR learning environment
+GaoDe             /projects/project-2.html    Multimodal serious game (Leap Motion + vision + voice)
+BESOLOGY          /projects/project-3.html    Parametric topology optimization for high-rises
+OROSI             /projects/project-4.html    Interactive pavilion (Iranian Orosi-inspired)
+Fabrication       /projects/project-5.html    Selected digital fabrication projects
+CV (PDF)          /Amir_Goli_CV.pdf           Direct download
+
+==========================================================================
+RESEARCH FOCUS  (dissertation / current work)
+==========================================================================
+Thesis: "Human–AI Co-Intelligence in VR for Design Comprehension: Effects of a
+Conversational AI Agent's Embodiment and Dialogue Style."
+
+Plain-language summary:
+Amir builds VR co-design environments where an AI co-designer supports hybrid
+human–AI thinking, and runs experimental user studies on how the agent's embodiment
+(a body or just a voice) and dialogue style (concise vs. exploratory, supportive vs.
+challenging, etc.) shape spatial reasoning, decision-making, and learning during
+creative tasks. The aim is reliable human-centered AI support — productive cognitive
+extension without overreliance or overtrust.
+
+Tech he uses for this: Unity (C#), modern LLM/VLM pipelines including RAG and fine-tuning
+(LoRA / QLoRA), tool-calling agentic patterns, and quantitative+qualitative user-study
+methods.
+
+==========================================================================
+EDUCATION
+==========================================================================
+PhD, Architectural & Building Technology — University of Kansas (2023–present, expected May 2028)
+   Thesis: Human–AI Co-Intelligence in VR for Design Comprehension: Effects of a
+           Conversational AI Agent's Embodiment and Dialogue Style.
+   GPA 4.0.
+
+MSc, Architectural Technology — Pars Institute of Architecture & Art, Iran (2018–2022)
+   Thesis: Acoustics in Education: Redesigning Classroom Spaces in the Context of
+           Acoustic Comfort.
+   GPA 3.94. First rank in the program (among 49 students).
+
+BSc, Architectural Engineering — Shahid Chamran University of Ahvaz, Iran (2013–2018)
+   Thesis: Structural Optimization and Design of a High-rise Residential Complex.
+   GPA 3.57.
+
+==========================================================================
+SELECTED PROJECTS  (link to the case-study page when asked)
+==========================================================================
+
+THESIS PROJECT — Human–AI Co-Intelligence in VR for Design Comprehension
+   The dissertation work itself. Investigates how a conversational AI agent's
+   embodiment and dialogue style affect design reasoning, comprehension, and decisions.
+   Builds Unity-based VR co-design + learning environments. Translates 3D scene state
+   and user actions into structured contextual inputs for the AI, so the agent's
+   dialogue is grounded in what the user is currently looking at. Evaluated through
+   experimental user studies. (No standalone case-study page yet — discussed across
+   the site's Home and Activities pages.)
+
+STANDARDSCOUT — RAG-Based Building Code Assistant     /projects/standardscout.html
+   LLM-powered building-code copilot. Local RAG over ADA, ABA, and GSA P-100, plus
+   optional session-only PDF upload and optional .gov web search. Fine-tuned Llama 3.1
+   8B Instruct for friendly, structured, citation-grounded answers, with a fine-tuned
+   GPT-4.1 mini as an alternative. First-layer agent classifies user intent, maintains
+   conversation context, refines queries, and routes to the appropriate retrieval path.
+   Generates a blueprint-style technical diagram per Q&A. Two UI modes (Text and
+   Conversational) share identical retrieval logic — only the UI differs.
+   Live demo: embedded on /standardscout.html and on the case study page.
+   Hugging Face Space: https://huggingface.co/spaces/Amir-XR/StandardScout
+
+ARTH — Unity VR Design and Learning Environments for Adaptive Reuse  /projects/project-1.html
+   Unity (C#) VR learning environments for adaptive reuse design tasks. Tablet-driven
+   placement, demolition, and editing modes plus study instrumentation. Designed to
+   support controlled studies of AI-assisted design workflows, including future
+   manipulations of agent embodiment and dialogue style.
+
+GAODE — Multimodal Architectural Design Serious Game      /projects/project-2.html
+   Open-ended educational serious game for early architectural design learning inside
+   a parametric CAD workflow (Rhino/Grasshopper). Multimodal NUI: Leap Motion hand
+   gestures, machine-vision finger-count actions (webcam + OpenCV), and offline keyword
+   speech commands — keyboard/mouse free but intentional and low-error. Five
+   "iconic-building" game modes target different design-cognition skills.
+   Published as a peer-reviewed paper (Education and Information Technologies, 2022).
+
+BESOLOGY — Parametric Topology Optimization              /projects/project-3.html
+   Performance-driven workflow combining parametric modeling with BESO topology
+   optimization for high-rise structural design under wind and gravity loads.
+   Published in Journal of Architectural Engineering, 2021.
+
+OROSI — Interactive Pavilion                              /projects/project-4.html
+   Responsive light + kinetic installation inspired by Iranian Orosi windows.
+   Computational design + interaction.
+
+FABRICATION PROJECTS                                      /projects/project-5.html
+   Selected digital fabrication work — robotic workflows, CNC + laser, full-scale
+   prototypes.
+
+HUMAN BRAIN CUTTING MATRIX  (KU Medical Center, patent submitted)
+   Interdisciplinary collaboration with the KU Medical Center to build a Human Brain
+   Cutting Matrix using digital fabrication and 3D scanning. Translated clinical/lab
+   requirements into manufacturable, replicable designs. Advanced through the U.S.
+   patenting process via the KU Center for Technology Commercialization.
+   Documented as an abstract in /publications.html (Posters and abstracts).
+
+==========================================================================
+PUBLICATIONS  (canonical list — the website's Publications page is the source of truth)
+==========================================================================
+
+In press
+  • Goli, A., & Dastmalchi, M. R. (2025). Virtual Reality for Adaptive Reuse Thinking
+    in Architecture Education. ACADIA 2025 (conference paper).
+
+Book chapters (Routledge Handbook of Interior Architecture, 2026)
+  • Goli, A., & Dastmalchi, M. R. The Role of Virtual Reality in Enhancing Social
+    Interactions for Construction of Tacit Knowledge in Architecture. Ch. 35.
+    doi:10.4324/9781003475057-35
+  • Ossen, D. R., & Goli, A. A Framework for Prompt Writing for Text-to-Image
+    Generation in Interior Design Education. Ch. 32.
+    doi:10.4324/9781003475057-32
+
+Journal articles
+  • Soliman, A. M., Ossen, D. R., Alwarafi, A., & Goli, A. (2025). Influence of water
+    temperature on mist spray effectiveness for thermal comfort in semi-outdoor spaces
+    in extremely hot and arid climates. Buildings.
+    doi:10.3390/buildings15091410
+  • Goli, A., Teymournia, F., Naemabadi, M., & Andaji, A. (2022). Architectural design
+    game: A serious game approach to promote teaching and learning using multimodal
+    interfaces. Education and Information Technologies.
+    doi:10.1007/s10639-022-11062-z
+  • Goli, A., Alaghmandan, M., & Barazandeh, F. (2021). Parametric structural topology
+    optimization of high-rise buildings considering wind and gravity loads. Journal of
+    Architectural Engineering.
+    doi:10.1061/(asce)ae.1943-5568.0000511
+
+Conference papers
+  • Goli, A., & Dastmalchi, M. R. (2024). Enhancing tacit knowledge construction in
+    architectural engineering education through 4E cognition and virtual reality.
+    IEEE Frontiers in Education (FIE).
+    doi:10.1109/FIE61694.2024.10893406
+  • Dastmalchi, M. R., & Goli, A. (2024). Embodied learning in virtual reality:
+    Comparing direct and indirect interaction effects on learning outcomes.
+    IEEE Frontiers in Education (FIE).
+    doi:10.1109/FIE61694.2024.10892964
+
+Posters and abstracts
+  • Goli, A., & Dastmalchi, M. R. (2024). From theory to practice: An immersive VR
+    framework for developing tacit knowledge in architectural education. IEEE ISMAR
+    (poster, accepted).
+  • Dastmalchi, M., Goli, A., & Haeri, M. (2025). Development of a human brain matrix
+    through advanced digital fabrication and 3D scanning. Journal of Neuropathology &
+    Experimental Neurology, 84(6), 546. Abstract presented at AANP.
+    doi:10.1093/jnen/nlaf040
+
+==========================================================================
+RESEARCH AND WORK EXPERIENCE
+==========================================================================
+
+Graduate Research Assistant — University of Kansas (2023–present)
+  • Research at the intersection of HCI, immersive visualization, and AI-supported
+    design workflows for architectural education and decision-making.
+  • Designs research questions, study protocols, and runs experimental user studies;
+    quantitative + qualitative analysis of interaction effects and learning outcomes.
+  • Builds Unity (C#) VR prototypes and instruments interactions.
+  • Prototypes LLM-enabled design support tools, including RAG pipelines for
+    retrofitting and code-informed design tasks.
+  • Built a Rhino/Grasshopper pipeline for digital-fabrication workflows.
+  • Drafts and revises manuscripts, prepares figures, presents at academic venues.
+  • Contributed to the Human Brain Cutting Matrix collaboration with the KU Medical
+    Center (now in the U.S. patenting process via KU's Center for Technology
+    Commercialization).
+
+R&D Team Lead — Rangin Profile Kavir Company, Iran (2019)
+  • Led an R&D effort to automate curtain-wall aluminum-profile production.
+  • Co-developed a Rhino/Grasshopper (Python) pipeline for rule-based curtain-wall
+    geometry — automated shop drawings, material takeoffs, and cutting-stock
+    optimization to improve yield and reduce manual drafting.
+  • Trained the technical team on adoption.
+
+==========================================================================
+TECHNICAL SKILLS
+==========================================================================
+
+AI / LLM engineering
+  RAG: document ingestion, chunking, embeddings, vector retrieval, citation-grounded
+       answer assembly.
+  Fine-tuning: LoRA / QLoRA, supervised fine-tuning, prompt-style control for
+               consistent responses.
+  Conversational UX: text and voice interactions; structured response formatting;
+                     follow-up question design.
+  Agentic patterns: tool calling, multi-step routing, conversation memory,
+                    reliability-oriented evaluation.
+
+XR / VR
+  Unity, C#, VR/XR prototyping, interaction design, study-ready instrumentation
+  (e.g., Quest deployment).
+
+Computational design
+  Rhinoceros + Grasshopper, parametric modeling, simulation-driven workflows,
+  custom Grasshopper components, environmental and structural workflows.
+
+Programming and tools
+  Python; C#; Gradio web-UI prototyping.
+
+Digital fabrication
+  3D printers, CNC, laser cutters, 3D scanning, prototype assembly workflows.
+
+Simulation / analysis
+  Topology optimization (BESO), wind-pressure studies, performance-driven iteration.
+
+Design / visualization
+  Rhinoceros, AutoCAD, CorelDRAW, 3ds Max, V-Ray, Adobe InDesign and Photoshop.
+
+Languages
+  Persian (native), English (professional).
+
+==========================================================================
+TRAINING, AWARDS, AND SERVICE
+==========================================================================
+
+Training
+  • Udemy: AI Engineer Core Track — LLM Engineering, RAG, QLoRA, Agents (2025–2026).
+
+Awards / honors
+  • Nominee, Graduate Student Award for Distinguished Service, University of Kansas (2025).
+  • Phi Kappa Phi (ΦΚΦ) Honor Society member, University of Kansas (2025).
+  • KU Graduate Student Travel Funds (2023, 2024, 2025).
+  • University Graduate Fellowship, University of Kansas (2023).
+  • First rank, Architectural Technology program, Pars University (among 49 students).
+
+Service / volunteering
+  • Student volunteer: IEEE VR 2024 and IEEE ISMAR 2024.
+  • Presented interactive VR showcases across University of Kansas campuses.
+
+Peer review
+  • Journals: Frontiers in Virtual Reality; Journal of Multimedia Tools and
+    Applications; Journal of Infrastructure Policy and Development.
+  • Conferences: IEEE ISMAR; CAADRIA; IEEE Frontiers in Education; ICHELT;
+    IEEE Digital Education and MOOCs Conference.
+
+==========================================================================
+COLLABORATION / AVAILABILITY
+==========================================================================
+Amir is open to research collaborations, conference invitations, and new ideas in
+VR, Human–AI Interaction, and Learning Sciences. Best routes:
+  • Email: amirgoli@ku.edu
+  • LinkedIn message
+For full details, see /contact.html.

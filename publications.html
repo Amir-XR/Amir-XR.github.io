@@ -1,191 +1,175 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
-  <title>Amir Goli | Publications</title>
-  <meta name="description" content="Publications by Amir Goli." />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/voice-widget.css" />
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Publications — Amir Goli · Issue №&nbsp;04</title>
+<meta name="description" content="Peer-reviewed publications on virtual reality, human–AI co-intelligence, design cognition, multimodal interfaces, and parametric topology optimization." />
+<link rel="icon" href="assets/img/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,580;0,9..144,700;0,9..144,900;0,9..144,400..900,30,1;1,9..144,400..900,30,1&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-04-30-awards2" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-title"><a class="site-title-link" href="index.html">Amir Goli</a></h1>
-      <p class="site-tagline">PhD Researcher | Conversational AI × VR | University of Kansas</p>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<aside class="bay" aria-label="AI assistant">
+  <button class="bay-close" data-bay-close type="button" aria-label="Close assistant">×</button>
+  <div class="bay-head"><span class="name">The Interlocutor</span><span class="live">Live</span></div>
+  <div class="voice-widget">
+    <div class="voice-avatar-wrap">
+      <model-viewer id="avatarIdle" src="assets/avatar/model_Idle.glb" camera-controls disable-pan
+        camera-target="0m 1.45m 0m" camera-orbit="-23deg 75deg 2.05m"
+        min-camera-orbit="-23deg 75deg 1.9m" max-camera-orbit="-23deg 75deg 2.2m"
+        autoplay exposure="1" shadow-intensity="0"></model-viewer>
     </div>
-    <div class="nav-wrap">
-      <div class="nav-inner">
-        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
-          <span aria-hidden="true">☰</span>
-          Menu
-        </button>
-        <nav class="nav" data-nav>
-          <a href="index.html">Home</a>
-          <a href="publications.html" aria-current="page">Publications</a>
-          <a href="projects/index.html">Projects</a>
-          <a href="activities.html">Activities</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-        <div class="nav-controls">
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
-            <span data-theme-label>Mode: Dark</span>
+    <p class="bay-caption">in residence, ready to talk.<span>hold the mic</span></p>
+    <div class="voice-panel">
+      <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+      <div class="voice-controls">
+        <div class="voice-hold-wrap">
+          <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+          <button id="holdToTalk" class="voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
           </button>
         </div>
+        <div id="voiceStatus" class="voice-status">Ready</div>
       </div>
     </div>
-  </header>
+  </div>
+</aside>
 
-  <main class="main">
-    <h2 class="page-title">Publications</h2>
+<button class="fab" data-bay-open type="button" aria-label="Open AI assistant" aria-expanded="false">
+  <span class="fab-pulse"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+</button>
 
-    <div class="callout">
-      <p class="kicker">Profiles</p>
+<main class="shell">
+  <div class="frame">
+
+    <header class="masthead reveal">
+      <nav class="right" aria-label="Sections">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="activities.html">Activities</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span data-theme-label>Go light</span>
+        </button>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-eyebrow">Catalogue · 2021 → 2026 · 10 entries</div>
+      <h1 class="hero-title" id="title" aria-label="Publications">
+        <span class="letter">P</span><span class="letter">u</span><span class="letter">b</span><span class="letter">l</span><span class="letter">i</span><span class="letter">c</span><span class="letter">a</span><span class="letter">t</span><span class="letter">i</span><span class="letter">o</span><span class="letter">n</span><span class="letter">s</span><span class="swash letter">.</span>
+      </h1>
+      <dl class="hero-meta">
+        <div><dt>Profiles</dt><dd><a href="https://scholar.google.com/citations?user=68H-5CAAAAAJ" target="_blank" rel="noopener"><em>Scholar</em></a> · <a href="https://www.researchgate.net/profile/Amir-Goli" target="_blank" rel="noopener"><em>ResearchGate</em></a> · <a href="https://orcid.org/0000-0002-4929-6645" target="_blank" rel="noopener"><em>ORCID</em></a></dd></div>
+      </dl>
+    </section>
+
+    <section class="lede reveal">
       <p>
-        <a class="btn" href="https://scholar.google.com/citations?user=68H-5CAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="btn secondary" href="https://www.researchgate.net/profile/Amir-Goli" target="_blank" rel="noopener">ResearchGate</a>
+        A scholarly journey through <em>design, computation, and AI</em>, written down as it happens.
+        Each piece is a small attempt to understand how <em>design and technology</em> shape one another.
       </p>
+    </section>
+
+    <!-- 01 — Filters -->
+    <div class="chapter"><span>01 — Filter</span><span class="glyph">✦</span></div>
+
+    <div class="filters" role="group" aria-label="Filter publications">
+      <div class="filter-row" role="tablist" aria-label="By type">
+        <span class="label">Type /</span>
+        <button class="chip is-active" data-filter="type" data-value="all" type="button" aria-pressed="true">All <span class="chip-count" data-count-all></span></button>
+        <button class="chip" data-filter="type" data-value="journal" type="button" aria-pressed="false">Journal <span class="chip-count" data-count-journal></span></button>
+        <button class="chip" data-filter="type" data-value="conference" type="button" aria-pressed="false">Conference <span class="chip-count" data-count-conference></span></button>
+        <button class="chip" data-filter="type" data-value="chapter" type="button" aria-pressed="false">Book chapter <span class="chip-count" data-count-chapter></span></button>
+        <button class="chip" data-filter="type" data-value="poster" type="button" aria-pressed="false">Poster <span class="chip-count" data-count-poster></span></button>
+      </div>
+      <div class="filter-row" role="tablist" aria-label="By year">
+        <span class="label">Year /</span>
+        <button class="chip is-active" data-filter="year" data-value="all" type="button" aria-pressed="true">All</button>
+        <button class="chip" data-filter="year" data-value="2026" type="button" aria-pressed="false">2026</button>
+        <button class="chip" data-filter="year" data-value="2025" type="button" aria-pressed="false">2025</button>
+        <button class="chip" data-filter="year" data-value="2024" type="button" aria-pressed="false">2024</button>
+        <button class="chip" data-filter="year" data-value="2022" type="button" aria-pressed="false">2022</button>
+        <button class="chip" data-filter="year" data-value="2021" type="button" aria-pressed="false">2021</button>
+      </div>
     </div>
 
-    <section class="section">
-      <h2>Publication categories</h2>
-      <div class="pub-cats">
-        <div class="card">
-          <h3>In press</h3>
-          <ol class="pub-list">
-            <li>
-              <strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. (2025). <strong><em>Virtual Reality for Adaptive Reuse Thinking in Architecture Education</em></strong>. ACADIA 2025 (conference paper, in press).
-            </li>
-            <li>
-              <strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. (2025). <strong><em>The Role of Virtual Reality in Enhancing Social Interactions for Construction of Tacit Knowledge in Architecture</em></strong>. In <em>Routledge Handbook of Interior Architecture</em> (book chapter, in press).
-            </li>
-            <li>
-              Ossen, D. R., &amp; <strong>Goli, A.</strong> (2025). <strong><em>A Framework for Prompt Writing for Text-to-Image Generation in Interior Design Education</em></strong>. In <em>Routledge Handbook of Interior Architecture</em> (book chapter, in press).
-            </li>
-          </ol>
-        </div>
+    <!-- 02 — Index -->
+    <div class="chapter"><span>02 — Index</span><span class="glyph">✦</span></div>
 
-        <div class="card">
-          <h3>Journal articles</h3>
-          <ol class="pub-list">
-            <li>
-              Soliman, A. M., Ossen, D. R., Alwarafi, A., &amp; <strong>Goli, A.</strong> (2025). <strong>Influence of water temperature on mist spray effectiveness for thermal comfort in semi-outdoor spaces in extremely hot and arid climates.</strong> <em>Buildings</em>. 
-              <a href="https://doi.org/10.3390/buildings15091410" target="_blank" rel="noopener">doi:10.3390/buildings15091410</a>
-            </li>
-            <li>
-              <strong>Goli, A.</strong>, Teymournia, F., Naemabadi, M., &amp; Andaji, A. (2022). <strong>Architectural design game: A serious game approach to promote teaching and learning using multimodal interfaces.</strong> <em>Education and Information Technologies</em>. 
-              <a href="https://doi.org/10.1007/s10639-022-11062-z" target="_blank" rel="noopener">doi:10.1007/s10639-022-11062-z</a>
-            </li>
-            <li>
-              <strong>Goli, A.</strong>, Alaghmandan, M., &amp; Barazandeh, F. (2021). <strong>Parametric structural topology optimization of high-rise buildings considering wind and gravity loads.</strong> <em>Journal of Architectural Engineering</em>. 
-              <a href="https://doi.org/10.1061/(asce)ae.1943-5568.0000511" target="_blank" rel="noopener">doi:10.1061/(asce)ae.1943-5568.0000511</a>
-            </li>
-          </ol>
-        </div>
+    <ol class="pubs" id="pubList">
+      <li class="pub-item" data-year="2025" data-type="conference">
+        <span class="pub-year">'25</span>
+        <div class="pub-body"><strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. <strong><em>Virtual Reality for Adaptive Reuse Thinking in Architecture Education.</em></strong> ACADIA 2025.</div>
+        <span class="pub-type is-press">Conf. · in press</span>
+      </li>
+      <li class="pub-item" data-year="2026" data-type="chapter">
+        <span class="pub-year">'26</span>
+        <div class="pub-body"><strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. <strong>The Role of Virtual Reality in Enhancing Social Interactions for Construction of Tacit Knowledge in Architecture.</strong> In <em>Routledge Handbook of Interior Architecture</em> (Ch. 35). <a href="https://doi.org/10.4324/9781003475057-35" target="_blank" rel="noopener">doi:10.4324/9781003475057-35</a></div>
+        <span class="pub-type">Book chapter</span>
+      </li>
+      <li class="pub-item" data-year="2026" data-type="chapter">
+        <span class="pub-year">'26</span>
+        <div class="pub-body">Ossen, D. R., &amp; <strong>Goli, A.</strong> <strong>A Framework for Prompt Writing for Text-to-Image Generation in Interior Design Education.</strong> In <em>Routledge Handbook of Interior Architecture</em> (Ch. 32). <a href="https://doi.org/10.4324/9781003475057-32" target="_blank" rel="noopener">doi:10.4324/9781003475057-32</a></div>
+        <span class="pub-type">Book chapter</span>
+      </li>
+      <li class="pub-item" data-year="2025" data-type="journal">
+        <span class="pub-year">'25</span>
+        <div class="pub-body">Soliman, A. M., Ossen, D. R., Alwarafi, A., &amp; <strong>Goli, A.</strong> <strong>Influence of water temperature on mist spray effectiveness for thermal comfort in semi-outdoor spaces in extremely hot and arid climates.</strong> <em>Buildings.</em> <a href="https://doi.org/10.3390/buildings15091410" target="_blank" rel="noopener">doi:10.3390/buildings15091410</a></div>
+        <span class="pub-type">Journal</span>
+      </li>
+      <li class="pub-item" data-year="2022" data-type="journal">
+        <span class="pub-year">'22</span>
+        <div class="pub-body"><strong>Goli, A.</strong>, Teymournia, F., Naemabadi, M., &amp; Andaji, A. <strong>Architectural design game: A serious game approach to promote teaching and learning using multimodal interfaces.</strong> <em>Education and Information Technologies.</em> <a href="https://doi.org/10.1007/s10639-022-11062-z" target="_blank" rel="noopener">doi:10.1007/s10639-022-11062-z</a></div>
+        <span class="pub-type">Journal</span>
+      </li>
+      <li class="pub-item" data-year="2021" data-type="journal">
+        <span class="pub-year">'21</span>
+        <div class="pub-body"><strong>Goli, A.</strong>, Alaghmandan, M., &amp; Barazandeh, F. <strong>Parametric structural topology optimization of high-rise buildings considering wind and gravity loads.</strong> <em>Journal of Architectural Engineering.</em> <a href="https://doi.org/10.1061/(asce)ae.1943-5568.0000511" target="_blank" rel="noopener">doi:10.1061/(asce)ae.1943-5568.0000511</a></div>
+        <span class="pub-type">Journal</span>
+      </li>
+      <li class="pub-item" data-year="2024" data-type="conference">
+        <span class="pub-year">'24</span>
+        <div class="pub-body"><strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. <strong>Enhancing tacit knowledge construction in architectural engineering education through 4E cognition and virtual reality.</strong> <em>IEEE Frontiers in Education (FIE).</em> <a href="https://doi.org/10.1109/FIE61694.2024.10893406" target="_blank" rel="noopener">doi:10.1109/FIE61694.2024.10893406</a></div>
+        <span class="pub-type">Conference</span>
+      </li>
+      <li class="pub-item" data-year="2024" data-type="conference">
+        <span class="pub-year">'24</span>
+        <div class="pub-body">Dastmalchi, M. R., &amp; <strong>Goli, A.</strong> <strong>Embodied learning in virtual reality: Comparing direct and indirect interaction effects on learning outcomes.</strong> <em>IEEE Frontiers in Education (FIE).</em> <a href="https://doi.org/10.1109/FIE61694.2024.10892964" target="_blank" rel="noopener">doi:10.1109/FIE61694.2024.10892964</a></div>
+        <span class="pub-type">Conference</span>
+      </li>
+      <li class="pub-item" data-year="2024" data-type="poster">
+        <span class="pub-year">'24</span>
+        <div class="pub-body"><strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. <strong>From theory to practice: An immersive VR framework for developing tacit knowledge in architectural education.</strong> <em>IEEE ISMAR</em> (poster, accepted).</div>
+        <span class="pub-type">Poster</span>
+      </li>
+      <li class="pub-item" data-year="2025" data-type="poster">
+        <span class="pub-year">'25</span>
+        <div class="pub-body">Dastmalchi, M., <strong>Goli, A.</strong>, &amp; Haeri, M. <strong>Development of a human brain matrix through advanced digital fabrication and 3D scanning.</strong> <em>Journal of Neuropathology &amp; Experimental Neurology</em>, 84(6), 546. <a href="https://doi.org/10.1093/jnen/nlaf040" target="_blank" rel="noopener">doi:10.1093/jnen/nlaf040</a></div>
+        <span class="pub-type">Poster</span>
+      </li>
+    </ol>
 
-        <div class="card">
-          <h3>Conference papers</h3>
-          <ol class="pub-list">
-            <li>
-              <strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. (2024). <strong>Enhancing tacit knowledge construction in architectural engineering education through 4E cognition and virtual reality.</strong> <em>IEEE Frontiers in Education (FIE)</em>. 
-              <a href="https://doi.org/10.1109/FIE61694.2024.10893406" target="_blank" rel="noopener">doi:10.1109/FIE61694.2024.10893406</a>
-            </li>
-            <li>
-              Dastmalchi, M. R., &amp; <strong>Goli, A.</strong> (2024). <strong>Embodied learning in virtual reality: Comparing direct and indirect interaction effects on learning outcomes.</strong> <em>IEEE Frontiers in Education (FIE)</em>. 
-              <a href="https://doi.org/10.1109/FIE61694.2024.10892964" target="_blank" rel="noopener">doi:10.1109/FIE61694.2024.10892964</a>
-            </li>
-          </ol>
-        </div>
+    <p class="empty" id="pubEmpty" hidden>No publications match the selected filters.</p>
 
-        <div class="card">
-          <h3>Posters and abstracts</h3>
-          <ol class="pub-list">
-            <li>
-              <strong>Goli, A.</strong>, &amp; Dastmalchi, M. R. (2024). <strong>From theory to practice: An immersive VR framework for developing tacit knowledge in architectural education.</strong> <em>IEEE ISMAR</em> (poster, accepted).
-            </li>
-            <li>
-              Dastmalchi, M., <strong>Goli, A.</strong>, &amp; Haeri, M. (2025). <strong>Development of a human brain matrix through advanced digital fabrication and 3D scanning.</strong> <em>Journal of Neuropathology &amp; Experimental Neurology</em>, 84(6), 546. Abstract presented at AANP. 
-              <a href="https://doi.org/10.1093/jnen/nlaf040" target="_blank" rel="noopener">doi:10.1093/jnen/nlaf040</a>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
+    <footer class="colophon reveal">
+      <div class="center">— amirgoli.com —</div>
+      <div class="right">© <span data-year-now></span> Amir Goli.<br>Lawrence, Kansas.</div>
+    </footer>
+  </div>
+</main>
 
-    <section class="section">
-      <h2></h2>
-      </div>
-    </section>
-  
-    <section class="section" id="talk">
-      <h2>Talk with my AI assistant</h2>
-      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
-
-      <div class="voice-widget">
-        <div class="voice-avatar-wrap" aria-label="3D avatar">
-          <model-viewer
-            id="avatarIdle"
-            src="assets/avatar/model_Idle.glb"
-            camera-controls
-            disable-pan
-            camera-target="0m 1.45m 0m"
-            camera-orbit="0deg 75deg 2.05m"
-            min-camera-orbit="0deg 75deg 1.9m"
-            max-camera-orbit="0deg 75deg 2.2m"
-            autoplay
-            exposure="1"
-            shadow-intensity="0">
-          </model-viewer>
-
-          <model-viewer
-            id="avatarTalk"
-            class="voice-hidden"
-            src="assets/avatar/model_Talk.glb"
-            camera-controls
-            disable-pan
-            camera-target="0m 1.45m 0m"
-            camera-orbit="0deg 75deg 2.05m"
-            min-camera-orbit="0deg 75deg 1.9m"
-            max-camera-orbit="0deg 75deg 2.2m"
-            autoplay
-            exposure="1"
-            shadow-intensity="0">
-          </model-viewer>
-        </div>
-
-        <div class="voice-panel">
-          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
-
-          <div class="voice-controls">
-            <div class="voice-hold-wrap">
-              <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
-              <button id="holdToTalk" class="btn voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
-                <svg class="voice-hold-icon" width="40" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
-                </svg>
-              </button>
-            </div>
-            <div id="voiceStatus" class="voice-status">Ready</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>© <span id="y"></span> Amir Goli</div>
-      <div><a href="index.html">Back to Home</a></div>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <script type="module" src="assets/js/voice-avatar.js"></script>
+<script src="assets/js/main.js?v=2026-04-30-awards2"></script>
+<script type="module" src="assets/js/voice-avatar.js?v=2026-04-30-awards2"></script>
 </body>
 </html>

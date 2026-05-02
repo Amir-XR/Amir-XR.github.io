@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found — Amir Goli</title>
+  <meta name="description" content="That page doesn't exist on amirgoli.com. Try the home page, publications, or projects." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260430r6" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><a class="site-title-link" href="/index.html">Amir Goli</a></h1>
+      <p class="site-tagline">PhD Researcher | Conversational AI × VR | University of Kansas</p>
+    </div>
+    <div class="nav-wrap">
+      <div class="nav-inner">
+        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+          <span aria-hidden="true">☰</span>
+          Menu
+        </button>
+        <nav class="nav" data-nav>
+          <a href="/index.html">Home</a>
+          <a href="/publications.html">Publications</a>
+          <a href="/projects/index.html">Projects</a>
+          <a href="/activities.html">Activities</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+        <div class="nav-controls">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+            <span data-theme-label>Mode: Dark</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="notfound">
+      <div class="notfound-glyph" aria-hidden="true">
+        <span class="nf-digit">4</span>
+        <span class="nf-digit nf-digit-zero">0</span>
+        <span class="nf-digit">4</span>
+      </div>
+      <h2 class="page-title">Page not found</h2>
+      <p class="muted">The link is broken or the page has moved. Try one of these instead:</p>
+
+      <div class="cta-strip" style="margin-top: 24px;">
+        <a class="cta-card" href="/index.html">
+          <span class="cta-kicker">Start over</span>
+          <span class="cta-title">Home</span>
+          <span class="cta-sub">About me, research interests, and the AI assistant.</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="cta-card" href="/publications.html">
+          <span class="cta-kicker">Read</span>
+          <span class="cta-title">Publications</span>
+          <span class="cta-sub">Peer-reviewed work on VR, AI, and design cognition.</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="cta-card" href="/projects/index.html">
+          <span class="cta-kicker">Explore</span>
+          <span class="cta-title">Projects</span>
+          <span class="cta-sub">VR learning environments, RAG copilots, and computational design.</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Amir Goli</div>
+      <div><a href="/index.html">Back to Home</a></div>
+    </div>
+  </footer>
+
+  <style>
+    .notfound{ text-align:center; padding: 24px 0 8px }
+    .notfound-glyph{
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      gap: 4px;
+      margin-bottom: 12px;
+      font-family: "Source Serif 4", "Source Serif Pro", Charter, Georgia, serif;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .nf-digit{
+      font-size: clamp(72px, 14vw, 140px);
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+              background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nf-digit-zero{
+      background: linear-gradient(180deg, var(--accent3), var(--accent));
+      -webkit-background-clip: text;
+              background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: nf-spin 5s linear infinite;
+      transform-origin: 50% 60%;
+      display: inline-block;
+    }
+    @keyframes nf-spin{
+      from { transform: rotate(0deg) }
+      to   { transform: rotate(360deg) }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .nf-digit-zero{ animation: none }
+    }
+    .notfound .page-title{ display:inline-block }
+    .notfound .page-title::after{ left:50%; transform: translateX(-50%); margin-inline:auto }
+  </style>
+
+  <script src="/assets/js/main.js?v=20260430r6"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

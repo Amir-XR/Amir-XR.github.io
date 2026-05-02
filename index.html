@@ -1,162 +1,197 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amir Goli | Home</title>
-  <meta name="description" content="Amir Goli | PhD student in Architectural & Building Technology at the University of Kansas. Research interests: VR, design cognition, computational design, human-AI collaboration." />
-  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/voice-widget.css" />
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amir Goli — Issue №&nbsp;04 · Index</title>
+<meta name="description" content="A researcher's dossier on conversational AI in virtual reality. Editorial sibling site of amirgoli.com." />
+<link rel="icon" href="assets/img/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,580;0,9..144,700;0,9..144,900;0,9..144,400..900,30,1;1,9..144,400..900,30,1&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-04-30-awards2" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-title"><a class="site-title-link" href="index.html">Amir Goli</a></h1>
-      <p class="site-tagline">PhD Researcher | Conversational AI × VR | University of Kansas</p>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- ──────────────  AI ASSISTANT BAY (fixed left)  ────────────── -->
+<aside class="bay" aria-label="AI assistant">
+  <button class="bay-close" data-bay-close type="button" aria-label="Close assistant">×</button>
+  <div class="bay-head">
+    <span class="name">The Interlocutor</span>
+    <span class="live">Live</span>
+  </div>
+
+  <div class="voice-widget">
+    <div class="voice-avatar-wrap">
+      <model-viewer
+        id="avatarIdle"
+        src="assets/avatar/model_Idle.glb"
+        camera-controls
+        disable-pan
+        camera-target="0m 1.45m 0m"
+        camera-orbit="-23deg 75deg 2.05m"
+        min-camera-orbit="-23deg 75deg 1.9m"
+        max-camera-orbit="-23deg 75deg 2.2m"
+        autoplay
+        exposure="1"
+        shadow-intensity="0">
+      </model-viewer>
     </div>
-    <div class="nav-wrap">
-      <div class="nav-inner">
-        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
-          <span aria-hidden="true">☰</span>
-          Menu
-        </button>
-        <nav class="nav" data-nav>
-          <a href="index.html">Home</a>
-          <a href="publications.html">Publications</a>
-          <a href="projects/index.html">Projects</a>
-          <a href="activities.html">Activities</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-        <div class="nav-controls">
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
-            <span data-theme-label>Mode: Dark</span>
+
+    <p class="bay-caption">in residence, ready to talk.<span>hold the mic</span></p>
+
+    <div class="voice-panel">
+      <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+      <div class="voice-controls">
+        <div class="voice-hold-wrap">
+          <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+          <button id="holdToTalk" class="voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
+            </svg>
           </button>
         </div>
+        <div id="voiceStatus" class="voice-status">Ready</div>
       </div>
     </div>
-  </header>
+  </div>
+</aside>
 
-  <main class="main">
-    <h2 class="page-title">Welcome</h2>
+<!-- ──────────────  MOBILE FAB  ────────────── -->
+<button class="fab" data-bay-open type="button" aria-label="Open AI assistant" aria-expanded="false">
+  <span class="fab-pulse"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
+  </svg>
+</button>
 
-    <section class="hero">
-      <figure class="portrait">
-        <img src="assets/img/IMG_2263.png" alt="Portrait placeholder. Replace with Amir Goli photo." />
-      </figure>
+<!-- ──────────────  CONTENT  ────────────── -->
+<main class="shell">
+  <div class="frame">
 
-      <div>
-        <div class="callout">
-          <p class="kicker">About</p>
-          <p><strong>I’m a PhD student in Architectural Technology at the University of Kansas, focused on Human–AI Co-Intelligence in VR for design cognition.</strong></p>
-          <p>I develop VR co-design environments where an AI co-designer supports hybrid human–AI thinking to strengthen spatial reasoning and decision-making during creative tasks. I prototype in Unity and connect these experiences to modern LLM and VLM pipelines, including RAG and fine-tuning with QLoRA, to test what truly improves understanding while promoting productive cognitive extension without triggering overreliance or overtrust. Through experimental user studies, I evaluate how embodiment, immersive interaction, and dialogue style shape reasoning and learning outcomes in architecture and other creative fields.</p>
-          <div class="statbar" aria-label="Quick actions">
-            <a class="btn" href="Amir_Goli_CV.pdf">View CV </a>
-            <a class="btn btn-ghost" href="projects/index.html">View projects</a>
-			<a class="btn btn-ghost" href="https://www.linkedin.com/in/amir-goli-527738135">LinkedIn</a>
-			<a class="btn btn-ghost" href="https://scholar.google.com/citations?user=68H-5CAAAAAJ">Google Scholar</a>
+    <header class="masthead reveal">
+      <nav class="right" aria-label="Sections">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="activities.html">Activities</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <span data-theme-label>Go light</span>
+        </button>
+      </nav>
+    </header>
 
-          </div>
-        </div>
-
-		<div class="section">
-		  <h2>Research interests</h2>
-		  <div class="cards">
-			<div class="card">
-			  <h3>Conversational AI in VR</h3>
-			  <p>AI co-designers that support spatial reasoning and design decision-making through dialogue and immersive interaction.</p>
-			</div>
-
-			<div class="card">
-			  <h3>Human–AI co-intelligence</h3>
-			  <p>Embodiment, trust, and reliance in hybrid human–AI thinking, with a focus on productive cognitive extension.</p>
-			</div>
-
-			<div class="card">
-			  <h3>LLM and VLM pipelines</h3>
-			  <p>RAG and fine-tuning with QLoRA to build grounded AI support that improves understanding while avoiding overreliance.</p>
-			</div>
-
-			<div class="card">
-			  <h3>XR learning and evaluation</h3>
-			  <p>VR and mixed reality learning experiences validated through experimental user studies in architecture and creative fields.</p>
-			</div>
-		  </div>
-		</div>
-
-
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-eyebrow">A PhD researcher's dossier · →</div>
+      <h1 class="hero-title hero-title-xl" id="title" aria-label="Amir Goli">
+        <span class="letter">A</span><span class="letter">m</span><span class="letter">i</span><span class="letter">r</span>
+        <br/>
+        <span class="letter">G</span><span class="letter">o</span><span class="letter">l</span><span class="letter">i</span><span class="swash letter">,</span>
+      </h1>
+      <div class="hero-byline">
+        <span class="byline-rule" aria-hidden="true"></span>
+        <p class="byline-line"><em>at the</em> University of Kansas<em>,</em></p>
+        <p class="byline-meta">Lawrence, KS</p>
       </div>
     </section>
 
-  
-    <section class="section" id="talk">
-      <h2>Talk with my AI assistant</h2>
-      <p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
-
-      <div class="voice-widget">
-        <div class="voice-avatar-wrap" aria-label="3D avatar">
-          <model-viewer
-            id="avatarIdle"
-            src="assets/avatar/model_Idle.glb"
-            camera-controls
-            disable-pan
-            camera-target="0m 1.45m 0m"
-            camera-orbit="0deg 75deg 2.05m"
-            min-camera-orbit="0deg 75deg 1.9m"
-            max-camera-orbit="0deg 75deg 2.2m"
-            autoplay
-            exposure="1"
-            shadow-intensity="0">
-          </model-viewer>
-
-          <model-viewer
-            id="avatarTalk"
-            class="voice-hidden"
-            src="assets/avatar/model_Talk.glb"
-            camera-controls
-            disable-pan
-            camera-target="0m 1.45m 0m"
-            camera-orbit="0deg 75deg 2.05m"
-            min-camera-orbit="0deg 75deg 1.9m"
-            max-camera-orbit="0deg 75deg 2.2m"
-            autoplay
-            exposure="1"
-            shadow-intensity="0">
-          </model-viewer>
-        </div>
-
-        <div class="voice-panel">
-          <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
-
-          <div class="voice-controls">
-            <div class="voice-hold-wrap">
-              <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
-              <button id="holdToTalk" class="btn voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
-                <svg class="voice-hold-icon" width="40" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/>
-                </svg>
-              </button>
-            </div>
-            <div id="voiceStatus" class="voice-status">Ready</div>
-          </div>
-        </div>
-      </div>
+    <section class="lede reveal">
+      <p>
+        A doctoral researcher building <em>AI co-designers</em> inside virtual reality —
+        testing how dialogue, embodiment, and immersion shape the way architects
+        <em>think, decide, and learn</em>.
+      </p>
     </section>
 
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>© <span id="y"></span> Amir Goli</div>
-      <div></div>
+    <!-- 01 — Research areas -->
+    <div class="chapter">
+      <span>01 — Research areas</span><span class="glyph">✦</span>
     </div>
-  </footer>
 
-  <script src="assets/js/main.js"></script>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <script type="module" src="assets/js/voice-avatar.js"></script>
+    <section class="stagger" aria-label="Research areas">
+      <article class="entry">
+        <span class="num" aria-hidden="true">01</span>
+        <div>
+          <h3>Conversational AI in VR</h3>
+          <p>AI co-designers that support spatial reasoning and decision-making through dialogue and immersive interaction.</p>
+        </div>
+        <div class="keywords"><span>Unity XR</span><span>LLM</span><span>Speech</span></div>
+      </article>
+
+      <article class="entry">
+        <span class="num" aria-hidden="true">02</span>
+        <div>
+          <h3>Human <span class="amp">&amp;</span> AI co-intelligence</h3>
+          <p>Embodiment, trust, and reliance in hybrid human–AI thinking — focused on productive cognitive extension, not overreliance.</p>
+        </div>
+        <div class="keywords"><span>Trust</span><span>Embodiment</span><span>4E cognition</span></div>
+      </article>
+
+      <article class="entry">
+        <span class="num" aria-hidden="true">03</span>
+        <div>
+          <h3>LLM <span class="amp">&amp;</span> VLM pipelines</h3>
+          <p>RAG and fine-tuning with QLoRA to build grounded AI support that improves understanding while avoiding overconfidence.</p>
+        </div>
+        <div class="keywords"><span>RAG</span><span>QLoRA</span><span>Vision-language</span></div>
+      </article>
+
+      <article class="entry">
+        <span class="num" aria-hidden="true">04</span>
+        <div>
+          <h3>XR learning <span class="amp">&amp;</span> evaluation</h3>
+          <p>VR and mixed-reality learning experiences validated through experimental user studies in architecture and adjacent creative fields.</p>
+        </div>
+        <div class="keywords"><span>VR / MR</span><span>User studies</span><span>Pedagogy</span></div>
+      </article>
+    </section>
+
+    <!-- 02 — Posture -->
+    <div class="chapter"><span>02 — Posture</span><span class="glyph">✦</span></div>
+
+    <section class="pullquote reveal">
+      <p>
+        The question is not whether AI will think with us, but whether the way we build it lets us
+        keep <strong>thinking for ourselves</strong> — embodied, situated, and accountable to the rooms we design.
+      </p>
+      <div class="attr">— Working manuscript, 2026</div>
+    </section>
+
+    <!-- 03 — Directory -->
+    <div class="chapter"><span>03 — Directory</span><span class="glyph">✦</span></div>
+
+    <nav class="directory stagger" aria-label="Site directory">
+      <a href="publications.html">
+        <span>Publications <span class="meta"></span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <a href="projects/index.html">
+        <span>Projects <span class="meta"></span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <a href="activities.html">
+        <span>Activities <span class="meta"></span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <a href="contact.html">
+        <span>Contact <span class="meta">(open for collab.)</span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <footer class="colophon reveal">
+      <div class="center">— amirgoli.com —</div>
+      <div class="right">© <span data-year-now></span> Amir Goli.<br>Lawrence, Kansas.</div>
+    </footer>
+  </div>
+</main>
+
+<script src="assets/js/main.js?v=2026-04-30-awards2"></script>
+<script type="module" src="assets/js/voice-avatar.js?v=2026-04-30-awards2"></script>
 </body>
 </html>

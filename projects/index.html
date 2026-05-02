@@ -1,148 +1,155 @@
-<!DOCTYPE html>
-
-<html data-theme="dark" lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<link href="../assets/img/favicon.png" rel="icon" type="image/png"/>
-<title>Amir Goli | Projects</title>
-<meta content="Selected projects by Amir Goli across Conversational AI, VR, human–AI co-intelligence, design cognition, and computational design." name="description"/>
-<link href="../assets/css/style.css" rel="stylesheet"/>
-<link href="../assets/css/voice-widget.css" rel="stylesheet"/>
-<script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects — Amir Goli · Issue №&nbsp;04</title>
+<meta name="description" content="Selected projects across conversational AI, VR learning environments, multimodal interfaces, and computational design." />
+<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,580;0,9..144,700;0,9..144,900;0,9..144,400..900,30,1;1,9..144,400..900,30,1&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css?v=2026-04-30-awards2" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-<header class="site-header">
-<div class="header-inner">
-<h1 class="site-title"><a class="site-title-link" href="../index.html">Amir Goli</a></h1>
-<p class="site-tagline">PhD Researcher | Conversational AI × VR | University of Kansas</p>
-</div>
-<div class="nav-wrap">
-<div class="nav-inner">
-<button aria-expanded="false" class="nav-toggle" data-nav-toggle="" type="button">
-<span aria-hidden="true">☰</span>
-          Menu
+
+<div class="cursor" aria-hidden="true"></div>
+
+<aside class="bay" aria-label="AI assistant">
+  <button class="bay-close" data-bay-close type="button" aria-label="Close assistant">×</button>
+  <div class="bay-head"><span class="name">The Interlocutor</span><span class="live">Live</span></div>
+  <div class="voice-widget">
+    <div class="voice-avatar-wrap">
+      <model-viewer id="avatarIdle" src="../assets/avatar/model_Idle.glb" camera-controls disable-pan
+        camera-target="0m 1.45m 0m" camera-orbit="-23deg 75deg 2.05m"
+        min-camera-orbit="-23deg 75deg 1.9m" max-camera-orbit="-23deg 75deg 2.2m"
+        autoplay exposure="1" shadow-intensity="0"></model-viewer>
+    </div>
+    <p class="bay-caption">in residence, ready to talk.<span>hold the mic</span></p>
+    <div class="voice-panel">
+      <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+      <div class="voice-controls">
+        <div class="voice-hold-wrap">
+          <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+          <button id="holdToTalk" class="voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+          </button>
+        </div>
+        <div id="voiceStatus" class="voice-status">Ready</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<button class="fab" data-bay-open type="button" aria-label="Open AI assistant" aria-expanded="false">
+  <span class="fab-pulse"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+</button>
+
+<main class="shell">
+  <div class="frame">
+
+    <header class="masthead reveal">
+      <nav class="right" aria-label="Sections">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="index.html">Projects</a>
+        <a href="../activities.html">Activities</a>
+        <a href="../contact.html">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span data-theme-label>Go light</span>
         </button>
-<nav class="nav" data-nav="">
-<a href="../index.html">Home</a>
-<a href="../publications.html">Publications</a>
-<a aria-current="page" href="index.html">Projects</a>
-<a href="../activities.html">Activities</a>
-<a href="../contact.html">Contact</a>
-</nav>
-<div class="nav-controls">
-<button aria-label="Change theme" class="theme-toggle" data-theme-toggle="" type="button">
-<span data-theme-label="">Mode: Dark</span>
-</button>
-</div>
-</div>
-</div>
-</header>
-<main class="main">
-<h2 class="page-title">Projects</h2>
-<div class="callout">
-<p class="kicker">Focus</p>
-<p>My work explores how conversational AI and immersive VR can strengthen design cognition, spatial reasoning, and decision-making during creative tasks. I also bring a background in computational design and digital fabrication.</p>
-</div>
-<section class="section">
-<h2>Selected projects</h2>
-<div class="grid-2">
-<a class="card" href="standardscout.html">
-<div class="thumb"><img alt="StandardScout thumbnail" src="../assets/img/project-standardscout.svg"/></div>
-<h3>StandardScout | RAG-Based Building Code Assistant</h3>
-<p class="small">LLM-powered building-code copilot with local RAG for ADA, ABA, and GSA P-100, plus session-only PDF upload and optional web search. Text and Conversational modes are UI-only differences, and each Q&amp;A generates a blueprint-style technical diagram with citations.</p>
+      </nav>
+    </header>
 
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-eyebrow">Field notes · 06 selected works</div>
+      <h1 class="hero-title" id="title" aria-label="Projects">
+        <span class="letter">P</span><span class="letter">r</span><span class="letter">o</span><span class="letter">j</span><span class="letter">e</span><span class="letter">c</span><span class="letter">t</span><span class="letter">s</span><span class="swash letter">.</span>
+      </h1>
+    </section>
 
-          <span class="badge">LLM • RAG</span>
-          <span class="badge">PDF upload</span>
-          <span class="badge">Web search</span>
-          <span class="badge">Blueprint diagrams</span></a>
-<a class="card" href="project-1.html">
-<div class="thumb"><img alt="Project 1 thumbnail" src="../assets/img/project-1.svg"/></div>
-<h3>ARTH VR learning environment</h3>
-<p class="small">Unity-based VR learning environment for adaptive reuse design tasks, with tablet-driven placement, demolition, and editing modes plus study instrumentation.</p>
+    <section class="lede reveal">
+      <p>
+        Selected projects across <em>VR, AI, computation, and fabrication</em> — the places where
+        my <em>thinking meets making.</em>
+      </p>
+    </section>
 
-<br>
+    <div class="chapter"><span>01 — Selected works</span><span class="glyph">✦</span></div>
 
-          <span class="badge">Unity XR</span>
-          <span class="badge">VR learning</span>
-          <span class="badge">User studies</span></a>
-<a class="card" href="project-2.html">
-<div class="thumb"><img alt="Project 2 thumbnail" src="../assets/img/project-2.svg"/></div>
-<h3>Architectural design serious game</h3>
-<p class="small">Multimodal serious game in Rhino and Grasshopper using Leap Motion, computer vision, and voice interaction to support architectural design learning and self-assessment.</p>
+    <section class="proj-grid stagger">
+      <a class="proj-card" href="standardscout.html">
+        <span class="num">01</span>
+        <div>
+          <h3>StandardScout <span class="amp" style="font-family:var(--italic);font-style:italic;color:var(--accent)">/</span> RAG building-code copilot</h3>
+          <p>LLM-powered code-aware assistant with local retrieval over ADA, ABA, and GSA P-100 — citations and blueprint diagrams baked in.</p>
+          <div class="badges"><span>LLM · RAG</span><span>PDF upload</span><span>Web search</span><span>Blueprints</span></div>
+        </div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
 
+      <a class="proj-card" href="project-1.html">
+        <span class="num">02</span>
+        <div>
+          <h3>ARTH <span class="amp" style="font-family:var(--italic);font-style:italic;color:var(--accent)">/</span> VR learning environment</h3>
+          <p>Unity-based VR for adaptive-reuse design with tablet-driven placement, demolition, and editing modes — instrumented for user studies.</p>
+          <div class="badges"><span>Unity XR</span><span>VR learning</span><span>User studies</span></div>
+        </div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
 
-          <span class="badge">HCI</span>
-          <span class="badge">Multimodal</span>
-          <span class="badge">Serious game</span></a>
-<a class="card" href="project-4.html">
-<div class="thumb"><img alt="Project 4 thumbnail" src="../assets/img/project-4.svg"/></div>
-<h3>OROSI interactive pavilion</h3>
-<p class="small">Responsive light and kinetic system inspired by Iranian Orosi windows, blending computational design, and interaction.</p>
-<br>
+      <a class="proj-card" href="project-2.html">
+        <span class="num">03</span>
+        <div>
+          <h3>GaoDe <span class="amp" style="font-family:var(--italic);font-style:italic;color:var(--accent)">/</span> Architectural design serious game</h3>
+          <p>Multimodal serious game in Rhino + Grasshopper using Leap Motion, vision, and voice — a sandbox for architectural learning.</p>
+          <div class="badges"><span>HCI</span><span>Multimodal</span><span>Serious game</span></div>
+        </div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
 
-          <span class="badge">Interactive pavilion</span>
-          <span class="badge">Computational design</span>
-<a class="card" href="project-5.html">
-<div class="thumb"><img alt="Project 5 thumbnail" src="../assets/img/project-5.svg"/></div>
-<h3>Fabrication projects</h3>
-<p class="small">Selected digital fabrication projects spanning robotic workflows, CNC and laser fabrication, and full-scale prototypes.</p>
+      <a class="proj-card" href="project-4.html">
+        <span class="num">04</span>
+        <div>
+          <h3>OROSI <span class="amp" style="font-family:var(--italic);font-style:italic;color:var(--accent)">/</span> Interactive pavilion</h3>
+          <p>Responsive light + kinetic system inspired by Iranian Orosi windows — computational design meets physical interaction.</p>
+          <div class="badges"><span>Pavilion</span><span>Computational</span><span>Interaction</span></div>
+        </div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
 
-<br>
+      <a class="proj-card" href="project-5.html">
+        <span class="num">05</span>
+        <div>
+          <h3>Fabrication projects</h3>
+          <p>Selected digital fabrication: robotic workflows, CNC + laser, full-scale prototypes — making as a way of thinking.</p>
+          <div class="badges"><span>Robotic</span><span>CNC + laser</span><span>Prototyping</span></div>
+        </div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
 
+      <a class="proj-card" href="project-3.html">
+        <span class="num">06</span>
+        <div>
+          <h3>BESOLOGY <span class="amp" style="font-family:var(--italic);font-style:italic;color:var(--accent)">/</span> Topology optimization</h3>
+          <p>Parametric workflow combining BESO topology optimization with high-rise structural design under wind + gravity loads.</p>
+          <div class="badges"><span>Topology</span><span>Parametric</span><span>Structures</span></div>
+        </div>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+    </section>
 
-          <span class="badge">Robotic fabrication</span>
-          <span class="badge">CNC + laser</span>
-          <span class="badge">Prototyping</span></a>
-<a class="card" href="project-3.html">
-<div class="thumb"><img alt="Project 3 thumbnail" src="../assets/img/project-3.svg"/></div>
-<h3>Parametric topology optimization</h3>
-<p class="small">Parametric workflow combining BESO topology optimization with high-rise structural system design under wind and gravity loading scenarios.</p>
-
-
-          <span class="badge">Topology optimization</span>
-          <span class="badge">Parametric design</span>
-          <span class="badge">Structures</span></a>
-</div>
-</section>
-<section class="section" id="talk">
-<h2>Talk with my AI assistant</h2>
-<p class="muted">Hold the button to record. Release to send. The reply will play aloud and appear in the chat.</p>
-<div class="voice-widget">
-<div aria-label="3D avatar" class="voice-avatar-wrap">
-<model-viewer autoplay="" camera-controls="" camera-orbit="0deg 75deg 2.05m" camera-target="0m 1.45m 0m" disable-pan="" exposure="1" id="avatarIdle" max-camera-orbit="0deg 75deg 2.2m" min-camera-orbit="0deg 75deg 1.9m" shadow-intensity="0" src="../assets/avatar/model_Idle.glb">
-</model-viewer>
-<model-viewer autoplay="" camera-controls="" camera-orbit="0deg 75deg 2.05m" camera-target="0m 1.45m 0m" class="voice-hidden" disable-pan="" exposure="1" id="avatarTalk" max-camera-orbit="0deg 75deg 2.2m" min-camera-orbit="0deg 75deg 1.9m" shadow-intensity="0" src="../assets/avatar/model_Talk.glb">
-</model-viewer>
-</div>
-<div class="voice-panel">
-<div aria-label="Conversation" class="voice-chat" id="voiceChat"></div>
-<div class="voice-controls">
-<div class="voice-hold-wrap">
-<div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
-<button aria-label="Hold to talk" aria-labelledby="holdToTalkLabel" class="btn voice-hold" id="holdToTalk" type="button">
-<svg aria-hidden="true" class="voice-hold-icon" focusable="false" height="18" viewbox="0 0 24 24" width="18">
-<path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z" fill="currentColor"></path>
-</svg>
-</button>
-</div>
-<div class="voice-status" id="voiceStatus">Ready</div>
-</div>
-</div>
-</div>
-</section>
+    <footer class="colophon reveal">
+      <div class="center">— amirgoli.com —</div>
+      <div class="right">© <span data-year-now></span> Amir Goli.<br>Lawrence, Kansas.</div>
+    </footer>
+  </div>
 </main>
-<footer class="site-footer">
-<div class="footer-inner">
-<div>© <span id="y"></span> Amir Goli</div>
-<div><a href="../index.html">Back to Home</a></div>
-</div>
-</footer>
-<script src="../assets/js/main.js"></script>
-<script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-<script src="../assets/js/voice-avatar.js" type="module"></script>
+
+<script src="../assets/js/main.js?v=2026-04-30-awards2"></script>
+<script type="module" src="../assets/js/voice-avatar.js?v=2026-04-30-awards2"></script>
 </body>
 </html>
