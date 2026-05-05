@@ -1,128 +1,205 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page not found — Amir Goli</title>
-  <meta name="description" content="That page doesn't exist on amirgoli.com. Try the home page, publications, or projects." />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20260430r6" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Erratum № 404 — Amir Goli</title>
+<meta name="description" content="The page you sought is missing from the issue. Try the home page, publications, or projects." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,580;0,9..144,700;0,9..144,900;0,9..144,400..900,30,1;1,9..144,400..900,30,1&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css?v=2026-05-05-swup" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-title"><a class="site-title-link" href="/index.html">Amir Goli</a></h1>
-      <p class="site-tagline">PhD Researcher | Conversational AI × VR | University of Kansas</p>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<aside class="bay" aria-label="AI assistant">
+  <button class="bay-close" data-bay-close type="button" aria-label="Close assistant">×</button>
+  <div class="bay-head"><span class="name">The Interlocutor</span><span class="live">Live</span></div>
+  <div class="voice-widget">
+    <div class="voice-avatar-wrap">
+      <model-viewer id="avatarIdle" src="/assets/avatar/model_Idle.glb" camera-controls disable-pan
+        camera-target="0m 1.45m 0m" camera-orbit="-23deg 75deg 2.05m"
+        min-camera-orbit="-23deg 75deg 1.9m" max-camera-orbit="-23deg 75deg 2.2m"
+        autoplay exposure="1" shadow-intensity="0"></model-viewer>
     </div>
-    <div class="nav-wrap">
-      <div class="nav-inner">
-        <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
-          <span aria-hidden="true">☰</span>
-          Menu
-        </button>
-        <nav class="nav" data-nav>
-          <a href="/index.html">Home</a>
-          <a href="/publications.html">Publications</a>
-          <a href="/projects/index.html">Projects</a>
-          <a href="/activities.html">Activities</a>
-          <a href="/contact.html">Contact</a>
-        </nav>
-        <div class="nav-controls">
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
-            <span data-theme-label>Mode: Dark</span>
+    <p class="bay-caption">in residence, ready to talk.<span>hold the mic</span></p>
+    <div class="voice-panel">
+      <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+      <div class="voice-controls">
+        <div class="voice-hold-wrap">
+          <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+          <button id="holdToTalk" class="voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
           </button>
         </div>
+        <div id="voiceStatus" class="voice-status">Ready</div>
       </div>
     </div>
-  </header>
+  </div>
+</aside>
 
-  <main class="main">
-    <section class="notfound">
-      <div class="notfound-glyph" aria-hidden="true">
-        <span class="nf-digit">4</span>
-        <span class="nf-digit nf-digit-zero">0</span>
-        <span class="nf-digit">4</span>
-      </div>
-      <h2 class="page-title">Page not found</h2>
-      <p class="muted">The link is broken or the page has moved. Try one of these instead:</p>
+<button class="fab" data-bay-open type="button" aria-label="Open AI assistant" aria-expanded="false">
+  <span class="fab-pulse"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+</button>
 
-      <div class="cta-strip" style="margin-top: 24px;">
-        <a class="cta-card" href="/index.html">
-          <span class="cta-kicker">Start over</span>
-          <span class="cta-title">Home</span>
-          <span class="cta-sub">About me, research interests, and the AI assistant.</span>
-          <span class="cta-arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="cta-card" href="/publications.html">
-          <span class="cta-kicker">Read</span>
-          <span class="cta-title">Publications</span>
-          <span class="cta-sub">Peer-reviewed work on VR, AI, and design cognition.</span>
-          <span class="cta-arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="cta-card" href="/projects/index.html">
-          <span class="cta-kicker">Explore</span>
-          <span class="cta-title">Projects</span>
-          <span class="cta-sub">VR learning environments, RAG copilots, and computational design.</span>
-          <span class="cta-arrow" aria-hidden="true">→</span>
-        </a>
+<main class="shell">
+  <div class="frame">
+
+    <header class="masthead reveal">
+      <nav class="right" aria-label="Sections">
+        <a href="/index.html">Home</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/projects/index.html">Projects</a>
+        <a href="/activities.html">Activities</a>
+        <a href="/contact.html">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span data-theme-label>Go light</span>
+        </button>
+      </nav>
+    </header>
+
+    <section class="hero err-hero" aria-labelledby="title">
+      <div class="hero-eyebrow">Erratum · status 404 · page missing</div>
+      <h1 class="hero-title err-num" id="title" aria-label="404 page not found">
+        <span class="letter">4</span><span class="letter err-zero">0</span><span class="letter">4</span><span class="swash letter">.</span>
+      </h1>
+      <div class="hero-byline">
+        <span class="byline-rule" aria-hidden="true"></span>
+        <p class="byline-line"><em>The page you sought</em> has slipped between footnotes<em>,</em></p>
+        <p class="byline-meta">no record found in this issue</p>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>© <span id="y"></span> Amir Goli</div>
-      <div><a href="/index.html">Back to Home</a></div>
+    <section class="lede reveal">
+      <p>
+        Every <em>issue</em> has a page that didn't make it — a draft never set,
+        a citation lost in <em>proofs</em>. The rest of the dossier is intact.
+      </p>
+    </section>
+
+    <div class="chapter"><span>01 — Where to next</span><span class="glyph">✦</span></div>
+
+    <nav class="directory stagger" aria-label="Site directory">
+      <a href="/index.html">
+        <span>Home <span class="meta">start over</span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <a href="/publications.html">
+        <span>Publications <span class="meta">peer-reviewed work</span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <a href="/projects/index.html">
+        <span>Projects <span class="meta">selected works</span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+      <a href="/contact.html">
+        <span>Contact <span class="meta">say hello</span></span>
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <div class="chapter"><span>02 — Or just ask</span><span class="glyph">✦</span></div>
+
+    <div class="callout reveal" style="border-left-color: var(--accent-deep);">
+      <div class="kicker">Live, on the left</div>
+      <p>
+        The <em>Interlocutor</em> in the left column knows the site. Hold the mic and ask where you
+        were trying to go — it can usually point you in the right direction.
+      </p>
+      <p style="font-family:var(--italic); font-style:italic; color:var(--accent-deep);">
+        On mobile, tap the floating mic at the bottom-right.
+      </p>
     </div>
-  </footer>
 
-  <style>
-    .notfound{ text-align:center; padding: 24px 0 8px }
-    .notfound-glyph{
-      display:flex;
-      justify-content:center;
-      align-items:flex-end;
-      gap: 4px;
-      margin-bottom: 12px;
-      font-family: "Source Serif 4", "Source Serif Pro", Charter, Georgia, serif;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-    .nf-digit{
-      font-size: clamp(72px, 14vw, 140px);
-      background: linear-gradient(180deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-              background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nf-digit-zero{
-      background: linear-gradient(180deg, var(--accent3), var(--accent));
-      -webkit-background-clip: text;
-              background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: nf-spin 5s linear infinite;
-      transform-origin: 50% 60%;
-      display: inline-block;
-    }
-    @keyframes nf-spin{
-      from { transform: rotate(0deg) }
-      to   { transform: rotate(360deg) }
-    }
-    @media (prefers-reduced-motion: reduce){
-      .nf-digit-zero{ animation: none }
-    }
-    .notfound .page-title{ display:inline-block }
-    .notfound .page-title::after{ left:50%; transform: translateX(-50%); margin-inline:auto }
-  </style>
+    <footer class="colophon reveal">
+      <div class="center">— amirgoli.com —</div>
+      <div class="right">© <span data-year-now></span> Amir Goli.<br>Lawrence, Kansas.</div>
+    </footer>
+  </div>
+</main>
 
-  <script src="/assets/js/main.js?v=20260430r6"></script>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+<style>
+  /* Erratum-specific page treatment. Scoped to .err-hero so nothing leaks. */
+  .err-hero{ position: relative; padding-top: 28px }
+
+  /* Mono overline that reads like an editor's cropmark / printer's plate */
+  .err-hero::before{
+    content: "ERRATUM № 404 / FOLIO LOST";
+    position: absolute;
+    top: 0; left: 0;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: var(--ash);
+    opacity: 0.7;
+    pointer-events: none;
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 6px;
+    width: 100%;
+  }
+
+  /* The "404" itself — much larger than the standard hero-title */
+  .err-hero .err-num{
+    font-size: clamp(120px, 22vw, 280px);
+    line-height: 0.86;
+    letter-spacing: -0.05em;
+    margin-top: 18px;
+  }
+
+  /* The middle 0 becomes the "missing" character — italic, accent-coloured,
+     with a slow wobble. Spin only triggers occasionally so it isn't busy. */
+  .err-hero .err-num .err-zero{
+    font-family: var(--italic);
+    font-style: italic;
+    font-variation-settings: normal;
+    font-weight: 400;
+    color: var(--accent);
+    display: inline-block;
+    transform-origin: 50% 58%;
+    animation: err-zero-wobble 9s cubic-bezier(.2,.7,.2,1) infinite;
+  }
+  @keyframes err-zero-wobble{
+    0%, 84%, 100% { transform: rotate(0deg)   }
+    88%           { transform: rotate(-10deg) }
+    93%           { transform: rotate(7deg)   }
+    97%           { transform: rotate(-3deg)  }
+  }
+
+  /* Faint ghost layer behind the 404 — paper-grain doubled */
+  .err-hero .err-num::after{
+    content: "404";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: var(--accent);
+    opacity: 0.05;
+    font-size: clamp(160px, 30vw, 380px);
+    line-height: 0.86;
+    letter-spacing: -0.05em;
+    transform: translate(8px, 4px);
+    z-index: -1;
+    filter: blur(2px);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .err-hero .err-num .err-zero{ animation: none }
+  }
+
+  @media (max-width: 540px){
+    .err-hero::before{ font-size: 9px; letter-spacing: 0.22em }
+    .err-hero .err-num{ font-size: clamp(96px, 28vw, 160px) }
+  }
+</style>
+
+<script src="https://unpkg.com/swup@4/dist/Swup.umd.js"></script>
+<script src="/assets/js/main.js?v=2026-05-05-swup"></script>
+<script type="module" src="/assets/js/voice-avatar.js?v=2026-04-30-awards2"></script>
 </body>
 </html>
