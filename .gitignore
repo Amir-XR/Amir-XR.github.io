@@ -1,0 +1,14 @@
+# Local dev — must never ship.
+.dev.vars
+.wrangler/
+
+# Repo-only docs and dev tools (excluded per DEPLOY.md).
+DEPLOY.md
+serve.json
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
