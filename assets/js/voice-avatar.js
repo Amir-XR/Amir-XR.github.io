@@ -11,9 +11,9 @@
 // path was unreliable across browsers (Firefox in particular). This boring
 // HTTP pipeline trades ~3s of extra latency for full reliability.
 
-const VOICE_AVATAR_VERSION = "2026-04-30-http-ash";
+const VOICE_AVATAR_VERSION = "2026-05-05-ios-no-webaudio";
 console.info(
-  "%c[voice-avatar] %cv" + VOICE_AVATAR_VERSION + " — HTTP pipeline, OpenAI Ash TTS",
+  "%c[voice-avatar] %cv" + VOICE_AVATAR_VERSION + " — HTTP pipeline, native <audio> on iOS",
   "color:#c5a3d6;font-weight:700",
   "color:inherit;font-weight:normal"
 );
@@ -175,12 +175,8 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
       console.warn(`[avatar] setGesture(${name}) skipped — no such pose in manifest`);
       return false;
     }
-    if (currentPose === name) {
-      console.log(`[avatar] setGesture(${name}) — already on this pose, no-op`);
-      return true;
-    }
+    if (currentPose === name) return true;
     const newSrc = AVATAR_BASE + pose.file;
-    console.log(`[avatar] setGesture(${name}) -> ${pose.file}`);
     currentPose = name;
 
     // Camera angle: rotate the avatar -23deg only on the idle (resting) pose.
@@ -340,23 +336,27 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
         src.connect(audioCtx.destination);
         src.start(0);
       }
-      // Unlock the <audio> element itself: play silent WAV, immediately
-      // pause + clear src. iOS will then permit src-change + play() in
-      // sendToWorker (which happens long after this gesture).
-      const prev = remoteAudio.getAttribute("src") || "";
-      remoteAudio.muted = true;
-      remoteAudio.src = SILENT_WAV;
-      const p = remoteAudio.play();
-      const restore = () => {
-        try { remoteAudio.pause(); } catch {}
-        remoteAudio.muted = false;
-        if (prev) remoteAudio.src = prev;
-        else { remoteAudio.removeAttribute("src"); try { remoteAudio.load(); } catch {} }
-      };
-      if (p && typeof p.then === "function") {
-        p.then(() => setTimeout(restore, 30)).catch(() => { remoteAudio.muted = false; });
-      } else {
-        setTimeout(restore, 30);
+      // Unlock the <audio> element itself by playing a silent WAV, then
+      // immediately pause + clear src. iOS-only: other browsers (Firefox,
+      // Chrome desktop, Android) don't need this AND Firefox refuses to
+      // decode our 0-byte WAV header, surfacing as a MediaError code 4
+      // that the audio.error listener treats as a user-facing failure.
+      if (isIOS) {
+        const prev = remoteAudio.getAttribute("src") || "";
+        remoteAudio.muted = true;
+        remoteAudio.src = SILENT_WAV;
+        const p = remoteAudio.play();
+        const restore = () => {
+          try { remoteAudio.pause(); } catch {}
+          remoteAudio.muted = false;
+          if (prev) remoteAudio.src = prev;
+          else { remoteAudio.removeAttribute("src"); try { remoteAudio.load(); } catch {} }
+        };
+        if (p && typeof p.then === "function") {
+          p.then(() => setTimeout(restore, 30)).catch(() => { remoteAudio.muted = false; });
+        } else {
+          setTimeout(restore, 30);
+        }
       }
     } catch (e) {
       console.warn("[audio-unlock] failed:", e);
