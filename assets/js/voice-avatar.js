@@ -279,6 +279,38 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
     }
   }
 
+  // iOS Safari requires AudioContext + audio playback to be unlocked
+  // *synchronously* inside a user gesture. The recorder workflow has many
+  // `await`s before the first audio plays, so by the time we'd otherwise
+  // create the context it's no longer in gesture context, it stays
+  // suspended forever, and the user hears nothing. Fix: prime everything
+  // on the first pointerdown, before any await.
+  let iosAudioUnlocked = false;
+  function unlockAudioOnGesture() {
+    if (iosAudioUnlocked) return;
+    iosAudioUnlocked = true;
+    try {
+      ensureAudioAnalyser();
+      // Synchronous resume() call counts as gesture-bound on iOS even if
+      // the returned Promise resolves later.
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume().catch(() => {});
+      }
+      // Play a 1-sample silent buffer through the AudioContext so iOS
+      // marks the context as user-activated. After this, all subsequent
+      // playback works without further gestures.
+      if (audioCtx) {
+        const buf = audioCtx.createBuffer(1, 1, 22050);
+        const src = audioCtx.createBufferSource();
+        src.buffer = buf;
+        src.connect(audioCtx.destination);
+        src.start(0);
+      }
+    } catch (e) {
+      console.warn("[ios-unlock] failed:", e);
+    }
+  }
+
   function amplitudeTick() {
     if (!analyserNode) return;
     analyserNode.getFloatTimeDomainData(analyserBuf);
@@ -594,6 +626,12 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
 
   async function onPointerDown() {
     if (isDown || toggleBusy) return;
+
+    // *** iOS Safari unlock — must run synchronously here, before any
+    // *** await, or the AudioContext is created off-gesture and never
+    // *** resumes. Firefox doesn't need this; Safari (mobile + desktop) does.
+    unlockAudioOnGesture();
+
     isDown = true;
     toggleBusy = true;
     try {
