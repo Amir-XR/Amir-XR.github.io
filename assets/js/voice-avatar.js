@@ -245,12 +245,23 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
   // ============================================================
   // ----------  AUDIO PLAYBACK + amplitude analysis  ------------
   // ============================================================
+  // iOS detection (covers iPhone, iPod, classic iPad UA, AND modern iPad
+  // running iPadOS that pretends to be Macintosh). Every browser on iOS —
+  // Safari, Chrome, Firefox, Edge — uses WebKit underneath, so all of them
+  // share the same audio quirks.
+  const isIOS = (() => {
+    const ua = navigator.userAgent || "";
+    return /iP(hone|ad|od)/.test(ua) ||
+      (ua.includes("Mac") && navigator.maxTouchPoints > 1);
+  })();
+
   const remoteAudio = (() => {
     const a = document.createElement("audio");
     a.autoplay = false;  // we explicitly play after src is set
     a.setAttribute("playsinline", "");
     a.playsInline = true;
     a.controls = false;
+    a.preload = "auto";
     a.style.display = "none";
     document.body.appendChild(a);
     return a;
@@ -260,12 +271,30 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
   let analyserNode = null;
   let analyserBuf = null;
   let smoothedRms = 0;
-  function ensureAudioAnalyser() {
-    if (analyserNode) return;
+
+  // Create the AudioContext (for unlock + non-iOS analyser). On iOS we
+  // deliberately stop here — we do NOT route remoteAudio through WebAudio,
+  // because Safari/WKWebView has long-standing bugs in
+  // `createMediaElementSource()`: changing the audio's `src` after the
+  // source node is created (which our streaming TTS pipeline does on every
+  // turn) results in silence, even though the context is running. Native
+  // <audio> playback works fine on iOS, so we let it play directly.
+  function ensureAudioContext() {
+    if (audioCtx) return;
     try {
       const Ctor = window.AudioContext || window.webkitAudioContext;
       if (!Ctor) return;
       audioCtx = new Ctor();
+    } catch (e) {
+      console.warn("AudioContext create failed:", e);
+    }
+  }
+
+  function ensureAudioAnalyser() {
+    if (analyserNode || isIOS) return;  // skip routing on iOS
+    ensureAudioContext();
+    if (!audioCtx) return;
+    try {
       const source = audioCtx.createMediaElementSource(remoteAudio);
       analyserNode = audioCtx.createAnalyser();
       analyserNode.fftSize = 512;
@@ -276,6 +305,61 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
       requestAnimationFrame(amplitudeTick);
     } catch (e) {
       console.warn("audio analyser setup failed:", e);
+    }
+  }
+
+  // iOS unlock: must run synchronously inside a user gesture, before any
+  // await. The recorder workflow has many `await`s before the first audio
+  // plays, so without this `audio.play()` is later blocked as a non-
+  // user-initiated playback request, and any AudioContext we'd create is
+  // born suspended and never resumes. Two unlocks are needed:
+  //   1. AudioContext.resume() inside gesture
+  //   2. <audio>.play() inside gesture (with a tiny silent WAV) — this
+  //      registers user activation on the element so future src-changes
+  //      + play() calls work without a gesture for the rest of the session.
+  let audioUnlocked = false;
+  // ~600 byte silent WAV (header-only, zero-length data). Universally
+  // supported and decodes instantly. Using WAV (not MP3) avoids any
+  // codec-init delay that might cause iOS to drop the gesture link.
+  const SILENT_WAV =
+    "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=";
+  function unlockAudioOnGesture() {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+    try {
+      ensureAudioContext();
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume().catch(() => {});  // synchronous call = gesture-bound
+      }
+      // Play a 1-sample silent buffer through the AudioContext so iOS
+      // marks it as user-activated.
+      if (audioCtx) {
+        const buf = audioCtx.createBuffer(1, 1, 22050);
+        const src = audioCtx.createBufferSource();
+        src.buffer = buf;
+        src.connect(audioCtx.destination);
+        src.start(0);
+      }
+      // Unlock the <audio> element itself: play silent WAV, immediately
+      // pause + clear src. iOS will then permit src-change + play() in
+      // sendToWorker (which happens long after this gesture).
+      const prev = remoteAudio.getAttribute("src") || "";
+      remoteAudio.muted = true;
+      remoteAudio.src = SILENT_WAV;
+      const p = remoteAudio.play();
+      const restore = () => {
+        try { remoteAudio.pause(); } catch {}
+        remoteAudio.muted = false;
+        if (prev) remoteAudio.src = prev;
+        else { remoteAudio.removeAttribute("src"); try { remoteAudio.load(); } catch {} }
+      };
+      if (p && typeof p.then === "function") {
+        p.then(() => setTimeout(restore, 30)).catch(() => { remoteAudio.muted = false; });
+      } else {
+        setTimeout(restore, 30);
+      }
+    } catch (e) {
+      console.warn("[audio-unlock] failed:", e);
     }
   }
 
@@ -296,6 +380,25 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
     }
 
     requestAnimationFrame(amplitudeTick);
+  }
+
+  // iOS head-bob fallback: since we don't route through WebAudio on iOS,
+  // there's no real-time amplitude. Instead we drive a sinusoidal bob/sway
+  // off `performance.now()` whenever the audio element is playing.
+  if (isIOS) {
+    (function iosBobTick() {
+      if (avatarWrap && !reduceMotion) {
+        if (!remoteAudio.paused) {
+          const t = performance.now() * 0.005;
+          const bob = -Math.abs(Math.sin(t)) * 4;
+          const sway = Math.sin(t * 0.6) * 1.3;
+          avatarWrap.style.transform = `translateY(${bob.toFixed(2)}px) rotate(${sway.toFixed(2)}deg)`;
+        } else if (avatarWrap.style.transform) {
+          avatarWrap.style.transform = "";
+        }
+      }
+      requestAnimationFrame(iosBobTick);
+    })();
   }
 
   // Pose + status are driven by the audio element's events.
@@ -594,6 +697,12 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
 
   async function onPointerDown() {
     if (isDown || toggleBusy) return;
+
+    // *** iOS Safari unlock — must run synchronously here, before any
+    // *** await, or the AudioContext is created off-gesture and never
+    // *** resumes. Firefox doesn't need this; Safari (mobile + desktop) does.
+    unlockAudioOnGesture();
+
     isDown = true;
     toggleBusy = true;
     try {

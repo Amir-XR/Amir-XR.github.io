@@ -489,6 +489,15 @@ html[data-theme="dark"] #voiceClearBtn:hover{ color: var(--accent-light) }
   min-height: 100vh;
   position: relative;
   z-index: 2;
+  /* Soft-nav fade — Swup adds .is-animating to <html> while it swaps the
+     contents of `main.shell`. The bay (assistant) is outside this element
+     and therefore never fades. */
+  transition: opacity 220ms ease;
+}
+html.is-animating .shell{ opacity: 0 }
+@media (prefers-reduced-motion: reduce){
+  .shell{ transition: none }
+  html.is-animating .shell{ opacity: 1 }
 }
 .frame{
   max-width: var(--content-max);
