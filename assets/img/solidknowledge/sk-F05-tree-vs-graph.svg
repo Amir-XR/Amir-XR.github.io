@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="skF05-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF05-title">A project folder tree on the left is reconstructed into a knowledge graph of project, assembly, subassembly, part, drawing and BOM nodes on the right.</title>
+  <defs>
+    <marker id="skF05-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" style="fill:var(--accent,#c08bd2)"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT: where files live -->
+  <rect x="24" y="24" width="280" height="228" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="42" y="48" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">WHERE FILES LIVE</text>
+  <line x1="42" y1="58" x2="286" y2="58" style="stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+  <!-- tree hairlines -->
+  <g style="stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;fill:none">
+    <path d="M52,82 V234"/>
+    <path d="M52,90 H58"/>
+    <path d="M52,198 H58"/>
+    <path d="M52,234 H58"/>
+    <path d="M72,98 V180"/>
+    <path d="M72,108 H78"/>
+    <path d="M72,126 H78"/>
+    <path d="M72,144 H78"/>
+    <path d="M72,162 H78"/>
+    <path d="M72,180 H78"/>
+    <path d="M72,206 V216"/>
+    <path d="M72,216 H78"/>
+  </g>
+
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px">
+    <text x="42" y="76" style="fill:var(--ink,#f3eee3)">W1101\</text>
+    <text x="62" y="94" style="fill:var(--ash,rgba(243,238,227,0.55))">CAD\Released\</text>
+    <text x="82" y="112" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1.SLDASM</text>
+    <text x="82" y="130" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-02.SLDPRT</text>
+    <text x="82" y="148" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-03.SLDPRT</text>
+    <text x="82" y="166" style="fill:var(--ink-2,#c5c1b8)">W1101-04-2.SLDDRW</text>
+    <text x="82" y="184" style="fill:var(--ink-2,#c5c1b8)">BOM_W1101.PDF</text>
+    <text x="62" y="202" style="fill:var(--ash,rgba(243,238,227,0.55))">Vendor\</text>
+    <text x="82" y="220" style="fill:var(--ink-2,#c5c1b8)">hinge_std_rev3.SLDPRT</text>
+    <text x="62" y="238" style="fill:var(--ash,rgba(243,238,227,0.55));opacity:.62">Docs\ Estimates\ Photos\ &#8230;</text>
+  </g>
+
+  <!-- MIDDLE: reconstruct -->
+  <text x="360" y="124" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;fill:var(--accent,#c08bd2)">RECONSTRUCT</text>
+  <path d="M324,136 H392" style="stroke:var(--accent,#c08bd2);stroke-width:2;fill:none" marker-end="url(#skF05-arrow)"/>
+
+  <!-- RIGHT: knowledge graph -->
+  <g style="stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;fill:none">
+    <path d="M516,52 V84"/>
+    <path d="M557,96 H604"/>
+    <path d="M516,108 V124"/>
+    <path d="M478,124 H640"/>
+    <path d="M478,124 V140"/>
+    <path d="M600,124 V140"/>
+    <path d="M478,164 V180"/>
+    <path d="M448,180 H512"/>
+    <path d="M448,180 V196"/>
+    <path d="M512,180 V196"/>
+    <path d="M640,124 V196"/>
+  </g>
+
+  <g style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+    <rect x="475" y="84" width="82" height="24" rx="6"/>
+    <rect x="604" y="84" width="76" height="24" rx="6"/>
+    <rect x="430" y="140" width="96" height="24" rx="6"/>
+    <rect x="571" y="140" width="58" height="24" rx="6"/>
+    <rect x="419" y="196" width="58" height="24" rx="6"/>
+    <rect x="483" y="196" width="58" height="24" rx="6"/>
+    <rect x="613" y="196" width="54" height="24" rx="6"/>
+  </g>
+  <rect x="478" y="28" width="76" height="24" rx="6" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+
+  <g text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12.5px;fill:var(--ink,#f3eee3)">
+    <text x="516" y="45">Project</text>
+    <text x="516" y="101">Assembly</text>
+    <text x="642" y="101">Drawing</text>
+    <text x="478" y="157">Subassembly</text>
+    <text x="600" y="157">Part</text>
+    <text x="448" y="213">Part</text>
+    <text x="512" y="213">Part</text>
+    <text x="640" y="213">BOM</text>
+  </g>
+
+  <text x="510" y="272" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">HOW ENGINEERING FITS TOGETHER &#183; VERIFIED TWO WAYS</text>
+</svg>

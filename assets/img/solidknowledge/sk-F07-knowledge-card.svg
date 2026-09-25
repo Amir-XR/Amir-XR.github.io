@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="skF07-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF07-title">The evidence card for file A1234-XX-001 is reasoned over by the model and written out as a structured knowledge card record with summary, design intent, materials, geometry, project context, tags, search aliases and a reasoning trace.</title>
+  <defs>
+    <marker id="skF07-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" style="fill:var(--accent,#c08bd2)"/>
+    </marker>
+  </defs>
+
+  <!-- ============ LEFT: unstructured evidence ============ -->
+  <rect x="24" y="101" width="140" height="182" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="34" y="125">EVIDENCE</text>
+    <text x="34" y="139">CARD</text>
+  </g>
+  <text x="34" y="163" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--accent,#c08bd2)">A1234-XX-001</text>
+  <text x="34" y="183" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:14px;fill:var(--ink,#f3eee3)">Curved fascia</text>
+
+  <g style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+    <rect x="34" y="195" width="36" height="32" rx="6"/>
+    <rect x="76" y="195" width="36" height="32" rx="6"/>
+    <rect x="118" y="195" width="36" height="32" rx="6"/>
+  </g>
+  <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+    <path d="M41,206 C47,201 57,201 63,206 L63,216 C57,221 47,221 41,216 Z"/>
+    <path d="M83,217 C89,204 99,204 105,217"/>
+    <path d="M126,203 V219 H140"/>
+    <path d="M133,203 H146 V213"/>
+  </g>
+
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="34" y="249">AL 5052 &#183; 42 parts</text>
+    <text x="34" y="264">2440 &#215; 610 &#215; 180 mm</text>
+  </g>
+
+  <!-- ============ MIDDLE: the model reasons ============ -->
+  <path d="M180,148 H216" style="stroke:var(--accent,#c08bd2);stroke-width:1.5;fill:none" marker-end="url(#skF07-arrow)"/>
+  <rect x="170" y="164" width="60" height="56" rx="12" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+  <path d="M200,174 L201.6,178.4 L206,180 L201.6,181.6 L200,186 L198.4,181.6 L194,180 L198.4,178.4 Z" style="fill:var(--accent,#c08bd2)"/>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">
+    <text x="200" y="201">MODEL</text>
+    <text x="200" y="214">REASONS</text>
+  </g>
+  <path d="M180,236 H216" style="stroke:var(--accent,#c08bd2);stroke-width:1.5;fill:none" marker-end="url(#skF07-arrow)"/>
+
+  <!-- ============ RIGHT: the structured record ============ -->
+  <rect x="236" y="24" width="460" height="334" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="248" y="46" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px"><tspan style="fill:var(--accent,#c08bd2)">{ }</tspan><tspan style="fill:var(--ink,#f3eee3)"> knowledge_card</tspan></text>
+  <rect x="634" y="32" width="50" height="18" rx="6" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="659" y="45" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;fill:var(--ash,rgba(243,238,227,0.55))">JSON</text>
+  <line x1="248" y1="58" x2="684" y2="58" style="stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+  <text x="248" y="70" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// human-readable meaning</text>
+  <text x="248" y="84.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"summary":</tspan> "Curved exterior fascia in rolled aluminum, hung</text>
+  <text x="248" y="99" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">on a concealed cleat.",</text>
+  <text x="248" y="113.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"design_intent":</tspan> "Seamless curved face for a concourse edge.",</text>
+  <text x="248" y="128" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"material_finish":</tspan> "AL 5052 sheet &#183; matte powder coat.",</text>
+  <text x="248" y="142.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"geometry_pattern":</tspan> "Rolled panels, welded ribs, cleat rail.",</text>
+  <text x="248" y="157" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"project_context":</tspan> "Stadium north-concourse signage package.",</text>
+
+  <text x="248" y="175.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// controlled classification</text>
+  <text x="248" y="190" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"object_type":</tspan> "fascia",</text>
+  <text x="248" y="204.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"DI_tags":</tspan> [</text>
+
+  <g style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent-deep,#a36cb6);stroke-width:1">
+    <rect x="258" y="212" width="54" height="19" rx="6"/>
+    <rect x="320" y="212" width="85" height="19" rx="6"/>
+    <rect x="413" y="212" width="111" height="19" rx="6"/>
+    <rect x="532" y="212" width="66" height="19" rx="6"/>
+  </g>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-deep,#a36cb6)">
+    <text x="285" y="226">curved</text>
+    <text x="362.5" y="226">sheet metal</text>
+    <text x="468.5" y="226">concealed mount</text>
+    <text x="565" y="226">exterior</text>
+  </g>
+  <text x="248" y="245" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">],</text>
+
+  <text x="248" y="263.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// retrieval expansion</text>
+  <text x="248" y="278" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"search_aliases":</tspan> "curved fascia; rolled panel;</text>
+  <text x="248" y="292.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">cleat-hung cladding",</text>
+
+  <text x="248" y="311" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// trace</text>
+  <path d="M248,318 V348" style="stroke:var(--accent,#c08bd2);stroke-width:2;fill:none"/>
+  <text x="260" y="329" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:13px;fill:var(--ink-2,#c5c1b8)">"reasoning": "Form from title block, BOM and rendered views;</text>
+  <text x="260" y="345" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:13px;fill:var(--ink-2,#c5c1b8)">materials from authored notes &#8212; not visual guessing."</text>
+
+  <!-- ============ BOTTOM: the payoff ============ -->
+  <rect x="24" y="370" width="672" height="26" rx="13" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+  <text x="360" y="387" text-anchor="middle" style="font-size:13px;fill:var(--ink,#f3eee3)">This structured text becomes the embedding text for search &#8594;</text>
+</svg>

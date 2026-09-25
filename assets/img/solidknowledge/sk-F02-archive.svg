@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="skF02-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF02-title">Twenty years of CAD stored as nested folders; a filename search returns one match, and only if you already know the name.</title>
+  <defs>
+    <marker id="skF02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="340" height="262" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+  <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+    <rect x="44" y="67" width="8" height="6.5" rx="1.5"/>
+    <rect x="58" y="88" width="8" height="6.5" rx="1.5"/>
+    <rect x="72" y="109" width="8" height="6.5" rx="1.5"/>
+    <rect x="72" y="214" width="8" height="6.5" rx="1.5"/>
+  </g>
+
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px">
+    <text x="44" y="54" style="fill:var(--ink,#f3eee3)">W:\Projects\</text>
+    <text x="58" y="75" style="fill:var(--ink-2,#c5c1b8)">2006 … 2026</text>
+    <text x="72" y="96" style="fill:var(--ink-2,#c5c1b8)">W1101\</text>
+    <text x="86" y="117" style="fill:var(--ink-2,#c5c1b8)">CAD\Released\</text>
+    <text x="100" y="138" style="fill:var(--ink,#f3eee3)">W1101-04-1.SLDASM</text>
+    <text x="100" y="159" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-02.SLDPRT</text>
+    <text x="100" y="180" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-03.SLDPRT</text>
+    <text x="100" y="201" style="fill:var(--ash,rgba(243,238,227,0.55))">W1101-04-2.SLDDRW</text>
+    <text x="86" y="222" style="fill:var(--ink-2,#c5c1b8)">Vendor\</text>
+    <text x="100" y="243" style="fill:var(--ash,rgba(243,238,227,0.55))">hinge_std_rev3.SLDPRT</text>
+    <text x="58" y="264" style="fill:var(--ash,rgba(243,238,227,0.55))">X1549\ · Y1004\ · Z1323\ …</text>
+  </g>
+
+  <rect x="388" y="66" width="308" height="44" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g transform="translate(404,80)" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linecap:round">
+    <circle cx="6.5" cy="6.5" r="5"/>
+    <path d="M10.2 10.2 L14.5 14.5"/>
+  </g>
+  <text x="428" y="92" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)">filename contains: “fascia”</text>
+
+  <path d="M542 116 V142" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF02-arrow)"/>
+
+  <rect x="388" y="154" width="308" height="44" rx="10" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="406" y="180" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">1 match — if you knew the name</text>
+
+  <path d="M388 232 H696" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="388" y="266" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:19px;fill:var(--ink,#f3eee3)">Built for storage.</text>
+  <text x="388" y="296" style="font-size:19px;fill:var(--ink-2,#c5c1b8)">Not for discovery.</text>
+</svg>

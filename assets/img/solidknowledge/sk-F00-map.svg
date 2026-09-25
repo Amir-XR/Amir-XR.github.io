@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 134" role="img" aria-labelledby="skF00-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF00-title">SolidKnowledge in five stages: CAD archive, ingestion, knowledge reconstruction, semantic space, search and reuse</title>
+  <defs>
+    <marker id="skF00-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g transform="translate(71,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+    <path d="M1 4.5 q0 -2.5 2.5 -2.5 h4 l2 2.5 h5 q2.5 0 2.5 2.5 v8 q0 2.5 -2.5 2.5 h-11 q-2.5 0 -2.5 -2.5 z"/>
+  </g>
+  <text x="80" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">01</text>
+  <text x="80" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">CAD archive</text>
+
+  <path d="M142 66 H160" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+  <rect x="164" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g transform="translate(211,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+    <path d="M9 2 v8 m0 0 l-3 -3 m3 3 l3 -3 M2 11.5 v2.5 q0 2.5 2.5 2.5 h9 q2.5 0 2.5 -2.5 v-2.5"/>
+  </g>
+  <text x="220" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">02</text>
+  <text x="220" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Ingestion</text>
+
+  <path d="M282 66 H300" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+  <rect x="304" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g transform="translate(351,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+    <rect x="6" y="1.5" width="6" height="4.5" rx="1"/>
+    <rect x="0.5" y="12" width="6" height="4.5" rx="1"/>
+    <rect x="11.5" y="12" width="6" height="4.5" rx="1"/>
+    <path d="M9 6 v2.5 M3.5 8.5 h11 M3.5 8.5 v3.5 M14.5 8.5 v3.5"/>
+  </g>
+  <text x="360" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">03</text>
+  <text x="360" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Knowledge</text>
+  <text x="360" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">reconstruction</text>
+
+  <path d="M422 66 H440" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+  <rect x="444" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g transform="translate(491,34)" style="fill:var(--ink-2,#c5c1b8)">
+    <circle cx="5" cy="6" r="2.1"/>
+    <circle cx="13" cy="4.5" r="1.6"/>
+    <circle cx="14" cy="12" r="2.1"/>
+    <circle cx="6" cy="13.5" r="1.6"/>
+  </g>
+  <text x="500" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">04</text>
+  <text x="500" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Semantic</text>
+  <text x="500" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">space</text>
+
+  <path d="M562 66 H580" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+  <rect x="584" y="24" width="112" height="86" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+  <g transform="translate(630,34)" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round">
+    <circle cx="8" cy="8" r="5.2"/>
+    <path d="M11.8 11.8 L16.5 16.5"/>
+  </g>
+  <text x="640" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">05</text>
+  <text x="640" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Search &amp;</text>
+  <text x="640" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">reuse</text>
+</svg>

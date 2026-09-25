@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="skF03-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF03-title">Six sources — CAD, drawings, metadata, geometry, documents and project context — converge at ingestion into one evidence card.</title>
+  <defs>
+    <marker id="skF03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+    </marker>
+  </defs>
+
+  <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+    <path d="M234 50 C 266 50 280 138 302 152"/>
+    <path d="M234 98 C 266 98 280 150 302 160"/>
+    <path d="M234 146 C 268 146 284 162 302 167"/>
+    <path d="M234 194 C 268 194 284 178 302 173"/>
+    <path d="M234 242 C 266 242 280 190 302 180"/>
+    <path d="M234 290 C 266 290 280 202 302 188"/>
+  </g>
+
+  <g style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+    <rect x="24" y="33" width="210" height="34" rx="8"/>
+    <rect x="24" y="81" width="210" height="34" rx="8"/>
+    <rect x="24" y="129" width="210" height="34" rx="8"/>
+    <rect x="24" y="177" width="210" height="34" rx="8"/>
+    <rect x="24" y="225" width="210" height="34" rx="8"/>
+    <rect x="24" y="273" width="210" height="34" rx="8"/>
+  </g>
+
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round">
+    <g transform="translate(36,43)">
+      <path d="M7 0.8 l6 3.1 v6.2 l-6 3.1 -6 -3.1 v-6.2 z M1 3.9 l6 3.1 6 -3.1 M7 7 v6.2"/>
+    </g>
+    <g transform="translate(36,91)">
+      <path d="M2 1 h10 v12 h-10 z M2 4 h10 M8.5 4 v9"/>
+    </g>
+    <g transform="translate(36,139)">
+      <path d="M1.2 7.6 l6.4 -6.4 h5.2 v5.2 l-6.4 6.4 z"/>
+      <circle cx="10.2" cy="3.8" r="1.1"/>
+    </g>
+    <g transform="translate(36,187)">
+      <path d="M1 9.4 l8.4 -8.4 3.6 3.6 -8.4 8.4 z M3.8 6.6 l1.7 1.7 M6.4 4 l1.7 1.7"/>
+    </g>
+    <g transform="translate(36,235)">
+      <path d="M2.5 1 h5.5 l3.5 3.5 v8.5 h-9 z M8 1 v3.5 h3.5"/>
+    </g>
+    <g transform="translate(36,283)">
+      <path d="M1.5 2 h5 v3.5 h-5 z M7.5 8.5 h5 v3.5 h-5 z M4 5.5 v4.75 h3.5"/>
+    </g>
+  </g>
+
+  <g style="font-size:12px;fill:var(--ink,#f3eee3)">
+    <text x="58" y="54">CAD</text>
+    <text x="58" y="102">Drawings</text>
+    <text x="58" y="150">Metadata</text>
+    <text x="58" y="198">Geometry</text>
+    <text x="58" y="246">Documents</text>
+    <text x="58" y="294">Project context</text>
+  </g>
+  <g text-anchor="end" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="222" y="54">.SLDASM · .SLDPRT</text>
+    <text x="222" y="102">title block · BOM</text>
+    <text x="222" y="150">author · dates</text>
+    <text x="222" y="198">shape · mass</text>
+    <text x="222" y="246">PDF · DXF</text>
+    <text x="222" y="294">location</text>
+  </g>
+
+  <rect x="302" y="140" width="60" height="60" rx="14" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+  <g transform="translate(320,157)" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
+    <path d="M12 0 v13 m0 0 l-5.5 -5.5 m5.5 5.5 l5.5 -5.5 M0 19 v3 q0 4 4 4 h16 q4 0 4 -4 v-3"/>
+  </g>
+  <text x="332" y="222" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink,#f3eee3)">INGESTION</text>
+
+  <path d="M368 170 H422" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2" marker-end="url(#skF03-arrow)"/>
+
+  <rect x="430" y="54" width="266" height="232" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="450" y="84" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">EVIDENCE CARD</text>
+  <g style="fill:var(--accent,#c08bd2)">
+    <circle cx="454" cy="110" r="2.5"/>
+    <circle cx="454" cy="136" r="2.5"/>
+    <circle cx="454" cy="162" r="2.5"/>
+    <circle cx="454" cy="188" r="2.5"/>
+    <circle cx="454" cy="214" r="2.5"/>
+  </g>
+  <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+    <text x="466" y="114">Geometry fingerprint</text>
+    <text x="466" y="140">4 rendered preview views</text>
+    <text x="466" y="166">Verified reference graph</text>
+    <text x="466" y="192">Authored intent — drawing text</text>
+    <text x="466" y="218">Project context</text>
+  </g>
+  <path d="M450 240 H676" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="450" y="264" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:12px;fill:var(--ash,rgba(243,238,227,0.55))">Evidence first. Interpretation second.</text>
+</svg>

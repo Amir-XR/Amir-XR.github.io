@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SolidKnowledge — Living Design Memory for a CAD Archive | Amir Goli</title>
+<meta name="description" content="SolidKnowledge turns a changing CAD archive into traceable engineering knowledge, helping designers discover previous work through everyday language." />
+<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,580;0,9..144,700;0,9..144,900;0,9..144,400..900,30,1;1,9..144,400..900,30,1&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css?v=2026-05-05-swup" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<aside class="bay" aria-label="AI assistant">
+  <button class="bay-close" data-bay-close type="button" aria-label="Close assistant">×</button>
+  <div class="bay-head"><span class="name">The Interlocutor</span><span class="live">Live</span></div>
+  <div class="voice-widget">
+    <div class="voice-avatar-wrap">
+      <model-viewer id="avatarIdle" src="../assets/avatar/model_Idle.glb" camera-controls disable-pan
+        camera-target="0m 1.45m 0m" camera-orbit="-23deg 75deg 2.05m"
+        min-camera-orbit="-23deg 75deg 1.9m" max-camera-orbit="-23deg 75deg 2.2m"
+        autoplay exposure="1" shadow-intensity="0"></model-viewer>
+    </div>
+    <p class="bay-caption">in residence, ready to talk.<span>hold the mic</span></p>
+    <div class="voice-panel">
+      <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+      <div class="voice-controls">
+        <div class="voice-hold-wrap">
+          <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+          <button id="holdToTalk" class="voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+          </button>
+        </div>
+        <div id="voiceStatus" class="voice-status">Ready</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<button class="fab" data-bay-open type="button" aria-label="Open AI assistant" aria-expanded="false">
+  <span class="fab-pulse"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+</button>
+
+<main class="shell">
+  <style>
+    /* SolidKnowledge article: inline SVG figures inside the site's figure surfaces */
+    .sk-fig a svg, .hero-img svg { display:block; width:100%; height:auto; }
+    .sk-fig a svg { padding:8px; box-sizing:border-box; transition: transform 700ms cubic-bezier(.16,1,.3,1); }
+    .sk-fig a:hover svg, .sk-fig a:focus-visible svg { transform: scale(1.03); }
+    .hero-img svg { padding:10px; box-sizing:border-box; }
+    .frame .statbar { margin: 18px 0 22px; }
+    .frame > .chapter { font-size: 13px; letter-spacing: .2em; margin: 88px 0 20px; }
+    .frame > .chapter .glyph { font-size: 22px; }
+    .frame > .chapter + section.section { margin-top: 0; }
+    .frame > .chapter + section.section > h2::before { display:none; }
+  </style>
+
+  <div class="frame">
+
+    <header class="masthead reveal">
+      <nav class="right" aria-label="Sections">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="index.html" aria-current="page">Projects</a>
+        <a href="../activities.html">Activities</a>
+        <a href="../contact.html">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span data-theme-label>Go light</span>
+        </button>
+      </nav>
+    </header>
+
+
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-eyebrow">Project · 07 · LLM × CAD</div>
+      <h1 class="hero-title" id="title" aria-label="SolidKnowledge">
+        <span class="letter">S</span><span class="letter">o</span><span class="letter">l</span><span class="letter">i</span><span class="letter">d</span><span class="letter">K</span><span class="letter">n</span><span class="letter">o</span><span class="letter">w</span><span class="letter">l</span><span class="letter">e</span><span class="letter">d</span><span class="letter">g</span><span class="letter">e</span><span class="swash letter">.</span>
+      </h1>
+      <div class="hero-byline">
+        <span class="byline-rule" aria-hidden="true"></span>
+        <p class="byline-line">A <em>living design memory</em> for twenty years of CAD.</p>
+        <p class="byline-meta">CAD archive · Knowledge graph · Semantic search · 2026</p>
+      </div>
+    </section>
+
+    <div class="hero-img" role="img" aria-label="Five connected stages from CAD archive through ingestion, knowledge reconstruction, and semantic space to search and reuse">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 134" role="img" aria-labelledby="skF00-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+        <title id="skF00-title">SolidKnowledge in five stages: CAD archive, ingestion, knowledge reconstruction, semantic space, search and reuse</title>
+        <defs>
+          <marker id="skF00-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+          </marker>
+        </defs>
+
+        <rect x="24" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(71,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <path d="M1 4.5 q0 -2.5 2.5 -2.5 h4 l2 2.5 h5 q2.5 0 2.5 2.5 v8 q0 2.5 -2.5 2.5 h-11 q-2.5 0 -2.5 -2.5 z"/>
+        </g>
+        <text x="80" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">01</text>
+        <text x="80" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">CAD archive</text>
+
+        <path d="M142 66 H160" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+        <rect x="164" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(211,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <path d="M9 2 v8 m0 0 l-3 -3 m3 3 l3 -3 M2 11.5 v2.5 q0 2.5 2.5 2.5 h9 q2.5 0 2.5 -2.5 v-2.5"/>
+        </g>
+        <text x="220" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">02</text>
+        <text x="220" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Ingestion</text>
+
+        <path d="M282 66 H300" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+        <rect x="304" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(351,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <rect x="6" y="1.5" width="6" height="4.5" rx="1"/>
+          <rect x="0.5" y="12" width="6" height="4.5" rx="1"/>
+          <rect x="11.5" y="12" width="6" height="4.5" rx="1"/>
+          <path d="M9 6 v2.5 M3.5 8.5 h11 M3.5 8.5 v3.5 M14.5 8.5 v3.5"/>
+        </g>
+        <text x="360" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">03</text>
+        <text x="360" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Knowledge</text>
+        <text x="360" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">reconstruction</text>
+
+        <path d="M422 66 H440" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+        <rect x="444" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(491,34)" style="fill:var(--ink-2,#c5c1b8)">
+          <circle cx="5" cy="6" r="2.1"/>
+          <circle cx="13" cy="4.5" r="1.6"/>
+          <circle cx="14" cy="12" r="2.1"/>
+          <circle cx="6" cy="13.5" r="1.6"/>
+        </g>
+        <text x="500" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">04</text>
+        <text x="500" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Semantic</text>
+        <text x="500" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">space</text>
+
+        <path d="M562 66 H580" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF00-arrow)"/>
+
+        <rect x="584" y="24" width="112" height="86" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+        <g transform="translate(630,34)" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round">
+          <circle cx="8" cy="8" r="5.2"/>
+          <path d="M11.8 11.8 L16.5 16.5"/>
+        </g>
+        <text x="640" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">05</text>
+        <text x="640" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Search &amp;</text>
+        <text x="640" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">reuse</text>
+      </svg>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">Summary</p>
+      <p><strong>SolidKnowledge</strong> turns a CAD archive from files we store into engineering knowledge we can actually use. I developed the prototype during my internship in the Innovation Lab at Dimensional Innovations, where twenty years of SolidWorks projects sat on a network drive with no memory of what they contained.</p>
+      <p>This page follows how we made previous engineering discoverable through evidence, search, and continuing care. A recording of the prototype closes the piece.</p>
+      <p>
+        <span class="badge">CAD knowledge graph</span>
+        <span class="badge">Evidence-first ingestion</span>
+        <span class="badge">Semantic search</span>
+        <span class="badge">Supervisor agent</span>
+        <span class="badge">Human-in-the-loop</span>
+      </p>
+    </div>
+
+    <div class="chapter"><span>01 — The question</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Have we built this before?</h2>
+      <p>Picture the people who spend their days designing and fabricating: every finished project leaves behind details that worked, problems solved the hard way, and approaches proven in the field. When a new job arrives, a shape or connection often feels familiar, even if nobody remembers where it came from. The same quiet question comes up: have we built this before?</p>
+      <p>Finding that earlier solution can be harder than redrawing it, because remembering a detail rarely means remembering its filename or project folder. We took on that gap during my summer 2026 internship at Dimensional Innovations, asking how the archive could recover the engineering people had already worked out. Our starting point was understanding what twenty years of delivery had left behind.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F01-question.svg" target="_blank" rel="noopener" aria-label="Open full size: A familiar design problem needs a way back to previous work.">
+          <svg aria-label="New fascia concept linked by dotted question marks to archive folders" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="skF01-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF01-title">A new concept on screen, three unanswered questions, and twenty years of folders that cannot answer them.</title>
+
+            <g transform="translate(0,-13)">
+            <rect x="24" y="54" width="260" height="192" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M24 86 H284" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:var(--rule-bold,rgba(243,238,227,0.42))">
+              <circle cx="46" cy="70" r="3.5"/>
+              <circle cx="61" cy="70" r="3.5"/>
+              <circle cx="76" cy="70" r="3.5"/>
+            </g>
+
+            <path d="M56 228 Q 154 144 252 228" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1;stroke-dasharray:4 5"/>
+            <path d="M56 216 V228 M252 216 V228" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M56 216 Q 154 132 252 216" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2;stroke-linecap:round"/>
+            <g style="fill:var(--accent,#c08bd2)">
+              <circle cx="56" cy="216" r="3.5"/>
+              <circle cx="252" cy="216" r="3.5"/>
+              <circle cx="154" cy="146" r="3.5"/>
+            </g>
+            <path d="M206 168 l0 16.5 4.5 -3.8 3 6.8 3.8 -1.5 -3 -6.8 6 -0.8 z" style="fill:var(--ink,#f3eee3)"/>
+            <text x="154" y="270" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">NEW CONCEPT</text>
+
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-dasharray:1.5 6;stroke-linecap:round">
+              <path d="M292 134 C 352 128 374 106 470 84"/>
+              <path d="M292 154 H470"/>
+              <path d="M292 174 C 352 180 374 202 470 224"/>
+            </g>
+            <g style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <circle cx="367" cy="115" r="11"/>
+              <circle cx="367" cy="154" r="11"/>
+              <circle cx="367" cy="193" r="11"/>
+            </g>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="367" y="119">?</text>
+              <text x="367" y="158">?</text>
+              <text x="367" y="197">?</text>
+            </g>
+
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1;stroke-linejoin:round">
+              <path transform="translate(486,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(596,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(651,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(486,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(541,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(596,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(486,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(541,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(596,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(651,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+            </g>
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
+              <path transform="translate(541,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+              <path transform="translate(651,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+            </g>
+            <g style="stroke:none">
+              <circle cx="578" cy="82" r="7" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+              <circle cx="578" cy="82" r="3" style="fill:var(--accent,#c08bd2)"/>
+              <circle cx="688" cy="144" r="7" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+              <circle cx="688" cy="144" r="3" style="fill:var(--accent,#c08bd2)"/>
+            </g>
+            <text x="591" y="270" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">THE ARCHIVE · 20 YEARS</text>
+            </g>
+          </svg>
+        </a>
+        <figcaption>A familiar design problem needs a way back to previous work.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>02 — The memory problem</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Twenty years, stored as files</h2>
+      <p>The archive holds 360,998 SolidWorks files across about twenty years and hundreds of projects, with parts, assemblies, and drawings gathered into project folders. Together they preserve the accumulated decisions of people who found ways to make things work. Their value lies in the engineering inside them: a reliable connection, a material choice, or a fabrication approach worth using again.</p>
+      <div class="statbar">
+        <div class="stat"><div class="n">360,998</div><div class="l">SolidWorks files</div></div>
+        <div class="stat"><div class="n">~20</div><div class="l">years of projects</div></div>
+        <div class="stat"><div class="n">hundreds</div><div class="l">of projects</div></div>
+      </div>
+      <p>Those folders serve the practical work of delivering projects and managing files, but their structure offers few clues about which design could help with today’s problem. A file system tells us where something lives; filename search still asks us to remember its name. We wanted to begin with what someone needed, which raised another question: what if the archive could explain itself?</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F02-archive.svg" target="_blank" rel="noopener" aria-label="Open full size: Knowing the filename means already knowing where to begin.">
+          <svg aria-label="Nested project folders beside a filename search with one match" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="skF02-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF02-title">Twenty years of CAD stored as nested folders; a filename search returns one match, and only if you already know the name.</title>
+            <defs>
+              <marker id="skF02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+            </defs>
+
+            <rect x="24" y="24" width="340" height="262" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <rect x="44" y="67" width="8" height="6.5" rx="1.5"/>
+              <rect x="58" y="88" width="8" height="6.5" rx="1.5"/>
+              <rect x="72" y="109" width="8" height="6.5" rx="1.5"/>
+              <rect x="72" y="214" width="8" height="6.5" rx="1.5"/>
+            </g>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px">
+              <text x="44" y="54" style="fill:var(--ink,#f3eee3)">W:\Projects\</text>
+              <text x="58" y="75" style="fill:var(--ink-2,#c5c1b8)">2006 … 2026</text>
+              <text x="72" y="96" style="fill:var(--ink-2,#c5c1b8)">W1101\</text>
+              <text x="86" y="117" style="fill:var(--ink-2,#c5c1b8)">CAD\Released\</text>
+              <text x="100" y="138" style="fill:var(--ink,#f3eee3)">W1101-04-1.SLDASM</text>
+              <text x="100" y="159" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-02.SLDPRT</text>
+              <text x="100" y="180" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-03.SLDPRT</text>
+              <text x="100" y="201" style="fill:var(--ash,rgba(243,238,227,0.55))">W1101-04-2.SLDDRW</text>
+              <text x="86" y="222" style="fill:var(--ink-2,#c5c1b8)">Vendor\</text>
+              <text x="100" y="243" style="fill:var(--ash,rgba(243,238,227,0.55))">hinge_std_rev3.SLDPRT</text>
+              <text x="58" y="264" style="fill:var(--ash,rgba(243,238,227,0.55))">X1549\ · Y1004\ · Z1323\ …</text>
+            </g>
+
+            <rect x="388" y="66" width="308" height="44" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g transform="translate(404,80)" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linecap:round">
+              <circle cx="6.5" cy="6.5" r="5"/>
+              <path d="M10.2 10.2 L14.5 14.5"/>
+            </g>
+            <text x="428" y="92" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)">filename contains: “fascia”</text>
+
+            <path d="M542 116 V142" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF02-arrow)"/>
+
+            <rect x="388" y="154" width="308" height="44" rx="10" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="406" y="180" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">1 match — if you knew the name</text>
+
+            <path d="M388 232 H696" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="388" y="266" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:19px;fill:var(--ink,#f3eee3)">Built for storage.</text>
+            <text x="388" y="296" style="font-size:19px;fill:var(--ink-2,#c5c1b8)">Not for discovery.</text>
+          </svg>
+        </a>
+        <figcaption>Knowing the filename means already knowing where to begin.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>03 — Building the memory</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>What if the archive could explain itself?</h2>
+      <p>We developed SolidKnowledge to make that stored engineering understandable and findable, with a route back to the original work. The map above connects evidence gathering and knowledge reconstruction to a <strong>semantic space</strong>, where descriptions with related meanings sit near one another so people can discover and reuse previous designs. Making those connections starts with understanding what a single CAD file contains.</p>
+    </section>
+
+    <section class="section">
+      <h2>Listening before interpreting</h2>
+      <p>No single source explains a design completely: geometry supplies measurements, drawings preserve an engineer’s material notes, and the project folder gives the work a setting. We set a rule that these facts must come before interpretation. Reading them together gives the system a basis for describing the object without expecting its filename to carry the whole engineering story.</p>
+      <p>Ingestion, the process of reading and gathering those sources, runs on a workstation with SolidWorks and assembles an <strong>evidence card</strong> for each file: everything we can verify about the object before any interpretation. It brings measured geometry and authored text together with four rendered views, giving the later interpretation something concrete to work from. We wanted that evidence to remain useful when a person, rather than a machine, encountered the result.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F03-ingestion.svg" target="_blank" rel="noopener" aria-label="Open full size: Interpretation starts with an evidence card gathered from several sources.">
+          <svg aria-label="Six source streams converging through ingestion into an evidence card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="skF03-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF03-title">Six sources — CAD, drawings, metadata, geometry, documents and project context — converge at ingestion into one evidence card.</title>
+            <defs>
+              <marker id="skF03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <path d="M234 50 C 266 50 280 138 302 152"/>
+              <path d="M234 98 C 266 98 280 150 302 160"/>
+              <path d="M234 146 C 268 146 284 162 302 167"/>
+              <path d="M234 194 C 268 194 284 178 302 173"/>
+              <path d="M234 242 C 266 242 280 190 302 180"/>
+              <path d="M234 290 C 266 290 280 202 302 188"/>
+            </g>
+
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="24" y="33" width="210" height="34" rx="8"/>
+              <rect x="24" y="81" width="210" height="34" rx="8"/>
+              <rect x="24" y="129" width="210" height="34" rx="8"/>
+              <rect x="24" y="177" width="210" height="34" rx="8"/>
+              <rect x="24" y="225" width="210" height="34" rx="8"/>
+              <rect x="24" y="273" width="210" height="34" rx="8"/>
+            </g>
+
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round">
+              <g transform="translate(36,43)">
+                <path d="M7 0.8 l6 3.1 v6.2 l-6 3.1 -6 -3.1 v-6.2 z M1 3.9 l6 3.1 6 -3.1 M7 7 v6.2"/>
+              </g>
+              <g transform="translate(36,91)">
+                <path d="M2 1 h10 v12 h-10 z M2 4 h10 M8.5 4 v9"/>
+              </g>
+              <g transform="translate(36,139)">
+                <path d="M1.2 7.6 l6.4 -6.4 h5.2 v5.2 l-6.4 6.4 z"/>
+                <circle cx="10.2" cy="3.8" r="1.1"/>
+              </g>
+              <g transform="translate(36,187)">
+                <path d="M1 9.4 l8.4 -8.4 3.6 3.6 -8.4 8.4 z M3.8 6.6 l1.7 1.7 M6.4 4 l1.7 1.7"/>
+              </g>
+              <g transform="translate(36,235)">
+                <path d="M2.5 1 h5.5 l3.5 3.5 v8.5 h-9 z M8 1 v3.5 h3.5"/>
+              </g>
+              <g transform="translate(36,283)">
+                <path d="M1.5 2 h5 v3.5 h-5 z M7.5 8.5 h5 v3.5 h-5 z M4 5.5 v4.75 h3.5"/>
+              </g>
+            </g>
+
+            <g style="font-size:12px;fill:var(--ink,#f3eee3)">
+              <text x="58" y="54">CAD</text>
+              <text x="58" y="102">Drawings</text>
+              <text x="58" y="150">Metadata</text>
+              <text x="58" y="198">Geometry</text>
+              <text x="58" y="246">Documents</text>
+              <text x="58" y="294">Project context</text>
+            </g>
+            <g text-anchor="end" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="222" y="54">.SLDASM · .SLDPRT</text>
+              <text x="222" y="102">title block · BOM</text>
+              <text x="222" y="150">author · dates</text>
+              <text x="222" y="198">shape · mass</text>
+              <text x="222" y="246">PDF · DXF</text>
+              <text x="222" y="294">location</text>
+            </g>
+
+            <rect x="302" y="140" width="60" height="60" rx="14" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <g transform="translate(320,157)" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">
+              <path d="M12 0 v13 m0 0 l-5.5 -5.5 m5.5 5.5 l5.5 -5.5 M0 19 v3 q0 4 4 4 h16 q4 0 4 -4 v-3"/>
+            </g>
+            <text x="332" y="222" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink,#f3eee3)">INGESTION</text>
+
+            <path d="M368 170 H422" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2" marker-end="url(#skF03-arrow)"/>
+
+            <rect x="430" y="54" width="266" height="232" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="450" y="84" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">EVIDENCE CARD</text>
+            <g style="fill:var(--accent,#c08bd2)">
+              <circle cx="454" cy="110" r="2.5"/>
+              <circle cx="454" cy="136" r="2.5"/>
+              <circle cx="454" cy="162" r="2.5"/>
+              <circle cx="454" cy="188" r="2.5"/>
+              <circle cx="454" cy="214" r="2.5"/>
+            </g>
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="466" y="114">Geometry fingerprint</text>
+              <text x="466" y="140">4 rendered preview views</text>
+              <text x="466" y="166">Verified reference graph</text>
+              <text x="466" y="192">Authored intent — drawing text</text>
+              <text x="466" y="218">Project context</text>
+            </g>
+            <path d="M450 240 H676" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="450" y="264" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:12px;fill:var(--ash,rgba(243,238,227,0.55))">Evidence first. Interpretation second.</text>
+          </svg>
+        </a>
+        <figcaption>Interpretation starts with an evidence card gathered from several sources.</figcaption>
+      </figure>
+    </section>
+
+    <section class="pullquote reveal">
+      <p>Evidence first. Interpretation second.</p>
+      <div class="attr">— The rule behind ingestion</div>
+    </section>
+
+    <section class="section">
+      <h2>A file becomes an evidence card</h2>
+      <p>A name, size, and date tell someone that a file exists, but leave much of its engineering hidden until they open it. An <strong>evidence card</strong> holds what we can actually verify about the design: its shape, material, and project, with four consistent views so a reader can recognize the object before deciding whether to investigate the original CAD.</p>
+      <p>Every field leads back to evidence, so a dimension rests on measured geometry and a material rests on authored drawing text rather than a guess about a filename. A file tells you it exists; an evidence card tells you what we actually know about it. To give that card enough context, we needed the relationships connecting the object to the engineering around it.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F04-evidence-card.svg" target="_blank" rel="noopener" aria-label="Open full size: An evidence card records what can be verified before anything is interpreted.">
+          <svg aria-label="Bare file details beside an evidence card with four views and verified fields" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="skF04-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF04-title">The same file before and after: an opaque filename becomes an evidence card, everything that can be verified before interpretation, with previews, dimensions, material, geometry, project and relationships.</title>
+            <defs>
+              <marker id="skF04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <text x="24" y="88" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">BEFORE</text>
+            <rect x="24" y="100" width="180" height="156" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g transform="translate(38,118)" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.3;stroke-linejoin:round">
+              <path d="M0.5 0.5 h7 l4.5 4.5 v10.5 h-11.5 z M7.5 0.5 v4.5 h4.5"/>
+            </g>
+            <text x="58" y="131" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink,#f3eee3)">A1234-XX-001.SLDASM</text>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="38" y="162">48.2 MB · 2019-03-14</text>
+              <text x="38" y="186">author: unknown</text>
+              <text x="38" y="210">contents: unknown</text>
+              <text x="38" y="234">meaning: <tspan style="fill:var(--accent,#c08bd2)">?</tspan></text>
+            </g>
+
+            <path d="M214 178 H244" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2" marker-end="url(#skF04-arrow)"/>
+
+            <text x="252" y="36" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">AFTER · EVIDENCE CARD</text>
+            <rect x="252" y="50" width="444" height="256" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <text x="270" y="74" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12.5px;fill:var(--accent,#c08bd2)">A1234-XX-001</text>
+            <rect x="544" y="60" width="134" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+            <text x="610" y="74" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">EVIDENCE-BACKED</text>
+            <text x="270" y="98" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:15px;fill:var(--ink,#f3eee3)">Curved fascia — concealed cleat</text>
+
+            <g style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="270" y="110" width="95" height="48" rx="6"/>
+              <rect x="373" y="110" width="95" height="48" rx="6"/>
+              <rect x="476" y="110" width="95" height="48" rx="6"/>
+              <rect x="579" y="110" width="95" height="48" rx="6"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="279" y="126">ISO</text>
+              <text x="382" y="126">FRONT</text>
+              <text x="485" y="126">SIDE</text>
+              <text x="588" y="126">TOP</text>
+            </g>
+            <g transform="translate(317.5,143)">
+              <path d="M-26 -2 Q0 -12 26 -2 L26 7 Q0 -3 -26 7 Z" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round"/>
+              <path d="M-9 -6.4 V2.6 M9 -6.4 V2.6" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+            </g>
+            <g transform="translate(420.5,143)">
+              <rect x="-26" y="-8" width="52" height="16" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <path d="M-9 -8 V8 M9 -8 V8" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+            </g>
+            <g transform="translate(523.5,143)">
+              <path d="M-22 -10 V10" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+              <path d="M7 0 L-5 -6 V6 Z M-5 6 H-22" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round"/>
+              <rect x="7" y="-9" width="7" height="18" rx="1" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            </g>
+            <g transform="translate(626.5,143)">
+              <path d="M-24 6 Q0 -8 24 6" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round"/>
+              <path d="M-21 10 Q0 -3 21 10 M-24 6 L-21 10 M24 6 L21 10" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+            </g>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="270" y="180">OBJECT TYPE</text>
+              <text x="482" y="180">DIMENSIONS</text>
+              <text x="270" y="224">MATERIAL / FINISH</text>
+              <text x="482" y="224">GEOMETRY</text>
+              <text x="270" y="268">PROJECT</text>
+              <text x="482" y="268">RELATIONSHIPS</text>
+            </g>
+            <g style="font-size:12.5px;fill:var(--ink,#f3eee3)">
+              <text x="270" y="198">Fabricated curved fascia assembly</text>
+              <text x="482" y="198">2440 × 610 × 180 mm</text>
+              <text x="270" y="242">AL 5052 · matte powder coat</text>
+              <text x="482" y="242">42 parts · rolled sheet metal</text>
+              <text x="270" y="286">A1234 · Stadium North Concourse</text>
+              <text x="482" y="286">parent assembly · 3 drawings · BOM</text>
+            </g>
+            <g style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <path d="M270 210 H466 M482 210 H678"/>
+              <path d="M270 254 H466 M482 254 H678"/>
+            </g>
+          </svg>
+        </a>
+        <figcaption>An evidence card records what can be verified before anything is interpreted.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Folders are not the engineering</h2>
+      <p>A <strong>knowledge graph</strong> maps engineering objects and the relationships between them: assemblies contain parts, and drawings document models. A shared component can belong to two parent assemblies even though its file occupies one place in the folders. That distinction matters when we want to understand how a detail was used, rather than simply locate the file that stores it.</p>
+      <p>We reconstructed references and cross-verified them in two independent ways: through the SolidWorks Document Manager API, an interface for reading file information, and by opening files in SolidWorks. Those connections let a file draw context from its parent assembly and the drawings that document it. The evidence card now reaches beyond the individual object, but it is still unstructured: verified facts waiting for interpretation.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F05-tree-vs-graph.svg" target="_blank" rel="noopener" aria-label="Open full size: Engineering relationships extend beyond a file’s place in the folders.">
+          <svg aria-label="Project folder tree beside connected assemblies, parts, drawings, and bill of materials" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="skF05-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF05-title">A project folder tree on the left is reconstructed into a knowledge graph of project, assembly, subassembly, part, drawing and BOM nodes on the right.</title>
+            <defs>
+              <marker id="skF05-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                <path d="M0,1 L9,5 L0,9 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- LEFT: where files live -->
+            <rect x="24" y="24" width="280" height="228" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="42" y="48" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">WHERE FILES LIVE</text>
+            <line x1="42" y1="58" x2="286" y2="58" style="stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <!-- tree hairlines -->
+            <g style="stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;fill:none">
+              <path d="M52,82 V234"/>
+              <path d="M52,90 H58"/>
+              <path d="M52,198 H58"/>
+              <path d="M52,234 H58"/>
+              <path d="M72,98 V180"/>
+              <path d="M72,108 H78"/>
+              <path d="M72,126 H78"/>
+              <path d="M72,144 H78"/>
+              <path d="M72,162 H78"/>
+              <path d="M72,180 H78"/>
+              <path d="M72,206 V216"/>
+              <path d="M72,216 H78"/>
+            </g>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px">
+              <text x="42" y="76" style="fill:var(--ink,#f3eee3)">W1101\</text>
+              <text x="62" y="94" style="fill:var(--ash,rgba(243,238,227,0.55))">CAD\Released\</text>
+              <text x="82" y="112" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1.SLDASM</text>
+              <text x="82" y="130" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-02.SLDPRT</text>
+              <text x="82" y="148" style="fill:var(--ink-2,#c5c1b8)">W1101-04-1-03.SLDPRT</text>
+              <text x="82" y="166" style="fill:var(--ink-2,#c5c1b8)">W1101-04-2.SLDDRW</text>
+              <text x="82" y="184" style="fill:var(--ink-2,#c5c1b8)">BOM_W1101.PDF</text>
+              <text x="62" y="202" style="fill:var(--ash,rgba(243,238,227,0.55))">Vendor\</text>
+              <text x="82" y="220" style="fill:var(--ink-2,#c5c1b8)">hinge_std_rev3.SLDPRT</text>
+              <text x="62" y="238" style="fill:var(--ash,rgba(243,238,227,0.55));opacity:.62">Docs\ Estimates\ Photos\ &#8230;</text>
+            </g>
+
+            <!-- MIDDLE: reconstruct -->
+            <text x="360" y="124" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;fill:var(--accent,#c08bd2)">RECONSTRUCT</text>
+            <path d="M324,136 H392" style="stroke:var(--accent,#c08bd2);stroke-width:2;fill:none" marker-end="url(#skF05-arrow)"/>
+
+            <!-- RIGHT: knowledge graph -->
+            <g style="stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;fill:none">
+              <path d="M516,52 V84"/>
+              <path d="M557,96 H604"/>
+              <path d="M516,108 V124"/>
+              <path d="M478,124 H640"/>
+              <path d="M478,124 V140"/>
+              <path d="M600,124 V140"/>
+              <path d="M478,164 V180"/>
+              <path d="M448,180 H512"/>
+              <path d="M448,180 V196"/>
+              <path d="M512,180 V196"/>
+              <path d="M640,124 V196"/>
+            </g>
+
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <rect x="475" y="84" width="82" height="24" rx="6"/>
+              <rect x="604" y="84" width="76" height="24" rx="6"/>
+              <rect x="430" y="140" width="96" height="24" rx="6"/>
+              <rect x="571" y="140" width="58" height="24" rx="6"/>
+              <rect x="419" y="196" width="58" height="24" rx="6"/>
+              <rect x="483" y="196" width="58" height="24" rx="6"/>
+              <rect x="613" y="196" width="54" height="24" rx="6"/>
+            </g>
+            <rect x="478" y="28" width="76" height="24" rx="6" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+
+            <g text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12.5px;fill:var(--ink,#f3eee3)">
+              <text x="516" y="45">Project</text>
+              <text x="516" y="101">Assembly</text>
+              <text x="642" y="101">Drawing</text>
+              <text x="478" y="157">Subassembly</text>
+              <text x="600" y="157">Part</text>
+              <text x="448" y="213">Part</text>
+              <text x="512" y="213">Part</text>
+              <text x="640" y="213">BOM</text>
+            </g>
+
+            <text x="510" y="272" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">HOW ENGINEERING FITS TOGETHER &#183; VERIFIED TWO WAYS</text>
+          </svg>
+        </a>
+        <figcaption>Engineering relationships extend beyond a file’s place in the folders.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>From evidence card to knowledge card</h2>
+      <p>An AI reads the evidence card and writes the <strong>knowledge card</strong>: the same object, now structured and interpreted, ready to search. One half explains the object in engineering language through its summary, design intent, materials, geometry pattern, and project context. The other half makes that meaning usable for retrieval through a controlled object type, tags from DI’s vocabulary, and search aliases reflecting the words people type.</p>
+      <p>A reasoning field records the evidence behind each claim, keeping the knowledge card connected to the drawing text or assembly context that supports it. Materials come from authored notes, rather than a guess based on appearance. The knowledge card’s text then becomes an embedding, a numerical representation of meaning that lets the system compare descriptions, although one description cannot emphasize every aspect equally.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F07-knowledge-card.svg" target="_blank" rel="noopener" aria-label="Open full size: The knowledge card keeps a reasoning trace back to the evidence card behind it.">
+          <svg aria-label="Evidence card passing through model reasoning into a structured knowledge card with a source trace" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="skF07-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF07-title">The evidence card for file A1234-XX-001 is reasoned over by the model and written out as a structured knowledge card record with summary, design intent, materials, geometry, project context, tags, search aliases and a reasoning trace.</title>
+            <defs>
+              <marker id="skF07-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,1 L9,5 L0,9 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- ============ LEFT: unstructured evidence ============ -->
+            <rect x="24" y="101" width="140" height="182" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="34" y="125">EVIDENCE</text>
+              <text x="34" y="139">CARD</text>
+            </g>
+            <text x="34" y="163" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--accent,#c08bd2)">A1234-XX-001</text>
+            <text x="34" y="183" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:14px;fill:var(--ink,#f3eee3)">Curved fascia</text>
+
+            <g style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="34" y="195" width="36" height="32" rx="6"/>
+              <rect x="76" y="195" width="36" height="32" rx="6"/>
+              <rect x="118" y="195" width="36" height="32" rx="6"/>
+            </g>
+            <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+              <path d="M41,206 C47,201 57,201 63,206 L63,216 C57,221 47,221 41,216 Z"/>
+              <path d="M83,217 C89,204 99,204 105,217"/>
+              <path d="M126,203 V219 H140"/>
+              <path d="M133,203 H146 V213"/>
+            </g>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="34" y="249">AL 5052 &#183; 42 parts</text>
+              <text x="34" y="264">2440 &#215; 610 &#215; 180 mm</text>
+            </g>
+
+            <!-- ============ MIDDLE: the model reasons ============ -->
+            <path d="M180,148 H216" style="stroke:var(--accent,#c08bd2);stroke-width:1.5;fill:none" marker-end="url(#skF07-arrow)"/>
+            <rect x="170" y="164" width="60" height="56" rx="12" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <path d="M200,174 L201.6,178.4 L206,180 L201.6,181.6 L200,186 L198.4,181.6 L194,180 L198.4,178.4 Z" style="fill:var(--accent,#c08bd2)"/>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;fill:var(--accent-deep,#a36cb6)">
+              <text x="200" y="201">MODEL</text>
+              <text x="200" y="214">REASONS</text>
+            </g>
+            <path d="M180,236 H216" style="stroke:var(--accent,#c08bd2);stroke-width:1.5;fill:none" marker-end="url(#skF07-arrow)"/>
+
+            <!-- ============ RIGHT: the structured record ============ -->
+            <rect x="236" y="24" width="460" height="334" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="248" y="46" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px"><tspan style="fill:var(--accent,#c08bd2)">{ }</tspan><tspan style="fill:var(--ink,#f3eee3)"> knowledge_card</tspan></text>
+            <rect x="634" y="32" width="50" height="18" rx="6" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="659" y="45" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;fill:var(--ash,rgba(243,238,227,0.55))">JSON</text>
+            <line x1="248" y1="58" x2="684" y2="58" style="stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <text x="248" y="70" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// human-readable meaning</text>
+            <text x="248" y="84.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"summary":</tspan> "Curved exterior fascia in rolled aluminum, hung</text>
+            <text x="248" y="99" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">on a concealed cleat.",</text>
+            <text x="248" y="113.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"design_intent":</tspan> "Seamless curved face for a concourse edge.",</text>
+            <text x="248" y="128" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"material_finish":</tspan> "AL 5052 sheet &#183; matte powder coat.",</text>
+            <text x="248" y="142.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"geometry_pattern":</tspan> "Rolled panels, welded ribs, cleat rail.",</text>
+            <text x="248" y="157" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"project_context":</tspan> "Stadium north-concourse signage package.",</text>
+
+            <text x="248" y="175.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// controlled classification</text>
+            <text x="248" y="190" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"object_type":</tspan> "fascia",</text>
+            <text x="248" y="204.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"DI_tags":</tspan> [</text>
+
+            <g style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent-deep,#a36cb6);stroke-width:1">
+              <rect x="258" y="212" width="54" height="19" rx="6"/>
+              <rect x="320" y="212" width="85" height="19" rx="6"/>
+              <rect x="413" y="212" width="111" height="19" rx="6"/>
+              <rect x="532" y="212" width="66" height="19" rx="6"/>
+            </g>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-deep,#a36cb6)">
+              <text x="285" y="226">curved</text>
+              <text x="362.5" y="226">sheet metal</text>
+              <text x="468.5" y="226">concealed mount</text>
+              <text x="565" y="226">exterior</text>
+            </g>
+            <text x="248" y="245" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">],</text>
+
+            <text x="248" y="263.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// retrieval expansion</text>
+            <text x="248" y="278" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)"><tspan style="fill:var(--accent-deep,#a36cb6)">"search_aliases":</tspan> "curved fascia; rolled panel;</text>
+            <text x="248" y="292.5" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">cleat-hung cladding",</text>
+
+            <text x="248" y="311" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">// trace</text>
+            <path d="M248,318 V348" style="stroke:var(--accent,#c08bd2);stroke-width:2;fill:none"/>
+            <text x="260" y="329" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:13px;fill:var(--ink-2,#c5c1b8)">"reasoning": "Form from title block, BOM and rendered views;</text>
+            <text x="260" y="345" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:13px;fill:var(--ink-2,#c5c1b8)">materials from authored notes &#8212; not visual guessing."</text>
+
+            <!-- ============ BOTTOM: the payoff ============ -->
+            <rect x="24" y="370" width="672" height="26" rx="13" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <text x="360" y="387" text-anchor="middle" style="font-size:13px;fill:var(--ink,#f3eee3)">This structured text becomes the embedding text for search &#8594;</text>
+          </svg>
+        </a>
+        <figcaption>The knowledge card keeps a reasoning trace back to the evidence card behind it.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Five ways to remember</h2>
+      <p>The same design can matter because of its shape, its material, or the purpose it served, depending on the problem someone is trying to solve. A single summary tends to emphasize one of those reasons at the expense of others. We wanted a useful precedent to remain discoverable when the next person’s question approached it from a different direction.</p>
+      <p>We therefore describe each evidence card from five perspectives: what it was for, what shape it is, what it is made of, where it lived, and the words someone would type. Each perspective becomes its own searchable representation, and together they form the knowledge card that the semantic space stores, so discovery still leads to one engineering object with its evidence. With those representations in place, someone can begin a search with the detail they actually remember.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F08-five-perspectives.svg" target="_blank" rel="noopener" aria-label="Open full size: Five perspectives turn one evidence card into the knowledge card the semantic space stores.">
+          <svg aria-label="Evidence card branching into five perspectives and converging into a knowledge card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="skF08-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF08-title">One evidence card is described from five perspectives - design intent, geometry traits, materials and specs, project context, search terms - which together form the knowledge card stored in the semantic space</title>
+            <defs>
+              <marker id="skF08-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                <path d="M0,1 L9,5 L0,9 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- fan out / fan in -->
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5">
+              <path d="M156,126 C182,126 178,42 204,42"/>
+              <path d="M156,126 C182,126 178,84 204,84"/>
+              <path d="M156,126 H204"/>
+              <path d="M156,126 C182,126 178,168 204,168"/>
+              <path d="M156,126 C182,126 178,210 204,210"/>
+              <path d="M390,42 C416,42 412,126 438,126"/>
+              <path d="M390,84 C416,84 412,126 438,126"/>
+              <path d="M390,126 H438"/>
+              <path d="M390,168 C416,168 412,126 438,126"/>
+              <path d="M390,210 C416,210 412,126 438,126"/>
+            </g>
+
+            <!-- ONE CARD -->
+            <rect x="24" y="74" width="132" height="104" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <text x="38" y="98" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--accent,#c08bd2)">A1234-XX-001</text>
+            <g style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="38" y="118">File node’s</text>
+              <text x="38" y="134">data</text>
+            </g>
+            <line x1="38" y1="146" x2="142" y2="146" style="stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="38" y="162" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">unstructured</text>
+
+            <!-- FIVE PERSPECTIVES -->
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="204" y="24" width="186" height="36" rx="8"/>
+              <rect x="204" y="66" width="186" height="36" rx="8"/>
+              <rect x="204" y="108" width="186" height="36" rx="8"/>
+              <rect x="204" y="150" width="186" height="36" rx="8"/>
+              <rect x="204" y="192" width="186" height="36" rx="8"/>
+            </g>
+            <g style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12.5px;fill:var(--ink,#f3eee3)">
+              <text x="216" y="40">Design intent</text>
+              <text x="216" y="82">Geometry traits</text>
+              <text x="216" y="124">Materials &amp; specs</text>
+              <text x="216" y="166">Project context</text>
+              <text x="216" y="208">Search terms</text>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="216" y="53">what problem it solved</text>
+              <text x="216" y="95">form &#183; construction</text>
+              <text x="216" y="137">alloys &#183; finishes</text>
+              <text x="216" y="179">venue &#183; siblings</text>
+              <text x="216" y="221">shop vocabulary</text>
+            </g>
+
+            <!-- STRUCTURED CARD -->
+            <rect x="438" y="82" width="112" height="88" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="452" y="104" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--accent,#c08bd2)">A1234-XX-001</text>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ink-2,#c5c1b8)">
+              <text x="452" y="124">type: assembly</text>
+              <text x="452" y="138">dims: 2440&#215;610</text>
+              <text x="452" y="152">mat:  AL 5052</text>
+            </g>
+            <path d="M550,126 H568" style="stroke:var(--accent,#c08bd2);stroke-width:2;fill:none" marker-end="url(#skF08-arrow)"/>
+
+            <!-- SEMANTIC SPACE -->
+            <rect x="576" y="76" width="120" height="100" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:var(--ash,rgba(243,238,227,0.55))">
+              <circle cx="600" cy="102" r="2"/>
+              <circle cx="624" cy="96" r="2"/>
+              <circle cx="606" cy="122" r="2"/>
+              <circle cx="626" cy="118" r="2"/>
+              <circle cx="590" cy="112" r="2"/>
+              <circle cx="656" cy="126" r="2"/>
+              <circle cx="668" cy="132" r="2"/>
+              <circle cx="660" cy="142" r="2"/>
+              <circle cx="674" cy="120" r="2"/>
+              <circle cx="586" cy="140" r="2"/>
+              <circle cx="682" cy="100" r="2"/>
+            </g>
+            <circle cx="613" cy="110" r="8" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <circle cx="613" cy="110" r="3" style="fill:var(--accent,#c08bd2)"/>
+            <text x="636" y="166" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.04em;text-transform:uppercase;fill:var(--ink-2,#c5c1b8)">SEMANTIC SPACE</text>
+
+            <!-- zone labels -->
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="90" y="252">EVIDENCE CARD</text>
+              <text x="297" y="252">FIVE PERSPECTIVES</text>
+              <text x="494" y="252">KNOWLEDGE CARD</text>
+              <text x="636" y="252">ALL SEARCHABLE</text>
+            </g>
+          </svg>
+        </a>
+        <figcaption>Five perspectives turn one evidence card into the knowledge card the semantic space stores.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>04 — Using the memory</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Search what it is, not what it was named</h2>
+      <p>Consider a designer looking for a curved fascia, a facing panel hung on a concealed cleat, who remembers the arrangement but none of the project details. They type “curved fabricated assembly with concealed support” into search. The sentence enters the same semantic space as the archive’s descriptions, letting its meaning connect with previous work regardless of how the files were named.</p>
+      <p>In this example, the answer is yes: a fascia from a 2016 stadium job appears with its knowledge card, including AL 5052 aluminum and powder coat. The match explanation helps the designer judge its relevance before one click reveals the source file. That makes earlier work available for examination, but its usefulness depends on the card still describing the source accurately.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F10-results.svg" target="_blank" rel="noopener" aria-label="Open full size: The answer includes enough context to judge before opening CAD.">
+          <svg aria-label="Ranked results beside a fascia preview, knowledge card, match explanation, and source reveal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="skF10-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF10-title">A /find results panel: the query "Curved fabricated assembly with concealed support" returns three ranked matches from past projects, with a preview of the top match showing project, material, why it matched, and a link back to the original file.</title>
+
+            <rect x="8" y="8" width="704" height="314" rx="12" style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+
+            <!-- search row -->
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round">
+              <circle cx="34" cy="31" r="6.5"/>
+              <path d="M38.8 35.8 L44 41"/>
+            </g>
+            <text x="52" y="36" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--ink,#f3eee3)">Curved fabricated assembly with concealed support…</text>
+            <text x="692" y="36" text-anchor="end" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--ash,rgba(243,238,227,0.55))">/find</text>
+            <path d="M8 56 H712" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M354 70 V306" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <!-- match 1 (selected) -->
+            <rect x="24" y="70" width="324" height="72" rx="8" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <text x="38" y="92" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--accent,#c08bd2)">W1101-04-1</text>
+            <rect x="270" y="78" width="64" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <text x="302" y="92" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-deep,#a36cb6)">94 match</text>
+            <text x="38" y="112" style="font-size:13px;fill:var(--ink,#f3eee3)">Curved stadium fascia</text>
+            <text x="38" y="130" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">AL 5052 · concealed cleat · 2016</text>
+
+            <!-- match 2 -->
+            <rect x="24" y="152" width="324" height="72" rx="8" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="38" y="174" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--accent,#c08bd2)">X1648-CL.01</text>
+            <rect x="270" y="160" width="64" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:none"/>
+            <text x="302" y="174" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-deep,#a36cb6)">91 match</text>
+            <text x="38" y="194" style="font-size:13px;fill:var(--ink,#f3eee3)">Cleat-hung donor wall</text>
+            <text x="38" y="212" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">folded aluminum · 2022</text>
+
+            <!-- match 3 -->
+            <rect x="24" y="234" width="324" height="72" rx="8" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="38" y="256" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--accent,#c08bd2)">R1111Q-07-2</text>
+            <rect x="270" y="242" width="64" height="20" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="302" y="256" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">87 match</text>
+            <text x="38" y="276" style="font-size:13px;fill:var(--ink,#f3eee3)">Curved canopy edge</text>
+            <text x="38" y="294" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">rolled fascia · 2019</text>
+
+            <!-- preview tile -->
+            <rect x="368" y="70" width="328" height="100" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="384" y="90" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.06em;fill:var(--ash,rgba(243,238,227,0.55))">PREVIEW · W1101-04-1</text>
+            <text x="532" y="112" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-light,#d6a8e6)">concealed cleats</text>
+            <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round">
+              <path d="M396 156 Q532 116 668 156"/>
+              <path d="M396 163 Q532 123 668 163"/>
+              <path d="M396 156 V163"/>
+              <path d="M668 156 V163"/>
+            </g>
+            <g style="fill:none;stroke:var(--accent-light,#d6a8e6);stroke-width:1.5;stroke-linejoin:round">
+              <path d="M456 143 v-11 h16 v11"/>
+              <path d="M592 143 v-11 h16 v11"/>
+            </g>
+
+            <!-- fields -->
+            <text x="368" y="202" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">PROJECT</text>
+            <text x="368" y="220" style="font-size:13px;fill:var(--ink,#f3eee3)">W1101 · Stadium fascia</text>
+            <text x="548" y="202" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">MATERIAL</text>
+            <text x="548" y="220" style="font-size:13px;fill:var(--ink,#f3eee3)">AL 5052 · powder coat</text>
+
+            <text x="368" y="258" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">WHY IT MATCHED</text>
+            <text x="368" y="276" style="font-size:13px;fill:var(--ink,#f3eee3)">curved · concealed mount</text>
+            <text x="548" y="258" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">SOURCE</text>
+            <text x="548" y="276" style="font-size:13px;fill:var(--accent,#c08bd2)"><tspan style="text-decoration:underline">Reveal file location</tspan><tspan dx="7" style="text-decoration:none">→</tspan></text>
+          </svg>
+        </a>
+        <figcaption>The answer includes enough context to judge before opening CAD.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>05 — Keeping it true</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>But the archive never stops changing</h2>
+      <p>An assembly can change months after delivery, leaving a knowledge card that was accurate in March describing an old version by July. The words remain just as convincing, which makes stale knowledge difficult for a reader to recognize. We designed the automation to keep published knowledge aligned with its sources, dividing the work according to the resources it needs.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F11-drift.svg" target="_blank" rel="noopener" aria-label="Open full size: An unchanged card can become wrong as its source evolves.">
+          <svg aria-label="March and July CAD revisions beside a card that becomes stale" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="skF11-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF11-title">Knowledge drift: a CAD assembly extracted and enriched in March produces a knowledge card that is in sync; by July the assembly has been revised, and the same card is now stale.</title>
+            <defs>
+              <marker id="skF11-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 5 L0 10 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+            </defs>
+
+            <!-- left: CAD v1 -->
+            <rect x="64" y="10" width="140" height="78" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
+              <polygon points="134,22 158,36 134,50 110,36" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+              <polygon points="110,36 134,50 134,76 110,62" style="fill:none"/>
+              <polygon points="158,36 134,50 134,76 158,62" style="fill:none"/>
+            </g>
+            <text x="134" y="102" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink,#f3eee3)">CAD v1</text>
+            <path d="M134 110 V128" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#skF11-arw)"/>
+            <rect x="54" y="132" width="160" height="50" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <text x="68" y="152" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:13px;fill:var(--ink,#f3eee3)">Knowledge card</text>
+            <path d="M68 166 l5 6 10 -12" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round"/>
+            <text x="92" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--accent,#c08bd2)">IN SYNC</text>
+
+            <!-- drift between -->
+            <text x="359" y="36" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ash,rgba(243,238,227,0.55))">projects evolve · new files land</text>
+            <path d="M216 48 H502" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1.5 7" marker-end="url(#skF11-arw)"/>
+
+            <!-- right: CAD v2, modified -->
+            <rect x="516" y="10" width="140" height="78" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linejoin:round;fill:none">
+              <polygon points="586,22 610,36 586,50 562,36"/>
+              <polygon points="562,36 586,50 586,76 562,62"/>
+            </g>
+            <polygon points="610,36 586,50 586,76 610,62" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:2;stroke-linejoin:round"/>
+            <circle cx="610" cy="36" r="4" style="fill:var(--accent,#c08bd2)"/>
+            <text x="586" y="102" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--accent,#c08bd2)">CAD v2 — MODIFIED</text>
+            <path d="M586 110 V128" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#skF11-arw)"/>
+            <rect x="498" y="132" width="176" height="50" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-dasharray:4 4"/>
+            <text x="512" y="152" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:13px;fill:var(--ink,#f3eee3)">Knowledge card v1</text>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+              <path d="M519 159 l8 13 h-16 z"/>
+              <path d="M519 164 v3"/>
+            </g>
+            <text x="536" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--accent,#c08bd2)">STALE — v1</text>
+
+            <!-- timeline -->
+            <path d="M60 196 H660" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5">
+              <path d="M134 190 V202"/>
+              <path d="M586 190 V202"/>
+            </g>
+            <text x="60" y="216" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">MARCH · EXTRACTED + ENRICHED</text>
+            <text x="660" y="216" text-anchor="end" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">JULY · ASSEMBLY REVISED</text>
+
+            <!-- question -->
+            <text x="386" y="240" text-anchor="end" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:20px;fill:var(--ink,#f3eee3)">Is the knowledge</text>
+            <text x="392" y="240" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:20px;fill:var(--accent,#c08bd2)">still true?</text>
+          </svg>
+        </a>
+        <figcaption>An unchanged card can become wrong as its source evolves.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Two workers and a supervisor</h2>
+      <p>Full-archive extraction takes roughly one to two weeks per workstation because SolidWorks is the bottleneck. We scheduled the <strong>Night Worker</strong>, the extraction process, to gather evidence when Windows workstations with SolidWorks seats are free. The <strong>Enrich Worker</strong>, which turns that evidence into searchable knowledge, needs no SolidWorks seat and runs around the clock, connected to extraction by a queue.</p>
+      <p>We gave the <strong>Supervisor Agent</strong> a restrained role: observe the workers and compare the live archive with published knowledge, project by project. It reports changes and proposes action, but never touches source CAD or initiates repairs independently; re-enrichment requires human approval. Together, these roles keep responsibility clear as the memory changes, with people deciding how to respond to its findings.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F13-supervisor.svg" target="_blank" rel="noopener" aria-label="Open full size: A finding becomes corrective work only after a person approves.">
+          <svg aria-label="Supervisor above two workers, with a finding routed to human review" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" role="img" aria-labelledby="skF13-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF13-title">A Supervisor Agent observes, detects, proposes and escalates: it watches the live CAD archive against the published knowledge the two workers build, and escalates a stale assembly to human attention, which can approve a re-enrichment.</title>
+            <defs>
+              <marker id="skF13-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 5 L0 10 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+              <marker id="skF13-arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0 0 L10 5 L0 10 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- supervisor -->
+            <rect x="150" y="14" width="320" height="52" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round">
+              <circle cx="176" cy="40" r="11"/>
+              <path d="M176 40 L183.5 32.5"/>
+            </g>
+            <circle cx="176" cy="40" r="1.6" style="fill:var(--accent,#c08bd2)"/>
+            <text x="198" y="38" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#f3eee3)">SUPERVISOR AGENT</text>
+            <text x="198" y="56" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">OBSERVE → DETECT → PROPOSE → </text>
+            <text x="381" y="56" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent,#c08bd2)">ESCALATE</text>
+
+            <!-- supervisor to workers -->
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-dasharray:4 4">
+              <path d="M226 68 V122" marker-end="url(#skF13-arw)"/>
+              <path d="M394 68 V122" marker-end="url(#skF13-arw)"/>
+              <path d="M156 66 L74 232" marker-end="url(#skF13-arw)"/>
+            </g>
+            <text x="16" y="170" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">watches the</text>
+            <text x="16" y="184" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">archive</text>
+
+            <!-- night worker -->
+            <rect x="150" y="126" width="152" height="76" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M177 150 a8 8 0 1 1 -4.5 -15 a6.7 6.7 0 0 0 4.5 15 z" style="fill:var(--accent,#c08bd2)"/>
+            <text x="184" y="148" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink,#f3eee3)">NIGHT WORKER</text>
+            <text x="164" y="170" style="font-size:12.5px;fill:var(--ink-2,#c5c1b8)">CAD extraction</text>
+            <circle cx="168" cy="186" r="2.5" style="fill:var(--accent,#c08bd2)"/>
+            <text x="178" y="190" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">night run · clean</text>
+
+            <!-- enrich worker -->
+            <rect x="318" y="126" width="152" height="76" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M340 135 l2.6 5.2 5.2 2.6 -5.2 2.6 -2.6 5.2 -2.6 -5.2 -5.2 -2.6 5.2 -2.6 z" style="fill:var(--accent,#c08bd2)"/>
+            <text x="352" y="148" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink,#f3eee3)">ENRICH WORKER</text>
+            <text x="332" y="170" style="font-size:12.5px;fill:var(--ink-2,#c5c1b8)">Transformation</text>
+            <circle cx="336" cy="186" r="2.5" style="fill:var(--accent,#c08bd2)"/>
+            <text x="346" y="190" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">standing · 24/7</text>
+
+            <!-- workers publish -->
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-dasharray:4 4">
+              <path d="M226 206 L250 236" marker-end="url(#skF13-arwa)"/>
+              <path d="M394 206 L362 236" marker-end="url(#skF13-arwa)"/>
+            </g>
+
+            <!-- live cad archive -->
+            <rect x="16" y="238" width="100" height="68" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M52 252 q0 -3 3 -3 h7 l3 3 h12 q3 0 3 3 v11 q0 3 -3 3 h-22 q-3 0 -3 -3 z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round"/>
+            <text x="66" y="286" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink,#f3eee3)">LIVE CAD</text>
+            <text x="66" y="299" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink,#f3eee3)">ARCHIVE</text>
+            <text x="133" y="232" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">compared</text>
+            <path d="M120 272 H148" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-dasharray:4 4" marker-end="url(#skF13-arw)"/>
+
+            <!-- published knowledge -->
+            <rect x="150" y="238" width="290" height="68" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:var(--accent,#c08bd2)">
+              <circle cx="170" cy="266" r="3"/>
+              <circle cx="184" cy="260" r="2.5"/>
+              <circle cx="190" cy="274" r="2.8"/>
+              <circle cx="174" cy="278" r="2.5"/>
+            </g>
+            <text x="206" y="272" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#f3eee3)">PUBLISHED KNOWLEDGE</text>
+            <text x="206" y="290" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">what search serves</text>
+
+            <!-- human attention -->
+            <text x="490" y="112" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">HUMAN ATTENTION</text>
+            <rect x="490" y="126" width="214" height="124" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <circle cx="506" cy="147" r="3.5" style="fill:var(--accent,#c08bd2)"/>
+            <text x="518" y="151" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.1em;text-transform:uppercase;fill:var(--accent,#c08bd2)">ATTENTION REQUIRED</text>
+            <text x="506" y="176" style="font-size:13px;fill:var(--ink,#f3eee3)">Assembly changed after</text>
+            <text x="506" y="193" style="font-size:13px;fill:var(--ink,#f3eee3)">enrichment</text>
+            <text x="506" y="212" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">W1101 · stale ×4</text>
+            <rect x="506" y="220" width="70" height="22" rx="6" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+            <text x="541" y="235" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;fill:var(--ink-2,#c5c1b8)">REVIEW</text>
+            <rect x="584" y="220" width="70" height="22" rx="6" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <text x="619" y="235" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;text-transform:uppercase;fill:var(--accent,#c08bd2)">RE-RUN</text>
+
+            <!-- escalation and return -->
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-dasharray:4 4;stroke-linejoin:round">
+              <path d="M470 46 L486 146" marker-end="url(#skF13-arwa)"/>
+              <path d="M540 250 V266 H450 V196" marker-end="url(#skF13-arwa)"/>
+            </g>
+            <text x="490" y="80" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">escalates for judgment</text>
+            <text x="548" y="270" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">approve → re-enrich</text>
+
+            <!-- closing line -->
+            <text x="357" y="330" text-anchor="end" style="font-size:15px;fill:var(--ink-2,#c5c1b8)">The workers build the memory.</text>
+            <text x="363" y="330" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:15px;fill:var(--ink,#f3eee3)">The Supervisor keeps it true.</text>
+          </svg>
+        </a>
+        <figcaption>A finding becomes corrective work only after a person approves.</figcaption>
+      </figure>
+    </section>
+
+    <section class="pullquote reveal">
+      <p>The workers build the memory. The Supervisor keeps it true.</p>
+      <div class="attr">— The division of responsibility</div>
+    </section>
+
+    <div class="chapter"><span>06 — A memory the organization can use</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>From CAD archive to living design memory</h2>
+      <p>SolidKnowledge connects the question someone can ask today with engineering that might otherwise remain buried in an old project folder. The evidence and relationships behind a knowledge card help that person examine what a previous design offers, while the workers and Supervisor maintain the connection to its source. We developed those parts together because discovery depends on knowledge worth returning to.</p>
+      <p>For the people designing and fabricating the next project, “have we built this before?” can now lead to a design they can inspect and a source they can open. We wanted the experience of earlier work to remain available to the people who need it again. The recording below brings that idea into view through the prototype on the real archive.</p>
+      <figure class="figure sk-fig">
+        <a href="../assets/img/solidknowledge/sk-F14-living-memory.svg" target="_blank" rel="noopener" aria-label="Open full size: A usable design memory connects discovery with continuing care.">
+          <svg aria-label="End-to-end archive-to-reuse strip above workers, Supervisor, and human review" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="skF14-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="skF14-title">From CAD archive to living design memory: the archive becomes evidence, a knowledge graph, a semantic space, search and finally reuse — held true by a band of continuous maintenance run by the night worker, the enrich worker, the supervisor agent and human attention.</title>
+            <defs>
+              <marker id="skF14-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M0 0 L10 5 L0 10 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+            </defs>
+
+            <!-- the engineer -->
+            <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round">
+              <circle cx="34" cy="48" r="6"/>
+              <path d="M25 66 a9 9 0 0 1 18 0"/>
+            </g>
+            <path d="M48 56 H74" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1.5 5"/>
+
+            <!-- stage 1: CAD archive -->
+            <rect x="80" y="20" width="92" height="72" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M112 38 q0 -3 3 -3 h7 l3 3 h11 q3 0 3 3 v10 q0 3 -3 3 h-21 q-3 0 -3 -3 z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round"/>
+            <text x="126" y="80" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:10.5px;fill:var(--ink,#f3eee3)">CAD Archive</text>
+            <path d="M174 56 H184" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF14-arw)"/>
+
+            <!-- stage 2: evidence -->
+            <rect x="186" y="20" width="92" height="72" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <rect x="218" y="40" width="22" height="16" rx="3" style="fill:var(--paper-2,#12131a);stroke:var(--ink-2,#c5c1b8);stroke-width:1.5"/>
+            <rect x="224" y="34" width="22" height="16" rx="3" style="fill:var(--paper-3,#181922);stroke:var(--ink-2,#c5c1b8);stroke-width:1.5"/>
+            <text x="232" y="80" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:10.5px;fill:var(--ink,#f3eee3)">Evidence</text>
+            <path d="M280 56 H290" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF14-arw)"/>
+
+            <!-- stage 3: knowledge graph -->
+            <rect x="292" y="20" width="92" height="72" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5">
+              <path d="M338 38 L328 49"/>
+              <path d="M338 38 L349 47"/>
+              <circle cx="327" cy="52" r="3"/>
+              <circle cx="351" cy="50" r="3"/>
+            </g>
+            <circle cx="338" cy="35" r="3.5" style="fill:var(--accent,#c08bd2)"/>
+            <text x="338" y="80" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:10.5px;fill:var(--ink,#f3eee3)">Knowledge Graph</text>
+            <path d="M386 56 H396" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF14-arw)"/>
+
+            <!-- stage 4: semantic space -->
+            <rect x="398" y="20" width="92" height="72" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:var(--accent,#c08bd2)">
+              <circle cx="436" cy="40" r="3"/>
+              <circle cx="452" cy="36" r="2.5"/>
+              <circle cx="455" cy="50" r="2.8"/>
+              <circle cx="438" cy="52" r="2.5"/>
+            </g>
+            <text x="444" y="80" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:10.5px;fill:var(--ink,#f3eee3)">Semantic Space</text>
+            <path d="M492 56 H502" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF14-arw)"/>
+
+            <!-- stage 5: search -->
+            <rect x="504" y="20" width="92" height="72" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round">
+              <circle cx="547" cy="42" r="8"/>
+              <path d="M553 48 L560 55"/>
+            </g>
+            <text x="550" y="80" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:10.5px;fill:var(--ink,#f3eee3)">Search</text>
+            <path d="M598 56 H608" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#skF14-arw)"/>
+
+            <!-- stage 6: reuse -->
+            <rect x="610" y="20" width="92" height="72" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <path d="M650 52 a10 10 0 1 1 8 -16 M658 36 v7 h-7" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+            <text x="656" y="80" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:10.5px;fill:var(--ink,#f3eee3)">Reuse</text>
+
+            <!-- maintenance band -->
+            <g style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1.5;stroke-dasharray:4 6">
+              <path d="M232 92 V124"/>
+              <path d="M444 92 V124"/>
+              <path d="M550 92 V124"/>
+            </g>
+            <rect x="80" y="124" width="622" height="64" rx="12" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;stroke-dasharray:4 4"/>
+            <text x="100" y="146" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">CONTINUOUS MAINTENANCE</text>
+
+            <path d="M113 178 a7 7 0 1 1 -4 -13 a5.8 5.8 0 0 0 4 13 z" style="fill:var(--accent,#c08bd2)"/>
+            <text x="120" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#f3eee3)">NIGHT WORKER</text>
+            <text x="214" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">·</text>
+            <path d="M232 165 l2.4 4.8 4.8 2.4 -4.8 2.4 -2.4 4.8 -2.4 -4.8 -4.8 -2.4 4.8 -2.4 z" style="fill:var(--accent,#c08bd2)"/>
+            <text x="246" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#f3eee3)">ENRICH WORKER</text>
+            <text x="348" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">·</text>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.35;stroke-linecap:round">
+              <circle cx="366" cy="172" r="7"/>
+              <path d="M366 172 L371 167"/>
+            </g>
+            <text x="380" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#f3eee3)">SUPERVISOR AGENT</text>
+            <text x="503" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">·</text>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.35;stroke-linecap:round">
+              <circle cx="518" cy="166" r="4"/>
+              <path d="M512 178 a6 6 0 0 1 12 0"/>
+            </g>
+            <text x="531" y="172" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#f3eee3)">HUMAN ATTENTION</text>
+            <path d="M662 178 a9 9 0 1 1 7 -14 M669 164 v6 h-6" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"/>
+
+            <!-- closing -->
+            <text x="360" y="216" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:20px;fill:var(--ink,#f3eee3)">Have we built this before?</text>
+            <text x="360" y="240" text-anchor="middle" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--accent-deep,#a36cb6)">Now the archive can answer.</text>
+          </svg>
+        </a>
+        <figcaption>A usable design memory connects discovery with continuing care.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="video">
+      <h2>Watch SolidKnowledge in action</h2>
+      <p>The recording is a screen capture of the working prototype on the real archive. Watch for how a designer’s sentence turns into ranked past designs, how a knowledge card lets them judge a result before opening CAD, and how the operator’s side of the tool keeps the memory current.</p>
+      <h3>What to look for</h3>
+      <ul>
+        <li>A plain sentence typed into the search box: the designer’s question, in their own words</li>
+        <li>Ranked past designs, each with an explanation of why it matched</li>
+        <li>A knowledge card opening: the evidence and context behind a result</li>
+        <li>The source file revealed with one click, from discovery to reuse</li>
+        <li>The operator dashboard: the workers and the Supervisor that keep the memory current</li>
+      </ul>
+      <p class="muted">If it doesn’t load, use the direct link below.</p>
+
+      <div class="video-frame" aria-label="Embedded project video">
+        <iframe
+          src="https://drive.google.com/file/d/1JBsRKaUcsvIqEs-EGBpIuCpktBoPvf2B/preview"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          title="SolidKnowledge demo video"></iframe>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <ul>
+          <li><strong>Direct link:</strong> <a href="https://drive.google.com/file/d/1JBsRKaUcsvIqEs-EGBpIuCpktBoPvf2B/view" target="_blank" rel="noopener">Open video on Google Drive</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Project at a glance</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>What problem it targets</h3>
+          <p class="muted">Useful engineering stays difficult to recover when discovery depends on filenames and someone remembering the project.</p>
+          <ul>
+            <li>Previous details difficult to recover without remembered names or locations</li>
+            <li>Engineering context scattered across models and documents</li>
+            <li>Knowledge drifting as source designs change</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>What we developed</h3>
+          <ul>
+            <li>Evidence cards and a cross-verified engineering graph</li>
+            <li>Traceable knowledge cards with five searchable perspectives</li>
+            <li>Plain-language discovery with design context and source-file reveal</li>
+            <li>Scheduled extraction, continuous enrichment, and supervision with human approval</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Core tech</h3>
+          <ul>
+            <li><strong>Archive:</strong> SolidWorks parts, assemblies, and drawings plus PDFs and DXFs on a network archive, grouped by project</li>
+            <li><strong>Extraction:</strong> Python on a Windows workstation, driving the SolidWorks Document Manager API and SolidWorks for geometry, rendered views, and cross-verified references; OCR for drawings and PDFs</li>
+            <li><strong>Reasoning:</strong> Batched LLM agents using Claude and Gemini models for structured, evidence-cited descriptions</li>
+            <li><strong>Retrieval:</strong> Hybrid keyword, semantic, geometry, and structure search on Google BigQuery with Gemini embeddings, reranking, and an abstention gate</li>
+            <li><strong>Interfaces:</strong> /find search page, operator dashboard, and three.js spatial knowledge graph explorer</li>
+            <li><strong>Automation:</strong> Night Worker, Enrich Worker, and Supervisor Agent lanes; human approval on every re-enrichment</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Context</h3>
+          <ul>
+            <li><strong>Type:</strong> Internship prototype</li>
+            <li><strong>Organization:</strong> Dimensional Innovations · DI Innovation Lab</li>
+            <li><strong>Role:</strong> Design, development, and deployment of the prototype</li>
+            <li><strong>Presented at:</strong> AECtech</li>
+            <li><strong>Year:</strong> 2026</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Links</h2>
+      <div class="card">
+        <ul>
+          <li><a href="index.html">Back to Projects</a></li>
+          <li><a href="https://drive.google.com/file/d/1JBsRKaUcsvIqEs-EGBpIuCpktBoPvf2B/view" target="_blank" rel="noopener">Demo video (Google Drive)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="colophon reveal">
+      <div class="center">— amirgoli.com —</div>
+      <div class="right">© <span data-year-now></span> Amir Goli.<br>Lawrence, Kansas.</div>
+    </footer>
+  </div>
+</main>
+
+<script src="https://unpkg.com/swup@4/dist/Swup.umd.js"></script>
+<script src="../assets/js/main.js?v=2026-05-05-swup"></script>
+<script type="module" src="../assets/js/voice-avatar.js?v=2026-05-05-quiet"></script>
+</body>
+</html>

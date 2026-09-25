@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="skF10-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF10-title">A /find results panel: the query "Curved fabricated assembly with concealed support" returns three ranked matches from past projects, with a preview of the top match showing project, material, why it matched, and a link back to the original file.</title>
+
+  <rect x="8" y="8" width="704" height="314" rx="12" style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+
+  <!-- search row -->
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round">
+    <circle cx="34" cy="31" r="6.5"/>
+    <path d="M38.8 35.8 L44 41"/>
+  </g>
+  <text x="52" y="36" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--ink,#f3eee3)">Curved fabricated assembly with concealed support…</text>
+  <text x="692" y="36" text-anchor="end" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--ash,rgba(243,238,227,0.55))">/find</text>
+  <path d="M8 56 H712" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <path d="M354 70 V306" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+  <!-- match 1 (selected) -->
+  <rect x="24" y="70" width="324" height="72" rx="8" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+  <text x="38" y="92" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--accent,#c08bd2)">W1101-04-1</text>
+  <rect x="270" y="78" width="64" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+  <text x="302" y="92" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-deep,#a36cb6)">94 match</text>
+  <text x="38" y="112" style="font-size:13px;fill:var(--ink,#f3eee3)">Curved stadium fascia</text>
+  <text x="38" y="130" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">AL 5052 · concealed cleat · 2016</text>
+
+  <!-- match 2 -->
+  <rect x="24" y="152" width="324" height="72" rx="8" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="38" y="174" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--accent,#c08bd2)">X1648-CL.01</text>
+  <rect x="270" y="160" width="64" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:none"/>
+  <text x="302" y="174" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-deep,#a36cb6)">91 match</text>
+  <text x="38" y="194" style="font-size:13px;fill:var(--ink,#f3eee3)">Cleat-hung donor wall</text>
+  <text x="38" y="212" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">folded aluminum · 2022</text>
+
+  <!-- match 3 -->
+  <rect x="24" y="234" width="324" height="72" rx="8" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="38" y="256" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:12px;fill:var(--accent,#c08bd2)">R1111Q-07-2</text>
+  <rect x="270" y="242" width="64" height="20" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="302" y="256" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">87 match</text>
+  <text x="38" y="276" style="font-size:13px;fill:var(--ink,#f3eee3)">Curved canopy edge</text>
+  <text x="38" y="294" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">rolled fascia · 2019</text>
+
+  <!-- preview tile -->
+  <rect x="368" y="70" width="328" height="100" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="384" y="90" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.06em;fill:var(--ash,rgba(243,238,227,0.55))">PREVIEW · W1101-04-1</text>
+  <text x="532" y="112" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent-light,#d6a8e6)">concealed cleats</text>
+  <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round">
+    <path d="M396 156 Q532 116 668 156"/>
+    <path d="M396 163 Q532 123 668 163"/>
+    <path d="M396 156 V163"/>
+    <path d="M668 156 V163"/>
+  </g>
+  <g style="fill:none;stroke:var(--accent-light,#d6a8e6);stroke-width:1.5;stroke-linejoin:round">
+    <path d="M456 143 v-11 h16 v11"/>
+    <path d="M592 143 v-11 h16 v11"/>
+  </g>
+
+  <!-- fields -->
+  <text x="368" y="202" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">PROJECT</text>
+  <text x="368" y="220" style="font-size:13px;fill:var(--ink,#f3eee3)">W1101 · Stadium fascia</text>
+  <text x="548" y="202" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">MATERIAL</text>
+  <text x="548" y="220" style="font-size:13px;fill:var(--ink,#f3eee3)">AL 5052 · powder coat</text>
+
+  <text x="368" y="258" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">WHY IT MATCHED</text>
+  <text x="368" y="276" style="font-size:13px;fill:var(--ink,#f3eee3)">curved · concealed mount</text>
+  <text x="548" y="258" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">SOURCE</text>
+  <text x="548" y="276" style="font-size:13px;fill:var(--accent,#c08bd2)"><tspan style="text-decoration:underline">Reveal file location</tspan><tspan dx="7" style="text-decoration:none">→</tspan></text>
+</svg>

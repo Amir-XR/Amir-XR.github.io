@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="skF01-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10"><style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <title id="skF01-title">A new concept on screen, three unanswered questions, and twenty years of folders that cannot answer them.</title>
+
+  <g transform="translate(0,-13)">
+  <rect x="24" y="54" width="260" height="192" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <path d="M24 86 H284" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g style="fill:var(--rule-bold,rgba(243,238,227,0.42))">
+    <circle cx="46" cy="70" r="3.5"/>
+    <circle cx="61" cy="70" r="3.5"/>
+    <circle cx="76" cy="70" r="3.5"/>
+  </g>
+
+  <path d="M56 228 Q 154 144 252 228" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1;stroke-dasharray:4 5"/>
+  <path d="M56 216 V228 M252 216 V228" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <path d="M56 216 Q 154 132 252 216" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2;stroke-linecap:round"/>
+  <g style="fill:var(--accent,#c08bd2)">
+    <circle cx="56" cy="216" r="3.5"/>
+    <circle cx="252" cy="216" r="3.5"/>
+    <circle cx="154" cy="146" r="3.5"/>
+  </g>
+  <path d="M206 168 l0 16.5 4.5 -3.8 3 6.8 3.8 -1.5 -3 -6.8 6 -0.8 z" style="fill:var(--ink,#f3eee3)"/>
+  <text x="154" y="270" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">NEW CONCEPT</text>
+
+  <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-dasharray:1.5 6;stroke-linecap:round">
+    <path d="M292 134 C 352 128 374 106 470 84"/>
+    <path d="M292 154 H470"/>
+    <path d="M292 174 C 352 180 374 202 470 224"/>
+  </g>
+  <g style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+    <circle cx="367" cy="115" r="11"/>
+    <circle cx="367" cy="154" r="11"/>
+    <circle cx="367" cy="193" r="11"/>
+  </g>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="367" y="119">?</text>
+    <text x="367" y="158">?</text>
+    <text x="367" y="197">?</text>
+  </g>
+
+  <g style="fill:var(--paper-2,#12131a);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1;stroke-linejoin:round">
+    <path transform="translate(486,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(596,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(651,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(486,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(541,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(596,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(486,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(541,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(596,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(651,194)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+  </g>
+  <g style="fill:var(--paper-2,#12131a);stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
+    <path transform="translate(541,70)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+    <path transform="translate(651,132)" d="M0.5 8 q0 -4.5 4.5 -4.5 h14 l6 6.5 h15.5 q4.5 0 4.5 4.5 v25 q0 4.5 -4.5 4.5 h-35.5 q-4.5 0 -4.5 -4.5 z"/>
+  </g>
+  <g style="stroke:none">
+    <circle cx="578" cy="82" r="7" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+    <circle cx="578" cy="82" r="3" style="fill:var(--accent,#c08bd2)"/>
+    <circle cx="688" cy="144" r="7" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+    <circle cx="688" cy="144" r="3" style="fill:var(--accent,#c08bd2)"/>
+  </g>
+  <text x="591" y="270" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ash,rgba(243,238,227,0.55))">THE ARCHIVE · 20 YEARS</text>
+  </g>
+</svg>
