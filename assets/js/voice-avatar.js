@@ -122,9 +122,9 @@ if (!elHold || !elStatus || !elChat || !mvIdle) {
           <div class="voice-hint-title">Talk with Amir's AI assistant</div>
           <div class="voice-hint-sub">Hold the mic and try one of these:</div>
           <ul class="voice-hint-list">
-            <li>“What is your research about?”</li>
-            <li>“Which publications focus on VR learning?”</li>
-            <li>“Tell me about the StandardScout project.”</li>
+            <li>“What kinds of AI systems does Amir build?”</li>
+            <li>“How does StandardScout use its sources?”</li>
+            <li>“What is evidence investigation?”</li>
           </ul>
         </div>`;
       return;

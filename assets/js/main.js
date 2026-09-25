@@ -12,7 +12,7 @@
 
   // ============================================================
   // ONE-TIME SETUP — runs exactly once on first page load.
-  // The bay, fab, cursor, and document-level listeners live outside the
+  // The bay, fab, and document-level listeners live outside the
   // swap container, so binding them here is enough — they survive nav.
   // ============================================================
 
@@ -71,39 +71,6 @@
     if (!document.body.classList.contains('bay-open')) return;
     if (e.target === document.body) closeBay();
   });
-
-  // ---------- Custom cursor ----------
-  // Hover state uses event delegation rather than per-element listeners,
-  // so links/buttons added by Swup swaps still trigger the link styling.
-  (() => {
-    const c = document.querySelector('.cursor');
-    if (!c || matchMedia('(pointer: coarse)').matches) return;
-    let tx = innerWidth/2, ty = innerHeight/2, cx = tx, cy = ty, active = false;
-
-    document.addEventListener('mousemove', e => {
-      tx = e.clientX; ty = e.clientY;
-      if (!active){ cx = tx; cy = ty; active = true; }
-      c.classList.remove('is-hidden');
-    });
-    document.addEventListener('mouseleave', () => c.classList.add('is-hidden'));
-    document.addEventListener('mouseenter', () => c.classList.remove('is-hidden'));
-
-    function tick(){
-      cx += (tx - cx) * 0.22;
-      cy += (ty - cy) * 0.22;
-      c.style.setProperty('--cursor-x', cx + 'px');
-      c.style.setProperty('--cursor-y', cy + 'px');
-      requestAnimationFrame(tick);
-    }
-    tick();
-
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest && e.target.closest('a, button, [role="button"]')) c.classList.add('is-link');
-    });
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest && e.target.closest('a, button, [role="button"]')) c.classList.remove('is-link');
-    });
-  })();
 
   // ============================================================
   // PER-PAGE BOOTSTRAP — runs on first load and after every Swup swap.

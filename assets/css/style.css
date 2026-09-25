@@ -59,13 +59,6 @@ html[data-theme="dark"]{
   --accent-glow:  rgba(192,139,210,0.30);
 }
 
-/* Smooth cursor scale */
-@property --cursor-scale {
-  syntax: '<number>';
-  initial-value: 1;
-  inherits: false;
-}
-
 /* ------------------------------------------------------------
    Base
    ------------------------------------------------------------ */
@@ -84,9 +77,7 @@ body{
   font-size: 18px;
   line-height: 1.55;
   min-height: 100vh;
-  cursor: none;
 }
-@media (pointer: coarse), (hover: none){ body{ cursor: auto } }
 body.bay-open{ overflow: hidden }
 ::selection{ background: var(--accent); color: var(--paper-3) }
 
@@ -1354,23 +1345,23 @@ figure.figure,
    without affecting the editorial-only sections (.hero, .lede,
    .pullquote, .stagger) which already have their own styling.
    ───────────────────────────────────────────────────────── */
-.frame > section.section,
-.frame > section:not([class]),
-.frame > section[id]:not(.hero):not(.lede):not(.stagger):not(.pullquote){
+.frame:not(.brand-home) > section.section,
+.frame:not(.brand-home) > section:not([class]),
+.frame:not(.brand-home) > section[id]:not(.hero):not(.lede):not(.stagger):not(.pullquote){
   margin-top: 64px;
 }
-.frame > section.section:first-of-type{
+.frame:not(.brand-home) > section.section:first-of-type{
   margin-top: 48px;
 }
 /* Consecutive gallery-only sections feel like a continuation, not separate chapters */
-.frame > section:not([class]):has(.gallery-grid) + section:not([class]):has(.gallery-grid){
+.frame:not(.brand-home) > section:not([class]):has(.gallery-grid) + section:not([class]):has(.gallery-grid){
   margin-top: 22px;
 }
 
 /* h2 inside a project content section — display serif with a small accent rule above */
-.frame > section.section > h2,
-.frame > section:not([class]) > h2,
-.frame > section[id]:not(.hero):not(.lede) > h2{
+.frame:not(.brand-home) > section.section > h2,
+.frame:not(.brand-home) > section:not([class]) > h2,
+.frame:not(.brand-home) > section[id]:not(.hero):not(.lede) > h2{
   font-family: var(--display);
   font-variation-settings: "opsz" 36, "wght" 580;
   font-size: clamp(24px, 2.8vw, 32px);
@@ -1380,9 +1371,9 @@ figure.figure,
   padding-top: 4px;
   text-wrap: balance;
 }
-.frame > section.section > h2::before,
-.frame > section:not([class]) > h2::before,
-.frame > section[id]:not(.hero):not(.lede) > h2::before{
+.frame:not(.brand-home) > section.section > h2::before,
+.frame:not(.brand-home) > section:not([class]) > h2::before,
+.frame:not(.brand-home) > section[id]:not(.hero):not(.lede) > h2::before{
   content: "";
   display: block;
   width: 32px;
@@ -1393,8 +1384,8 @@ figure.figure,
 }
 
 /* h3 inside cards and sections */
-.frame > section.section h3,
-.frame > section:not([class]) h3,
+.frame:not(.brand-home) > section.section h3,
+.frame:not(.brand-home) > section:not([class]) h3,
 .frame .card h3{
   font-family: var(--display);
   font-variation-settings: "opsz" 28, "wght" 580;
@@ -1405,62 +1396,62 @@ figure.figure,
 }
 
 /* Paragraph rhythm in project content */
-.frame > section.section p,
-.frame > section:not([class]) p,
-.frame > section[id]:not(.hero):not(.lede) p{
+.frame:not(.brand-home) > section.section p,
+.frame:not(.brand-home) > section:not([class]) p,
+.frame:not(.brand-home) > section[id]:not(.hero):not(.lede) p{
   line-height: 1.65;
   margin: 0 0 14px;
   color: var(--ink-2);
   font-size: 16.5px;
 }
-.frame > section.section p:last-child,
-.frame > section:not([class]) p:last-child{
+.frame:not(.brand-home) > section.section p:last-child,
+.frame:not(.brand-home) > section:not([class]) p:last-child{
   margin-bottom: 0;
 }
 
 /* Lists in project content */
-.frame > section.section ul,
-.frame > section.section ol,
-.frame > section:not([class]) ul,
-.frame > section:not([class]) ol{
+.frame:not(.brand-home) > section.section ul,
+.frame:not(.brand-home) > section.section ol,
+.frame:not(.brand-home) > section:not([class]) ul,
+.frame:not(.brand-home) > section:not([class]) ol{
   margin: 14px 0;
   padding-left: 22px;
   color: var(--ink-2);
   font-size: 16px;
 }
-.frame > section.section li,
-.frame > section:not([class]) li{
+.frame:not(.brand-home) > section.section li,
+.frame:not(.brand-home) > section:not([class]) li{
   margin: 7px 0;
   line-height: 1.6;
 }
-.frame > section.section li strong,
-.frame > section:not([class]) li strong{
+.frame:not(.brand-home) > section.section li strong,
+.frame:not(.brand-home) > section:not([class]) li strong{
   color: var(--ink);
 }
-.frame > section.section li::marker,
-.frame > section:not([class]) li::marker{
+.frame:not(.brand-home) > section.section li::marker,
+.frame:not(.brand-home) > section:not([class]) li::marker{
   color: var(--accent);
 }
 
 /* Block element gaps inside sections */
-.frame > section.section > .gallery-grid,
-.frame > section.section > .video-frame,
-.frame > section.section > .figure,
-.frame > section.section > figure.figure,
-.frame > section.section > .card,
-.frame > section.section > .cards,
-.frame > section.section > .callout,
-.frame > section.section > .badge-row,
-.frame > section.section > .card-wide,
-.frame > section.section > .card-wide1,
-.frame > section:not([class]) > .gallery-grid,
-.frame > section:not([class]) > .figure{
+.frame:not(.brand-home) > section.section > .gallery-grid,
+.frame:not(.brand-home) > section.section > .video-frame,
+.frame:not(.brand-home) > section.section > .figure,
+.frame:not(.brand-home) > section.section > figure.figure,
+.frame:not(.brand-home) > section.section > .card,
+.frame:not(.brand-home) > section.section > .cards,
+.frame:not(.brand-home) > section.section > .callout,
+.frame:not(.brand-home) > section.section > .badge-row,
+.frame:not(.brand-home) > section.section > .card-wide,
+.frame:not(.brand-home) > section.section > .card-wide1,
+.frame:not(.brand-home) > section:not([class]) > .gallery-grid,
+.frame:not(.brand-home) > section:not([class]) > .figure{
   margin: 22px 0;
 }
-.frame > section.section > .gallery-grid:last-child,
-.frame > section.section > .figure:last-child,
-.frame > section.section > .card:last-child,
-.frame > section.section > .callout:last-child{
+.frame:not(.brand-home) > section.section > .gallery-grid:last-child,
+.frame:not(.brand-home) > section.section > .figure:last-child,
+.frame:not(.brand-home) > section.section > .card:last-child,
+.frame:not(.brand-home) > section.section > .callout:last-child{
   margin-bottom: 0;
 }
 
@@ -1475,12 +1466,12 @@ figure.figure,
 }
 
 /* Section IDs (e.g. id="video") — gentle rhythm */
-.frame > section[id]{
+.frame:not(.brand-home) > section[id]{
   scroll-margin-top: 30px;
 }
 
 /* Initial callout / summary block right under the hero gets extra breathing room */
-.frame > section.hero + .callout,
+.frame:not(.brand-home) > section.hero + .callout,
 .frame > .callout:first-of-type{
   margin-top: 36px;
 }
@@ -1497,7 +1488,6 @@ figure.figure,
   display: block;
   position: relative;
   overflow: hidden;
-  cursor: zoom-in;
   text-decoration: none;
   transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease);
 }
@@ -1830,32 +1820,6 @@ html[data-theme="dark"] .btn.secondary{ color: var(--accent-light) }
 }
 
 /* ------------------------------------------------------------
-   CUSTOM CURSOR
-   ------------------------------------------------------------ */
-.cursor{
-  --cursor-scale: 1;
-  position: fixed; pointer-events: none;
-  z-index: 9999;
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  top: 0; left: 0;
-  transform: translate(var(--cursor-x, -100px), var(--cursor-y, -100px))
-             translate(-50%, -50%)
-             scale(var(--cursor-scale));
-  transition: --cursor-scale .25s cubic-bezier(.34,1.56,.64,1),
-              background-color .2s ease, border-color .2s ease, opacity .2s ease;
-  will-change: transform;
-}
-.cursor.is-link{
-  --cursor-scale: 3.6;
-  background: transparent;
-  border: 1px solid var(--accent);
-}
-.cursor.is-hidden{ opacity: 0 }
-@media (pointer: coarse), (hover: none){ .cursor{ display: none } }
-
-/* ------------------------------------------------------------
    ENTRANCE ANIMATIONS
    ------------------------------------------------------------ */
 @keyframes rise{ from{ opacity:0; transform: translateY(28px) } to{ opacity:1; transform: translateY(0) } }
@@ -1955,4 +1919,109 @@ html[data-theme="dark"] .btn.secondary{ color: var(--accent-light) }
   .masthead .right a:not(:first-child):not(:last-child){ display: none }
   .hero-title{ font-size: clamp(48px, 14vw, 72px) }
   .frame{ padding: 18px 18px 72px }
+}
+
+/* Personal homepage content. Sidebar, avatar, and frame proportions inherit
+   the original shared layout above, including its responsive breakpoints. */
+.brand-home{ padding-bottom: 32px }
+.brand-home .masthead{ font-size: 11px; letter-spacing: .10em }
+.brand-home .masthead .right{ gap: 24px }
+.brand-home .theme-toggle{ font-size: 10px; letter-spacing: .10em }
+.brand-hero{ padding-top: 48px; max-width: 740px }
+.brand-name{
+  font-family: var(--display);
+  font-variation-settings: "opsz" 144, "wght" 700, "SOFT" 30, "WONK" 1;
+  font-size: clamp(64px, 6.8vw, 100px);
+  line-height: 1;
+  letter-spacing: -.055em;
+  margin: 0 0 24px;
+}
+.brand-name > span{ color: var(--accent) }
+.brand-specialty{
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72, "wght" 500;
+  font-size: clamp(34px, 3.7vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin: 0 0 30px;
+}
+.brand-specialty em{
+  font-family: var(--italic);
+  font-weight: 400;
+  color: var(--accent);
+}
+.brand-note{ max-width: 650px }
+.brand-note p{
+  color: var(--ink-2);
+  font-size: clamp(20px, 1.65vw, 23px);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+.brand-links{ display: flex; flex-wrap: wrap; gap: 12px 30px; margin-top: 28px }
+.brand-links a, .brand-text-link{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--rule-bold);
+  font-size: 20px;
+}
+.brand-links a:hover, .brand-text-link:hover{ border-color: var(--accent) }
+.brand-links span, .brand-text-link span{ font: 12px var(--mono) }
+.brand-inquiry, .brand-contact{
+  max-width: 740px;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 110px;
+}
+.brand-kicker{
+  margin: 0 0 14px;
+  color: var(--accent);
+  font: 10px/1.7 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.brand-inquiry h2, .brand-contact h2{
+  font-family: var(--display);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+.brand-inquiry h2{ font-size: clamp(26px, 2.5vw, 32px) }
+.brand-contact h2{ font-size: clamp(32px, 3.5vw, 46px) }
+.brand-contact h2 em{ font-family: var(--italic); font-weight: 400; color: var(--accent) }
+.brand-inquiry > p:not(.brand-kicker), .brand-contact > p:not(.brand-kicker){
+  max-width: 650px;
+  color: var(--ink-2);
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+.brand-inquiry > p.brand-methods{ font: 10px/1.8 var(--mono); margin-bottom: 0 }
+.brand-home a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 5px }
+.brand-home .colophon{ margin-top: 44px; padding-top: 18px }
+@media (min-width: 981px) and (max-width: 1280px){
+  .brand-home .masthead .right{ gap: 16px }
+}
+@media (max-width: 980px){
+  .brand-hero{ padding-top: 40px }
+  .brand-home .masthead .right{ justify-content: center; gap: 12px 20px }
+}
+@media (max-width: 600px){
+  .brand-hero{ padding-top: 32px }
+  .brand-name{ font-size: 64px; margin-bottom: 20px }
+  .brand-specialty{ font-size: clamp(32px, 8.8vw, 48px); margin-bottom: 24px }
+  .brand-home .masthead .right{ justify-content: flex-start; gap: 6px 15px; flex-wrap: wrap }
+  .brand-home .masthead .right a{ display: inline-block !important; font-size: 10px; padding: 8px 0 }
+  .brand-home .theme-toggle{ padding: 7px 10px }
+  .brand-links{ gap: 12px 24px; margin-top: 24px }
+  .brand-links a{ font-size: 18px }
+  .brand-inquiry, .brand-contact{ margin-top: 36px; padding-top: 24px }
+  .brand-home .colophon{ margin-top: 32px }
+  .brand-home .colophon .right{ grid-column: 1; text-align: left }
+}
+@media (max-width: 540px){
+  .brand-home{ --gutter: 18px }
 }

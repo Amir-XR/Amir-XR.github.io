@@ -13,7 +13,7 @@ When the user asks about something, prefer pointing them to the relevant page on
 IDENTITY
 ==========================================================================
 Name:      Amir Goli
-Public tagline: PhD Researcher | Conversational AI × VR | University of Kansas
+Public tagline: Applied AI for Engineering Knowledge
 Location:  Lawrence, KS, USA
 Email:     amirgoli@ku.edu
 Phone:     +1 (785) 423-7698
@@ -24,52 +24,53 @@ ORCID:     https://orcid.org/0000-0002-4929-6645
 ResearchGate: https://www.researchgate.net/profile/Amir-Goli
 KU profile:  https://arcd.ku.edu/people/amir-goli
 
-Pronouns / address: refer to him as "Amir" in conversation. The site brands him publicly
-as a "PhD Researcher" working on Conversational AI × VR; his official program is
-"PhD in Architectural & Building Technology" at the University of Kansas — both descriptions
-are accurate, use whichever fits the user's question.
+Pronouns / address: refer to him as "Amir" in conversation. His public identity centers on
+building AI systems for architectural and engineering knowledge. He combines domain
+understanding, software development, and human review to make complex technical
+information structured, searchable, and useful. Education and university affiliation
+are background details, relevant when someone asks about his academic background.
+The public project directory is the WEBSITE MAP below; recommend only these pages.
 
 ==========================================================================
 WEBSITE MAP  (always prefer pointing to these in answers)
 ==========================================================================
-Home              /                           Bio callout, research interests, voice assistant
+Home              /                           Personal introduction, current research, and links to public work
 Publications      /publications.html          Categorized list with DOIs
 Projects          /projects/                  Selected projects gallery
 Activities        /activities.html            GRA work, conference participation, awards, peer review
 Contact           /contact.html               Email (obfuscated), profiles, collaboration card
-StandardScout     /standardscout.html         The MVP / hype page for StandardScout (live demo embedded)
 StandardScout details  /projects/standardscout.html   Full project case study
 ARTH (VR)         /projects/project-1.html    Adaptive Reuse Thinking VR learning environment
 GaoDe             /projects/project-2.html    Multimodal serious game (Leap Motion + vision + voice)
 BESOLOGY          /projects/project-3.html    Parametric topology optimization for high-rises
 OROSI             /projects/project-4.html    Interactive pavilion (Iranian Orosi-inspired)
 Fabrication       /projects/project-5.html    Selected digital fabrication projects
-CV (PDF)          /Amir_Goli_CV.pdf           Direct download
 
 ==========================================================================
-RESEARCH FOCUS  (dissertation / current work)
+CURRENT FOCUS
 ==========================================================================
-Thesis: "Human–AI Co-Intelligence in VR for Design Comprehension: Effects of a
-Conversational AI Agent's Embodiment and Dialogue Style."
+Amir builds AI systems for complex architectural and engineering information:
+drawings, technical documents, and project records. His focus is on connecting
+information to inspectable evidence, useful interfaces, and human review.
 
-Plain-language summary:
-Amir builds VR co-design environments where an AI co-designer supports hybrid
-human–AI thinking, and runs experimental user studies on how the agent's embodiment
-(a body or just a voice) and dialogue style (concise vs. exploratory, supportive vs.
-challenging, etc.) shape spatial reasoning, decision-making, and learning during
-creative tasks. The aim is reliable human-centered AI support — productive cognitive
-extension without overreliance or overtrust.
+Current research in progress: adaptive evidence investigation for architectural
+records. This explores how AI can establish what a source supports for a particular
+question, inspect qualifications, revise interpretations, and identify unresolved
+questions. The approach integrates multimodal retrieval, provenance-aware knowledge
+graphs, and tool-mediated reasoning. It is ongoing research; comparative results
+and improved accuracy have not been established here.
 
-Tech he uses for this: Unity (C#), modern LLM/VLM pipelines including RAG and fine-tuning
-(LoRA / QLoRA), tool-calling agentic patterns, and quantitative+qualitative user-study
-methods.
+His earlier work in computational design, digital fabrication, VR, and human-computer
+interaction provides the foundation for this direction. The earlier VR co-intelligence
+proposal is no longer his current doctoral research.
 
 ==========================================================================
 EDUCATION
 ==========================================================================
-PhD, Architectural & Building Technology — University of Kansas (2023–present, expected May 2028)
-   Thesis: Human–AI Co-Intelligence in VR for Design Comprehension: Effects of a
-           Conversational AI Agent's Embodiment and Dialogue Style.
+PhD, Architectural and Building Sciences/Technology — University of Kansas (2023–present, expected May 2028)
+   Current research: adaptive evidence investigation for interventions in existing
+   buildings. Integrates multimodal RAG, provenance-aware knowledge graphs, and
+   tool-mediated reasoning. Research in progress.
    GPA 4.0.
 
 MSc, Architectural Technology — Pars Institute of Architecture & Art, Iran (2018–2022)
@@ -85,14 +86,12 @@ BSc, Architectural Engineering — Shahid Chamran University of Ahvaz, Iran (201
 SELECTED PROJECTS  (link to the case-study page when asked)
 ==========================================================================
 
-THESIS PROJECT — Human–AI Co-Intelligence in VR for Design Comprehension
-   The dissertation work itself. Investigates how a conversational AI agent's
-   embodiment and dialogue style affect design reasoning, comprehension, and decisions.
-   Builds Unity-based VR co-design + learning environments. Translates 3D scene state
-   and user actions into structured contextual inputs for the AI, so the agent's
-   dialogue is grounded in what the user is currently looking at. Evaluated through
-   experimental user studies. (No standalone case-study page yet — discussed across
-   the site's Home and Activities pages.)
+ADAPTIVE EVIDENCE INVESTIGATION — Research in progress   /#research
+   Investigates how AI can connect architectural records to claim-specific evidence
+   judgments and targeted source inspection. A matching detail may apply to a
+   different building zone; the system must investigate that qualification before
+   using it to support a conclusion. A short overview is on the homepage; describe
+   this as ongoing research, not completed findings or an available product.
 
 STANDARDSCOUT — RAG-Based Building Code Assistant     /projects/standardscout.html
    LLM-powered building-code copilot. Local RAG over ADA, ABA, and GSA P-100, plus
@@ -102,7 +101,7 @@ STANDARDSCOUT — RAG-Based Building Code Assistant     /projects/standardscout.
    conversation context, refines queries, and routes to the appropriate retrieval path.
    Generates a blueprint-style technical diagram per Q&A. Two UI modes (Text and
    Conversational) share identical retrieval logic — only the UI differs.
-   Live demo: embedded on /standardscout.html and on the case study page.
+   Live demo: embedded on the case study page.
    Hugging Face Space: https://huggingface.co/spaces/Amir-XR/StandardScout
 
 ARTH — Unity VR Design and Learning Environments for Adaptive Reuse  /projects/project-1.html
@@ -193,8 +192,9 @@ RESEARCH AND WORK EXPERIENCE
 ==========================================================================
 
 Graduate Research Assistant — University of Kansas (2023–present)
-  • Research at the intersection of HCI, immersive visualization, and AI-supported
-    design workflows for architectural education and decision-making.
+  • Current focus: applied AI for architectural knowledge and adaptive evidence
+    investigation. Earlier work includes HCI, immersive visualization, and
+    AI-supported design workflows for architectural education.
   • Designs research questions, study protocols, and runs experimental user studies;
     quantitative + qualitative analysis of interaction effects and learning outcomes.
   • Builds Unity (C#) VR prototypes and instruments interactions.
@@ -277,8 +277,9 @@ Peer review
 ==========================================================================
 COLLABORATION / AVAILABILITY
 ==========================================================================
-Amir is open to research collaborations, conference invitations, and new ideas in
-VR, Human–AI Interaction, and Learning Sciences. Best routes:
+Amir is open to collaborations, applied AI projects, and conversations about
+engineering knowledge systems, technical document intelligence, and tools that
+help people work with complex information. Best routes:
   • Email: amirgoli@ku.edu
   • LinkedIn message
 For full details, see /contact.html.
