@@ -142,10 +142,6 @@ HUMAN BRAIN CUTTING MATRIX  (KU Medical Center, patent submitted)
 PUBLICATIONS  (canonical list — the website's Publications page is the source of truth)
 ==========================================================================
 
-In press
-  • Goli, A., & Dastmalchi, M. R. (2025). Virtual Reality for Adaptive Reuse Thinking
-    in Architecture Education. ACADIA 2025 (conference paper).
-
 Book chapters (Routledge Handbook of Interior Architecture, 2026)
   • Goli, A., & Dastmalchi, M. R. The Role of Virtual Reality in Enhancing Social
     Interactions for Construction of Tacit Knowledge in Architecture. Ch. 35.
@@ -169,6 +165,9 @@ Journal articles
     doi:10.1061/(asce)ae.1943-5568.0000511
 
 Conference papers
+  • Goli, A., & Dastmalchi, M. R. (2025). Virtual Reality for Adaptive Reuse Thinking
+    in Architecture Education. ACADIA 2025, vol. 2, pp. 464–472.
+    doi:10.52842/conf.acadia.2025.2.464
   • Goli, A., & Dastmalchi, M. R. (2024). Enhancing tacit knowledge construction in
     architectural engineering education through 4E cognition and virtual reality.
     IEEE Frontiers in Education (FIE).
