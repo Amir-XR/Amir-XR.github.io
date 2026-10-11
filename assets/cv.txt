@@ -98,8 +98,12 @@ HAD — Human–AI Design (working name in the prototype: HAT)   /projects/had.h
    Independent prototype (2026) exploring the human–AI design process: a person
    sketches a home and designs it in conversation with an AI assistant that sees the
    plan, asks what they are designing and which room to focus on, talks about the
-   plan, and acts on it through tools. It is not a furniture-placement app; placing
-   a bed is the worked example of the collaboration. When the person asks for
+   plan, and acts on it through tools. Like a surgical assistant handing over
+   instruments, it can activate the wall tool for the person (solid 20 cm or interior
+   10 cm) and say where to start and end, hand them a door, window or item that
+   snaps into place on their click, or place furniture itself through the solver. It
+   is not a furniture-placement app; placing a bed is the worked example of the
+   collaboration. When the person asks for
    something, the model turns the request into a typed placement instruction with no
    coordinates (item, room, anchor such as the longest
    wall or a corner, facing, a reference to another piece), and a deterministic solver
