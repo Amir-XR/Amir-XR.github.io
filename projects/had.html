@@ -90,9 +90,9 @@
       </div>
     </section>
 
-    <div class="hero-img" role="img" aria-label="The assistant at the drawing board: from a spoken request it can activate the wall tool for you, hand you a door to snap onto a wall, or place a bed itself with an AI badge">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="hadF00-asst-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
-        <title id="hadF00-asst-title">The HAD assistant at the drawing board: from a spoken request it can activate the wall tool for the designer, hand them a door to snap onto a wall, or place a bed itself, which arrives with an AI badge and can be undone.</title>
+    <div class="hero-img" role="img" aria-label="The assistant at the drawing board: from a spoken request it can activate the wall tool for you, hand you a door to snap onto a wall, or act itself and place, move, or rotate things with an AI badge; one plan serves a 2D editor, a 3D walk-and-fly view, and a VR headset">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 304" role="img" aria-labelledby="hadF00-asst-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+        <title id="hadF00-asst-title">The HAD assistant at the drawing board: from a spoken request it can activate the wall tool for the designer, hand them a door to snap onto a wall, or act itself (place, move, rotate) with an AI badge and undo; one plan is shown in a 2D editor, a 3D walk-and-fly view, and a VR headset.</title>
         <defs>
           <marker id="hadF00-asst-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
             <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
@@ -145,7 +145,7 @@
         <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">
           <text x="250" y="75">HAND YOU THE TOOL</text>
           <text x="431" y="75">HAND YOU THE PART</text>
-          <text x="612" y="75">PLACE IT ITSELF</text>
+          <text x="612" y="75">ACT ITSELF</text>
         </g>
 
         <!-- 1 · hand you the tool: the interior wall tool is active, you draw the partition -->
@@ -185,7 +185,7 @@
         <path d="M431 105.6 A17.6 17.6 0 0 0 448.6 88" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 2.5"/>
         <path transform="translate(451,103) scale(0.82)" d="M0 0 l0 16.5 4.5 -3.8 3 6.8 3.8 -1.5 -3 -6.8 6 -0.8 z" style="fill:var(--paper-3,#181922);stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round"/>
 
-        <!-- 3 · place it itself: the solver commits the queen bed on the north wall -->
+        <!-- 3 · act itself: the solver commits the queen bed on the north wall; it can also move, rotate and swap -->
         <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
         <g transform="translate(568,88) scale(0.55)">
           <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
@@ -212,37 +212,53 @@
         <g style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
           <rect x="177" y="177" width="146" height="18" rx="6"/>
           <rect x="361" y="177" width="140" height="18" rx="6"/>
-          <rect x="558" y="177" width="108" height="18" rx="6"/>
+          <rect x="542" y="177" width="140" height="18" rx="6"/>
         </g>
         <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--accent,#c08bd2)">
           <text x="250" y="189.7">INTERIOR WALL · 10 CM</text>
           <text x="431" y="189.7">DOOR · CLICK TO SNAP</text>
-          <text x="612" y="189.7">SOLVER · PLACED</text>
+          <text x="612" y="189.7">PLACE · MOVE · ROTATE</text>
         </g>
 
         <!-- who finishes the job -->
         <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
           <text x="250" y="211">you draw where it says</text>
           <text x="431" y="211">you click where</text>
-          <text x="612" y="211">it places · you can undo</text>
+          <text x="612" y="211">it acts · you can undo</text>
+        </g>
+
+        <!-- one plan, three surfaces -->
+        <rect x="24" y="236" width="672" height="36" rx="10" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+        <text x="40" y="258" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">ONE PLAN · THREE SURFACES</text>
+        <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <rect x="252" y="246" width="16" height="16" rx="2"/>
+          <path d="M252 254 H261 V262"/>
+          <path d="M400 248 l8 -4 8 4 v9 l-8 4 -8 -4 z M400 248 l8 4 8 -4 M408 252 v9"/>
+          <rect x="556" y="249" width="20" height="11" rx="4.5"/>
+          <path d="M566 260 v-3 M560 254.5 h3 M569 254.5 h3"/>
+        </g>
+        <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.1em;fill:var(--ink,#f3eee3)">
+          <text x="276" y="258">2D EDITOR</text>
+          <text x="424" y="258">3D · WALK &amp; FLY</text>
+          <text x="584" y="258">VR · HEADSET</text>
         </g>
 
         <!-- motto -->
-        <text x="24" y="245" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:13px;fill:var(--ash,rgba(243,238,227,0.55))">An assistant at the drawing board.</text>
+        <text x="24" y="293" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:13px;fill:var(--ash,rgba(243,238,227,0.55))">An assistant at the drawing board.</text>
       </svg>
     </div>
 
     <div class="callout">
       <p class="kicker">Summary</p>
-      <p><strong>Human–AI Design (HAD)</strong> is a prototype for designing a home in conversation with an AI. You sketch; the assistant sees your plan, asks what you are designing, talks it through with you, and can act on it. Like the assistant in an operating room who hands the surgeon the right instrument, it can switch you to the tool you need, hand you a part to place, or place it itself and explain why, in words you can check and undo. I developed it to explore how people and AI can design together when models interpret and computational tools decide.</p>
-      <p>This page follows one request through that collaboration: how the plan becomes something a model can understand, how intent becomes a form its tools can act on, and how the person stays the author. Placing a bed is the worked example; the subject is the hand-off.</p>
+      <p><strong>Human–AI Design (HAD)</strong> is a prototype for designing a home in conversation with an AI. You sketch; the assistant sees your plan, asks what you are designing, talks it through with you, and can act on it. Like the assistant in an operating room who hands the surgeon the right instrument, it can switch you to the tool you need, hand you a part to place, or act itself: place, move, rotate, or swap things, and explain why, in words you can check and undo. I developed it to explore how people and AI can design together when models interpret and computational tools decide.</p>
+      <p>One design model serves every surface: a 2D drawing canvas, a 3D view you can walk or fly through on screen, and a VR walkthrough on a headset. This page follows one request through that collaboration: how the plan becomes something a model can understand, how intent becomes a form its tools can act on, and how the person stays the author. Placing a bed is the worked example; the subject is the hand-off.</p>
       <p>
         <span class="badge">Human–AI design process</span>
         <span class="badge">Conversational assistant</span>
         <span class="badge">Structured scene context</span>
         <span class="badge">Typed intent</span>
         <span class="badge">Deterministic placement</span>
-        <span class="badge">2D · 3D · WebXR</span>
+        <span class="badge">2D · 3D walk &amp; fly · VR</span>
       </p>
     </div>
 
@@ -821,7 +837,7 @@
       <p>Before placing anything, the assistant asks what you are designing and which room to focus on. It keeps that goal in view as you talk about the room, whether by voice or text. The request grows out of that conversation.</p>
       <p>When you ask for the bed, it appears with a small AI badge that fades after a few seconds. The assistant explains its position in ordinary words: against the longest clear wall, facing into the room. Select it later and the inspector shows which tier and tool placed it, and when.</p>
       <p>“Set up the office” arrives as one batch, and one undo removes the whole kit. The bed and the nightstand, requested separately, take two undos. I wanted the unit of reversal to follow the action, so a room kit remains something a person can readily take back.</p>
-      <p>I kept structure on the slower path: walls, doors, windows, and labels are placed by your click. Here the assistant works like a surgical assistant handing over instruments. Ask for a partition and it activates the interior wall tool and tells you where to start and end; ask for a door and it hands you one that snaps onto the wall it names; ask for the bed and it places it itself. The assistant furnishes; you draw. Both work on the same design model, which makes the next part possible.</p>
+      <p>I kept structure on the slower path: walls, doors, windows, and labels are placed by your click. Here the assistant works like a surgical assistant handing over instruments. Ask for a partition and it activates the interior wall tool and tells you where to start and end; ask for a door and it hands you one that snaps onto the wall it names; ask for the bed, or ask it to move or turn something, and it acts itself. The assistant furnishes; you draw. Both work on the same design model, which makes the next part possible.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F09-say-see-undo.svg" target="_blank" rel="noopener" aria-label="Open full size: A placement arrives with a badge, a spoken reason, and a record of what placed it.">
           <svg aria-label="Bedroom plan with a small AI badge beside an assistant explanation and placement provenance" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF09-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
@@ -909,7 +925,7 @@
 
     <section class="section">
       <h2>The same plan, walked</h2>
-      <p>One click turns the design model into a walkthrough: each wall becomes boxes split around its openings, and each detected room becomes a floor. Nothing is modelled twice, so the bed placed on the plan is the bed you walk around. The voice session started in 2D stays open in 3D, so you can keep talking while you walk the plan.</p>
+      <p>One click turns the design model into a 3D view you can walk or fly through on screen: each wall becomes boxes split around its openings, and each detected room becomes a floor. Nothing is modelled twice, so the bed placed on the plan is the bed you walk around. The voice session started in 2D stays open in 3D, so you can keep talking while you walk the plan.</p>
       <p>On a headset, the same scene is a walkthrough, not an editing surface: you can still undo from the controller and keep talking to the assistant, but there are no tools for drawing or moving things. I kept editing on the desktop on purpose, where the canvas supports precision. Three surfaces share one model, and one question follows them: what did the system actually check?</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F10-three-surfaces.svg" target="_blank" rel="noopener" aria-label="Open full size: One design model supplies every surface on which the room is viewed.">
@@ -949,7 +965,7 @@
             </g>
             <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;fill:var(--ink,#f3eee3)" text-anchor="middle">
               <text x="220" y="80">2D · EDITOR</text>
-              <text x="413" y="80">3D · WALKTHROUGH</text>
+              <text x="413" y="80">3D · WALK &amp; FLY</text>
               <text x="606" y="80">WEBXR · WALKTHROUGH</text>
             </g>
 
@@ -1268,7 +1284,7 @@
         <article class="card">
           <h3>What I developed</h3>
           <ul>
-            <li>A voice and text design assistant that sees the plan, asks about the goal, and acts through tools: switching your tool, handing you a part, or placing it itself</li>
+            <li>A voice and text design assistant that sees the plan, asks about the goal, and acts through tools: switching your tool, handing you a part, or acting itself</li>
             <li>Design model with derived rooms and parametric doors and windows</li>
             <li>Task-specific scene context for conversation, planning, and precise moves</li>
             <li>Typed placement vocabulary and deterministic solvers with implemented checks</li>

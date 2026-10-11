@@ -101,7 +101,8 @@ HAD — Human–AI Design (working name in the prototype: HAT)   /projects/had.h
    plan, and acts on it through tools. Like a surgical assistant handing over
    instruments, it can activate the wall tool for the person (solid 20 cm or interior
    10 cm) and say where to start and end, hand them a door, window or item that
-   snaps into place on their click, or place furniture itself through the solver. It
+   snaps into place on their click, or act itself: place furniture through the solver,
+   move, rotate, swap or remove objects, all undoable. It
    is not a furniture-placement app; placing a bed is the worked example of the
    collaboration. When the person asks for
    something, the model turns the request into a typed placement instruction with no
@@ -115,8 +116,8 @@ HAD — Human–AI Design (working name in the prototype: HAT)   /projects/had.h
    a planning survey in 10 cm cells with free-space envelopes for layout planning,
    and a precise brief for relational moves. AI placements commit as undoable
    batches with provenance; walls, doors and windows stay click-to-place. One
-   document drives the 2D SVG editor, a three.js walkthrough and a WebXR
-   walkthrough (no in-headset editing). Stack: TypeScript/React 19, Zustand, Zod,
+   document drives the 2D SVG editor, a three.js view you can walk or fly through on
+   screen, and a WebXR walkthrough on a headset (no in-headset editing). Stack: TypeScript/React 19, Zustand, Zod,
    three.js / React Three Fiber, @react-three/xr, OpenAI Realtime over WebRTC
    (gpt-realtime-2), GPT-5-class and Claude models for layout planning,
    claude-haiku-4-5 for relational moves, Cloudflare Workers, Supabase with RLS,
