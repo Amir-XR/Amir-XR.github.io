@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" role="img" aria-labelledby="hadF06-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10">
+  <title id="hadF06-title">Candidate walls are ranked; the bed is tried first on the south wall where it would block the door's swing, then committed on the north wall after every check passes.</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+
+  <!-- door swing, shaded (room origin 116,58 at 1.5 scale: hinge 176,274, radius 48) -->
+  <g style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
+    <path d="M176 274 V226 A48 48 0 0 1 224 274 Z"/>
+    <path d="M176 274 V226 A48 48 0 0 1 224 274 Z"/>
+  </g>
+
+  <!-- window view cone: five faint lines fanning west from the window's inner face -->
+  <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-opacity:.5;stroke-width:1">
+    <path d="M350 166 L320 114"/>
+    <path d="M350 166 L298 136"/>
+    <path d="M350 166 L290 166"/>
+    <path d="M350 166 L298 196"/>
+    <path d="M350 166 L320 218"/>
+  </g>
+
+  <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+  <g transform="translate(116,58) scale(1.5)">
+    <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+    <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+    <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+    <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+    <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+    <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+    <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+    <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+    <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+  </g>
+
+  <!-- rejected pose: bed centred on the south wall, inside the door swing -->
+  <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+    <rect x="188" y="148" width="96" height="120" rx="4.5"/>
+    <path d="M188 259 H284"/>
+    <rect x="194" y="242" width="39" height="13" rx="3"/>
+    <rect x="239" y="242" width="39" height="13" rx="3"/>
+  </g>
+  <path d="M230 206 L242 218 M242 206 L230 218" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linecap:round"/>
+
+  <!-- committed pose: bed centred on the north wall, headboard to the wall (opaque underlay hides the rejected outline beneath) -->
+  <rect x="188" y="64" width="96" height="120" rx="4.5" style="fill:var(--paper-3,#181922)"/>
+  <rect x="188" y="64" width="96" height="120" rx="4.5" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+  <rect x="188" y="64" width="96" height="9" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+  <path d="M188 73 H284" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1">
+    <rect x="194" y="77" width="39" height="13" rx="3"/>
+    <rect x="239" y="77" width="39" height="13" rx="3"/>
+  </g>
+
+  <!-- wall badges: length · rank -->
+  <rect x="201" y="24" width="70" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+  <rect x="231" y="288" width="70" height="20" rx="10" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3"/>
+  <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+    <rect x="32" y="156" width="70" height="20" rx="10"/>
+    <rect x="370" y="156" width="70" height="20" rx="10"/>
+  </g>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px">
+    <text x="236" y="38" style="fill:var(--accent,#c08bd2)">4.0 m · 1</text>
+    <text x="266" y="302" style="fill:var(--ash,rgba(243,238,227,0.55))">4.0 m · 1</text>
+    <text x="67" y="170" style="fill:var(--ink-2,#c5c1b8)">3.6 m · 3</text>
+    <text x="405" y="170" style="fill:var(--ink-2,#c5c1b8)">3.6 m · 3</text>
+  </g>
+
+  <!-- checks -->
+  <rect x="468" y="52" width="228" height="256" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="486" y="80" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">CHECKS</text>
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round">
+    <path d="M486 108 L490 112 L497 104"/>
+    <path d="M486 134 L490 138 L497 130"/>
+    <path d="M486 160 L490 164 L497 156"/>
+    <path d="M486 186 L490 190 L497 182"/>
+    <path d="M486 212 L490 216 L497 208"/>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">
+    <text x="506" y="112">inside the room</text>
+    <text x="506" y="138">no wall overlap</text>
+    <text x="506" y="164">clear of other pieces</text>
+    <text x="506" y="190">clear of door swing</text>
+    <text x="506" y="216">window view kept</text>
+  </g>
+  <path d="M486 236 H678" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <path d="M487 251 L494 258 M494 251 L487 258" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linecap:round"/>
+  <path d="M486 292 L490 296 L497 288" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round"/>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="506" y="258">south wall · tried first</text>
+    <text x="506" y="273">blocked by door swing</text>
+    <text x="506" y="296">north wall · committed</text>
+  </g>
+
+  <text x="24" y="336" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Ranked, posed, checked — then committed.</text>
+</svg>

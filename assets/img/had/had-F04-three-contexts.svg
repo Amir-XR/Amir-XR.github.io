@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" role="img" aria-labelledby="hadF04-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10">
+  <title id="hadF04-title">One design model is written three ways: a spoken room summary, a planning survey in cells with free-space envelopes, and a precise transform brief, while the geometric rules stay with the solver.</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <defs>
+    <marker id="hadF04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+    </marker>
+  </defs>
+
+  <!-- design model -->
+  <rect x="24" y="77" width="176" height="156" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+  <text x="40" y="101" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">DESIGN MODEL</text>
+
+  <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+  <g transform="translate(64,126) scale(0.6)">
+    <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+    <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+    <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+    <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+    <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+    <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+    <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+    <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+    <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+  </g>
+  <!-- bed and nightstand, committed (same 0.6 transform; strokes authored at 1/0.6) -->
+  <g transform="translate(64,126) scale(0.6)" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:2.5">
+    <rect x="48" y="4" width="64" height="80" rx="3"/>
+    <rect x="24" y="4" width="20" height="20" rx="3"/>
+    <path d="M48 10 H112" style="fill:none"/>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="112" y="119" text-anchor="middle">4.0 m</text>
+    <text transform="translate(56,169.2) rotate(-90)" text-anchor="middle">3.6 m</text>
+  </g>
+
+  <!-- the model is written three ways -->
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5">
+    <path d="M200 155 C 270 155, 270 61, 346 61" marker-end="url(#hadF04-arrow)"/>
+    <path d="M200 155 H346" marker-end="url(#hadF04-arrow)"/>
+    <path d="M200 155 C 270 155, 270 248.5, 346 248.5" marker-end="url(#hadF04-arrow)"/>
+  </g>
+
+  <g style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+    <rect x="350" y="24" width="346" height="74" rx="10"/>
+    <rect x="350" y="110" width="346" height="90" rx="10"/>
+    <rect x="350" y="212" width="346" height="73" rx="10"/>
+  </g>
+  <!-- each context goes to a model -->
+  <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+    <rect x="364" y="34" width="68" height="16" rx="8"/>
+    <rect x="364" y="120" width="68" height="16" rx="8"/>
+    <rect x="364" y="222" width="68" height="16" rx="8"/>
+  </g>
+  <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round">
+    <path d="M373 42 H381.5 M378.5 39 L381.5 42 L378.5 45"/>
+    <path d="M373 128 H381.5 M378.5 125 L381.5 128 L378.5 131"/>
+    <path d="M373 230 H381.5 M378.5 227 L381.5 230 L378.5 233"/>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="387" y="45.5">MODEL</text>
+    <text x="387" y="131.5">MODEL</text>
+    <text x="387" y="233.5">MODEL</text>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--ink,#f3eee3)">
+    <text x="444" y="46">CONVERSATION</text>
+    <text x="444" y="132">PLANNING · IN CELLS</text>
+    <text x="444" y="234">TRANSFORM · IN CELLS</text>
+  </g>
+
+  <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+    <text x="364" y="68">Bedroom, upper right, about 14 m²; one door,</text>
+    <text x="364" y="86">one window; contains a bed and a nightstand.</text>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)">
+    <text x="364" y="154">polygon (0,0)→(40,0)→(40,36)→(0,36)</text>
+    <text x="364" y="171">door · wall w3 · 0.25 along</text>
+    <text x="364" y="188" style="fill:var(--accent,#c08bd2)">queen bed · free: front 16 · left 12 · right 12</text>
+    <text x="364" y="256">target: desk (4,10) 12×6 rot 90</text>
+    <text x="364" y="273">safe interior: cols 2–38 · rows 2–34</text>
+  </g>
+
+  <text x="24" y="270" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Tell each task what it needs — and no more.</text>
+
+  <!-- what never leaves the solver -->
+  <rect x="24" y="297" width="672" height="32" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+  <text x="42" y="317" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">KEPT BY THE SOLVER</text>
+  <text x="204" y="317" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">placement rules · door-swing arcs · window view cones · allowed anchors</text>
+</svg>

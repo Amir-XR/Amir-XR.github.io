@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="hadF11-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10">
+  <title id="hadF11-title">Five kinds of edit and who decides each: solver-backed placement, relational moves, direct nudges with lighter checks, guided placement by the person's click, and catalog assets the model draws but never places.</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <defs>
+    <marker id="hadF11-arrow-solid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+    </marker>
+    <marker id="hadF11-arrow-model" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--ash,rgba(243,238,227,0.55))"/>
+    </marker>
+    <marker id="hadF11-arrow-you" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+    </marker>
+  </defs>
+
+  <!-- lane rules -->
+  <path d="M24 72 H696 M24 124 H696 M24 176 H696 M24 228 H696" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+  <!-- requests -->
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="24" y="39">SOLVER-BACKED</text>
+    <text x="24" y="91">RELATIONAL MOVES</text>
+    <text x="24" y="143">DIRECT NUDGES</text>
+    <text x="24" y="195">GUIDED</text>
+    <text x="24" y="247">CATALOG ASSETS</text>
+  </g>
+  <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+    <text x="24" y="57">“queen bed in the bedroom”</text>
+    <text x="24" y="109">“turn the desk to face into the room”</text>
+    <text x="24" y="161">“a bit to the left”</text>
+    <text x="24" y="213">“add a door”</text>
+    <text x="24" y="265">“a new reading lamp”</text>
+  </g>
+
+  <!-- who decides: the model -->
+  <g style="fill:var(--paper-3,#181922);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+    <rect x="280" y="88" width="58" height="20" rx="10"/>
+    <rect x="280" y="140" width="58" height="20" rx="10"/>
+    <rect x="280" y="244" width="58" height="20" rx="10"/>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))" text-anchor="middle">
+    <text x="309" y="101.5">MODEL</text>
+    <text x="309" y="153.5">MODEL</text>
+    <text x="309" y="257.5">MODEL</text>
+  </g>
+
+  <!-- who decides: the solver -->
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
+    <path d="M300.5 54.5 V37.5 L317.5 54.5 Z M304.5 50.5 V45.2 L309.8 50.5 Z"/>
+    <path d="M357.5 106.5 V89.5 L374.5 106.5 Z M361.5 102.5 V97.2 L366.8 102.5 Z"/>
+  </g>
+
+  <!-- who decides: the person -->
+  <path d="M290 194 V207 L293.5 203.8 L296 209 L298.2 208 L295.8 202.8 L300.5 202.6 Z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.4;stroke-linejoin:round"/>
+  <text x="306" y="206" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink-2,#c5c1b8)">YOU</text>
+
+  <!-- the icon a model drew, unverified -->
+  <rect x="356" y="244" width="20" height="20" rx="3" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:3 2.5"/>
+  <path d="M362.5 249 H369.5 L371.5 254 H360.5 Z M366 254 V259 M363 259.5 H369" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round"/>
+
+  <!-- paths: dashed where a model decides, solid where a deterministic step does -->
+  <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3">
+    <path d="M340 98 H353"/>
+    <path d="M340 150 H419" marker-end="url(#hadF11-arrow-model)"/>
+    <path d="M340 254 H353"/>
+    <path d="M379 254 H419" marker-end="url(#hadF11-arrow-model)"/>
+  </g>
+  <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2">
+    <path d="M323 46 H419" marker-end="url(#hadF11-arrow-solid)"/>
+    <path d="M380 98 H419" marker-end="url(#hadF11-arrow-solid)"/>
+  </g>
+  <path d="M336 202 H419" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF11-arrow-you)"/>
+
+  <!-- checks -->
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">
+    <text x="430" y="40">inside room · no overlap</text>
+    <text x="430" y="55">door swing · window view</text>
+    <text x="430" y="102">inside room · no overlap · one retry</text>
+    <text x="430" y="144">rotate: overlap check</text>
+    <text x="430" y="159">resize: clamped · <tspan style="fill:var(--ash,rgba(243,238,227,0.55))">move: no check</tspan></text>
+    <text x="430" y="206">canvas placement rules</text>
+    <text x="430" y="258">sanitised · clamped · never placed</text>
+  </g>
+
+  <!-- legend -->
+  <path d="M24 310 H54" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3"/>
+  <text x="62" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a model decides</text>
+  <path d="M196 310 H226" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+  <text x="234" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a deterministic step</text>
+
+  <!-- motto -->
+  <text x="696" y="314" text-anchor="end" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Checked against what is implemented.</text>
+</svg>

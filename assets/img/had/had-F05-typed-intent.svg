@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF05-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10">
+  <title id="hadF05-title">Two spoken requests become typed instructions — item, room, anchor, facing, reference, side, gap — with no coordinate fields at all.</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <defs>
+    <marker id="hadF05-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+    </marker>
+    <marker id="hadF05-arrow-accent" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+    </marker>
+  </defs>
+
+  <!-- spoken request -->
+  <rect x="24" y="122" width="238" height="58" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round">
+    <rect x="40" y="139" width="8" height="13" rx="4"/>
+    <path d="M36 147 a8 8 0 0 0 16 0 M44 155 V160 M40 160 H48"/>
+  </g>
+  <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+    <text x="62" y="146">queen bed in the bedroom</text>
+    <text x="62" y="164">and a nightstand on the left.</text>
+  </g>
+
+  <!-- the model interprets -->
+  <path d="M262 151 H279" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF05-arrow)"/>
+  <rect x="284" y="139" width="60" height="24" rx="12" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3"/>
+  <text x="314" y="155" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">MODEL</text>
+  <path d="M348 151 H381" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2" marker-end="url(#hadF05-arrow-accent)"/>
+
+  <!-- the typed instruction -->
+  <rect x="388" y="24" width="308" height="272" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <text x="406" y="50" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--accent-deep,#a36cb6)"><tspan style="letter-spacing:.14em">INSTRUCTION · </tspan>place_with_anchor</text>
+
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="406" y="78">// what</text>
+    <text x="406" y="114">// where, in words</text>
+    <text x="406" y="168" style="font-style:normal">---</text>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)">
+    <text x="406" y="96">item:</text>
+    <text x="578.5" y="96">room:</text>
+    <text x="406" y="132">anchor:</text>
+    <text x="406" y="150">facing:</text>
+    <text x="406" y="186">item:</text>
+    <text x="406" y="204">anchor:</text>
+    <text x="537.1" y="204">near:</text>
+    <text x="406" y="222">side:</text>
+    <text x="537.1" y="222">gap:</text>
+  </g>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">
+    <text x="461.2" y="96">"queen bed"</text>
+    <text x="619.9" y="96">"bedroom"</text>
+    <text x="461.2" y="132">longest_unobstructed_wall</text>
+    <text x="461.2" y="150">into_room</text>
+    <text x="461.2" y="186">"nightstand"</text>
+    <text x="461.2" y="204">relative</text>
+    <text x="578.5" y="204">"queen bed"</text>
+    <text x="461.2" y="222">left</text>
+    <text x="571.6" y="222">5</text>
+  </g>
+
+  <!-- what the vocabulary cannot say -->
+  <path d="M406 240 H678" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="406" y="262">x:</text>
+    <text x="426.7" y="262">320</text>
+    <text x="461.2" y="262">y:</text>
+    <text x="481.9" y="262">140</text>
+    <text x="516.4" y="262">rotation:</text>
+    <text x="585.4" y="262">0</text>
+  </g>
+  <path d="M402 258 H597" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2"/>
+  <text x="406" y="282" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">NOT IN THE VOCABULARY</text>
+
+  <text x="24" y="312" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">The form has no field for coordinates.</text>
+</svg>

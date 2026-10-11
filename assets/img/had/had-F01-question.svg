@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF01-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10">
+  <title id="hadF01-title">A spoken request beside a bare plan where a bed outline hovers in three possible positions.</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+
+  <!-- transcript card -->
+  <rect x="24" y="84" width="264" height="104" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+  <g transform="translate(44,102)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+    <rect x="4" y="0.5" width="8" height="12" rx="4"/>
+    <path d="M1 8.5 a7 7 0 0 0 14 0 M8 15.5 V19 M4.5 19 H11.5"/>
+  </g>
+  <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+    <text x="44" y="148">“put a queen bed in the bedroom,</text>
+    <text x="49" y="166">and a nightstand on the left.”</text>
+  </g>
+
+  <!-- three open questions -->
+  <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-dasharray:1.5 6;stroke-linecap:round">
+    <path d="M296 128 C 330 126 340 104 367.5 100"/>
+    <path d="M296 136 H367.5"/>
+    <path d="M296 144 C 330 146 340 168 367.5 172"/>
+  </g>
+  <g style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+    <circle cx="378" cy="100" r="10.5"/>
+    <circle cx="378" cy="136" r="10.5"/>
+    <circle cx="378" cy="172" r="10.5"/>
+  </g>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="378" y="104">?</text>
+    <text x="378" y="140">?</text>
+    <text x="378" y="176">?</text>
+  </g>
+
+  <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+  <g transform="translate(420,60)">
+    <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+    <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+    <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+    <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+    <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+    <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+    <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+    <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+    <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+  </g>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="500" y="48">4.0 m</text>
+    <text transform="translate(408,132) rotate(-90)">3.6 m</text>
+  </g>
+
+  <!-- the same queen bed (1.6 x 2.0 m) guessed in three places: north wall, south wall over the door swing, west wall -->
+  <g style="opacity:.8;fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+    <rect x="468" y="64" width="64" height="80" rx="3"/>
+    <path d="M468 70 H532"/>
+    <rect x="472" y="72" width="26" height="9" rx="2"/>
+    <rect x="502" y="72" width="26" height="9" rx="2"/>
+
+    <rect x="468" y="120" width="64" height="80" rx="3"/>
+    <path d="M468 194 H532"/>
+    <rect x="472" y="183" width="26" height="9" rx="2"/>
+    <rect x="502" y="183" width="26" height="9" rx="2"/>
+
+    <rect x="424" y="100" width="80" height="64" rx="3"/>
+    <path d="M430 100 V164"/>
+    <rect x="432" y="104" width="9" height="26" rx="2"/>
+    <rect x="432" y="134" width="9" height="26" rx="2"/>
+  </g>
+  <text x="500" y="238" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">WHERE, EXACTLY?</text>
+
+  <text x="24" y="270" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:14px;fill:var(--ash,rgba(243,238,227,0.55))">Words are complete. Coordinates are not.</text>
+</svg>

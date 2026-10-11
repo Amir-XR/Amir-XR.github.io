@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF03-title" style="font-family:var(--serif,'Newsreader',Georgia,serif);background:#0b0c10">
+  <title id="hadF03-title">Loose wall strokes become a network of joined endpoints, and the closed faces of that network become rooms with their doors and windows attached.</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap');</style>
+  <defs>
+    <marker id="hadF03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+    </marker>
+  </defs>
+
+  <!-- STROKES: the person's wall strokes, unjoined, with tiny gaps at the corners; the partition runs from the west wall to the east wall -->
+  <g transform="translate(44,48)" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:2;stroke-linecap:round">
+    <path d="M5 0.5 L155 -0.5"/>
+    <path d="M160.5 5 L159.5 139"/>
+    <path d="M155 144.5 L5 143.5"/>
+    <path d="M-0.5 139 L0.5 5"/>
+    <path d="M5 96.5 L154.5 95.5"/>
+  </g>
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="124" y="36">4.0 m</text>
+    <text transform="translate(32,120) rotate(-90)">3.6 m</text>
+  </g>
+
+  <path d="M218 120 H264" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF03-arrow)"/>
+
+  <!-- NETWORK: clustered endpoints become nodes; the partition's ends split the west and east walls -->
+  <g transform="translate(280,48)">
+    <path d="M0 0 H160 V144 H0 Z M0 96 H160" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.2"/>
+    <g style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
+      <circle cx="0" cy="0" r="7"/>
+      <circle cx="160" cy="0" r="7"/>
+      <circle cx="160" cy="144" r="7"/>
+      <circle cx="0" cy="144" r="7"/>
+      <circle cx="0" cy="96" r="7"/>
+      <circle cx="160" cy="96" r="7"/>
+    </g>
+    <g style="fill:var(--accent,#c08bd2)">
+      <circle cx="0" cy="0" r="2.8"/>
+      <circle cx="160" cy="0" r="2.8"/>
+      <circle cx="160" cy="144" r="2.8"/>
+      <circle cx="0" cy="144" r="2.8"/>
+      <circle cx="0" cy="96" r="2.8"/>
+      <circle cx="160" cy="96" r="2.8"/>
+    </g>
+  </g>
+
+  <path d="M456 120 H502" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF03-arrow)"/>
+
+  <!-- ROOMS: the two closed faces (4.0 x 2.4 m and 4.0 x 1.2 m), openings attached to their walls -->
+  <g transform="translate(516,48)" style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
+    <rect x="4" y="4" width="152" height="90"/>
+    <rect x="4" y="98" width="152" height="42"/>
+  </g>
+  <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+  <g transform="translate(516,48)">
+    <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+    <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+    <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+    <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+    <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+    <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+    <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+    <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+    <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+  </g>
+  <path d="M520 144 H672" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:4"/>
+  <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)" text-anchor="middle">
+    <text x="596" y="102">9.6 m²</text>
+    <text x="628" y="172">4.8 m²</text>
+  </g>
+  <!-- door position along the south wall: hinge at 1.0 of 4.0 m -->
+  <path d="M516 204 H556 M516 200 V208 M556 200 V208" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1"/>
+  <text x="536" y="218" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">0.25</text>
+
+  <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+    <text x="124" y="240">STROKES</text>
+    <text x="360" y="240">NETWORK</text>
+    <text x="596" y="240">ROOMS</text>
+  </g>
+
+  <text x="24" y="274" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:14px;fill:var(--ash,rgba(243,238,227,0.55))">Rooms are found, not drawn.</text>
+</svg>

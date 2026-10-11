@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HAD — Human–AI Design for Floor Plans | Amir Goli</title>
+<meta name="description" content="HAD connects spoken design intent to structured room information and computational tools for placing, checking, and undoing furniture arrangements." />
+<link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,580;0,9..144,700;0,9..144,900;0,9..144,400..900,30,1;1,9..144,400..900,30,1&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css?v=2026-05-05-swup" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<aside class="bay" aria-label="AI assistant">
+  <button class="bay-close" data-bay-close type="button" aria-label="Close assistant">×</button>
+  <div class="bay-head"><span class="name">The Interlocutor</span><span class="live">Live</span></div>
+  <div class="voice-widget">
+    <div class="voice-avatar-wrap">
+      <model-viewer id="avatarIdle" src="../assets/avatar/model_Idle.glb" camera-controls disable-pan
+        camera-target="0m 1.45m 0m" camera-orbit="-23deg 75deg 2.05m"
+        min-camera-orbit="-23deg 75deg 1.9m" max-camera-orbit="-23deg 75deg 2.2m"
+        autoplay exposure="1" shadow-intensity="0"></model-viewer>
+    </div>
+    <p class="bay-caption">in residence, ready to talk.<span>hold the mic</span></p>
+    <div class="voice-panel">
+      <div class="voice-chat" id="voiceChat" aria-label="Conversation"></div>
+      <div class="voice-controls">
+        <div class="voice-hold-wrap">
+          <div class="voice-hold-label" id="holdToTalkLabel">Hold to talk</div>
+          <button id="holdToTalk" class="voice-hold" type="button" aria-labelledby="holdToTalkLabel" aria-label="Hold to talk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+          </button>
+        </div>
+        <div id="voiceStatus" class="voice-status">Ready</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<button class="fab" data-bay-open type="button" aria-label="Open AI assistant" aria-expanded="false">
+  <span class="fab-pulse"></span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H9v2h6v-2h-2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+</button>
+
+<main class="shell">
+  <style>
+    /* HAD article: inline SVG figures inside the site's figure surfaces */
+    .had-fig a svg, .hero-img svg { display:block; width:100%; height:auto; }
+    .had-fig a svg { padding:8px; box-sizing:border-box; transition: transform 700ms cubic-bezier(.16,1,.3,1); }
+    .had-fig a:hover svg, .had-fig a:focus-visible svg { transform: scale(1.03); }
+    .hero-img svg { padding:10px; box-sizing:border-box; }
+    .frame .statbar { margin: 18px 0 22px; }
+    .frame > .chapter { font-size: 13px; letter-spacing: .2em; margin: 88px 0 20px; }
+    .frame > .chapter .glyph { font-size: 22px; }
+    .frame > .chapter + section.section { margin-top: 0; }
+    .frame > .chapter + section.section > h2::before { display:none; }
+  </style>
+
+  <div class="frame">
+
+    <header class="masthead reveal">
+      <nav class="right" aria-label="Sections">
+        <a href="../index.html">Home</a>
+        <a href="../publications.html">Publications</a>
+        <a href="index.html" aria-current="page">Projects</a>
+        <a href="../activities.html">Activities</a>
+        <a href="../contact.html">Contact</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span data-theme-label>Go light</span>
+        </button>
+      </nav>
+    </header>
+
+
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-eyebrow">Project · 08 · LLM × Spatial design</div>
+      <h1 class="hero-title" id="title" aria-label="HAD">
+        <span class="letter">H</span><span class="letter">A</span><span class="letter">D</span><span class="swash letter">.</span>
+      </h1>
+      <div class="hero-byline">
+        <span class="byline-rule" aria-hidden="true"></span>
+        <p class="byline-line">Where <em>design intent</em> becomes placed geometry.</p>
+        <p class="byline-meta">Spatial design · Typed intent · Deterministic solvers · 2026</p>
+      </div>
+    </section>
+
+    <div class="hero-img" role="img" aria-label="Five connected stages from a design model to placed, undoable geometry">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 134" role="img" aria-labelledby="hadF00-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+        <title id="hadF00-title">HAD in five stages: design model, scene context, typed intent, solver and checks, placed and undoable geometry.</title>
+        <defs>
+          <marker id="hadF00-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+          </marker>
+        </defs>
+
+        <!-- 01 design model: plan outline, two rooms -->
+        <rect x="24" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(71,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <rect x="1" y="2" width="16" height="14" rx="1"/>
+          <path d="M10 2 V7.5 M10 11.5 V16"/>
+        </g>
+        <text x="80" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">01</text>
+        <text x="80" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Design</text>
+        <text x="80" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">model</text>
+
+        <path d="M142 66 H160" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#hadF00-arrow)"/>
+
+        <!-- 02 scene context: three cards -->
+        <rect x="164" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(210.5,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <rect x="1" y="7.5" width="12" height="9" rx="1.5"/>
+          <path d="M3.5 7.5 V4.5 H15.5 V13.5 H13 M6 4.5 V1.5 H18 V10.5 H15.5"/>
+        </g>
+        <text x="220" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">02</text>
+        <text x="220" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Scene</text>
+        <text x="220" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">context</text>
+
+        <path d="M282 66 H300" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#hadF00-arrow)"/>
+
+        <!-- 03 typed intent: curly braces -->
+        <rect x="304" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(351,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <path d="M6 1.5 q-2.5 0 -2.5 2.5 v2.5 q0 2.5 -2.5 2.5 q2.5 0 2.5 2.5 v2.5 q0 2.5 2.5 2.5"/>
+          <path d="M12 1.5 q2.5 0 2.5 2.5 v2.5 q0 2.5 2.5 2.5 q-2.5 0 -2.5 2.5 v2.5 q0 2.5 -2.5 2.5"/>
+        </g>
+        <text x="360" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">03</text>
+        <text x="360" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Typed</text>
+        <text x="360" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">intent</text>
+
+        <path d="M422 66 H440" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#hadF00-arrow)"/>
+
+        <!-- 04 solver and checks: set square -->
+        <rect x="444" y="24" width="112" height="86" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+        <g transform="translate(491,34)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <path d="M1.5 1.5 V16.5 H16.5 Z M4.5 8.5 V13.5 H9.5 Z"/>
+        </g>
+        <text x="500" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">04</text>
+        <text x="500" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Solver &amp;</text>
+        <text x="500" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">checks</text>
+
+        <path d="M562 66 H580" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1" marker-end="url(#hadF00-arrow)"/>
+
+        <!-- 05 placed and undoable: check mark and undo arrow -->
+        <rect x="584" y="24" width="112" height="86" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+        <g transform="translate(630,34)" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+          <path d="M1 10 L4.5 13.5 L10.5 6.5"/>
+          <path d="M12.5 7 H16.5 A3.6 3.6 0 0 1 16.5 14.2 H14 M14.8 4.6 L12.4 7 L14.8 9.4"/>
+        </g>
+        <text x="640" y="68" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">05</text>
+        <text x="640" y="86" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">Placed &amp;</text>
+        <text x="640" y="102" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:12px;fill:var(--ink,#f3eee3)">undoable</text>
+      </svg>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">Summary</p>
+      <p><strong>HAD</strong> is a browser-based spatial design prototype where a spoken request becomes furniture on a plan. I developed it, as its sole designer and developer, to connect what a person means with tools that can work out where things fit.</p>
+      <p>The model interprets the request; computational tools resolve the placement. Following one bedroom from drawn walls to a walkthrough, this page traces what that division of responsibility makes possible, and which edits take a different path.</p>
+      <p>
+        <span class="badge">Structured scene context</span>
+        <span class="badge">Typed instructions</span>
+        <span class="badge">Deterministic placement</span>
+        <span class="badge">Room detection</span>
+        <span class="badge">Undoable AI edits</span>
+        <span class="badge">2D · 3D · WebXR</span>
+      </p>
+    </div>
+
+    <div class="chapter"><span>01 — The question</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Can you just put the bed in the bedroom?</h2>
+      <p>Picture someone sketching a home: a renovation, a first apartment, a room that never worked. They think in words. “Bed against the long wall, nightstands either side, desk facing the window” is a complete instruction for a person who can see the room; for a drafting tool, it says nothing about where to put anything.</p>
+      <p>Language models make those words easy to accept, which sharpens the question: who decides where the bed actually goes? I developed HAD to let the model interpret the request and give it tools that can place. Setting up that hand-off began with understanding what went wrong first.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F01-question.svg" target="_blank" rel="noopener" aria-label="Open full size: A spoken instruction still needs a way to become a position in the room.">
+          <svg aria-label="Spoken request beside a bare plan with bed outlines in three possible positions" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF01-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF01-title">A spoken request beside a bare plan where a bed outline hovers in three possible positions.</title>
+
+            <!-- transcript card -->
+            <rect x="24" y="84" width="264" height="104" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g transform="translate(44,102)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+              <rect x="4" y="0.5" width="8" height="12" rx="4"/>
+              <path d="M1 8.5 a7 7 0 0 0 14 0 M8 15.5 V19 M4.5 19 H11.5"/>
+            </g>
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="44" y="148">“put a queen bed in the bedroom,</text>
+              <text x="49" y="166">and a nightstand on the left.”</text>
+            </g>
+
+            <!-- three open questions -->
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-dasharray:1.5 6;stroke-linecap:round">
+              <path d="M296 128 C 330 126 340 104 367.5 100"/>
+              <path d="M296 136 H367.5"/>
+              <path d="M296 144 C 330 146 340 168 367.5 172"/>
+            </g>
+            <g style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <circle cx="378" cy="100" r="10.5"/>
+              <circle cx="378" cy="136" r="10.5"/>
+              <circle cx="378" cy="172" r="10.5"/>
+            </g>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="378" y="104">?</text>
+              <text x="378" y="140">?</text>
+              <text x="378" y="176">?</text>
+            </g>
+
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(420,60)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="500" y="48">4.0 m</text>
+              <text transform="translate(408,132) rotate(-90)">3.6 m</text>
+            </g>
+
+            <!-- the same queen bed (1.6 x 2.0 m) guessed in three places: north wall, south wall over the door swing, west wall -->
+            <g style="opacity:.8;fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+              <rect x="468" y="64" width="64" height="80" rx="3"/>
+              <path d="M468 70 H532"/>
+              <rect x="472" y="72" width="26" height="9" rx="2"/>
+              <rect x="502" y="72" width="26" height="9" rx="2"/>
+
+              <rect x="468" y="120" width="64" height="80" rx="3"/>
+              <path d="M468 194 H532"/>
+              <rect x="472" y="183" width="26" height="9" rx="2"/>
+              <rect x="502" y="183" width="26" height="9" rx="2"/>
+
+              <rect x="424" y="100" width="80" height="64" rx="3"/>
+              <path d="M430 100 V164"/>
+              <rect x="432" y="104" width="9" height="26" rx="2"/>
+              <rect x="432" y="134" width="9" height="26" rx="2"/>
+            </g>
+            <text x="500" y="238" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">WHERE, EXACTLY?</text>
+
+            <text x="24" y="270" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:14px;fill:var(--ash,rgba(243,238,227,0.55))">Words are complete. Coordinates are not.</text>
+          </svg>
+        </a>
+        <figcaption>A spoken instruction still needs a way to become a position in the room.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>02 — The placement problem</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Fluent in words, blind to the wall</h2>
+      <p>The first version gave the model one tool that only named an item; the model had to tell the person where to click. It never emitted a coordinate. It described positions nobody could draw, sent a desk and its chair to opposite corners, and knew nothing of wall lengths or door swings. The model was doing its job; the tool surface was the bug.</p>
+      <p>The realtime model is weak at spatial math, so I stopped asking it to do any. The new contract passes intent, in a small vocabulary, to a deterministic <strong>solver</strong>: a tool that computes positions and angles from the plan itself. Once people said that confirming each proposal by click felt like the assistant was suggesting rather than placing, I let placements commit on their own, with undo. First, the solver needed a room it could reason about.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F02-before-after.svg" target="_blank" rel="noopener" aria-label="Open full size: Changing the tool gave spoken intent a route to a committed placement.">
+          <svg aria-label="Click guidance with a desk and chair in opposite corners beside a typed instruction and committed arrangement" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF02-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF02-title">Before, the model could only describe where to click and a desk and chair landed in opposite corners; after, a typed instruction is placed by the solver.</title>
+            <defs>
+              <marker id="hadF02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <path d="M344 24 V298" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <!-- BEFORE -->
+            <text x="24" y="40" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">BEFORE · MODEL GUIDES THE CLICK</text>
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="24" y="66">“desk against the north wall,</text>
+              <text x="29" y="84">chair tucked under it”</text>
+            </g>
+            <rect x="24" y="98" width="296" height="32" rx="16" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3"/>
+            <path transform="translate(39,105.5) scale(0.82)" d="M0 0 l0 16.5 4.5 -3.8 3 6.8 3.8 -1.5 -3 -6.8 6 -0.8 z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round"/>
+            <text x="58" y="118" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ash,rgba(243,238,227,0.55))">"try the top-left… no, further right"</text>
+
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(40,150) scale(0.8)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+            <!-- desk in the north-east corner, chair in the south-west corner: placed by clicks, unchecked -->
+            <g transform="translate(40,150) scale(0.8)" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:5 3.75">
+              <rect x="108" y="4" width="48" height="24" rx="3"/>
+              <rect x="4" y="120" width="20" height="20" rx="3"/>
+              <path d="M9 120 V140"/>
+            </g>
+            <path d="M133 175 L62 243" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1;stroke-dasharray:1.5 4;stroke-linecap:round"/>
+            <circle cx="98" cy="209" r="9" style="fill:var(--paper-3,#181922);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1"/>
+            <text x="98" y="213" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ash,rgba(243,238,227,0.55))">?</text>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="188" y="194">described, not drawn ·</text>
+              <text x="188" y="209">paired items treated</text>
+              <text x="188" y="224">as independent</text>
+            </g>
+
+            <text x="24" y="304" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:14px;fill:var(--ash,rgba(243,238,227,0.55))">Fluent in words, blind to the wall.</text>
+
+            <!-- AFTER -->
+            <text x="368" y="40" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">AFTER · MODEL INTERPRETS, SOLVER PLACES</text>
+            <rect x="368" y="54" width="262" height="50" rx="8" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3"/>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="384" y="75">desk · against: north wall</text>
+              <text x="384" y="93">chair · relative: desk · side: front</text>
+            </g>
+            <path d="M500 110 V140" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2" marker-end="url(#hadF02-arrow)"/>
+
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(420,150)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+            <!-- committed: desk against the north wall, chair directly in front of it (back band to the south) -->
+            <g transform="translate(420,150)" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5">
+              <rect x="56" y="4" width="48" height="24" rx="3"/>
+              <rect x="70" y="30" width="20" height="20" rx="3"/>
+              <path d="M70 46 H90" style="fill:none"/>
+            </g>
+          </svg>
+        </a>
+        <figcaption>Changing the tool gave spoken intent a route to a committed placement.</figcaption>
+      </figure>
+    </section>
+
+    <section class="pullquote reveal">
+      <p>The model was doing its job. The tool was the bug.</p>
+      <div class="attr">— The decision behind HAD</div>
+    </section>
+
+    <div class="chapter"><span>03 — Building the hand-off</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Walls become rooms</h2>
+      <p>People draw walls as strokes at any angle, including partitions that simply end against another wall. Nobody draws a room. HAD joins wall ends that nearly meet, splits a wall where another lands on it, and walks the resulting network to find every closed face: a room with its area, centre, and surrounding walls.</p>
+      <p>Take a bedroom 4.0 by 3.6 m, with a door on its south wall and a window on its east wall. The room is recomputed whenever the plan changes, never stored. Each opening remembers its wall and its position along it, so it moves or disappears with that wall.</p>
+      <p>Together, these relationships form the <strong>design model</strong>, the structured description of the plan that the rest of HAD works from. Its knowledge of rooms comes from the walls people draw and the openings attached to them. The next question was how to describe that information to a language model.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F03-walls-to-rooms.svg" target="_blank" rel="noopener" aria-label="Open full size: Rooms are derived from the wall network each time the plan changes.">
+          <svg aria-label="Wall strokes, joined network, and detected rooms with attached openings" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF03-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF03-title">Loose wall strokes become a network of joined endpoints, and the closed faces of that network become rooms with their doors and windows attached.</title>
+            <defs>
+              <marker id="hadF03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+            </defs>
+
+            <!-- STROKES: the person's wall strokes, unjoined, with tiny gaps at the corners; the partition runs from the west wall to the east wall -->
+            <g transform="translate(44,48)" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:2;stroke-linecap:round">
+              <path d="M5 0.5 L155 -0.5"/>
+              <path d="M160.5 5 L159.5 139"/>
+              <path d="M155 144.5 L5 143.5"/>
+              <path d="M-0.5 139 L0.5 5"/>
+              <path d="M5 96.5 L154.5 95.5"/>
+            </g>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="124" y="36">4.0 m</text>
+              <text transform="translate(32,120) rotate(-90)">3.6 m</text>
+            </g>
+
+            <path d="M218 120 H264" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF03-arrow)"/>
+
+            <!-- NETWORK: clustered endpoints become nodes; the partition's ends split the west and east walls -->
+            <g transform="translate(280,48)">
+              <path d="M0 0 H160 V144 H0 Z M0 96 H160" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.2"/>
+              <g style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
+                <circle cx="0" cy="0" r="7"/>
+                <circle cx="160" cy="0" r="7"/>
+                <circle cx="160" cy="144" r="7"/>
+                <circle cx="0" cy="144" r="7"/>
+                <circle cx="0" cy="96" r="7"/>
+                <circle cx="160" cy="96" r="7"/>
+              </g>
+              <g style="fill:var(--accent,#c08bd2)">
+                <circle cx="0" cy="0" r="2.8"/>
+                <circle cx="160" cy="0" r="2.8"/>
+                <circle cx="160" cy="144" r="2.8"/>
+                <circle cx="0" cy="144" r="2.8"/>
+                <circle cx="0" cy="96" r="2.8"/>
+                <circle cx="160" cy="96" r="2.8"/>
+              </g>
+            </g>
+
+            <path d="M456 120 H502" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF03-arrow)"/>
+
+            <!-- ROOMS: the two closed faces (4.0 x 2.4 m and 4.0 x 1.2 m), openings attached to their walls -->
+            <g transform="translate(516,48)" style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
+              <rect x="4" y="4" width="152" height="90"/>
+              <rect x="4" y="98" width="152" height="42"/>
+            </g>
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(516,48)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+            <path d="M520 144 H672" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:4"/>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)" text-anchor="middle">
+              <text x="596" y="102">9.6 m²</text>
+              <text x="628" y="172">4.8 m²</text>
+            </g>
+            <!-- door position along the south wall: hinge at 1.0 of 4.0 m -->
+            <path d="M516 204 H556 M516 200 V208 M556 200 V208" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1"/>
+            <text x="536" y="218" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">0.25</text>
+
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="124" y="240">STROKES</text>
+              <text x="360" y="240">NETWORK</text>
+              <text x="596" y="240">ROOMS</text>
+            </g>
+
+            <text x="24" y="274" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:14px;fill:var(--ash,rgba(243,238,227,0.55))">Rooms are found, not drawn.</text>
+          </svg>
+        </a>
+        <figcaption>Rooms are derived from the wall network each time the plan changes.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>The scene, told three ways</h2>
+      <p>I used <strong>scene context</strong>, a description of the current plan prepared for a particular task, to connect the design model to interpretation. For conversation, HAD tells the plan as an architect might: which room, how large, which openings, what is inside. The description gives a spoken request somewhere to land.</p>
+      <p>Layout planning needs a survey in 10 cm cells, including the free space on each side of existing objects. A precise move needs a smaller, exact brief about one object, its neighbours, and the room’s safe interior rectangle. Each model also receives a canvas screenshot.</p>
+      <p>The door’s swing arcs, the window’s view cones, and the rules about what may stand against a wall stay with the solver, because it is the part that can be held to them. Tell each task what it needs, and no more. What the model may say back is just as deliberate.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F04-three-contexts.svg" target="_blank" rel="noopener" aria-label="Open full size: Different tasks need different descriptions of the same design.">
+          <svg aria-label="One design model branching into conversation, planning, and transform briefs above solver rules" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" role="img" aria-labelledby="hadF04-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF04-title">One design model is written three ways: a spoken room summary, a planning survey in cells with free-space envelopes, and a precise transform brief, while the geometric rules stay with the solver.</title>
+            <defs>
+              <marker id="hadF04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- design model -->
+            <rect x="24" y="77" width="176" height="156" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <text x="40" y="101" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">DESIGN MODEL</text>
+
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(64,126) scale(0.6)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+            <!-- bed and nightstand, committed (same 0.6 transform; strokes authored at 1/0.6) -->
+            <g transform="translate(64,126) scale(0.6)" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:2.5">
+              <rect x="48" y="4" width="64" height="80" rx="3"/>
+              <rect x="24" y="4" width="20" height="20" rx="3"/>
+              <path d="M48 10 H112" style="fill:none"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="112" y="119" text-anchor="middle">4.0 m</text>
+              <text transform="translate(56,169.2) rotate(-90)" text-anchor="middle">3.6 m</text>
+            </g>
+
+            <!-- the model is written three ways -->
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5">
+              <path d="M200 155 C 270 155, 270 61, 346 61" marker-end="url(#hadF04-arrow)"/>
+              <path d="M200 155 H346" marker-end="url(#hadF04-arrow)"/>
+              <path d="M200 155 C 270 155, 270 248.5, 346 248.5" marker-end="url(#hadF04-arrow)"/>
+            </g>
+
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="350" y="24" width="346" height="74" rx="10"/>
+              <rect x="350" y="110" width="346" height="90" rx="10"/>
+              <rect x="350" y="212" width="346" height="73" rx="10"/>
+            </g>
+            <!-- each context goes to a model -->
+            <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+              <rect x="364" y="34" width="68" height="16" rx="8"/>
+              <rect x="364" y="120" width="68" height="16" rx="8"/>
+              <rect x="364" y="222" width="68" height="16" rx="8"/>
+            </g>
+            <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round">
+              <path d="M373 42 H381.5 M378.5 39 L381.5 42 L378.5 45"/>
+              <path d="M373 128 H381.5 M378.5 125 L381.5 128 L378.5 131"/>
+              <path d="M373 230 H381.5 M378.5 227 L381.5 230 L378.5 233"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="387" y="45.5">MODEL</text>
+              <text x="387" y="131.5">MODEL</text>
+              <text x="387" y="233.5">MODEL</text>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--ink,#f3eee3)">
+              <text x="444" y="46">CONVERSATION</text>
+              <text x="444" y="132">PLANNING · IN CELLS</text>
+              <text x="444" y="234">TRANSFORM · IN CELLS</text>
+            </g>
+
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="364" y="68">Bedroom, upper right, about 14 m²; one door,</text>
+              <text x="364" y="86">one window; contains a bed and a nightstand.</text>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)">
+              <text x="364" y="154">polygon (0,0)→(40,0)→(40,36)→(0,36)</text>
+              <text x="364" y="171">door · wall w3 · 0.25 along</text>
+              <text x="364" y="188" style="fill:var(--accent,#c08bd2)">queen bed · free: front 16 · left 12 · right 12</text>
+              <text x="364" y="256">target: desk (4,10) 12×6 rot 90</text>
+              <text x="364" y="273">safe interior: cols 2–38 · rows 2–34</text>
+            </g>
+
+            <text x="24" y="270" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Tell each task what it needs — and no more.</text>
+
+            <!-- what never leaves the solver -->
+            <rect x="24" y="297" width="672" height="32" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+            <text x="42" y="317" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">KEPT BY THE SOLVER</text>
+            <text x="204" y="317" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">placement rules · door-swing arcs · window view cones · allowed anchors</text>
+          </svg>
+        </a>
+        <figcaption>Different tasks need different descriptions of the same design.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Intent as a form</h2>
+      <p>A <strong>typed instruction</strong> is a form with a limited vocabulary for expressing intent. It can ask for a wall, choosing the longest, shortest, or a specific one; a corner; the centre; a named side of another piece; somewhere near something; or a position between two things. There is no field for coordinates.</p>
+      <div class="statbar">
+        <div class="stat"><div class="n">7</div><div class="l">anchor kinds</div></div>
+        <div class="stat"><div class="n">7</div><div class="l">facing modes</div></div>
+        <div class="stat"><div class="n">0</div><div class="l">coordinates</div></div>
+      </div>
+      <p>Placement can face into the room, toward the door, toward the window, toward another object, or match its anchor. References identify a piece by name, by the current selection, or as “the piece before this one.” These choices let the model express relationships that the solver can resolve.</p>
+      <p>“Put a queen bed in the bedroom” becomes an item, a room, the longest unobstructed wall, and a direction into the room. “And a nightstand on the left” refers back to that bed and names its left side. The model has interpreted; it has not measured. Measuring is the solver’s job.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F05-typed-intent.svg" target="_blank" rel="noopener" aria-label="Open full size: A typed instruction records relationships the solver can resolve.">
+          <svg aria-label="Bed and nightstand requests beside a placement form without coordinate fields" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF05-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF05-title">Two spoken requests become typed instructions — item, room, anchor, facing, reference, side, gap — with no coordinate fields at all.</title>
+            <defs>
+              <marker id="hadF05-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+              <marker id="hadF05-arrow-accent" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- spoken request -->
+            <rect x="24" y="122" width="238" height="58" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linecap:round">
+              <rect x="40" y="139" width="8" height="13" rx="4"/>
+              <path d="M36 147 a8 8 0 0 0 16 0 M44 155 V160 M40 160 H48"/>
+            </g>
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="62" y="146">queen bed in the bedroom</text>
+              <text x="62" y="164">and a nightstand on the left.</text>
+            </g>
+
+            <!-- the model interprets -->
+            <path d="M262 151 H279" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF05-arrow)"/>
+            <rect x="284" y="139" width="60" height="24" rx="12" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3"/>
+            <text x="314" y="155" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">MODEL</text>
+            <path d="M348 151 H381" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2" marker-end="url(#hadF05-arrow-accent)"/>
+
+            <!-- the typed instruction -->
+            <rect x="388" y="24" width="308" height="272" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="406" y="50" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--accent-deep,#a36cb6)"><tspan style="letter-spacing:.14em">INSTRUCTION · </tspan>place_with_anchor</text>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;font-style:italic;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="406" y="78">// what</text>
+              <text x="406" y="114">// where, in words</text>
+              <text x="406" y="168" style="font-style:normal">---</text>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink-2,#c5c1b8)">
+              <text x="406" y="96">item:</text>
+              <text x="578.5" y="96">room:</text>
+              <text x="406" y="132">anchor:</text>
+              <text x="406" y="150">facing:</text>
+              <text x="406" y="186">item:</text>
+              <text x="406" y="204">anchor:</text>
+              <text x="537.1" y="204">near:</text>
+              <text x="406" y="222">side:</text>
+              <text x="537.1" y="222">gap:</text>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">
+              <text x="461.2" y="96">"queen bed"</text>
+              <text x="619.9" y="96">"bedroom"</text>
+              <text x="461.2" y="132">longest_unobstructed_wall</text>
+              <text x="461.2" y="150">into_room</text>
+              <text x="461.2" y="186">"nightstand"</text>
+              <text x="461.2" y="204">relative</text>
+              <text x="578.5" y="204">"queen bed"</text>
+              <text x="461.2" y="222">left</text>
+              <text x="571.6" y="222">5</text>
+            </g>
+
+            <!-- what the vocabulary cannot say -->
+            <path d="M406 240 H678" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="406" y="262">x:</text>
+              <text x="426.7" y="262">320</text>
+              <text x="461.2" y="262">y:</text>
+              <text x="481.9" y="262">140</text>
+              <text x="516.4" y="262">rotation:</text>
+              <text x="585.4" y="262">0</text>
+            </g>
+            <path d="M402 258 H597" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2"/>
+            <text x="406" y="282" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">NOT IN THE VOCABULARY</text>
+
+            <text x="24" y="312" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">The form has no field for coordinates.</text>
+          </svg>
+        </a>
+        <figcaption>A typed instruction records relationships the solver can resolve.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>The solver decides exactly where</h2>
+      <p>The solver ranks candidate walls by length, longest first. Ties are broken by preferences such as being away from the door, then by a stable order, so the same request in the same room gives the same answer. It poses this bed against the wall, facing into the room.</p>
+      <p>It checks that the bed stays inside the room without overlapping walls or furniture. For wall-anchored items, it tests the door’s swing arc and protects the window’s view from tall pieces. Here, south and north tie in length, but the door’s swing takes the southern spot; the bed goes north.</p>
+      <p>If a wall fails, the solver tries the next. For a kit, pieces are solved in dependency order against a scene already holding the earlier ones, and anything that does not fit is reported by name. Each placement changes what is available to the next.</p>
+      <p>A single item that fits nowhere on its requested anchor instead goes to the nearest open spot, and the assistant says so. That fallback matters: the result can differ from the requested position. From the person’s side, the machinery gives way to something simpler: a placement they can see and undo.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F06-solver.svg" target="_blank" rel="noopener" aria-label="Open full size: A wall’s length is only the start of deciding whether a bed belongs against it.">
+          <svg aria-label="Ranked bedroom walls, door swing, rejected southern bed position, and committed northern placement" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" role="img" aria-labelledby="hadF06-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF06-title">Candidate walls are ranked; the bed is tried first on the south wall where it would block the door's swing, then committed on the north wall after every check passes.</title>
+
+            <!-- door swing, shaded (room origin 116,58 at 1.5 scale: hinge 176,274, radius 48) -->
+            <g style="fill:var(--accent-soft,rgba(192,139,210,0.14))">
+              <path d="M176 274 V226 A48 48 0 0 1 224 274 Z"/>
+              <path d="M176 274 V226 A48 48 0 0 1 224 274 Z"/>
+            </g>
+
+            <!-- window view cone: five faint lines fanning west from the window's inner face -->
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-opacity:.5;stroke-width:1">
+              <path d="M350 166 L320 114"/>
+              <path d="M350 166 L298 136"/>
+              <path d="M350 166 L290 166"/>
+              <path d="M350 166 L298 196"/>
+              <path d="M350 166 L320 218"/>
+            </g>
+
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(116,58) scale(1.5)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, –ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+
+            <!-- rejected pose: bed centred on the south wall, inside the door swing -->
+            <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+              <rect x="188" y="148" width="96" height="120" rx="4.5"/>
+              <path d="M188 259 H284"/>
+              <rect x="194" y="242" width="39" height="13" rx="3"/>
+              <rect x="239" y="242" width="39" height="13" rx="3"/>
+            </g>
+            <path d="M230 206 L242 218 M242 206 L230 218" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linecap:round"/>
+
+            <!-- committed pose: bed centred on the north wall, headboard to the wall (opaque underlay hides the rejected outline beneath) -->
+            <rect x="188" y="64" width="96" height="120" rx="4.5" style="fill:var(--paper-3,#181922)"/>
+            <rect x="188" y="64" width="96" height="120" rx="4.5" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <rect x="188" y="64" width="96" height="9" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+            <path d="M188 73 H284" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1">
+              <rect x="194" y="77" width="39" height="13" rx="3"/>
+              <rect x="239" y="77" width="39" height="13" rx="3"/>
+            </g>
+
+            <!-- wall badges: length · rank -->
+            <rect x="201" y="24" width="70" height="20" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <rect x="231" y="288" width="70" height="20" rx="10" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3"/>
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <rect x="32" y="156" width="70" height="20" rx="10"/>
+              <rect x="370" y="156" width="70" height="20" rx="10"/>
+            </g>
+            <g text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px">
+              <text x="236" y="38" style="fill:var(--accent,#c08bd2)">4.0 m · 1</text>
+              <text x="266" y="302" style="fill:var(--ash,rgba(243,238,227,0.55))">4.0 m · 1</text>
+              <text x="67" y="170" style="fill:var(--ink-2,#c5c1b8)">3.6 m · 3</text>
+              <text x="405" y="170" style="fill:var(--ink-2,#c5c1b8)">3.6 m · 3</text>
+            </g>
+
+            <!-- checks -->
+            <rect x="468" y="52" width="228" height="256" rx="10" style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <text x="486" y="80" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.14em;fill:var(--accent-deep,#a36cb6)">CHECKS</text>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round">
+              <path d="M486 108 L490 112 L497 104"/>
+              <path d="M486 134 L490 138 L497 130"/>
+              <path d="M486 160 L490 164 L497 156"/>
+              <path d="M486 186 L490 190 L497 182"/>
+              <path d="M486 212 L490 216 L497 208"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px;fill:var(--ink,#f3eee3)">
+              <text x="506" y="112">inside the room</text>
+              <text x="506" y="138">no wall overlap</text>
+              <text x="506" y="164">clear of other pieces</text>
+              <text x="506" y="190">clear of door swing</text>
+              <text x="506" y="216">window view kept</text>
+            </g>
+            <path d="M486 236 H678" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M487 251 L494 258 M494 251 L487 258" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-linecap:round"/>
+            <path d="M486 292 L490 296 L497 288" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round"/>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="506" y="258">south wall · tried first</text>
+              <text x="506" y="273">blocked by door swing</text>
+              <text x="506" y="296">north wall · committed</text>
+            </g>
+
+            <text x="24" y="336" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Ranked, posed, checked — then committed.</text>
+          </svg>
+        </a>
+        <figcaption>A wall’s length is only the start of deciding whether a bed belongs against it.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>04 — Using it</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Say it, see it, undo it</h2>
+      <p>The bed appears with a small AI badge that fades after a few seconds. The assistant explains its position in ordinary words: against the longest clear wall, facing into the room. Select it later and the inspector shows which tier and tool placed it, and when.</p>
+      <p>“Set up the office” arrives as one batch, and one undo removes the whole kit. The bed and the nightstand, requested separately, take two undos. I wanted the unit of reversal to follow the action, so a room kit remains something a person can readily take back.</p>
+      <p>I kept structure on the slower path: walls, doors, windows, and labels are placed by your click. The assistant can hand you a door and name the wall; you decide where along it. The assistant furnishes; you draw. Both work on the same design model, which makes the next part possible.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F09-say-see-undo.svg" target="_blank" rel="noopener" aria-label="Open full size: A placement arrives with a badge, a spoken reason, and a record of what placed it.">
+          <svg aria-label="Bedroom plan with a small AI badge beside an assistant explanation and placement provenance" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF09-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF09-title">Placed furniture carries a small AI badge; the assistant explains the placement in spatial language; the inspector shows which tool and tier placed it; walls and openings remain the person's to place.</title>
+
+            <!-- editor crop -->
+            <rect x="24" y="24" width="282" height="262" rx="10" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(69,74) scale(1.2)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+
+            <!-- dimensions (set at figure scale so they stay above 10 px) -->
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="165" y="60" text-anchor="middle">4.0 m</text>
+              <text transform="translate(53,160) rotate(-90)" text-anchor="middle">3.6 m</text>
+            </g>
+
+            <!-- committed furniture: queen bed on the north wall, nightstand on the left -->
+            <g transform="translate(69,74) scale(1.2)">
+              <rect x="48" y="4" width="64" height="80" rx="3" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <path d="M48 10 H112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+              <rect x="52" y="12" width="26" height="9" rx="2" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+              <rect x="82" y="12" width="26" height="9" rx="2" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+              <rect x="24" y="4" width="20" height="20" rx="3" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            </g>
+
+            <!-- the badge the editor shows beside an AI placement -->
+            <rect x="209" y="100" width="40" height="18" rx="9" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+            <text x="229" y="112.5" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;font-weight:500;letter-spacing:.06em;fill:var(--accent,#c08bd2)">↻ AI</text>
+
+            <!-- the room label the person placed -->
+            <text x="210" y="219" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:13px;fill:var(--ink-2,#c5c1b8)">Bedroom</text>
+
+            <!-- assistant -->
+            <rect x="330" y="24" width="366" height="78" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M348 36.75 h12 q1.25 0 1.25 1.25 v7 q0 1.25 -1.25 1.25 h-7 l-3.5 3 v-3 h-1.5 q-1.25 0 -1.25 -1.25 v-7 q0 -1.25 1.25 -1.25 z" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round"/>
+            <text x="372" y="47" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink,#f3eee3)">ASSISTANT</text>
+            <text x="346" y="71" style="font-size:12.5px;fill:var(--ink,#f3eee3)">“Bed against the longest clear wall,</text>
+            <text x="346" y="88" style="font-size:12.5px;fill:var(--ink,#f3eee3)">facing into the room. Undo if it’s wrong.”</text>
+
+            <!-- inspector -->
+            <rect x="330" y="114" width="366" height="106" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round">
+              <circle cx="354" cy="133" r="7"/>
+              <path d="M354 131.5 V136.5"/>
+            </g>
+            <circle cx="354" cy="128.6" r="1" style="fill:var(--accent,#c08bd2)"/>
+            <text x="372" y="137" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink,#f3eee3)">INSPECTOR · PROVENANCE</text>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11.5px">
+              <text x="346" y="161" style="fill:var(--ash,rgba(243,238,227,0.55))">placed by</text>
+              <text x="436" y="161" style="fill:var(--accent,#c08bd2)">AI</text>
+              <text x="346" y="177" style="fill:var(--ash,rgba(243,238,227,0.55))">tool</text>
+              <text x="436" y="177" style="fill:var(--ink,#f3eee3)">place_with_anchor</text>
+              <text x="346" y="193" style="fill:var(--ash,rgba(243,238,227,0.55))">tier</text>
+              <text x="436" y="193" style="fill:var(--ink,#f3eee3)">single item</text>
+              <text x="346" y="209" style="fill:var(--ash,rgba(243,238,227,0.55))">at</text>
+              <text x="436" y="209" style="fill:var(--ink,#f3eee3)">14:02:17</text>
+            </g>
+
+            <!-- what stays with the person -->
+            <rect x="330" y="232" width="366" height="54" rx="10" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+            <path d="M348 240 V253 L351.5 249.8 L354 255 L356.2 254 L353.8 248.8 L358.5 248.6 Z" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.3;stroke-linejoin:round"/>
+            <text x="372" y="252" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">YOU DRAW</text>
+            <text x="346" y="272" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ash,rgba(243,238,227,0.55))">walls · doors · windows · labels — click to place</text>
+
+            <!-- motto -->
+            <text x="24" y="314" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">The person stays the author.</text>
+          </svg>
+        </a>
+        <figcaption>A placement arrives with a badge, a spoken reason, and a record of what placed it.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>05 — One model, three surfaces</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>The same plan, walked</h2>
+      <p>One click turns the design model into a walkthrough: each wall becomes boxes split around its openings, and each detected room becomes a floor. Nothing is modelled twice, so the bed placed on the plan is the bed you walk around. The voice session started in 2D stays open in 3D.</p>
+      <p>On a headset, the same scene is a walkthrough, not an editing surface: you can still undo from the controller and keep talking to the assistant, but there are no tools for drawing or moving things. I kept editing on the desktop on purpose, where the canvas supports precision. Three surfaces share one model, and one question follows them: what did the system actually check?</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F10-three-surfaces.svg" target="_blank" rel="noopener" aria-label="Open full size: One design model supplies every surface on which the room is viewed.">
+          <svg aria-label="Shared design model connected to a 2D editor, 3D room, and headset walkthrough" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF10-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF10-title">One design model shown as the 2D editor plan, a three-dimensional walkthrough built from the same walls and rooms, and a headset walkthrough.</title>
+            <defs>
+              <marker id="hadF10-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+            </defs>
+
+            <!-- design model -->
+            <rect x="24" y="112" width="76" height="88" rx="10" style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1"/>
+            <g transform="translate(52,128)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+              <rect x="0.75" y="0.75" width="18.5" height="14.5" rx="1"/>
+              <path d="M11.5 0.75 V10"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink,#f3eee3)" text-anchor="middle">
+              <text x="63" y="168">DESIGN</text>
+              <text x="63" y="183">MODEL</text>
+            </g>
+
+            <!-- one source, three renderings -->
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+              <path d="M62 112 V44 Q62 34 72 34 H596 Q606 34 606 44 V55" marker-end="url(#hadF10-arrow)"/>
+              <path d="M220 34 V55" marker-end="url(#hadF10-arrow)"/>
+              <path d="M413 34 V55" marker-end="url(#hadF10-arrow)"/>
+            </g>
+            <circle cx="220" cy="34" r="2.5" style="fill:var(--accent,#c08bd2)"/>
+            <circle cx="413" cy="34" r="2.5" style="fill:var(--accent,#c08bd2)"/>
+
+            <!-- panels -->
+            <g style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="130" y="56" width="180" height="200" rx="10"/>
+              <rect x="323" y="56" width="180" height="200" rx="10"/>
+              <rect x="516" y="56" width="180" height="200" rx="10"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;fill:var(--ink,#f3eee3)" text-anchor="middle">
+              <text x="220" y="80">2D · EDITOR</text>
+              <text x="413" y="80">3D · WALKTHROUGH</text>
+              <text x="606" y="80">WEBXR · WALKTHROUGH</text>
+            </g>
+
+            <!-- 2D editor: the running bedroom at 0.6 scale -->
+            <!-- ROOM: 4.0 x 3.6 m interior = 160 x 144 px; walls 0.2 m = 8 px drawn on the interior outline -->
+            <g transform="translate(172,128) scale(0.6)">
+              <rect x="0" y="0" width="160" height="144" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:8"/>
+              <!-- door on the south wall: 0.8 m wide, hinge 1.0 m from the west corner (gap x 40..72); leaf swings north into the room -->
+              <rect x="40" y="139" width="32" height="10" style="fill:var(--paper-3,#181922)"/>
+              <path d="M40 144 V112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+              <path d="M40 112 A32 32 0 0 1 72 144" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1;stroke-dasharray:2 3"/>
+              <!-- window on the east wall: 1.2 m, centred (y 48..96) -->
+              <rect x="155" y="48" width="10" height="48" style="fill:var(--paper-3,#181922)"/>
+              <path d="M158 48 V96 M162 48 V96" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <!-- dimension labels (mono 9px, ash): "4.0 m" centred above the north wall at y=-12; "3.6 m" rotated -90 beside the west wall at x=-12 -->
+            </g>
+            <g transform="translate(172,128) scale(0.6)">
+              <rect x="48" y="4" width="64" height="80" rx="3" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+              <path d="M48 10 H112" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+              <rect x="52" y="12" width="26" height="9" rx="2" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+              <rect x="82" y="12" width="26" height="9" rx="2" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+              <rect x="24" y="4" width="20" height="20" rx="3" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+            </g>
+
+            <!-- 3D walkthrough: the same room seen from the north-west, near walls cut low -->
+            <path d="M416.5 232 L347.2 192 L409.6 156 L478.9 196 Z" style="fill:var(--paper-2,#12131a);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;stroke-linejoin:round"/>
+            <g style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;stroke-linejoin:round">
+              <!-- east wall with the window -->
+              <path d="M347.2 192 L409.6 156 L409.6 108 L347.2 144 Z"/>
+              <path d="M347.2 186 L343.8 184 L343.8 142 L347.2 144 Z"/>
+              <!-- south wall: door gap with its header above -->
+              <path d="M478.9 196 L461.5 186 L461.5 146 L447.7 138 L447.7 178 L409.6 156 L409.6 108 L478.9 148 Z"/>
+              <path d="M447.7 178 L451.1 176 L451.1 136 L447.7 138 Z"/>
+              <path d="M461.5 186 L447.7 178 L451.1 176 L464.9 184 Z" style="fill:var(--paper-2,#12131a)"/>
+              <path d="M478.9 190 L482.3 188 L482.3 146 L478.9 148 Z"/>
+              <!-- wall tops -->
+              <path d="M347.2 144 L409.6 108 L478.9 148 L482.3 146 L409.6 104 L343.8 142 Z"/>
+            </g>
+            <path d="M368 162 L388.8 150 L388.8 126 L368 138 Z" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round"/>
+            <path d="M378.4 156 V132" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1"/>
+            <!-- bed and nightstand as low boxes -->
+            <g style="stroke:var(--accent,#c08bd2);stroke-width:1;stroke-linejoin:round">
+              <path d="M397.4 219 L369.7 203 L369.7 193 L397.4 209 Z" style="fill:var(--paper-3,#181922)"/>
+              <path d="M397.4 219 L432.1 199 L432.1 189 L397.4 209 Z" style="fill:var(--paper-3,#181922)"/>
+              <path d="M397.4 209 L369.7 193 L404.4 173 L432.1 189 Z" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+              <path d="M407.8 225 L399.2 220 L399.2 210 L407.8 215 Z" style="fill:var(--paper-3,#181922)"/>
+              <path d="M407.8 225 L416.5 220 L416.5 210 L407.8 215 Z" style="fill:var(--paper-3,#181922)"/>
+              <path d="M407.8 215 L399.2 210 L407.8 205 L416.5 210 Z" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+            </g>
+            <!-- near walls, cut low -->
+            <g style="fill:var(--paper-3,#181922);stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;stroke-linejoin:round">
+              <path d="M416.5 236 L340.3 192 L340.3 186 L416.5 230 Z"/>
+              <path d="M416.5 236 L485.8 196 L485.8 190 L416.5 230 Z"/>
+              <path d="M416.5 230 L340.3 186 L343.8 184 L416.5 226 L482.3 188 L485.8 190 Z"/>
+            </g>
+
+            <!-- WebXR: a headset frame around a view of the same room, facing north -->
+            <path d="M549 116 H663 Q681 116 681 134 V186 Q681 204 663 204 H622 Q616 204 613 198 L610 193 Q606 187 602 193 L599 198 Q596 204 590 204 H549 Q531 204 531 186 V134 Q531 116 549 116 Z" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-linejoin:round"/>
+            <path d="M523 152 H531 M681 152 H689" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-linecap:round"/>
+            <path d="M580 166 H632 L658 186.8 H554 Z" style="fill:var(--paper-2,#12131a);stroke:none"/>
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;stroke-linejoin:round">
+              <rect x="580" y="134.8" width="52" height="31.2"/>
+              <path d="M580 166 L554 186.8 M632 166 L658 186.8 M580 134.8 L554 124.4 M632 134.8 L658 124.4"/>
+            </g>
+            <path d="M641.2 157.5 V136.4 L655.8 132.7 V162.6 Z" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.2;stroke-linejoin:round"/>
+            <g style="stroke:var(--accent,#c08bd2);stroke-width:1;stroke-linejoin:round">
+              <path d="M595.4 154.5 H616.6 V159.8 H595.4 Z" style="fill:var(--paper-3,#181922)"/>
+              <path d="M595.4 159.8 H616.6 L625.1 171.5 H586.9 Z" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+              <path d="M586.9 171.5 H625.1 V183.5 H586.9 Z" style="fill:var(--paper-3,#181922)"/>
+              <path d="M587.4 159.8 H594 L592.2 162.1 H584.5 Z" style="fill:var(--accent-soft,rgba(192,139,210,0.14))"/>
+              <path d="M584.5 162.1 H592.2 V169.7 H584.5 Z" style="fill:var(--paper-3,#181922)"/>
+            </g>
+            <text x="606" y="234" text-anchor="middle" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.1em;fill:var(--ash,rgba(243,238,227,0.55))">WALK · NO EDITING TOOLS</text>
+
+            <!-- motto -->
+            <text x="24" y="284" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Drawn once, rendered three ways.</text>
+          </svg>
+        </a>
+        <figcaption>One design model supplies every surface on which the room is viewed.</figcaption>
+      </figure>
+    </section>
+
+    <div class="chapter"><span>06 — Keeping it honest</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Not every edit takes the same road</h2>
+      <p>Solver-backed placement and relational moves check containment and overlap, with swing and view checks for wall anchors. “Turn the desk to face into the room” expresses a move the solver can resolve. If the proposed move fails, the model gets one more attempt with the exact violation; success is not guaranteed.</p>
+      <p>Small nudges apply the model’s own change with lighter checks: a rotation is refused if it would hit a wall, a resize is clamped, and a nudge simply moves. Walls and openings follow your click. For catalog items, the model draws the icon and 3D shape but never chooses their position in a room.</p>
+      <p>The session recorder keeps every prompt, every instruction, and every solver verdict in order. A recording of a desk rotated into a wall without a retry is why rotations are now checked first. I used those traces to hold claims to implemented behaviour, the same standard this page needs to meet.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F11-paths.svg" target="_blank" rel="noopener" aria-label="Open full size: An edit’s path determines which checks stand behind it.">
+          <svg aria-label="Five editing paths with model and solver markers, a cursor, and their respective checks" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="hadF11-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF11-title">Five kinds of edit and who decides each: solver-backed placement, relational moves, direct nudges with lighter checks, guided placement by the person's click, and catalog assets the model draws but never places.</title>
+            <defs>
+              <marker id="hadF11-arrow-solid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+              </marker>
+              <marker id="hadF11-arrow-model" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--ash,rgba(243,238,227,0.55))"/>
+              </marker>
+              <marker id="hadF11-arrow-you" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+            </defs>
+          
+            <!-- lane rules -->
+            <path d="M24 72 H696 M24 124 H696 M24 176 H696 M24 228 H696" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+          
+            <!-- requests -->
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+              <text x="24" y="39">SOLVER-BACKED</text>
+              <text x="24" y="91">RELATIONAL MOVES</text>
+              <text x="24" y="143">DIRECT NUDGES</text>
+              <text x="24" y="195">GUIDED</text>
+              <text x="24" y="247">CATALOG ASSETS</text>
+            </g>
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+              <text x="24" y="57">“queen bed in the bedroom”</text>
+              <text x="24" y="109">“turn the desk to face into the room”</text>
+              <text x="24" y="161">“a bit to the left”</text>
+              <text x="24" y="213">“add a door”</text>
+              <text x="24" y="265">“a new reading lamp”</text>
+            </g>
+          
+            <!-- who decides: the model -->
+            <g style="fill:var(--paper-3,#181922);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+              <rect x="280" y="88" width="58" height="20" rx="10"/>
+              <rect x="280" y="140" width="58" height="20" rx="10"/>
+              <rect x="280" y="244" width="58" height="20" rx="10"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))" text-anchor="middle">
+              <text x="309" y="101.5">MODEL</text>
+              <text x="309" y="153.5">MODEL</text>
+              <text x="309" y="257.5">MODEL</text>
+            </g>
+          
+            <!-- who decides: the solver -->
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
+              <path d="M300.5 54.5 V37.5 L317.5 54.5 Z M304.5 50.5 V45.2 L309.8 50.5 Z"/>
+              <path d="M357.5 106.5 V89.5 L374.5 106.5 Z M361.5 102.5 V97.2 L366.8 102.5 Z"/>
+            </g>
+          
+            <!-- who decides: the person -->
+            <path d="M290 194 V207 L293.5 203.8 L296 209 L298.2 208 L295.8 202.8 L300.5 202.6 Z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.4;stroke-linejoin:round"/>
+            <text x="306" y="206" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink-2,#c5c1b8)">YOU</text>
+          
+            <!-- the icon a model drew, unverified -->
+            <rect x="356" y="244" width="20" height="20" rx="3" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:3 2.5"/>
+            <path d="M362.5 249 H369.5 L371.5 254 H360.5 Z M366 254 V259 M363 259.5 H369" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round"/>
+          
+            <!-- paths: dashed where a model decides, solid where a deterministic step does -->
+            <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3">
+              <path d="M340 98 H353"/>
+              <path d="M340 150 H419" marker-end="url(#hadF11-arrow-model)"/>
+              <path d="M340 254 H353"/>
+              <path d="M379 254 H419" marker-end="url(#hadF11-arrow-model)"/>
+            </g>
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2">
+              <path d="M323 46 H419" marker-end="url(#hadF11-arrow-solid)"/>
+              <path d="M380 98 H419" marker-end="url(#hadF11-arrow-solid)"/>
+            </g>
+            <path d="M336 202 H419" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF11-arrow-you)"/>
+          
+            <!-- checks -->
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">
+              <text x="430" y="40">inside room · no overlap</text>
+              <text x="430" y="55">door swing · window view</text>
+              <text x="430" y="102">inside room · no overlap · one retry</text>
+              <text x="430" y="144">rotate: overlap check</text>
+              <text x="430" y="159">resize: clamped · <tspan style="fill:var(--ash,rgba(243,238,227,0.55))">move: no check</tspan></text>
+              <text x="430" y="206">canvas placement rules</text>
+              <text x="430" y="258">sanitised · clamped · never placed</text>
+            </g>
+          
+            <!-- legend -->
+            <path d="M24 310 H54" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3"/>
+            <text x="62" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a model decides</text>
+            <path d="M196 310 H226" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+            <text x="234" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a deterministic step</text>
+          
+            <!-- motto -->
+            <text x="696" y="314" text-anchor="end" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Checked against what is implemented.</text>
+          </svg>
+        </a>
+        <figcaption>An edit’s path determines which checks stand behind it.</figcaption>
+      </figure>
+    </section>
+
+    <section class="pullquote reveal">
+      <p>Checked against what is implemented, not promised against everything.</p>
+      <div class="attr">— The rule behind the claims</div>
+    </section>
+
+    <div class="chapter"><span>07 — What it adds up to</span><span class="glyph">✦</span></div>
+
+    <section class="section">
+      <h2>Structured design information, connected to AI operations</h2>
+      <p>HAD connects structured design information, model interpretation, and computational tools that resolve and check. I developed those parts together because a useful response depends on the whole connection: a room the system can describe, an instruction it can resolve, and an operation the person can inspect and reverse.</p>
+      <p>For the person, that means saying the room and seeing it, with a reason and an undo. For me, it is a pattern I keep reaching for: models interpret, structured tools decide, wherever geometry, rules, or records deserve precision. “Can you just put the bed in the bedroom?” now has an answer in the plan, with the placement explained and the decision reversible.</p>
+      <figure class="figure had-fig">
+        <a href="../assets/img/had/had-F12-end-to-end.svg" target="_blank" rel="noopener" aria-label="Open full size: A useful answer connects the request to geometry a person can inspect and undo.">
+          <svg aria-label="Connected stages from design model to placed geometry above the three viewing surfaces" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="hadF12-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+            <title id="hadF12-title">The end-to-end strip from design model through scene context, typed intent, solver and checks to placed, undoable geometry, with the three surfaces beneath.</title>
+            <defs>
+              <marker id="hadF12-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+              </marker>
+            </defs>
+
+            <!-- stage cards -->
+            <g style="fill:var(--paper-2,#12131a);stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1">
+              <rect x="52" y="22" width="104" height="78" rx="10"/>
+              <rect x="180" y="22" width="104" height="78" rx="10"/>
+              <rect x="308" y="22" width="104" height="78" rx="10"/>
+              <rect x="436" y="22" width="104" height="78" rx="10"/>
+            </g>
+            <rect x="564" y="22" width="104" height="78" rx="10" style="fill:var(--accent-soft,rgba(192,139,210,0.14));stroke:var(--accent,#c08bd2);stroke-width:1.5"/>
+
+            <!-- 01 design model: plan icon -->
+            <g transform="translate(95,31)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+              <rect x="0.75" y="1.75" width="16.5" height="14.5" rx="1"/>
+              <path d="M10.5 1.75 V11"/>
+            </g>
+            <!-- 02 scene context: three cards -->
+            <g transform="translate(223,31)" style="fill:var(--paper-2,#12131a);stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round">
+              <rect x="5.75" y="0.75" width="11.5" height="8" rx="1.5"/>
+              <rect x="3.25" y="4.75" width="11.5" height="8" rx="1.5"/>
+              <rect x="0.75" y="8.75" width="11.5" height="8" rx="1.5"/>
+            </g>
+            <!-- 03 typed intent: braces -->
+            <g transform="translate(351,31)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+              <path d="M6 1.5 q-2.5 0 -2.5 2.5 v2.5 q0 2 -2 2.5 q2 0.5 2 2.5 v2.5 q0 2.5 2.5 2.5 M12 1.5 q2.5 0 2.5 2.5 v2.5 q0 2 2 2.5 q-2 0.5 -2 2.5 v2.5 q0 2.5 -2.5 2.5"/>
+            </g>
+            <!-- 04 solver and checks: set square -->
+            <g transform="translate(479,31)" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.5;stroke-linejoin:round">
+              <path d="M1.5 16.5 V1.5 L16.5 16.5 Z M5 13 V9 L9 13 Z"/>
+            </g>
+            <!-- 05 placed and undoable: check and undo -->
+            <g transform="translate(606,31)" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+              <path d="M1 10 L4.5 13.5 L9.5 7"/>
+              <path d="M19 16 V12 q0 -4 -4 -4 H11.5 M13.8 5.5 L11.3 8 L13.8 10.5"/>
+            </g>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))" text-anchor="middle">
+              <text x="104" y="63">01</text>
+              <text x="232" y="63">02</text>
+              <text x="360" y="63">03</text>
+              <text x="488" y="63">04</text>
+              <text x="616" y="63" style="fill:var(--accent-deep,#a36cb6)">05</text>
+            </g>
+            <g style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:11.5px;fill:var(--ink,#f3eee3)" text-anchor="middle">
+              <text x="104" y="78">Design</text>
+              <text x="104" y="92">model</text>
+              <text x="232" y="78">Scene</text>
+              <text x="232" y="92">context</text>
+              <text x="360" y="78">Typed</text>
+              <text x="360" y="92">intent</text>
+              <text x="488" y="78">Solver &amp;</text>
+              <text x="488" y="92">checks</text>
+              <text x="616" y="78">Placed &amp;</text>
+              <text x="616" y="92">undoable</text>
+            </g>
+
+            <g style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1">
+              <path d="M159 61 H177" marker-end="url(#hadF12-arrow)"/>
+              <path d="M287 61 H305" marker-end="url(#hadF12-arrow)"/>
+              <path d="M415 61 H433" marker-end="url(#hadF12-arrow)"/>
+              <path d="M543 61 H561" marker-end="url(#hadF12-arrow)"/>
+            </g>
+
+            <!-- the surfaces that render the model and the placed geometry -->
+            <path d="M104 101 V124 M616 101 V124" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1.5 4"/>
+            <rect x="52" y="124" width="616" height="40" rx="12" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1;stroke-dasharray:4 4"/>
+            <text x="72" y="148" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">THREE SURFACES</text>
+
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+              <g transform="translate(243,137.5)">
+                <rect x="0.75" y="0.75" width="14.5" height="11.5" rx="1"/>
+                <path d="M9.5 0.75 V8"/>
+              </g>
+              <path transform="translate(373,136)" d="M8 0.75 L15.25 4.5 V11.5 L8 15.25 L0.75 11.5 V4.5 Z M0.75 4.5 L8 8.25 L15.25 4.5 M8 8.25 V15.25"/>
+              <path transform="translate(541,139)" d="M3 0.75 H17 Q19.25 0.75 19.25 3 V7 Q19.25 9.25 17 9.25 H12.5 L11.2 7.6 Q10 6.4 8.8 7.6 L7.5 9.25 H3 Q0.75 9.25 0.75 7 V3 Q0.75 0.75 3 0.75 Z"/>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.12em;fill:var(--ink,#f3eee3)">
+              <text x="265" y="148">2D EDITOR</text>
+              <text x="395" y="148">3D WALKTHROUGH</text>
+              <text x="567" y="148">WEBXR</text>
+            </g>
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;fill:var(--ash,rgba(243,238,227,0.55))" text-anchor="middle">
+              <text x="353" y="148">·</text>
+              <text x="521" y="148">·</text>
+            </g>
+
+            <!-- closing -->
+            <text x="360" y="202" text-anchor="middle" style="font-family:var(--display,'Fraunces',serif);font-weight:600;font-size:20px;fill:var(--ink,#f3eee3)">Can you just put the bed in the bedroom?</text>
+            <text x="360" y="226" text-anchor="middle" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--accent-deep,#a36cb6)">Now the geometry follows.</text>
+          </svg>
+        </a>
+        <figcaption>A useful answer connects the request to geometry a person can inspect and undo.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Project at a glance</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>What problem it targets</h3>
+          <p class="muted">Spoken design intent needs a reliable connection to room geometry and actions a person can inspect.</p>
+          <ul>
+            <li>Words without a direct path into placed geometry</li>
+            <li>Furniture relationships and clearances left to verbal guidance</li>
+            <li>AI edits without an explanation or a clear way back</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>What I developed</h3>
+          <ul>
+            <li>Design model with derived rooms and parametric doors and windows</li>
+            <li>Task-specific scene context for conversation, planning, and precise moves</li>
+            <li>Typed placement vocabulary and deterministic solvers with implemented checks</li>
+            <li>Visible, undoable AI commits with provenance across 2D, 3D, and headset surfaces</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Core tech</h3>
+          <ul>
+            <li><strong>Design model:</strong> TypeScript document validated with Zod; rooms derived by wall-network face tracing; parametric doors and windows</li>
+            <li><strong>Spatial computation:</strong> Deterministic placement and transform solvers: wall ranking, dependency-ordered kits, door-swing and window-view clearance, overlap and containment checks; seeded randomized tests for overlap, containment and repeat determinism</li>
+            <li><strong>AI:</strong> gpt-realtime-2 over WebRTC for conversation and tool calls; GPT-5-class and Claude models for layout planning, gpt-5.2 by default; claude-haiku-4-5 for relational moves; typed outputs checked at every boundary</li>
+            <li><strong>Surfaces:</strong> React and SVG editor; three.js walkthrough; WebXR walkthrough for Quest browsers</li>
+            <li><strong>Platform:</strong> Cloudflare Workers; Supabase with row-level security; Vitest, 600+ tests</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Context</h3>
+          <ul>
+            <li><strong>Type:</strong> Independent prototype</li>
+            <li><strong>Role:</strong> Design, development, and deployment</li>
+            <li><strong>Working name:</strong> HAT, as shown in the prototype</li>
+            <li><strong>Year:</strong> 2026</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Links</h2>
+      <div class="card">
+        <ul>
+          <li><a href="index.html">Back to Projects</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="colophon reveal">
+      <div class="center">— amirgoli.com —</div>
+      <div class="right">© <span data-year-now></span> Amir Goli.<br>Lawrence, Kansas.</div>
+    </footer>
+  </div>
+</main>
+
+<script src="https://unpkg.com/swup@4/dist/Swup.umd.js"></script>
+<script src="../assets/js/main.js?v=2026-05-05-swup"></script>
+<script type="module" src="../assets/js/voice-avatar.js?v=2026-05-05-quiet"></script>
+</body>
+</html>
