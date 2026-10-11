@@ -40,7 +40,7 @@ Projects          /projects/                  Selected projects gallery
 Activities        /activities.html            GRA work, conference participation, awards, peer review
 Contact           /contact.html               Email (obfuscated), profiles, collaboration card
 StandardScout details  /projects/standardscout.html   Full project case study
-HAD               /projects/had.html            Human–AI Design: AI-assisted floor-plan prototype (voice intent, deterministic solvers, 2D/3D/WebXR)
+HAD               /projects/had.html            Human–AI Design (HAD): designing a home in conversation with an AI that acts through deterministic tools (2D/3D/WebXR)
 ARTH (VR)         /projects/project-1.html    Adaptive Reuse Thinking VR learning environment
 GaoDe             /projects/project-2.html    Multimodal serious game (Leap Motion + vision + voice)
 BESOLOGY          /projects/project-3.html    Parametric topology optimization for high-rises
@@ -95,9 +95,13 @@ ADAPTIVE EVIDENCE INVESTIGATION — Research in progress   /#research
    this as ongoing research, not completed findings or an available product.
 
 HAD — Human–AI Design (working name in the prototype: HAT)   /projects/had.html
-   Independent prototype (2026): a browser-based residential floor-plan editor where a
-   person speaks or types a design request, a language model turns it into a typed
-   placement instruction with no coordinates (item, room, anchor such as the longest
+   Independent prototype (2026) exploring the human–AI design process: a person
+   sketches a home and designs it in conversation with an AI assistant that sees the
+   plan, asks what they are designing and which room to focus on, talks about the
+   plan, and acts on it through tools. It is not a furniture-placement app; placing
+   a bed is the worked example of the collaboration. When the person asks for
+   something, the model turns the request into a typed placement instruction with no
+   coordinates (item, room, anchor such as the longest
    wall or a corner, facing, a reference to another piece), and a deterministic solver
    places it on a structured design model and checks it (inside the room, no wall or
    furniture overlap, clear of the door swing, window view kept) before committing.

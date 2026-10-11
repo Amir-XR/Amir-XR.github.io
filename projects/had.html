@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HAD — Human–AI Design for Floor Plans | Amir Goli</title>
-<meta name="description" content="HAD connects spoken design intent to structured room information and computational tools for placing, checking, and undoing furniture arrangements." />
+<title>HAD — Human–AI Design | Amir Goli</title>
+<meta name="description" content="HAD is a conversational partner for designing a home, where the model interprets design intent and computational tools decide how to act." />
 <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,14 +79,14 @@
 
 
     <section class="hero" aria-labelledby="title">
-      <div class="hero-eyebrow">Project · 08 · LLM × Spatial design</div>
+      <div class="hero-eyebrow">Project · 08 · Human–AI design</div>
       <h1 class="hero-title" id="title" aria-label="HAD">
         <span class="letter">H</span><span class="letter">A</span><span class="letter">D</span><span class="swash letter">.</span>
       </h1>
       <div class="hero-byline">
         <span class="byline-rule" aria-hidden="true"></span>
-        <p class="byline-line">Where <em>design intent</em> becomes placed geometry.</p>
-        <p class="byline-meta">Spatial design · Typed intent · Deterministic solvers · 2026</p>
+        <p class="byline-line"><em>Human–AI Design</em>: designing a home in conversation with an AI that can act on the plan.</p>
+        <p class="byline-meta">Conversational design · Typed intent · Deterministic solvers · 2026</p>
       </div>
     </section>
 
@@ -160,14 +160,14 @@
 
     <div class="callout">
       <p class="kicker">Summary</p>
-      <p><strong>HAD</strong> is a browser-based spatial design prototype where a spoken request becomes furniture on a plan. I developed it, as its sole designer and developer, to connect what a person means with tools that can work out where things fit.</p>
-      <p>The model interprets the request; computational tools resolve the placement. Following one bedroom from drawn walls to a walkthrough, this page traces what that division of responsibility makes possible, and which edits take a different path.</p>
+      <p><strong>Human–AI Design (HAD)</strong> is a prototype for designing a home in conversation with an AI. You sketch; the assistant sees your plan, asks what you are designing, talks it through with you, and can act on it: furnishing a room, arranging a kit, moving what is there, and explaining each decision in words you can check and undo. I developed it, as its sole designer and developer, to explore how people and AI can design together when models interpret and computational tools decide.</p>
+      <p>This page follows one request through that collaboration: how the plan becomes something a model can understand, how intent becomes a form its tools can act on, and how the person stays the author. Placing a bed is the worked example; the subject is the hand-off.</p>
       <p>
+        <span class="badge">Human–AI design process</span>
+        <span class="badge">Conversational assistant</span>
         <span class="badge">Structured scene context</span>
-        <span class="badge">Typed instructions</span>
+        <span class="badge">Typed intent</span>
         <span class="badge">Deterministic placement</span>
-        <span class="badge">Room detection</span>
-        <span class="badge">Undoable AI edits</span>
         <span class="badge">2D · 3D · WebXR</span>
       </p>
     </div>
@@ -176,8 +176,8 @@
 
     <section class="section">
       <h2>Can you just put the bed in the bedroom?</h2>
-      <p>Picture someone sketching a home: a renovation, a first apartment, a room that never worked. They think in words. “Bed against the long wall, nightstands either side, desk facing the window” is a complete instruction for a person who can see the room; for a drafting tool, it says nothing about where to put anything.</p>
-      <p>Language models make those words easy to accept, which sharpens the question: who decides where the bed actually goes? I developed HAD to let the model interpret the request and give it tools that can place. Setting up that hand-off began with understanding what went wrong first.</p>
+      <p>Picture people designing a home in conversation: they describe, point, reconsider. “Bed against the long wall, nightstands either side, desk facing the window” is a complete instruction for a person who can see the room. A drafting tool still needs positions and angles before those words can become part of the plan.</p>
+      <p>Language models can now hold that conversation fluently, which sharpens the question: who decides where the bed actually goes? I developed HAD to find out what a design conversation becomes when the AI on the other side can act: let the model interpret, and give it tools that can place. Setting up that hand-off began with understanding what went wrong first.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F01-question.svg" target="_blank" rel="noopener" aria-label="Open full size: A spoken instruction still needs a way to become a position in the room.">
           <svg aria-label="Spoken request beside a bare plan with bed outlines in three possible positions" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF01-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
@@ -258,8 +258,8 @@
 
     <section class="section">
       <h2>Fluent in words, blind to the wall</h2>
-      <p>The first version gave the model one tool that only named an item; the model had to tell the person where to click. It never emitted a coordinate. It described positions nobody could draw, sent a desk and its chair to opposite corners, and knew nothing of wall lengths or door swings. The model was doing its job; the tool surface was the bug.</p>
-      <p>The realtime model is weak at spatial math, so I stopped asking it to do any. The new contract passes intent, in a small vocabulary, to a deterministic <strong>solver</strong>: a tool that computes positions and angles from the plan itself. Once people said that confirming each proposal by click felt like the assistant was suggesting rather than placing, I let placements commit on their own, with undo. First, the solver needed a room it could reason about.</p>
+      <p>The first version’s assistant could discuss the plan, but its only tool named an item; it had to tell the person where to click. It never emitted coordinates, yet described positions nobody could draw, sent a desk and chair to opposite corners, and knew nothing of wall lengths or door swings. The model was doing its job; the tool surface was the bug.</p>
+      <p>The realtime model is weak at spatial math, so I stopped asking it to do any. The new contract passes intent in a small vocabulary to a deterministic <strong>solver</strong>: a tool that computes positions and angles from the plan itself. When people said that confirming each proposal by click felt like the assistant was suggesting rather than placing, I let placements commit on their own, with undo. First, the solver needed a room it could reason about.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F02-before-after.svg" target="_blank" rel="noopener" aria-label="Open full size: Changing the tool gave spoken intent a route to a committed placement.">
           <svg aria-label="Click guidance with a desk and chair in opposite corners beside a typed instruction and committed arrangement" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF02-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
@@ -353,7 +353,7 @@
 
     <section class="section">
       <h2>Walls become rooms</h2>
-      <p>People draw walls as strokes at any angle, including partitions that simply end against another wall. Nobody draws a room. HAD joins wall ends that nearly meet, splits a wall where another lands on it, and walks the resulting network to find every closed face: a room with its area, centre, and surrounding walls.</p>
+      <p>To understand the plan it discusses, the assistant needs rooms. People draw walls as strokes at any angle, including partitions that simply end against another wall. Nobody draws a room. HAD joins wall ends that nearly meet, splits a wall where another lands on it, and walks the resulting network to find every closed face: a room with its area, centre, and surrounding walls.</p>
       <p>Take a bedroom 4.0 by 3.6 m, with a door on its south wall and a window on its east wall. The room is recomputed whenever the plan changes, never stored. Each opening remembers its wall and its position along it, so it moves or disappears with that wall.</p>
       <p>Together, these relationships form the <strong>design model</strong>, the structured description of the plan that the rest of HAD works from. Its knowledge of rooms comes from the walls people draw and the openings attached to them. The next question was how to describe that information to a language model.</p>
       <figure class="figure had-fig">
@@ -445,7 +445,7 @@
 
     <section class="section">
       <h2>The scene, told three ways</h2>
-      <p>I used <strong>scene context</strong>, a description of the current plan prepared for a particular task, to connect the design model to interpretation. For conversation, HAD tells the plan as an architect might: which room, how large, which openings, what is inside. The description gives a spoken request somewhere to land.</p>
+      <p>I prepared <strong>scene context</strong>, a task-specific description of the current plan, so the assistant can understand what it is discussing. For conversation, HAD tells the plan as an architect might: which room, how large, which openings, what is inside. That description connects the conversation to the drawing.</p>
       <p>Layout planning needs a survey in 10 cm cells, including the free space on each side of existing objects. A precise move needs a smaller, exact brief about one object, its neighbours, and the room’s safe interior rectangle. Each model also receives a canvas screenshot.</p>
       <p>The door’s swing arcs, the window’s view cones, and the rules about what may stand against a wall stay with the solver, because it is the part that can be held to them. Tell each task what it needs, and no more. What the model may say back is just as deliberate.</p>
       <figure class="figure had-fig">
@@ -744,7 +744,8 @@
 
     <section class="section">
       <h2>Say it, see it, undo it</h2>
-      <p>The bed appears with a small AI badge that fades after a few seconds. The assistant explains its position in ordinary words: against the longest clear wall, facing into the room. Select it later and the inspector shows which tier and tool placed it, and when.</p>
+      <p>Before placing anything, the assistant asks what you are designing and which room to focus on. It keeps that goal in view as you talk about the room, whether by voice or text. The request grows out of that conversation.</p>
+      <p>When you ask for the bed, it appears with a small AI badge that fades after a few seconds. The assistant explains its position in ordinary words: against the longest clear wall, facing into the room. Select it later and the inspector shows which tier and tool placed it, and when.</p>
       <p>“Set up the office” arrives as one batch, and one undo removes the whole kit. The bed and the nightstand, requested separately, take two undos. I wanted the unit of reversal to follow the action, so a room kit remains something a person can readily take back.</p>
       <p>I kept structure on the slower path: walls, doors, windows, and labels are placed by your click. The assistant can hand you a door and name the wall; you decide where along it. The assistant furnishes; you draw. Both work on the same design model, which makes the next part possible.</p>
       <figure class="figure had-fig">
@@ -834,7 +835,7 @@
 
     <section class="section">
       <h2>The same plan, walked</h2>
-      <p>One click turns the design model into a walkthrough: each wall becomes boxes split around its openings, and each detected room becomes a floor. Nothing is modelled twice, so the bed placed on the plan is the bed you walk around. The voice session started in 2D stays open in 3D.</p>
+      <p>One click turns the design model into a walkthrough: each wall becomes boxes split around its openings, and each detected room becomes a floor. Nothing is modelled twice, so the bed placed on the plan is the bed you walk around. The voice session started in 2D stays open in 3D, so you can keep talking while you walk the plan.</p>
       <p>On a headset, the same scene is a walkthrough, not an editing surface: you can still undo from the controller and keep talking to the assistant, but there are no tools for drawing or moving things. I kept editing on the desktop on purpose, where the canvas supports precision. Three surfaces share one model, and one question follows them: what did the system actually check?</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F10-three-surfaces.svg" target="_blank" rel="noopener" aria-label="Open full size: One design model supplies every surface on which the room is viewed.">
@@ -961,7 +962,7 @@
 
     <section class="section">
       <h2>Not every edit takes the same road</h2>
-      <p>Solver-backed placement and relational moves check containment and overlap, with swing and view checks for wall anchors. “Turn the desk to face into the room” expresses a move the solver can resolve. If the proposed move fails, the model gets one more attempt with the exact violation; success is not guaranteed.</p>
+      <p>The assistant’s actions take different roads: solver-backed placement and relational moves check containment and overlap, with swing and view checks for wall anchors. “Turn the desk to face into the room” expresses a move the solver can resolve. If the proposed move fails, the model gets one more attempt with the exact violation; success is not guaranteed.</p>
       <p>Small nudges apply the model’s own change with lighter checks: a rotation is refused if it would hit a wall, a resize is clamped, and a nudge simply moves. Walls and openings follow your click. For catalog items, the model draws the icon and 3D shape but never chooses their position in a room.</p>
       <p>The session recorder keeps every prompt, every instruction, and every solver verdict in order. A recording of a desk rotated into a wall without a retry is why rotations are now checked first. I used those traces to hold claims to implemented behaviour, the same standard this page needs to meet.</p>
       <figure class="figure had-fig">
@@ -1072,8 +1073,8 @@
 
     <section class="section">
       <h2>Structured design information, connected to AI operations</h2>
-      <p>HAD connects structured design information, model interpretation, and computational tools that resolve and check. I developed those parts together because a useful response depends on the whole connection: a room the system can describe, an instruction it can resolve, and an operation the person can inspect and reverse.</p>
-      <p>For the person, that means saying the room and seeing it, with a reason and an undo. For me, it is a pattern I keep reaching for: models interpret, structured tools decide, wherever geometry, rules, or records deserve precision. “Can you just put the bed in the bedroom?” now has an answer in the plan, with the placement explained and the decision reversible.</p>
+      <p>The person draws, judges, and decides; the model listens and interprets; structured tools resolve and check. That division is what Human–AI Design names. I developed HAD around it so that discussing a design can lead to an action on the plan, while the person remains its author.</p>
+      <p>For the person, the design conversation continues through actions they can question, inspect, and reverse. For me, it is a pattern I keep reaching for: models interpret, structured tools decide, wherever geometry, rules, or records deserve precision. “Can you just put the bed in the bedroom?” now has an answer in the plan, with the placement explained and the decision reversible.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F12-end-to-end.svg" target="_blank" rel="noopener" aria-label="Open full size: A useful answer connects the request to geometry a person can inspect and undo.">
           <svg aria-label="Connected stages from design model to placed geometry above the three viewing surfaces" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="hadF12-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
@@ -1182,17 +1183,18 @@
       <div class="cards">
         <article class="card">
           <h3>What problem it targets</h3>
-          <p class="muted">Spoken design intent needs a reliable connection to room geometry and actions a person can inspect.</p>
+          <p class="muted">Designing in conversation with an AI requires an assistant that understands the plan, acts without guessing geometry, and explains actions people can reverse.</p>
           <ul>
-            <li>Words without a direct path into placed geometry</li>
-            <li>Furniture relationships and clearances left to verbal guidance</li>
-            <li>AI edits without an explanation or a clear way back</li>
+            <li>Understanding the drawing being discussed</li>
+            <li>Turning design intent into actions through computational tools</li>
+            <li>Keeping decisions explained, inspectable, and reversible</li>
           </ul>
         </article>
 
         <article class="card">
           <h3>What I developed</h3>
           <ul>
+            <li>A voice and text design assistant that sees the plan, asks about the goal, and acts through tools</li>
             <li>Design model with derived rooms and parametric doors and windows</li>
             <li>Task-specific scene context for conversation, planning, and precise moves</li>
             <li>Typed placement vocabulary and deterministic solvers with implemented checks</li>
