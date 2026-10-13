@@ -173,6 +173,68 @@
         });
       });
     }
+
+    initWalkStrips();
+  }
+
+  // Prepared-walkthrough strips (projects/had.html): one frame per snap point,
+  // previous/next buttons, a live counter, arrow keys, no autoplay. The strip
+  // works as plain scroll-snap without this; it runs again after Swup swaps.
+  function initWalkStrips(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.had-walk[data-walk]:not(.is-ready)').forEach(strip => {
+      const track = strip.querySelector('[data-walk-track]');
+      const slides = track ? Array.from(track.children) : [];
+      if (!track || !slides.length) return;
+      strip.classList.add('is-ready');
+      const counter = strip.querySelector('[data-walk-counter]');
+      const act = strip.querySelector('[data-walk-act]');
+      const clamp = i => Math.max(0, Math.min(slides.length - 1, i));
+      const slideWidth = () => slides[0].getBoundingClientRect().width || track.clientWidth || 1;
+      const index = () => clamp(Math.round(track.scrollLeft / slideWidth()));
+      let cur = index();
+      function warm(i){
+        [i, i + 1].forEach(j => {
+          const img = slides[j] && slides[j].querySelector('img');
+          if (img && img.loading === 'lazy') img.loading = 'eager';
+        });
+      }
+      function render(i){
+        if (counter) counter.textContent = (i + 1) + ' / ' + slides.length;
+        if (act) act.textContent = slides[i].dataset.act || '';
+      }
+      function sync(){
+        cur = index();
+        render(cur);
+        warm(cur);
+      }
+      function go(i, instant){
+        cur = clamp(i);
+        render(cur);
+        warm(cur);
+        track.scrollTo({ left: Math.round(cur * slideWidth()), behavior: (instant || reduce) ? 'instant' : 'smooth' });
+      }
+      const prev = strip.querySelector('[data-walk-prev]');
+      const next = strip.querySelector('[data-walk-next]');
+      if (prev) prev.addEventListener('click', () => go(cur - 1));
+      if (next) next.addEventListener('click', () => go(cur + 1));
+      track.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight'){ e.preventDefault(); go(cur + 1); }
+        if (e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); }
+        if (e.key === 'Home'){ e.preventDefault(); go(0); }
+        if (e.key === 'End'){ e.preventDefault(); go(slides.length - 1); }
+      });
+      // A swipe or scrollbar drag settles on a snap point: read it back once it stops.
+      let timer = 0;
+      track.addEventListener('scroll', () => {
+        clearTimeout(timer);
+        timer = setTimeout(sync, 140);
+      }, { passive: true });
+      track.addEventListener('scrollend', sync);
+      window.addEventListener('resize', () => { if (strip.isConnected) go(cur, true); });
+      render(cur);
+      warm(cur);
+    });
   }
 
   // First-load bootstrap

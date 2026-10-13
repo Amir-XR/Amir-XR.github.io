@@ -1,0 +1,567 @@
+{
+  "sourcePackage": "portfolio-HAD/prototype-demo-2026-10-12",
+  "proposal": "website-slideshow.md",
+  "note": "Prepared scene states captured in the prototype on 2026-10-12. Plan frames are renders of the editor's own SVG export (its viewBox is the frame's focus box) with the detected-room area labels and the watermark removed; room fills, symbols and the user's label chips are the export's own. 3D frames are unaltered pixels of the native screenshot with the toolbar and FPS overlay cropped; frame 01 is the native editor screenshot. 'full' files are the same images at up to 2400 px.",
+  "slides": [
+    {
+      "slide": 1,
+      "frame": 1,
+      "title": "A brief, not a layout",
+      "source": "screenshots/01-a-conversation-becomes-a-plan.jpg",
+      "sourceSha256": "7da04f3cd20ac5a755fc47e25ca6011c0ec97725e0a858748af479e780f3296b",
+      "processing": "ui",
+      "box": [
+        0,
+        0,
+        1920,
+        889
+      ],
+      "file": "01.webp",
+      "width": 1600,
+      "height": 741,
+      "full": "full/01.jpg",
+      "fullWidth": 1920,
+      "fullHeight": 889
+    },
+    {
+      "slide": 2,
+      "frame": 3,
+      "title": "The first wall, drawn by hand",
+      "source": "plans/03-the-first-line.svg",
+      "sourceSha256": "2df475e11b83449f18b405518bd8d7d66bcead7d781850ef865e1ae6700c7d91",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2643
+      ],
+      "file": "02.webp",
+      "width": 1600,
+      "height": 1322,
+      "full": "full/02.png",
+      "fullWidth": 2400,
+      "fullHeight": 1982
+    },
+    {
+      "slide": 3,
+      "frame": 4,
+      "title": "The shell closes",
+      "source": "plans/04-close-the-shell.svg",
+      "sourceSha256": "0753934ef88c93af1a1d7e24ba0309768c18a940b6782233aec2ae56fb2afb97",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2643
+      ],
+      "file": "03.webp",
+      "width": 1600,
+      "height": 1322,
+      "full": "full/03.png",
+      "fullWidth": 2400,
+      "fullHeight": 1982
+    },
+    {
+      "slide": 4,
+      "frame": 6,
+      "title": "Four rooms from drawn walls",
+      "source": "plans/06-four-rooms-one-starting-plan.svg",
+      "sourceSha256": "2381e7ecca8bfa48dc0b6d5eb44c5f82fdf4f0215ff39cb863642bd843f0d293",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2643
+      ],
+      "file": "04.webp",
+      "width": 1600,
+      "height": 1322,
+      "full": "full/04.png",
+      "fullWidth": 2400,
+      "fullHeight": 1982
+    },
+    {
+      "slide": 5,
+      "frame": 7,
+      "title": "A door for the office",
+      "source": "plans/07-give-office-a-doorway.svg",
+      "sourceSha256": "a46e48b87088697af3595e941393757684a6c8b2fee1e0fc800a04a74b5b8903",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        1907
+      ],
+      "file": "05.webp",
+      "width": 1600,
+      "height": 954,
+      "full": "full/05.png",
+      "fullWidth": 2400,
+      "fullHeight": 1430
+    },
+    {
+      "slide": 6,
+      "frame": 10,
+      "title": "Daylight edges",
+      "source": "plans/10-establish-the-daylight-edges.svg",
+      "sourceSha256": "3feb9228dbecb787371f68b71fa9a0663e892d57aa86e023fc2d86bb9eef2d0a",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2643
+      ],
+      "file": "06.webp",
+      "width": 1600,
+      "height": 1322,
+      "full": "full/06.png",
+      "fullWidth": 2400,
+      "fullHeight": 1982
+    },
+    {
+      "slide": 7,
+      "frame": 13,
+      "title": "A plan with names",
+      "source": "plans/13-the-initial-plan-is-ready.svg",
+      "sourceSha256": "dfab0318ed48fe0378003d61ce993c34c6393e3aa96bf84eb0ce5d0136909395",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2643
+      ],
+      "file": "07.webp",
+      "width": 1600,
+      "height": 1322,
+      "full": "full/07.png",
+      "fullWidth": 2400,
+      "fullHeight": 1982
+    },
+    {
+      "slide": 8,
+      "frame": 14,
+      "title": "We forgot the kitchen",
+      "source": "plans/14-we-forgot-the-kitchen.svg",
+      "sourceSha256": "ceff9a6cb899ea696aa38690810bde3e0cb37219e32648a5498864601ec8c0a6",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        2944,
+        3200
+      ],
+      "file": "08.webp",
+      "width": 1472,
+      "height": 1600,
+      "full": "full/08.png",
+      "fullWidth": 2208,
+      "fullHeight": 2400
+    },
+    {
+      "slide": 9,
+      "frame": 15,
+      "title": "Where the kitchen goes",
+      "source": "plans/15-agree-on-a-south-extension.svg",
+      "sourceSha256": "ceff9a6cb899ea696aa38690810bde3e0cb37219e32648a5498864601ec8c0a6",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        2944,
+        3200
+      ],
+      "file": "09.webp",
+      "width": 1472,
+      "height": 1600,
+      "full": "full/09.png",
+      "fullWidth": 2208,
+      "fullHeight": 2400
+    },
+    {
+      "slide": 10,
+      "frame": 17,
+      "title": "A fifth room appears",
+      "source": "plans/17-a-fifth-enclosed-space.svg",
+      "sourceSha256": "c57e10a837ea6c0643a0880aa17b789724215dfd70d8ba00a1fc23e1379785c7",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        2944,
+        3200
+      ],
+      "file": "10.webp",
+      "width": 1472,
+      "height": 1600,
+      "full": "full/10.png",
+      "fullWidth": 2208,
+      "fullHeight": 2400
+    },
+    {
+      "slide": 11,
+      "frame": 19,
+      "title": "Five named spaces",
+      "source": "plans/19-complete-the-new-room.svg",
+      "sourceSha256": "2113b8ad5526505d1e59b6cf9a92745e9984637620ed4769ee605e7a42c01d81",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        2944,
+        3200
+      ],
+      "file": "11.webp",
+      "width": 1472,
+      "height": 1600,
+      "full": "full/11.png",
+      "fullWidth": 2208,
+      "fullHeight": 2400
+    },
+    {
+      "slide": 12,
+      "frame": 21,
+      "title": "Reasons before furniture",
+      "source": "plans/21-make-the-design-intention-visible.svg",
+      "sourceSha256": "70aa2560ac9aa1a4769c724145e0321675d8c0d7f593d1bc626d7d0f1295c7be",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        1907
+      ],
+      "file": "12.webp",
+      "width": 1600,
+      "height": 954,
+      "full": "full/12.png",
+      "fullWidth": 2400,
+      "fullHeight": 1430
+    },
+    {
+      "slide": 13,
+      "frame": 22,
+      "title": "The work pair",
+      "source": "plans/22-place-the-work-pair.svg",
+      "sourceSha256": "c0835b8d841d8bcc67446546da525ec005cc8e01c58aa515efe3d7db16c84a6f",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        1907
+      ],
+      "file": "13.webp",
+      "width": 1600,
+      "height": 954,
+      "full": "full/13.png",
+      "fullWidth": 2400,
+      "fullHeight": 1430
+    },
+    {
+      "slide": 14,
+      "frame": 24,
+      "title": "The office as a whole",
+      "source": "plans/24-review-the-room-as-a-whole.svg",
+      "sourceSha256": "199766d6556382569de0e20c9231b5d77caa9d9370d580ec885ff7967f3cbf34",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        1907
+      ],
+      "file": "14.webp",
+      "width": 1600,
+      "height": 954,
+      "full": "full/14.png",
+      "fullWidth": 2400,
+      "fullHeight": 1430
+    },
+    {
+      "slide": 15,
+      "frame": 30,
+      "title": "A guest room that is also a study",
+      "source": "plans/30-complete-the-guest-room.svg",
+      "sourceSha256": "9420e26689b4bbe2f2ad23079fe9dcd6381fcec0fcc4d5e5b32b93afc51d12f2",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3140,
+        3200
+      ],
+      "file": "15.webp",
+      "width": 1570,
+      "height": 1600,
+      "full": "full/15.png",
+      "fullWidth": 2355,
+      "fullHeight": 2400
+    },
+    {
+      "slide": 16,
+      "frame": 33,
+      "title": "Seating and dining",
+      "source": "plans/33-complete-the-seating-area.svg",
+      "sourceSha256": "87b08fca914d2f6dc70af218ec1e60d50b72f243fd1ad723e20eb4758effc66b",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2762
+      ],
+      "file": "16.webp",
+      "width": 1600,
+      "height": 1381,
+      "full": "full/16.png",
+      "fullWidth": 2400,
+      "fullHeight": 2072
+    },
+    {
+      "slide": 17,
+      "frame": 36,
+      "title": "The fitted kitchen",
+      "source": "plans/36-complete-the-kitchen-study.svg",
+      "sourceSha256": "14bfeb6ebaff41b0b83bb9942acfab1dbb7370ff4dc040651c05682a8f22674b",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2717
+      ],
+      "file": "17.webp",
+      "width": 1600,
+      "height": 1358,
+      "full": "full/17.png",
+      "fullWidth": 2400,
+      "fullHeight": 2038
+    },
+    {
+      "slide": 18,
+      "frame": 37,
+      "title": "The whole arrangement",
+      "source": "plans/37-read-the-whole-arrangement.svg",
+      "sourceSha256": "ada1827171f9c5b7ae5c59f44f83838640fdd27edc99240db0893c27b229d277",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        2944,
+        3200
+      ],
+      "file": "18.webp",
+      "width": 1472,
+      "height": 1600,
+      "full": "full/18.png",
+      "fullWidth": 2208,
+      "fullHeight": 2400
+    },
+    {
+      "slide": 19,
+      "frame": 38,
+      "title": "A chair outside the conversation",
+      "source": "plans/38-a-specific-revision-not-a-new-layout.svg",
+      "sourceSha256": "24cbfac3262fe0d72b1f1d60ae91503a6f8ec71f76b488b0c840a2fd3bbbfb1b",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2762
+      ],
+      "file": "19.webp",
+      "width": 1600,
+      "height": 1381,
+      "full": "full/19.png",
+      "fullWidth": 2400,
+      "fullHeight": 2072
+    },
+    {
+      "slide": 20,
+      "frame": 40,
+      "title": "One chair, one change",
+      "source": "plans/40-turn-toward-the-conversation.svg",
+      "sourceSha256": "55d900a637685f0e535d0a048b022add4a011dc22c5e9759228eefd24b7c0ed7",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        2762
+      ],
+      "file": "20.webp",
+      "width": 1600,
+      "height": 1381,
+      "full": "full/20.png",
+      "fullWidth": 2400,
+      "fullHeight": 2072
+    },
+    {
+      "slide": 21,
+      "frame": 42,
+      "title": "A wider window, the same wall",
+      "source": "plans/42-a-wider-window-the-same-wall.svg",
+      "sourceSha256": "915f7bd884a9961a2e721a113867fe536474c78cbbf7edab83f709768f339cbb",
+      "processing": "plan-clean",
+      "box": [
+        0,
+        0,
+        3200,
+        1907
+      ],
+      "file": "21.webp",
+      "width": 1600,
+      "height": 954,
+      "full": "full/21.png",
+      "fullWidth": 2400,
+      "fullHeight": 1430
+    },
+    {
+      "slide": 22,
+      "frame": 44,
+      "title": "The same model in space",
+      "source": "screenshots/44-the-whole-model-in-space.jpg",
+      "sourceSha256": "0b1c9dfdbe88748b79d0bbe883ce1441d0953fd1b5cda3221d7500351c87397c",
+      "processing": "3d",
+      "box": [
+        160,
+        55,
+        1760,
+        884
+      ],
+      "file": "22.webp",
+      "width": 1600,
+      "height": 829,
+      "full": "full/22.jpg",
+      "fullWidth": 1600,
+      "fullHeight": 829
+    },
+    {
+      "slide": 23,
+      "frame": 45,
+      "title": "The office at eye level",
+      "source": "screenshots/45-office-at-eye-level.jpg",
+      "sourceSha256": "94ae3065b1d69d68f21345c4b438225ffb308fc35c5ae72818d3bbb24139b6d9",
+      "processing": "3d",
+      "box": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "file": "23.webp",
+      "width": 1600,
+      "height": 780,
+      "full": "full/23.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    {
+      "slide": 24,
+      "frame": 46,
+      "title": "The main bedroom",
+      "source": "screenshots/46-the-main-bedroom.jpg",
+      "sourceSha256": "a662c77ed58e58954e8d7ff4b2734f3fc3c4f246d51bd63b5627ade7b8f0a677",
+      "processing": "3d",
+      "box": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "file": "24.webp",
+      "width": 1600,
+      "height": 780,
+      "full": "full/24.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    {
+      "slide": 25,
+      "frame": 48,
+      "title": "The chair, from inside",
+      "source": "screenshots/48-review-the-chair-from-inside.jpg",
+      "sourceSha256": "07ba6a037e2e79c97e5d3b8a2f98a77fa5609dcb0c981758c8a4afd8feb41cae",
+      "processing": "3d",
+      "box": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "file": "25.webp",
+      "width": 1600,
+      "height": 780,
+      "full": "full/25.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    {
+      "slide": 26,
+      "frame": 49,
+      "title": "The revision at human scale",
+      "source": "screenshots/49-see-the-revision-at-human-scale.jpg",
+      "sourceSha256": "a04d44a20f1a33e8b249f84cf20bd1374a3851bd36ff1a1e9ace9dc3740a82fc",
+      "processing": "3d",
+      "box": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "file": "26.webp",
+      "width": 1600,
+      "height": 780,
+      "full": "full/26.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    {
+      "slide": 27,
+      "frame": 51,
+      "title": "From the living room into the kitchen",
+      "source": "screenshots/51-from-living-room-into-the-extension.jpg",
+      "sourceSha256": "a7cc2a8491ac5c42d335aa93afb82f13045113f9b9076d8f4117c2b3827ccd27",
+      "processing": "3d",
+      "box": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "file": "27.webp",
+      "width": 1600,
+      "height": 780,
+      "full": "full/27.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    {
+      "slide": 28,
+      "frame": 52,
+      "title": "One home",
+      "source": "screenshots/52-one-model-several-ways-to-inspect-it.jpg",
+      "sourceSha256": "a582223985b034aa3a42aacdec6b013bfaff39c3801f9e56f609dd9445152452",
+      "processing": "3d",
+      "box": [
+        160,
+        55,
+        1760,
+        884
+      ],
+      "file": "28.webp",
+      "width": 1600,
+      "height": 829,
+      "full": "full/28.jpg",
+      "fullWidth": 1600,
+      "fullHeight": 829
+    }
+  ]
+}

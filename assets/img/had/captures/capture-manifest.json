@@ -23,7 +23,7 @@
     "living-before": {
       "frame": 38,
       "source": "plans/38-a-specific-revision-not-a-new-layout.svg",
-      "sourceSha256": "5352c2c4ac0d169d2cb8a4de5df2bb5b9e458be9c09ed6aced9a573f4533490d",
+      "sourceSha256": "24cbfac3262fe0d72b1f1d60ae91503a6f8ec71f76b488b0c840a2fd3bbbfb1b",
       "processing": "crop of a 3840x2160 render of the cleaned SVG export",
       "crop": [
         850,
@@ -41,7 +41,7 @@
     "living-after": {
       "frame": 40,
       "source": "plans/40-turn-toward-the-conversation.svg",
-      "sourceSha256": "652bf09cb78b59fd3e3ddba835f278fc69daea556a6a582e5da92b7ebb317ccb",
+      "sourceSha256": "55d900a637685f0e535d0a048b022add4a011dc22c5e9759228eefd24b7c0ed7",
       "processing": "crop of a 3840x2160 render of the cleaned SVG export",
       "crop": [
         850,
@@ -59,7 +59,7 @@
     "three-surfaces-plan": {
       "frame": 37,
       "source": "plans/37-read-the-whole-arrangement.svg",
-      "sourceSha256": "5ad549ea4e967755f605503285a1627f577090a057902feecf87d91035082091",
+      "sourceSha256": "ada1827171f9c5b7ae5c59f44f83838640fdd27edc99240db0893c27b229d277",
       "processing": "crop of a 3840x2160 render of the cleaned SVG export",
       "crop": [
         990,
@@ -77,7 +77,7 @@
     "living-before-3d": {
       "frame": 48,
       "source": "screenshots/48-review-the-chair-from-inside.jpg",
-      "sourceSha256": "c379c5b60be7208f5ff71e6c4668491228b2f362ed5ec36cbef2a5990a7d2b0d",
+      "sourceSha256": "07ba6a037e2e79c97e5d3b8a2f98a77fa5609dcb0c981758c8a4afd8feb41cae",
       "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
       "crop": [
         110,
@@ -95,7 +95,7 @@
     "living-after-3d": {
       "frame": 49,
       "source": "screenshots/49-see-the-revision-at-human-scale.jpg",
-      "sourceSha256": "33dec802f257d0b751c4dcef91d248ebc34a96a89f241254dad468a7ed94b4fa",
+      "sourceSha256": "a04d44a20f1a33e8b249f84cf20bd1374a3851bd36ff1a1e9ace9dc3740a82fc",
       "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
       "crop": [
         110,
@@ -113,7 +113,7 @@
     "three-surfaces-fly": {
       "frame": 52,
       "source": "screenshots/52-one-model-several-ways-to-inspect-it.jpg",
-      "sourceSha256": "52b7a0fc8a60a2d9ef0e74264fab67c48ade4a5ef6298ddb1f22777b0a9c3848",
+      "sourceSha256": "a582223985b034aa3a42aacdec6b013bfaff39c3801f9e56f609dd9445152452",
       "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
       "crop": [
         160,
@@ -131,7 +131,7 @@
     "three-surfaces-walk": {
       "frame": 45,
       "source": "screenshots/45-office-at-eye-level.jpg",
-      "sourceSha256": "02eea6583e1bab1ce73458c8a146262fa284aa98f4162cd99fabee48db5562e2",
+      "sourceSha256": "94ae3065b1d69d68f21345c4b438225ffb308fc35c5ae72818d3bbb24139b6d9",
       "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
       "crop": [
         110,
@@ -149,7 +149,7 @@
     "whole-model": {
       "frame": 44,
       "source": "screenshots/44-the-whole-model-in-space.jpg",
-      "sourceSha256": "e39dc84d80f3a6058d9f0d436f5816742e75a949eaf59825a08f7a6f3e2e0498",
+      "sourceSha256": "0b1c9dfdbe88748b79d0bbe883ce1441d0953fd1b5cda3221d7500351c87397c",
       "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
       "crop": [
         160,
@@ -167,7 +167,7 @@
     "window-inspector": {
       "frame": 42,
       "source": "screenshots/42-a-wider-window-the-same-wall.jpg",
-      "sourceSha256": "70b05b064f3ffeea80591bbe538e152f5bd20c48460ff72eab7a0067d5e86630",
+      "sourceSha256": "4f1e5ad93d174cf48d6d6b85055013806b30a81a03b2a814ce31640df72c3178",
       "processing": "crop of the native screenshot at 1x",
       "crop": [
         1636,
