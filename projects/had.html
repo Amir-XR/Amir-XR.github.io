@@ -60,6 +60,28 @@
     .frame > .chapter .glyph { font-size: 22px; }
     .frame > .chapter + section.section { margin-top: 0; }
     .frame > .chapter + section.section > h2::before { display:none; }
+    .had-capture { scroll-margin-top:100px; }
+    /* Five photographic evidence groups; inherit the site's figure frame and matte. */
+    .had-capture .had-capture-cell { min-width:0; }
+    .had-capture .had-capture-cell a { padding:10px; }
+    .had-capture-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .had-capture-triptych { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"plan fly" "plan walk"; gap:14px 18px; }
+    .had-capture-triptych .had-capture-cell:nth-child(1) { grid-area:plan; display:flex; flex-direction:column; }
+    .had-capture-triptych .had-capture-cell:nth-child(2) { grid-area:fly; }
+    .had-capture-triptych .had-capture-cell:nth-child(3) { grid-area:walk; }
+    .had-capture-triptych .had-capture-cell:nth-child(1) a { flex:1; min-height:0; }
+    .had-capture-triptych .had-capture-cell:nth-child(1) a img { height:100%; object-fit:contain; }
+    .had-capture-label { display:block; margin:0 0 8px; color:var(--ash); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+    .had-capture-inspector { display:grid; grid-template-columns:minmax(0,296px) minmax(0,1fr); gap:24px; align-items:center; }
+    .had-capture-inspector figcaption { margin:0; }
+    @media (max-width:640px) {
+      .had-capture-pair { grid-template-columns:1fr; }
+      .had-capture-triptych { grid-template-columns:1fr; grid-template-areas:"plan" "fly" "walk"; }
+      .had-capture-triptych .had-capture-cell:nth-child(1) a { flex:none; }
+      .had-capture-triptych .had-capture-cell:nth-child(1) a img { height:auto; }
+      .had-capture-inspector { grid-template-columns:1fr; }
+      .had-capture-inspector .had-capture-cell { max-width:296px; margin:auto; }
+    }
   </style>
 
   <div class="frame">
@@ -531,6 +553,14 @@
         </a>
         <figcaption>Rooms are derived from the wall network each time the plan changes.</figcaption>
       </figure>
+
+      <figure class="figure had-capture" id="had-capture-rooms">
+        <div class="had-capture-cell">
+          <a href="../assets/img/had/captures/full/rooms-derived.png" target="_blank" rel="noopener" aria-label="Open full capture: Four detected rooms in the editor, labeled Bedroom 1, Bedroom 2, Office and Living Room, with their areas">
+            <img src="../assets/img/had/captures/rooms-derived.webp" width="1600" height="1285" alt="Four detected rooms in the editor, labeled Bedroom 1, Bedroom 2, Office and Living Room, with their areas" loading="lazy" decoding="async" />
+          </a></div>
+        <figcaption>Four closed regions become four rooms: two bedrooms at 16 m² each, Office at 18 m², and Living Room at 30 m². Labels and areas come from the editor. Every capture on this page is a prepared scene state recorded in the prototype on 2026-10-12; quoted script lines are a proposed voiceover, not a transcript.</figcaption>
+      </figure>
     </section>
 
     <section class="section">
@@ -919,6 +949,28 @@
         </a>
         <figcaption>A placement arrives with a badge, a spoken reason, and a record of what placed it.</figcaption>
       </figure>
+
+      <figure class="figure had-capture" id="had-capture-revision">
+        <div class="had-capture-pair">
+          <div class="had-capture-cell"><span class="had-capture-label">Before · plan</span>
+          <a href="../assets/img/had/captures/full/living-before.png" target="_blank" rel="noopener" aria-label="Open full capture: Living Room before the armchair revision">
+            <img src="../assets/img/had/captures/living-before.webp" width="1600" height="1330" alt="Living Room before the armchair revision" loading="lazy" decoding="async" />
+          </a></div>
+          <div class="had-capture-cell"><span class="had-capture-label">After · plan</span>
+          <a href="../assets/img/had/captures/full/living-after.png" target="_blank" rel="noopener" aria-label="Open full capture: Living Room after moving and turning only the armchair">
+            <img src="../assets/img/had/captures/living-after.webp" width="1600" height="1330" alt="Living Room after moving and turning only the armchair" loading="lazy" decoding="async" />
+          </a></div>
+          <div class="had-capture-cell"><span class="had-capture-label">Before · eye level</span>
+          <a href="../assets/img/had/captures/full/living-before-3d.jpg" target="_blank" rel="noopener" aria-label="Open full capture: The original armchair position viewed from inside Living Room">
+            <img src="../assets/img/had/captures/living-before-3d.webp" width="1600" height="780" alt="The original armchair position viewed from inside Living Room" loading="lazy" decoding="async" />
+          </a></div>
+          <div class="had-capture-cell"><span class="had-capture-label">After · eye level</span>
+          <a href="../assets/img/had/captures/full/living-after-3d.jpg" target="_blank" rel="noopener" aria-label="Open full capture: The revised armchair beside the table, facing the sofa, from the same viewpoint">
+            <img src="../assets/img/had/captures/living-after-3d.webp" width="1600" height="780" alt="The revised armchair beside the table, facing the sofa, from the same viewpoint" loading="lazy" decoding="async" />
+          </a></div>
+        </div>
+        <figcaption>One object changes. The armchair moves beside the table and turns toward the sofa; every other object keeps its position, size and angle. The same comparison is visible at eye level.<br /><em>Proposed voiceover: “Move the armchair beside the table, then turn it toward the sofa.”</em></figcaption>
+      </figure>
     </section>
 
     <div class="chapter"><span>05 — One model, three surfaces</span><span class="glyph">✦</span></div>
@@ -1046,6 +1098,24 @@
         </a>
         <figcaption>One design model supplies every surface on which the room is viewed.</figcaption>
       </figure>
+
+      <figure class="figure had-capture" id="had-capture-surfaces">
+        <div class="had-capture-triptych">
+          <div class="had-capture-cell"><span class="had-capture-label">2D · plan</span>
+          <a href="../assets/img/had/captures/full/three-surfaces-plan.png" target="_blank" rel="noopener" aria-label="Open full capture: The five-room furnishing arrangement in the 2D plan">
+            <img src="../assets/img/had/captures/three-surfaces-plan.webp" width="1600" height="1742" alt="The five-room furnishing arrangement in the 2D plan" loading="lazy" decoding="async" />
+          </a></div>
+          <div class="had-capture-cell"><span class="had-capture-label">3D · fly</span>
+          <a href="../assets/img/had/captures/full/three-surfaces-fly.jpg" target="_blank" rel="noopener" aria-label="Open full capture: The same apartment viewed from above in Fly mode">
+            <img src="../assets/img/had/captures/three-surfaces-fly.webp" width="1600" height="829" alt="The same apartment viewed from above in Fly mode" loading="lazy" decoding="async" />
+          </a></div>
+          <div class="had-capture-cell"><span class="had-capture-label">3D · walk</span>
+          <a href="../assets/img/had/captures/full/three-surfaces-walk.jpg" target="_blank" rel="noopener" aria-label="Open full capture: The Office desk and reading area at eye level">
+            <img src="../assets/img/had/captures/three-surfaces-walk.webp" width="1600" height="780" alt="The Office desk and reading area at eye level" loading="lazy" decoding="async" />
+          </a></div>
+        </div>
+        <figcaption>One design, inspected from the plan, from above in Fly mode, and from inside Office at eye level. The VR walkthrough is not captured here; these are the desktop plan and 3D views.</figcaption>
+      </figure>
     </section>
 
     <div class="chapter"><span>06 — Keeping it honest</span><span class="glyph">✦</span></div>
@@ -1057,100 +1127,199 @@
       <p>The session recorder keeps every prompt, every instruction, and every solver verdict in order. A recording of a desk rotated into a wall without a retry is why rotations are now checked first. I used those traces to hold claims to implemented behaviour, the same standard this page needs to meet.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F11-paths.svg" target="_blank" rel="noopener" aria-label="Open full size: An edit’s path determines which checks stand behind it.">
-          <svg aria-label="Five editing paths with model and solver markers, a cursor, and their respective checks" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="hadF11-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
-            <title id="hadF11-title">Five kinds of edit and who decides each: solver-backed placement, relational moves, direct nudges with lighter checks, guided placement by the person's click, and catalog assets the model draws but never places.</title>
-            <defs>
-              <marker id="hadF11-arrow-solid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
-                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
-              </marker>
-              <marker id="hadF11-arrow-model" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
-                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--ash,rgba(243,238,227,0.55))"/>
-              </marker>
-              <marker id="hadF11-arrow-you" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
-                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
-              </marker>
-            </defs>
-          
-            <!-- lane rules -->
-            <path d="M24 72 H696 M24 124 H696 M24 176 H696 M24 228 H696" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
-          
-            <!-- requests -->
-            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
-              <text x="24" y="39">SOLVER-BACKED</text>
-              <text x="24" y="91">RELATIONAL MOVES</text>
-              <text x="24" y="143">DIRECT NUDGES</text>
-              <text x="24" y="195">GUIDED</text>
-              <text x="24" y="247">CATALOG ASSETS</text>
-            </g>
-            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
-              <text x="24" y="57">“queen bed in the bedroom”</text>
-              <text x="24" y="109">“turn the desk to face into the room”</text>
-              <text x="24" y="161">“a bit to the left”</text>
-              <text x="24" y="213">“add a door”</text>
-              <text x="24" y="265">“a new reading lamp”</text>
-            </g>
-          
-            <!-- who decides: the model -->
-            <g style="fill:var(--paper-3,#181922);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
-              <rect x="280" y="88" width="58" height="20" rx="10"/>
-              <rect x="280" y="140" width="58" height="20" rx="10"/>
-              <rect x="280" y="244" width="58" height="20" rx="10"/>
-            </g>
-            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))" text-anchor="middle">
-              <text x="309" y="101.5">MODEL</text>
-              <text x="309" y="153.5">MODEL</text>
-              <text x="309" y="257.5">MODEL</text>
-            </g>
-          
-            <!-- who decides: the solver -->
-            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
-              <path d="M300.5 54.5 V37.5 L317.5 54.5 Z M304.5 50.5 V45.2 L309.8 50.5 Z"/>
-              <path d="M357.5 106.5 V89.5 L374.5 106.5 Z M361.5 102.5 V97.2 L366.8 102.5 Z"/>
-            </g>
-          
-            <!-- who decides: the person -->
-            <path d="M290 194 V207 L293.5 203.8 L296 209 L298.2 208 L295.8 202.8 L300.5 202.6 Z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.4;stroke-linejoin:round"/>
-            <text x="306" y="206" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink-2,#c5c1b8)">YOU</text>
-          
-            <!-- the icon a model drew, unverified -->
-            <rect x="356" y="244" width="20" height="20" rx="3" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:3 2.5"/>
-            <path d="M362.5 249 H369.5 L371.5 254 H360.5 Z M366 254 V259 M363 259.5 H369" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round"/>
-          
-            <!-- paths: dashed where a model decides, solid where a deterministic step does -->
-            <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3">
-              <path d="M340 98 H353"/>
-              <path d="M340 150 H419" marker-end="url(#hadF11-arrow-model)"/>
-              <path d="M340 254 H353"/>
-              <path d="M379 254 H419" marker-end="url(#hadF11-arrow-model)"/>
-            </g>
-            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2">
-              <path d="M323 46 H419" marker-end="url(#hadF11-arrow-solid)"/>
-              <path d="M380 98 H419" marker-end="url(#hadF11-arrow-solid)"/>
-            </g>
-            <path d="M336 202 H419" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF11-arrow-you)"/>
-          
-            <!-- checks -->
-            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">
-              <text x="430" y="40">inside room · no overlap</text>
-              <text x="430" y="55">door swing · window view</text>
-              <text x="430" y="102">inside room · no overlap · one retry</text>
-              <text x="430" y="144">rotate: overlap check</text>
-              <text x="430" y="159">resize: clamped · <tspan style="fill:var(--ash,rgba(243,238,227,0.55))">move: no check</tspan></text>
-              <text x="430" y="206">canvas placement rules</text>
-              <text x="430" y="258">sanitised · clamped · never placed</text>
-            </g>
-          
-            <!-- legend -->
-            <path d="M24 310 H54" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3"/>
-            <text x="62" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a model decides</text>
-            <path d="M196 310 H226" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
-            <text x="234" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a deterministic step</text>
-          
-            <!-- motto -->
-            <text x="696" y="314" text-anchor="end" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Checked against what is implemented.</text>
+          <svg aria-label="Five editing paths with model and solver markers, a cursor, and their respective checks" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="hadF11-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
+
+            <title id="hadF11-title">Five kinds of edit and who decides each: solver-backed placement, relational moves, direct nudges with lighter checks, guided placement by the person's click, and catalog assets the model draws but never places.</title>
+
+            <defs>
+
+              <marker id="hadF11-arrow-solid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--accent,#c08bd2)"/>
+
+              </marker>
+
+              <marker id="hadF11-arrow-model" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--ash,rgba(243,238,227,0.55))"/>
+
+              </marker>
+
+              <marker id="hadF11-arrow-you" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+
+                <path d="M0 0.8 L7.4 4 L0 7.2 Z" style="fill:var(--rule-bold,rgba(243,238,227,0.42))"/>
+
+              </marker>
+
+            </defs>
+
+          
+
+            <!-- lane rules -->
+
+            <path d="M24 72 H696 M24 124 H696 M24 176 H696 M24 228 H696" style="fill:none;stroke:var(--rule,rgba(243,238,227,0.14));stroke-width:1"/>
+
+          
+
+            <!-- requests -->
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))">
+
+              <text x="24" y="39">SOLVER-BACKED</text>
+
+              <text x="24" y="91">RELATIONAL MOVES</text>
+
+              <text x="24" y="143">DIRECT NUDGES</text>
+
+              <text x="24" y="195">GUIDED</text>
+
+              <text x="24" y="247">CATALOG ASSETS</text>
+
+            </g>
+
+            <g style="font-size:13px;fill:var(--ink,#f3eee3)">
+
+              <text x="24" y="57">“queen bed in the bedroom”</text>
+
+              <text x="24" y="109">“turn the desk to face into the room”</text>
+
+              <text x="24" y="161">“a bit to the left”</text>
+
+              <text x="24" y="213">“add a door”</text>
+
+              <text x="24" y="265">“a new reading lamp”</text>
+
+            </g>
+
+          
+
+            <!-- who decides: the model -->
+
+            <g style="fill:var(--paper-3,#181922);stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:4 3">
+
+              <rect x="280" y="88" width="58" height="20" rx="10"/>
+
+              <rect x="280" y="140" width="58" height="20" rx="10"/>
+
+              <rect x="280" y="244" width="58" height="20" rx="10"/>
+
+            </g>
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.14em;fill:var(--ash,rgba(243,238,227,0.55))" text-anchor="middle">
+
+              <text x="309" y="101.5">MODEL</text>
+
+              <text x="309" y="153.5">MODEL</text>
+
+              <text x="309" y="257.5">MODEL</text>
+
+            </g>
+
+          
+
+            <!-- who decides: the solver -->
+
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:1.5;stroke-linejoin:round">
+
+              <path d="M300.5 54.5 V37.5 L317.5 54.5 Z M304.5 50.5 V45.2 L309.8 50.5 Z"/>
+
+              <path d="M357.5 106.5 V89.5 L374.5 106.5 Z M361.5 102.5 V97.2 L366.8 102.5 Z"/>
+
+            </g>
+
+          
+
+            <!-- who decides: the person -->
+
+            <path d="M290 194 V207 L293.5 203.8 L296 209 L298.2 208 L295.8 202.8 L300.5 202.6 Z" style="fill:none;stroke:var(--ink-2,#c5c1b8);stroke-width:1.4;stroke-linejoin:round"/>
+
+            <text x="306" y="206" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:10.5px;letter-spacing:.14em;fill:var(--ink-2,#c5c1b8)">YOU</text>
+
+          
+
+            <!-- the icon a model drew, unverified -->
+
+            <rect x="356" y="244" width="20" height="20" rx="3" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-dasharray:3 2.5"/>
+
+            <path d="M362.5 249 H369.5 L371.5 254 H360.5 Z M366 254 V259 M363 259.5 H369" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.2;stroke-linejoin:round;stroke-linecap:round"/>
+
+          
+
+            <!-- paths: dashed where a model decides, solid where a deterministic step does -->
+
+            <g style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3">
+
+              <path d="M340 98 H353"/>
+
+              <path d="M340 150 H419" marker-end="url(#hadF11-arrow-model)"/>
+
+              <path d="M340 254 H353"/>
+
+              <path d="M379 254 H419" marker-end="url(#hadF11-arrow-model)"/>
+
+            </g>
+
+            <g style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2">
+
+              <path d="M323 46 H419" marker-end="url(#hadF11-arrow-solid)"/>
+
+              <path d="M380 98 H419" marker-end="url(#hadF11-arrow-solid)"/>
+
+            </g>
+
+            <path d="M336 202 H419" style="fill:none;stroke:var(--rule-bold,rgba(243,238,227,0.42));stroke-width:1.5" marker-end="url(#hadF11-arrow-you)"/>
+
+          
+
+            <!-- checks -->
+
+            <g style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">
+
+              <text x="430" y="40">inside room · no overlap</text>
+
+              <text x="430" y="55">door swing · window view</text>
+
+              <text x="430" y="102">inside room · no overlap · one retry</text>
+
+              <text x="430" y="144">rotate: overlap check</text>
+
+              <text x="430" y="159">resize: clamped · <tspan style="fill:var(--ash,rgba(243,238,227,0.55))">move: no check</tspan></text>
+
+              <text x="430" y="206">canvas placement rules</text>
+
+              <text x="430" y="258">sanitised · clamped · never placed</text>
+
+            </g>
+
+          
+
+            <!-- legend -->
+
+            <path d="M24 310 H54" style="fill:none;stroke:var(--ash,rgba(243,238,227,0.55));stroke-width:1.5;stroke-dasharray:4 3"/>
+
+            <text x="62" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a model decides</text>
+
+            <path d="M196 310 H226" style="fill:none;stroke:var(--accent,#c08bd2);stroke-width:2"/>
+
+            <text x="234" y="314" style="font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;fill:var(--ink-2,#c5c1b8)">a deterministic step</text>
+
+          
+
+            <!-- motto -->
+
+            <text x="696" y="314" text-anchor="end" style="font-family:var(--italic,'Instrument Serif',serif);font-style:italic;font-size:15px;fill:var(--ash,rgba(243,238,227,0.55))">Checked against what is implemented.</text>
+
           </svg>
         </a>
         <figcaption>An edit’s path determines which checks stand behind it.</figcaption>
+      </figure>
+
+      <figure class="figure had-capture had-capture-inspector" id="had-capture-inspector">
+        <div class="had-capture-cell">
+          <a href="../assets/img/had/captures/full/window-inspector.png" target="_blank" rel="noopener" aria-label="Open full capture: Office window inspector showing width 160 centimetres and attachment to the east wall at 18 percent along">
+            <img src="../assets/img/had/captures/window-inspector.webp" width="276" height="824" alt="Office window inspector showing width 160 centimetres and attachment to the east wall at 18 percent along" loading="lazy" decoding="async" />
+          </a></div>
+        <figcaption>The relationship is inspectable: the Office window is 160 cm wide, “Attached to east, at 18% along.” Its width and wall attachment are separate properties.</figcaption>
       </figure>
     </section>
 
@@ -1266,6 +1435,14 @@
         </a>
         <figcaption>A useful answer connects the request to geometry a person can inspect and undo.</figcaption>
       </figure>
+
+      <figure class="figure had-capture" id="had-capture-closing">
+        <div class="had-capture-cell">
+          <a href="../assets/img/had/captures/full/whole-model.jpg" target="_blank" rel="noopener" aria-label="Open full capture: The whole five-room model with forty furnishings in the prototype 3D view">
+            <img src="../assets/img/had/captures/whole-model.webp" width="1600" height="829" alt="The whole five-room model with forty furnishings in the prototype 3D view" loading="lazy" decoding="async" />
+          </a></div>
+        <figcaption>Five rooms. Forty furnishings. One design model supplies the plan and the spatial view; nothing is drawn twice.</figcaption>
+      </figure>
     </section>
 
     <section class="section">
@@ -1308,7 +1485,6 @@
           <ul>
             <li><strong>Type:</strong> Independent prototype</li>
             <li><strong>Role:</strong> Design, development, and deployment</li>
-            <li><strong>Working name:</strong> HAT, as shown in the prototype</li>
             <li><strong>Year:</strong> 2026</li>
           </ul>
         </article>

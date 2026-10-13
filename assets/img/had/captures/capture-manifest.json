@@ -1,0 +1,186 @@
+{
+  "sourcePackage": "portfolio-HAD/prototype-demo-2026-10-12",
+  "note": "Prepared scene states captured in the prototype on 2026-10-12. Plan crops are rendered from the editor's own SVG export with the detected-room area labels and the watermark removed; the user's label chips, room fills and symbols are the export's own. 3D and UI crops are unaltered pixels of the native screenshots. The 'full' files are the same crops at source resolution.",
+  "assets": {
+    "rooms-derived": {
+      "frame": 13,
+      "source": "plans/13-the-initial-plan-is-ready.png",
+      "sourceSha256": "8e7057fac72a82914fc115c6c14ee964e0d1b670b8f44587e03bac0ac1081c39",
+      "processing": "crop of the 4K PNG export",
+      "crop": [
+        700,
+        100,
+        3140,
+        2060
+      ],
+      "width": 1600,
+      "height": 1285,
+      "file": "rooms-derived.webp",
+      "full": "full/rooms-derived.png",
+      "fullWidth": 2440,
+      "fullHeight": 1960
+    },
+    "living-before": {
+      "frame": 38,
+      "source": "plans/38-a-specific-revision-not-a-new-layout.svg",
+      "sourceSha256": "5352c2c4ac0d169d2cb8a4de5df2bb5b9e458be9c09ed6aced9a573f4533490d",
+      "processing": "crop of a 3840x2160 render of the cleaned SVG export",
+      "crop": [
+        850,
+        198,
+        3030,
+        2010
+      ],
+      "width": 1600,
+      "height": 1330,
+      "file": "living-before.webp",
+      "full": "full/living-before.png",
+      "fullWidth": 2180,
+      "fullHeight": 1812
+    },
+    "living-after": {
+      "frame": 40,
+      "source": "plans/40-turn-toward-the-conversation.svg",
+      "sourceSha256": "652bf09cb78b59fd3e3ddba835f278fc69daea556a6a582e5da92b7ebb317ccb",
+      "processing": "crop of a 3840x2160 render of the cleaned SVG export",
+      "crop": [
+        850,
+        198,
+        3030,
+        2010
+      ],
+      "width": 1600,
+      "height": 1330,
+      "file": "living-after.webp",
+      "full": "full/living-after.png",
+      "fullWidth": 2180,
+      "fullHeight": 1812
+    },
+    "three-surfaces-plan": {
+      "frame": 37,
+      "source": "plans/37-read-the-whole-arrangement.svg",
+      "sourceSha256": "5ad549ea4e967755f605503285a1627f577090a057902feecf87d91035082091",
+      "processing": "crop of a 3840x2160 render of the cleaned SVG export",
+      "crop": [
+        990,
+        65,
+        2850,
+        2090
+      ],
+      "width": 1600,
+      "height": 1742,
+      "file": "three-surfaces-plan.webp",
+      "full": "full/three-surfaces-plan.png",
+      "fullWidth": 1860,
+      "fullHeight": 2025
+    },
+    "living-before-3d": {
+      "frame": 48,
+      "source": "screenshots/48-review-the-chair-from-inside.jpg",
+      "sourceSha256": "c379c5b60be7208f5ff71e6c4668491228b2f362ed5ec36cbef2a5990a7d2b0d",
+      "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
+      "crop": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "width": 1600,
+      "height": 780,
+      "file": "living-before-3d.webp",
+      "full": "full/living-before-3d.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    "living-after-3d": {
+      "frame": 49,
+      "source": "screenshots/49-see-the-revision-at-human-scale.jpg",
+      "sourceSha256": "33dec802f257d0b751c4dcef91d248ebc34a96a89f241254dad468a7ed94b4fa",
+      "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
+      "crop": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "width": 1600,
+      "height": 780,
+      "file": "living-after-3d.webp",
+      "full": "full/living-after-3d.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    "three-surfaces-fly": {
+      "frame": 52,
+      "source": "screenshots/52-one-model-several-ways-to-inspect-it.jpg",
+      "sourceSha256": "52b7a0fc8a60a2d9ef0e74264fab67c48ade4a5ef6298ddb1f22777b0a9c3848",
+      "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
+      "crop": [
+        160,
+        55,
+        1760,
+        884
+      ],
+      "width": 1600,
+      "height": 829,
+      "file": "three-surfaces-fly.webp",
+      "full": "full/three-surfaces-fly.jpg",
+      "fullWidth": 1600,
+      "fullHeight": 829
+    },
+    "three-surfaces-walk": {
+      "frame": 45,
+      "source": "screenshots/45-office-at-eye-level.jpg",
+      "sourceSha256": "02eea6583e1bab1ce73458c8a146262fa284aa98f4162cd99fabee48db5562e2",
+      "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
+      "crop": [
+        110,
+        55,
+        1810,
+        884
+      ],
+      "width": 1600,
+      "height": 780,
+      "file": "three-surfaces-walk.webp",
+      "full": "full/three-surfaces-walk.jpg",
+      "fullWidth": 1700,
+      "fullHeight": 829
+    },
+    "whole-model": {
+      "frame": 44,
+      "source": "screenshots/44-the-whole-model-in-space.jpg",
+      "sourceSha256": "e39dc84d80f3a6058d9f0d436f5816742e75a949eaf59825a08f7a6f3e2e0498",
+      "processing": "crop of the native screenshot (toolbar and FPS overlay excluded)",
+      "crop": [
+        160,
+        55,
+        1760,
+        884
+      ],
+      "width": 1600,
+      "height": 829,
+      "file": "whole-model.webp",
+      "full": "full/whole-model.jpg",
+      "fullWidth": 1600,
+      "fullHeight": 829
+    },
+    "window-inspector": {
+      "frame": 42,
+      "source": "screenshots/42-a-wider-window-the-same-wall.jpg",
+      "sourceSha256": "70b05b064f3ffeea80591bbe538e152f5bd20c48460ff72eab7a0067d5e86630",
+      "processing": "crop of the native screenshot at 1x",
+      "crop": [
+        1636,
+        56,
+        1912,
+        880
+      ],
+      "width": 276,
+      "height": 824,
+      "file": "window-inspector.webp",
+      "full": "full/window-inspector.png",
+      "fullWidth": 276,
+      "fullHeight": 824
+    }
+  }
+}
