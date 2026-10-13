@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HAD — Human–AI Design | Amir Goli</title>
-<meta name="description" content="HAD is a conversational partner for designing a home, where the model interprets design intent and computational tools decide how to act." />
+<meta name="description" content="HAD is a conversational design partner: the model interprets design intent and computational tools decide how to act." />
 <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,8 +132,8 @@
       </h1>
       <div class="hero-byline">
         <span class="byline-rule" aria-hidden="true"></span>
-        <p class="byline-line"><em>Human–AI Design</em>: designing a home in conversation with an AI that can act on the plan.</p>
-        <p class="byline-meta">Conversational design · Typed intent · Deterministic solvers · 2026</p>
+        <p class="byline-line"><em>Human–AI Design</em>: designing in conversation with an AI that can act on the plan.</p>
+        <p class="byline-meta">Conversational design · Typed intent · Deterministic solvers · 2025</p>
       </div>
     </section>
 
@@ -297,7 +297,7 @@
 
     <div class="callout">
       <p class="kicker">Summary</p>
-      <p><strong>Human–AI Design (HAD)</strong> is a prototype for designing a home in conversation with an AI. You sketch; the assistant sees your plan, asks what you are designing, talks it through with you, and can act on it. Like the assistant in an operating room who hands the surgeon the right instrument, it can switch you to the tool you need, hand you a part to place, or act itself: place, move, rotate, or swap things, and explain why, in words you can check and undo. I developed it to explore how people and AI can design together when models interpret and computational tools decide.</p>
+      <p><strong>Human–AI Design (HAD)</strong> is a prototype for designing in conversation with an AI. You sketch; the assistant sees your plan, asks what you are designing, talks it through with you, and can act on it. Like the assistant in an operating room who hands the surgeon the right instrument, it can switch you to the tool you need, hand you a part to place, or act itself: place, move, rotate, or swap things, and explain why, in words you can check and undo. I developed it to explore how people and AI can design together when models interpret and computational tools decide.</p>
       <p>One design model serves every surface: a 2D drawing canvas, a 3D view you can walk or fly through on screen, and a VR walkthrough on a headset. This page follows one request through that collaboration: how the plan becomes something a model can understand, how intent becomes a form its tools can act on, and how the person stays the author. Placing a bed is the worked example; the subject is the hand-off.</p>
       <p>
         <span class="badge">Human–AI design process</span>
@@ -309,12 +309,12 @@
       </p>
     </div>
 
-    <div class="chapter"><span>01 — The question</span><span class="glyph">✦</span></div>
+    <div class="chapter"><span>01 — Two experiments</span><span class="glyph">✦</span></div>
 
     <section class="section">
       <h2>Can you just put the bed in the bedroom?</h2>
-      <p>Picture people designing a home in conversation: they describe, point, reconsider. “Bed against the long wall, nightstands either side, desk facing the window” is a complete instruction for a person who can see the room. A drafting tool still needs positions and angles before those words can become part of the plan.</p>
-      <p>Language models can now hold that conversation fluently, which sharpens the question: who decides where the bed actually goes? I developed HAD to find out what a design conversation becomes when the AI on the other side can act: let the model interpret, and give it tools that can place. Setting up that hand-off began with understanding what went wrong first.</p>
+      <p>Picture people designing in conversation: they describe, point, reconsider. “Bed against the long wall, nightstands either side, desk facing the window” is a complete instruction for a person who can see the room. A drafting tool still needs positions and angles before those words can become part of the plan.</p>
+      <p>Language models can now hold that conversation fluently, which sharpens the question: who decides where the bed actually goes? I developed HAD to find out what a design conversation becomes when the AI on the other side can act: let the model interpret, and give it tools that can place. HAD is research and development rather than a product line: two experiments on the same prototype decided how that hand-off works.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F01-question.svg" target="_blank" rel="noopener" aria-label="Open full size: A spoken instruction still needs a way to become a position in the room.">
           <svg aria-label="Spoken request beside a bare plan with bed outlines in three possible positions" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="hadF01-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
@@ -391,12 +391,10 @@
       </figure>
     </section>
 
-    <div class="chapter"><span>02 — The placement problem</span><span class="glyph">✦</span></div>
-
     <section class="section">
       <h2>Fluent in words, blind to the wall</h2>
-      <p>The first version’s assistant could discuss the plan, but its only tool named an item; it had to tell the person where to click. It never emitted coordinates, yet described positions nobody could draw, sent a desk and chair to opposite corners, and knew nothing of wall lengths or door swings. The model was doing its job; the tool surface was the bug.</p>
-      <p>The realtime model is weak at spatial math, so I stopped asking it to do any. The new contract passes intent in a small vocabulary to a deterministic <strong>solver</strong>: a tool that computes positions and angles from the plan itself. When people said that confirming each proposal by click felt like the assistant was suggesting rather than placing, I let placements commit on their own, with undo. First, the solver needed a room it could reason about.</p>
+      <p><strong>Experiment one</strong> gave the realtime voice model the whole job. It could discuss the plan, but its only tool named an item, so it had to tell the person where to click. It never emitted coordinates, yet it described positions nobody could draw, sent a desk and chair to opposite corners, and knew nothing of wall lengths or door swings. The finding was clear: the realtime model is weak at spatial math. It was doing its job as a conversational partner; the tool surface was the bug.</p>
+      <p><strong>Experiment two</strong> stopped asking it to do any. The model passes intent in a small vocabulary to a deterministic <strong>solver</strong>: a tool that computes positions and angles from the plan itself. When people said that confirming each proposal by click felt like the assistant was suggesting rather than placing, I let placements commit on their own, with undo. Before any of that, the solver needed a room it could reason about.</p>
       <figure class="figure had-fig">
         <a href="../assets/img/had/had-F02-before-after.svg" target="_blank" rel="noopener" aria-label="Open full size: Changing the tool gave spoken intent a route to a committed placement.">
           <svg aria-label="Click guidance with a desk and chair in opposite corners beside a typed instruction and committed arrangement" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-labelledby="hadF02-title" style="font-family:var(--serif,'Newsreader',Georgia,serif)">
@@ -486,7 +484,7 @@
       <div class="attr">— The decision behind HAD</div>
     </section>
 
-    <div class="chapter"><span>03 — Building the hand-off</span><span class="glyph">✦</span></div>
+    <div class="chapter"><span>02 — Building the hand-off</span><span class="glyph">✦</span></div>
 
     <section class="section">
       <h2>Walls become rooms</h2>
@@ -584,7 +582,7 @@
           <a href="../assets/img/had/captures/full/rooms-derived.png" target="_blank" rel="noopener" aria-label="Open full capture: Four detected rooms in the editor, labeled Bedroom 1, Bedroom 2, Office and Living Room, with their areas">
             <img src="../assets/img/had/captures/rooms-derived.webp" width="1600" height="1285" alt="Four detected rooms in the editor, labeled Bedroom 1, Bedroom 2, Office and Living Room, with their areas" loading="lazy" decoding="async" />
           </a></div>
-        <figcaption>Four closed regions become four rooms: two bedrooms at 16 m² each, Office at 18 m², and Living Room at 30 m². Labels and areas come from the editor. Every capture on this page is a prepared scene state recorded in the prototype on 2026-10-12; quoted script lines are a proposed voiceover, not a transcript.</figcaption>
+        <figcaption>Four closed regions become four rooms: two bedrooms at 16 m² each, Office at 18 m², and Living Room at 30 m². Labels and areas come from the editor.</figcaption>
       </figure>
     </section>
 
@@ -885,7 +883,7 @@
       </figure>
     </section>
 
-    <div class="chapter"><span>04 — Using it</span><span class="glyph">✦</span></div>
+    <div class="chapter"><span>03 — Using it</span><span class="glyph">✦</span></div>
 
     <section class="section">
       <h2>Say it, see it, undo it</h2>
@@ -1171,11 +1169,11 @@
             </div>
           </li>
           <li class="had-walk-slide" data-act="Act V — At human scale">
-            <a class="had-walk-img" href="../assets/img/had/walk/full/17.jpg" target="_blank" rel="noopener" aria-label="Open full size: One home">
-              <img src="../assets/img/had/walk/17.webp" width="1600" height="829" alt="Frame 17 of 17, One home: The finished model from above: five rooms, one design, inspected from the plan, from above, and from inside." loading="lazy" decoding="async" />
+            <a class="had-walk-img" href="../assets/img/had/walk/full/17.jpg" target="_blank" rel="noopener" aria-label="Open full size: One design, three ways">
+              <img src="../assets/img/had/walk/17.webp" width="1600" height="829" alt="Frame 17 of 17, One design, three ways: The finished model from above: five rooms, one design, inspected from the plan, from above, and from inside." loading="lazy" decoding="async" />
             </a>
             <div class="had-walk-cap">
-              <p class="had-walk-title"><span class="had-walk-n">17</span>One home</p>
+              <p class="had-walk-title"><span class="had-walk-n">17</span>One design, three ways</p>
               <p class="had-walk-text">The finished model from above: five rooms, one design, inspected from the plan, from above, and from inside.</p>
               <p class="had-walk-script"><b>You</b>This feels like one home, with different places to work, rest and gather.<br /><b>HAD</b>These views let us inspect one layout from the plan, from above, and from inside each room.</p>
             </div>
@@ -1184,7 +1182,7 @@
       </figure>
     </section>
 
-    <div class="chapter"><span>05 — One model, three surfaces</span><span class="glyph">✦</span></div>
+    <div class="chapter"><span>04 — One model, three surfaces</span><span class="glyph">✦</span></div>
 
     <section class="section">
       <h2>The same plan, walked</h2>
@@ -1329,7 +1327,7 @@
       </figure>
     </section>
 
-    <div class="chapter"><span>06 — Keeping it honest</span><span class="glyph">✦</span></div>
+    <div class="chapter"><span>05 — Keeping it honest</span><span class="glyph">✦</span></div>
 
     <section class="section">
       <h2>Not every edit takes the same road</h2>
@@ -1539,7 +1537,7 @@
       <div class="attr">— The rule behind the claims</div>
     </section>
 
-    <div class="chapter"><span>07 — What it adds up to</span><span class="glyph">✦</span></div>
+    <div class="chapter"><span>06 — What it adds up to</span><span class="glyph">✦</span></div>
 
     <section class="section">
       <h2>Structured design information, connected to AI operations</h2>
@@ -1696,7 +1694,7 @@
           <ul>
             <li><strong>Type:</strong> Independent prototype</li>
             <li><strong>Role:</strong> Design, development, and deployment</li>
-            <li><strong>Year:</strong> 2026</li>
+            <li><strong>Year:</strong> 2025</li>
           </ul>
         </article>
       </div>

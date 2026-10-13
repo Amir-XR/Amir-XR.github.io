@@ -40,7 +40,7 @@ Projects          /projects/                  Selected projects gallery
 Activities        /activities.html            GRA work, conference participation, awards, peer review
 Contact           /contact.html               Email (obfuscated), profiles, collaboration card
 StandardScout details  /projects/standardscout.html   Full project case study
-HAD               /projects/had.html            Human–AI Design (HAD): designing a home in conversation with an AI that acts through deterministic tools (2D/3D/WebXR)
+HAD               /projects/had.html            Human–AI Design (HAD): designing in conversation with an AI that acts through deterministic tools (2D/3D/WebXR)
 ARTH (VR)         /projects/project-1.html    Adaptive Reuse Thinking VR learning environment
 GaoDe             /projects/project-2.html    Multimodal serious game (Leap Motion + vision + voice)
 BESOLOGY          /projects/project-3.html    Parametric topology optimization for high-rises
@@ -95,8 +95,8 @@ ADAPTIVE EVIDENCE INVESTIGATION — Research in progress   /#research
    this as ongoing research, not completed findings or an available product.
 
 HAD — Human–AI Design (working name in the prototype: HAT)   /projects/had.html
-   Independent prototype (2026) exploring the human–AI design process: a person
-   sketches a home and designs it in conversation with an AI assistant that sees the
+   Independent prototype (2025) exploring the human–AI design process: a person
+   sketches a plan and designs it in conversation with an AI assistant that sees the
    plan, asks what they are designing and which room to focus on, talks about the
    plan, and acts on it through tools. Like a surgical assistant handing over
    instruments, it can activate the wall tool for the person (solid 20 cm or interior
