@@ -196,6 +196,10 @@ Journal articles
     doi:10.1061/(asce)ae.1943-5568.0000511
 
 Conference papers
+  • Milosevic, S., Goli, A., & Aksamija, A. (2026). AI-Assisted Archival Analysis for
+    Facade System Retrofits in Heritage Buildings. Proceedings of the Facade World
+    Congress 2026, Pittsburgh, PA, September 28–October 2.
+    https://www.facadetectonics.org/papers/ai-assisted-archival-analysis-for-facade-system-retrofits-in-brutalist-buildings
   • Goli, A., & Dastmalchi, M. R. (2025). Virtual Reality for Adaptive Reuse Thinking
     in Architecture Education. ACADIA 2025, vol. 2, pp. 464–472.
     doi:10.52842/conf.acadia.2025.2.464
