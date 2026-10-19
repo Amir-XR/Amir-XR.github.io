@@ -40,6 +40,7 @@ Projects          /projects/                  Selected projects gallery
 Activities        /activities.html            GRA work, conference participation, awards, peer review
 Contact           /contact.html               Email (obfuscated), profiles, collaboration card
 StandardScout details  /projects/standardscout.html   Full project case study
+SolidKnowledge    /projects/solidknowledge.html Living design memory for a CAD archive (Dimensional Innovations internship prototype, demo video)
 HAD               /projects/had.html            Human–AI Design (HAD): designing in conversation with an AI that acts through deterministic tools (2D/3D/WebXR)
 ARTH (VR)         /projects/project-1.html    Adaptive Reuse Thinking VR learning environment
 GaoDe             /projects/project-2.html    Multimodal serious game (Leap Motion + vision + voice)
@@ -123,6 +124,22 @@ HAD — Human–AI Design (working name in the prototype: HAT)   /projects/had.h
    claude-haiku-4-5 for relational moves, Cloudflare Workers, Supabase with RLS,
    Vitest (600+ tests). Sole designer and developer. No public repository or demo
    link on the page; a demo video is planned.
+
+SOLIDKNOWLEDGE — Living design memory for a CAD archive   /projects/solidknowledge.html
+   Internship prototype (2026) in the Innovation Lab at Dimensional Innovations, where
+   twenty years of SolidWorks projects sat on a network drive. It turns the archive into
+   traceable engineering knowledge: unstructured files become evidence cards, which are
+   cross-verified into an engineering graph and enriched into knowledge cards with five
+   searchable perspectives. Designers ask in everyday language and get ranked past
+   designs with an explanation of each match and a one-click reveal of the source file.
+   Extraction runs in Python on a Windows workstation through the SolidWorks Document
+   Manager API and SolidWorks (geometry, rendered views, cross-verified references) plus
+   OCR for drawings and PDFs; batched LLM agents (Claude and Gemini) write structured,
+   evidence-cited descriptions; hybrid keyword, semantic, geometry and structure search
+   runs on Google BigQuery with Gemini embeddings, reranking and an abstention gate.
+   Night Worker, Enrich Worker and Supervisor Agent lanes keep the memory current, with
+   human approval on every re-enrichment. Role: design, development and deployment of
+   the prototype. A demo video of the working prototype is on the case-study page.
 
 STANDARDSCOUT — RAG-Based Building Code Assistant     /projects/standardscout.html
    LLM-powered building-code copilot. Local RAG over ADA, ABA, and GSA P-100, plus
