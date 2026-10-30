@@ -63,6 +63,11 @@
     .frame > .chapter .glyph { font-size: 22px; }
     .frame > .chapter + section.section { margin-top: 0; }
     .frame > .chapter + section.section > h2::before { display:none; }
+    .sk-search-preview { margin: 28px 0 0; }
+    .sk-search-preview .video-frame { margin: 0; }
+    .sk-search-preview figcaption a { display:inline; position:static; overflow:visible; border:0; border-radius:0; background:none; box-shadow:none; transform:none; color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+    .sk-search-preview figcaption a::after { content:none; display:none; }
+    #using-the-memory, #video { scroll-margin-top: 100px; }
   </style>
 
   <div class="frame">
@@ -163,7 +168,7 @@
     <div class="callout">
       <p class="kicker">Summary</p>
       <p><strong>SolidKnowledge</strong> turns a CAD archive from files we store into engineering knowledge we can actually use. I developed the prototype during my internship in the Innovation Lab at Dimensional Innovations, where twenty years of SolidWorks projects sat on a network drive with no memory of what they contained.</p>
-      <p>This page follows how we made previous engineering discoverable through evidence, search, and continuing care. A recording of the prototype closes the piece.</p>
+      <p>This page follows how we made previous engineering discoverable through evidence, search, and continuing care. A short clip of the search opens it, and a full recording of the prototype closes it.</p>
       <p>
         <span class="badge">CAD knowledge graph</span>
         <span class="badge">Evidence-first ingestion</span>
@@ -172,6 +177,17 @@
         <span class="badge">Human-in-the-loop</span>
       </p>
     </div>
+
+    <figure class="figure sk-search-preview" id="search-preview">
+      <div class="video-frame">
+        <iframe
+          src="https://drive.google.com/file/d/1q7xibm812k-PUHAwlT2nFY10V0rLnjAu/preview"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          title="SolidKnowledge end-user search experience"></iframe>
+      </div>
+      <figcaption>The end-user search experience in the working prototype. <a href="#using-the-memory">Chapter 04</a> explains what happens behind it, and the <a href="#video">full recording</a> closes the page.</figcaption>
+    </figure>
 
     <div class="chapter"><span>01 — The question</span><span class="glyph">✦</span></div>
 
@@ -825,7 +841,7 @@
 
     <div class="chapter"><span>04 — Using the memory</span><span class="glyph">✦</span></div>
 
-    <section class="section">
+    <section class="section" id="using-the-memory">
       <h2>Search what it is, not what it was named</h2>
       <p>Consider a designer looking for a curved fascia, a facing panel hung on a concealed cleat, who remembers the arrangement but none of the project details. They type “curved fabricated assembly with concealed support” into search. The sentence enters the same semantic space as the archive’s descriptions, letting its meaning connect with previous work regardless of how the files were named.</p>
       <p>In this example, the answer is yes: a fascia from a 2016 stadium job appears with its knowledge card, including AL 5052 aluminum and powder coat. The match explanation helps the designer judge its relevance before one click reveals the source file. That makes earlier work available for examination, but its usefulness depends on the card still describing the source accurately.</p>
